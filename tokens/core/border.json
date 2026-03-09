@@ -1,0 +1,58 @@
+{
+  "core": {
+    "border": {
+      "radius": {
+        "xsmall": {
+          "$type": "borderRadius",
+          "$value": "2"
+        },
+        "small": {
+          "$type": "borderRadius",
+          "$value": "4"
+        },
+        "medium": {
+          "$type": "borderRadius",
+          "$value": "6"
+        },
+        "large": {
+          "$type": "borderRadius",
+          "$value": "8"
+        },
+        "xlarge": {
+          "$type": "borderRadius",
+          "$value": "12"
+        },
+        "xxlarge": {
+          "$type": "borderRadius",
+          "$value": "20"
+        },
+        "full": {
+          "$type": "borderRadius",
+          "$value": "999"
+        }
+      },
+      "width": {
+        "xsmall": {
+          "$type": "borderWidth",
+          "$value": "1"
+        },
+        "small": {
+          "$type": "borderWidth",
+          "$value": "2"
+        },
+        "medium": {
+          "$type": "borderWidth",
+          "$value": "3"
+        },
+        "large": {
+          "$type": "borderWidth",
+          "$value": "4"
+        },
+        "xlarge": {
+          "$type": "borderWidth",
+          "$value": "8"
+        }
+      }
+    }
+  }
+}

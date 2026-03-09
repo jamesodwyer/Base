@@ -1,0 +1,76 @@
+{
+  "border-radius": {
+    "interactive": {
+      "small": {
+        "$type": "borderRadius",
+        "$value": "{core.border.radius.xsmall}"
+      },
+      "medium": {
+        "$type": "borderRadius",
+        "$value": "{core.border.radius.small}"
+      },
+      "large": {
+        "$type": "borderRadius",
+        "$value": "{core.border.radius.large}"
+      },
+      "full": {
+        "$type": "borderRadius",
+        "$value": "{core.border.radius.full}"
+      }
+    },
+    "input": {
+      "small": {
+        "$type": "borderRadius",
+        "$value": "{core.border.radius.xsmall}"
+      },
+      "medium": {
+        "$type": "borderRadius",
+        "$value": "{core.border.radius.small}"
+      },
+      "large": {
+        "$type": "borderRadius",
+        "$value": "{core.border.radius.medium}"
+      },
+      "full": {
+        "$type": "borderRadius",
+        "$value": "{core.border.radius.full}"
+      }
+    },
+    "container": {
+      "none": {
+        "$type": "borderRadius",
+        "$value": "{core.dimension.zero}"
+      },
+      "small": {
+        "$type": "borderRadius",
+        "$value": "{core.dimension.50}"
+      },
+      "medium": {
+        "$type": "borderRadius",
+        "$value": "{core.dimension.100}"
+      },
+      "large": {
+        "$type": "borderRadius",
+        "$value": "{core.dimension.200}"
+      }
+    },
+    "popover": {
+      "none": {
+        "$type": "borderRadius",
+        "$value": "{core.dimension.zero}"
+      },
+      "small": {
+        "$type": "borderRadius",
+        "$value": "{core.dimension.50}"
+      },
+      "medium": {
+        "$type": "borderRadius",
+        "$value": "{core.dimension.100}"
+      },
+      "large": {
+        "$type": "borderRadius",
+        "$value": "{core.dimension.200}"
+      }
+    }
+  }
+}

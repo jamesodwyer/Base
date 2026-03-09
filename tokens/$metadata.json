@@ -1,0 +1,15 @@
+{
+  "tokenSetOrder": [
+    "core/dimension",
+    "core/typography",
+    "core/modify",
+    "core/border",
+    "brand/color",
+    "semantic/color-light",
+    "semantic/typography",
+    "semantic/border-radius",
+    "semantic/border",
+    "component/spacing/desktop",
+    "component/spacing/mobile"
+  ]
+}

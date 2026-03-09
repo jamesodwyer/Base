@@ -1,0 +1,80 @@
+{
+  "color": {
+    "brand": {
+      "01": {
+        "$type": "color",
+        "$value": "#024ddf"
+      },
+      "02": {
+        "$type": "color",
+        "$value": "#121212"
+      }
+    },
+    "accent": {
+      "green": {
+        "$type": "color",
+        "$value": "#048851"
+      },
+      "red": {
+        "$type": "color",
+        "$value": "#EB0000"
+      },
+      "purple": {
+        "$type": "color",
+        "$value": "#A733FF"
+      },
+      "orange": {
+        "$type": "color",
+        "$value": "#FFB932"
+      },
+      "turquoise": {
+        "$type": "color",
+        "$value": "#21FFF2"
+      },
+      "yellow": {
+        "$type": "color",
+        "$value": "#FBFF2C"
+      },
+      "blue": {
+        "$type": "color",
+        "$value": "#207de5"
+      },
+      "magenta": {
+        "$type": "color",
+        "$value": "#D0006F"
+      }
+    },
+    "neutrals": {
+      "gray-8": {
+        "$type": "color",
+        "$value": "#999999"
+      },
+      "gray-7": {
+        "$type": "color",
+        "$value": "#BFBFBF"
+      },
+      "gray-6": {
+        "$type": "color",
+        "$value": "#D6D6D6"
+      },
+      "gray-5": {
+        "$type": "color",
+        "$value": "#EBEBEB"
+      },
+      "gray-4": {
+        "$type": "color",
+        "$value": "#F6F6F6"
+      }
+    },
+    "common": {
+      "white": {
+        "$type": "color",
+        "$value": "#ffffff"
+      },
+      "black": {
+        "$type": "color",
+        "$value": "#000000"
+      }
+    }
+  }
+}

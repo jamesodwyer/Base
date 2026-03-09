@@ -1,0 +1,18 @@
+{
+  "name": "design-tokens",
+  "version": "0.1.0",
+  "description": "Design token management, transformation, and migration pipeline using Token Studio and Style Dictionary",
+  "private": true,
+  "scripts": {
+    "build": "style-dictionary build --config style-dictionary.config.json",
+    "build:css": "style-dictionary build --config style-dictionary.config.json --platform css",
+    "build:scss": "style-dictionary build --config style-dictionary.config.json --platform scss",
+    "build:js": "style-dictionary build --config style-dictionary.config.json --platform js",
+    "clean": "rm -rf build/*"
+  },
+  "dependencies": {
+    "style-dictionary": "^4.3.0",
+    "@tokens-studio/sd-transforms": "^1.2.0"
+  },
+  "devDependencies": {}
+}

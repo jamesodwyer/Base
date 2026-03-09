@@ -1,0 +1,92 @@
+{
+  "core": {
+    "color": {
+      "modify": {
+        "50": {
+          "$type": "other",
+          "$value": "{core.color.modify.100}/2"
+        },
+        "100": {
+          "$type": "other",
+          "$value": "0.1"
+        },
+        "150": {
+          "$type": "other",
+          "$value": "{core.color.modify.100}*1.5"
+        },
+        "200": {
+          "$type": "other",
+          "$value": "{core.color.modify.100}*2"
+        },
+        "250": {
+          "$type": "other",
+          "$value": "{core.color.modify.100}*2.5"
+        },
+        "300": {
+          "$type": "other",
+          "$value": "{core.color.modify.100}*3"
+        },
+        "350": {
+          "$type": "other",
+          "$value": "{core.color.modify.100}*3.5"
+        },
+        "400": {
+          "$type": "other",
+          "$value": "{core.color.modify.100}*4"
+        },
+        "450": {
+          "$type": "other",
+          "$value": "{core.color.modify.100}*4.5"
+        },
+        "500": {
+          "$type": "other",
+          "$value": "{core.color.modify.100}*5"
+        },
+        "550": {
+          "$type": "other",
+          "$value": "{core.color.modify.100}*5.5"
+        },
+        "600": {
+          "$type": "other",
+          "$value": "{core.color.modify.100}*6"
+        },
+        "650": {
+          "$type": "other",
+          "$value": "{core.color.modify.100}*6.5"
+        },
+        "700": {
+          "$type": "other",
+          "$value": "{core.color.modify.100}*7"
+        },
+        "750": {
+          "$type": "other",
+          "$value": "{core.color.modify.100}*7.5"
+        },
+        "800": {
+          "$type": "other",
+          "$value": "{core.color.modify.100}*8"
+        },
+        "850": {
+          "$type": "other",
+          "$value": "{core.color.modify.100}*8.5"
+        },
+        "900": {
+          "$type": "other",
+          "$value": "{core.color.modify.100}*9"
+        },
+        "950": {
+          "$type": "other",
+          "$value": "{core.color.modify.100}*9.5"
+        },
+        "1000": {
+          "$type": "other",
+          "$value": "{core.color.modify.100}*10"
+        },
+        "zero": {
+          "$type": "other",
+          "$value": "0"
+        }
+      }
+    }
+  }
+}
