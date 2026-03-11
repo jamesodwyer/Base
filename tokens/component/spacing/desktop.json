@@ -1,22 +1,10 @@
 {
   "icon": {
     "size": {
-      "small": {
-        "$type": "dimension",
-        "$value": "{core.dimension.300}"
-      },
-      "medium": {
-        "$type": "dimension",
-        "$value": "{core.dimension.400}"
-      },
-      "large": {
-        "$type": "dimension",
-        "$value": "{core.dimension.600}"
-      },
-      "xlarge": {
-        "$type": "dimension",
-        "$value": "{core.dimension.800}"
-      }
+      "small": { "$type": "dimension", "$value": "{core.dimension.300}" },
+      "medium": { "$type": "dimension", "$value": "{core.dimension.400}" },
+      "large": { "$type": "dimension", "$value": "{core.dimension.600}" },
+      "xLarge": { "$type": "dimension", "$value": "{core.dimension.800}" }
     }
   },
   "layout": {
@@ -24,56 +12,41 @@
       "inBetweenCards": {
         "$type": "dimension",
         "$value": "{core.dimension.600}",
-        "$description": "This is the spacing between card elements i.e. carousels, event cards"
+        "$description": "Spacing between card elements i.e. carousels, event cards"
       },
       "inBetweenInteractive": {
         "$type": "dimension",
         "$value": "{core.dimension.400}",
-        "$description": "This is the spacing between 2 or more interactive elements i.e. button, chips"
+        "$description": "Spacing between 2 or more interactive elements i.e. button, chips"
       },
       "contentToButton": {
         "$type": "dimension",
         "$value": "{core.dimension.600}",
-        "$description": "This is the spacing from the bottom of any content to a main CTA i.e. primary or secondary button"
+        "$description": "Spacing from the bottom of any content to a main CTA"
       },
       "formGap": {
         "$type": "dimension",
         "$value": "{core.dimension.600}",
-        "$description": "This is the spacing between form elements i.e. input fields and check box groups"
+        "$description": "Spacing between form elements i.e. input fields and check box groups"
       }
     }
   },
   "button": {
     "spacing": {
       "large": {
-        "verticalPadding": {
-          "$type": "spacing",
-          "$value": "{core.dimension.300}"
-        },
-        "horizontalPadding": {
-          "$type": "spacing",
-          "$value": "{core.dimension.400}"
-        }
+        "blockPadding": { "$type": "spacing", "$value": "{core.dimension.300}" },
+        "inlinePadding": { "$type": "spacing", "$value": "{core.dimension.400}" },
+        "gap": { "$type": "spacing", "$value": "{core.dimension.200}", "$description": "Gap between icon and label" }
       },
       "medium": {
-        "verticalPadding": {
-          "$type": "spacing",
-          "$value": "{core.dimension.200}"
-        },
-        "horizontalPadding": {
-          "$type": "spacing",
-          "$value": "{core.dimension.400}"
-        }
+        "blockPadding": { "$type": "spacing", "$value": "{core.dimension.200}" },
+        "inlinePadding": { "$type": "spacing", "$value": "{core.dimension.400}" },
+        "gap": { "$type": "spacing", "$value": "{core.dimension.200}", "$description": "Gap between icon and label" }
       },
       "small": {
-        "verticalPadding": {
-          "$type": "spacing",
-          "$value": "{core.dimension.200}"
-        },
-        "horizontalPadding": {
-          "$type": "spacing",
-          "$value": "{core.dimension.400}"
-        }
+        "blockPadding": { "$type": "spacing", "$value": "{core.dimension.200}" },
+        "inlinePadding": { "$type": "spacing", "$value": "{core.dimension.400}" },
+        "gap": { "$type": "spacing", "$value": "{core.dimension.200}", "$description": "Gap between icon and label" }
       }
     }
   }

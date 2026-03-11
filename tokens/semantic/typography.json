@@ -4,31 +4,31 @@
       "large": {
         "$type": "typography",
         "$value": {
-          "fontFamily": "{core.typography.font-family.01}",
-          "fontWeight": "{core.typography.font-weight.black}",
-          "fontSize": "{core.typography.font-size.900}",
-          "lineHeight": "{core.typography.line-height.full}",
-          "letterSpacing": "{core.typography.letter-spacing.neg-300}"
+          "fontFamily": "{core.typography.fontFamily.01}",
+          "fontWeight": "{core.typography.fontWeight.black}",
+          "fontSize": "{core.typography.fontSize.900}",
+          "lineHeight": "{core.typography.lineHeight.full}",
+          "letterSpacing": "{core.typography.letterSpacing.neg300}"
         }
       },
       "medium": {
         "$type": "typography",
         "$value": {
-          "fontFamily": "{core.typography.font-family.01}",
-          "fontWeight": "{core.typography.font-weight.black}",
+          "fontFamily": "{core.typography.fontFamily.01}",
+          "fontWeight": "{core.typography.fontWeight.black}",
           "fontSize": "{core.dimension.1400}",
-          "lineHeight": "{core.typography.line-height.full}",
-          "letterSpacing": "{core.typography.letter-spacing.neg-300}"
+          "lineHeight": "{core.typography.lineHeight.full}",
+          "letterSpacing": "{core.typography.letterSpacing.neg300}"
         }
       },
       "small": {
         "$type": "typography",
         "$value": {
-          "fontFamily": "{core.typography.font-family.01}",
-          "fontWeight": "{core.typography.font-weight.black}",
+          "fontFamily": "{core.typography.fontFamily.01}",
+          "fontWeight": "{core.typography.fontWeight.black}",
           "fontSize": "{core.dimension.1000}",
-          "lineHeight": "{core.typography.line-height.full}",
-          "letterSpacing": "{core.typography.letter-spacing.neg-300}"
+          "lineHeight": "{core.typography.lineHeight.full}",
+          "letterSpacing": "{core.typography.letterSpacing.neg300}"
         }
       }
     },
@@ -36,34 +36,34 @@
       "large": {
         "$type": "typography",
         "$value": {
-          "fontFamily": "{core.typography.font-family.01}",
-          "fontWeight": "{core.typography.font-weight.black}",
-          "fontSize": "{core.typography.font-size.600}",
-          "lineHeight": "{core.typography.line-height.full}",
+          "fontFamily": "{core.typography.fontFamily.01}",
+          "fontWeight": "{core.typography.fontWeight.black}",
+          "fontSize": "{core.typography.fontSize.600}",
+          "lineHeight": "{core.typography.lineHeight.full}",
           "textCase": "uppercase",
-          "letterSpacing": "{core.typography.letter-spacing.neg-200}"
+          "letterSpacing": "{core.typography.letterSpacing.neg200}"
         }
       },
       "medium": {
         "$type": "typography",
         "$value": {
-          "fontFamily": "{core.typography.font-family.01}",
-          "fontWeight": "{core.typography.font-weight.black}",
-          "fontSize": "{core.typography.font-size.500}",
-          "lineHeight": "{core.typography.line-height.full}",
+          "fontFamily": "{core.typography.fontFamily.01}",
+          "fontWeight": "{core.typography.fontWeight.black}",
+          "fontSize": "{core.typography.fontSize.500}",
+          "lineHeight": "{core.typography.lineHeight.full}",
           "textCase": "uppercase",
-          "letterSpacing": "{core.typography.letter-spacing.neg-200}"
+          "letterSpacing": "{core.typography.letterSpacing.neg200}"
         }
       },
       "small": {
         "$type": "typography",
         "$value": {
-          "fontFamily": "{core.typography.font-family.01}",
-          "fontWeight": "{core.typography.font-weight.black}",
-          "fontSize": "{core.typography.font-size.400}",
-          "lineHeight": "{core.typography.line-height.full}",
+          "fontFamily": "{core.typography.fontFamily.01}",
+          "fontWeight": "{core.typography.fontWeight.black}",
+          "fontSize": "{core.typography.fontSize.400}",
+          "lineHeight": "{core.typography.lineHeight.full}",
           "textCase": "uppercase",
-          "letterSpacing": "{core.typography.letter-spacing.neg-200}"
+          "letterSpacing": "{core.typography.letterSpacing.neg200}"
         }
       }
     },
@@ -71,34 +71,34 @@
       "large": {
         "$type": "typography",
         "$value": {
-          "fontFamily": "{core.typography.font-family.01}",
-          "fontWeight": "{core.typography.font-weight.black}",
-          "fontSize": "{core.typography.font-size.300}",
-          "lineHeight": "{core.typography.line-height.full}",
+          "fontFamily": "{core.typography.fontFamily.01}",
+          "fontWeight": "{core.typography.fontWeight.black}",
+          "fontSize": "{core.typography.fontSize.300}",
+          "lineHeight": "{core.typography.lineHeight.full}",
           "textCase": "uppercase",
-          "letterSpacing": "{core.typography.letter-spacing.neg-200}"
+          "letterSpacing": "{core.typography.letterSpacing.neg200}"
         }
       },
       "medium": {
         "$type": "typography",
         "$value": {
-          "fontFamily": "{core.typography.font-family.01}",
-          "fontWeight": "{core.typography.font-weight.black}",
-          "fontSize": "{core.typography.font-size.250}",
-          "lineHeight": "{core.typography.line-height.full}",
+          "fontFamily": "{core.typography.fontFamily.01}",
+          "fontWeight": "{core.typography.fontWeight.black}",
+          "fontSize": "{core.typography.fontSize.250}",
+          "lineHeight": "{core.typography.lineHeight.full}",
           "textCase": "uppercase",
-          "letterSpacing": "{core.typography.letter-spacing.neg-200}"
+          "letterSpacing": "{core.typography.letterSpacing.neg200}"
         }
       },
       "small": {
         "$type": "typography",
         "$value": {
-          "fontFamily": "{core.typography.font-family.01}",
-          "fontWeight": "{core.typography.font-weight.black}",
-          "fontSize": "{core.typography.font-size.200}",
-          "lineHeight": "{core.typography.line-height.full}",
+          "fontFamily": "{core.typography.fontFamily.01}",
+          "fontWeight": "{core.typography.fontWeight.black}",
+          "fontSize": "{core.typography.fontSize.200}",
+          "lineHeight": "{core.typography.lineHeight.full}",
           "textCase": "uppercase",
-          "letterSpacing": "{core.typography.letter-spacing.neg-200}"
+          "letterSpacing": "{core.typography.letterSpacing.neg200}"
         }
       }
     },
@@ -106,28 +106,28 @@
       "large": {
         "$type": "typography",
         "$value": {
-          "fontFamily": "{core.typography.font-family.01}",
-          "fontWeight": "{core.typography.font-weight.semibold}",
-          "fontSize": "{core.typography.font-size.150}",
-          "lineHeight": "{core.typography.line-height.250}"
+          "fontFamily": "{core.typography.fontFamily.01}",
+          "fontWeight": "{core.typography.fontWeight.semibold}",
+          "fontSize": "{core.typography.fontSize.150}",
+          "lineHeight": "{core.typography.lineHeight.250}"
         }
       },
       "medium": {
         "$type": "typography",
         "$value": {
-          "fontFamily": "{core.typography.font-family.01}",
-          "fontWeight": "{core.typography.font-weight.semibold}",
-          "fontSize": "{core.typography.font-size.100}",
-          "lineHeight": "{core.typography.line-height.200}"
+          "fontFamily": "{core.typography.fontFamily.01}",
+          "fontWeight": "{core.typography.fontWeight.semibold}",
+          "fontSize": "{core.typography.fontSize.100}",
+          "lineHeight": "{core.typography.lineHeight.200}"
         }
       },
       "small": {
         "$type": "typography",
         "$value": {
-          "fontFamily": "{core.typography.font-family.01}",
-          "fontWeight": "{core.typography.font-weight.semibold}",
-          "fontSize": "{core.typography.font-size.75}",
-          "lineHeight": "{core.typography.line-height.150}"
+          "fontFamily": "{core.typography.fontFamily.01}",
+          "fontWeight": "{core.typography.fontWeight.semibold}",
+          "fontSize": "{core.typography.fontSize.75}",
+          "lineHeight": "{core.typography.lineHeight.150}"
         }
       }
     },
@@ -136,28 +136,28 @@
         "large": {
           "$type": "typography",
           "$value": {
-            "fontFamily": "{core.typography.font-family.01}",
-            "fontWeight": "{core.typography.font-weight.regular}",
-            "fontSize": "{core.typography.font-size.150}",
-            "lineHeight": "{core.typography.line-height.200}"
+            "fontFamily": "{core.typography.fontFamily.01}",
+            "fontWeight": "{core.typography.fontWeight.regular}",
+            "fontSize": "{core.typography.fontSize.150}",
+            "lineHeight": "{core.typography.lineHeight.200}"
           }
         },
         "medium": {
           "$type": "typography",
           "$value": {
-            "fontFamily": "{core.typography.font-family.01}",
-            "fontWeight": "{core.typography.font-weight.regular}",
-            "fontSize": "{core.typography.font-size.100}",
-            "lineHeight": "{core.typography.line-height.200}"
+            "fontFamily": "{core.typography.fontFamily.01}",
+            "fontWeight": "{core.typography.fontWeight.regular}",
+            "fontSize": "{core.typography.fontSize.100}",
+            "lineHeight": "{core.typography.lineHeight.200}"
           }
         },
         "small": {
           "$type": "typography",
           "$value": {
-            "fontFamily": "{core.typography.font-family.01}",
-            "fontWeight": "{core.typography.font-weight.regular}",
-            "fontSize": "{core.typography.font-size.75}",
-            "lineHeight": "{core.typography.line-height.200}"
+            "fontFamily": "{core.typography.fontFamily.01}",
+            "fontWeight": "{core.typography.fontWeight.regular}",
+            "fontSize": "{core.typography.fontSize.75}",
+            "lineHeight": "{core.typography.lineHeight.200}"
           }
         }
       },
@@ -165,28 +165,28 @@
         "large": {
           "$type": "typography",
           "$value": {
-            "fontFamily": "{core.typography.font-family.01}",
-            "fontWeight": "{core.typography.font-weight.bold}",
-            "fontSize": "{core.typography.font-size.150}",
-            "lineHeight": "{core.typography.line-height.200}"
+            "fontFamily": "{core.typography.fontFamily.01}",
+            "fontWeight": "{core.typography.fontWeight.bold}",
+            "fontSize": "{core.typography.fontSize.150}",
+            "lineHeight": "{core.typography.lineHeight.200}"
           }
         },
         "medium": {
           "$type": "typography",
           "$value": {
-            "fontFamily": "{core.typography.font-family.01}",
-            "fontWeight": "{core.typography.font-weight.bold}",
-            "fontSize": "{core.typography.font-size.100}",
-            "lineHeight": "{core.typography.line-height.200}"
+            "fontFamily": "{core.typography.fontFamily.01}",
+            "fontWeight": "{core.typography.fontWeight.bold}",
+            "fontSize": "{core.typography.fontSize.100}",
+            "lineHeight": "{core.typography.lineHeight.200}"
           }
         },
         "small": {
           "$type": "typography",
           "$value": {
-            "fontFamily": "{core.typography.font-family.01}",
-            "fontWeight": "{core.typography.font-weight.bold}",
-            "fontSize": "{core.typography.font-size.75}",
-            "lineHeight": "{core.typography.line-height.200}"
+            "fontFamily": "{core.typography.fontFamily.01}",
+            "fontWeight": "{core.typography.fontWeight.bold}",
+            "fontSize": "{core.typography.fontSize.75}",
+            "lineHeight": "{core.typography.lineHeight.200}"
           }
         }
       }
@@ -194,10 +194,10 @@
     "caption": {
       "$type": "typography",
       "$value": {
-        "fontFamily": "{core.typography.font-family.01}",
-        "fontWeight": "{core.typography.font-weight.regular}",
-        "fontSize": "{core.typography.font-size.50}",
-        "lineHeight": "{core.typography.line-height.150}",
+        "fontFamily": "{core.typography.fontFamily.01}",
+        "fontWeight": "{core.typography.fontWeight.regular}",
+        "fontSize": "{core.typography.fontSize.50}",
+        "lineHeight": "{core.typography.lineHeight.150}",
         "textCase": "uppercase"
       }
     }

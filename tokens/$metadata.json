@@ -5,9 +5,9 @@
     "core/modify",
     "core/border",
     "brand/color",
-    "semantic/color-light",
+    "semantic/colorLight",
     "semantic/typography",
-    "semantic/border-radius",
+    "semantic/borderRadius",
     "semantic/border",
     "component/spacing/desktop",
     "component/spacing/mobile"

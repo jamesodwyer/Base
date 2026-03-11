@@ -1,79 +1,110 @@
 {
   "color": {
     "brand": {
-      "01": {
-        "$type": "color",
-        "$value": "#024ddf"
-      },
-      "02": {
-        "$type": "color",
-        "$value": "#121212"
-      }
+      "01": { "$type": "color", "$value": "#024dff" },
+      "02": { "$type": "color", "$value": "#050505" },
+      "03": { "$type": "color", "$value": "#FFFFFF" }
     },
     "accent": {
-      "green": {
-        "$type": "color",
-        "$value": "#048851"
-      },
-      "red": {
-        "$type": "color",
-        "$value": "#EB0000"
-      },
-      "purple": {
-        "$type": "color",
-        "$value": "#A733FF"
-      },
-      "orange": {
-        "$type": "color",
-        "$value": "#FFB932"
-      },
-      "turquoise": {
-        "$type": "color",
-        "$value": "#21FFF2"
-      },
-      "yellow": {
-        "$type": "color",
-        "$value": "#FBFF2C"
-      },
-      "blue": {
-        "$type": "color",
-        "$value": "#207de5"
-      },
-      "magenta": {
-        "$type": "color",
-        "$value": "#D0006F"
-      }
+      "green": { "$type": "color", "$value": "#048851" },
+      "red": { "$type": "color", "$value": "#EB0000" },
+      "purple": { "$type": "color", "$value": "#A733FF" },
+      "orange": { "$type": "color", "$value": "#FFB932" },
+      "turquoise": { "$type": "color", "$value": "#21FFF2" },
+      "yellow": { "$type": "color", "$value": "#FBFF2C" },
+      "blue": { "$type": "color", "$value": "#207de5" },
+      "magenta": { "$type": "color", "$value": "#D0006F" }
     },
     "neutrals": {
-      "gray-8": {
-        "$type": "color",
-        "$value": "#999999"
-      },
-      "gray-7": {
-        "$type": "color",
-        "$value": "#BFBFBF"
-      },
-      "gray-6": {
-        "$type": "color",
-        "$value": "#D6D6D6"
-      },
-      "gray-5": {
-        "$type": "color",
-        "$value": "#EBEBEB"
-      },
-      "gray-4": {
-        "$type": "color",
-        "$value": "#F6F6F6"
+      "grey": {
+        "100": { "$type": "color", "$value": "#F6F6F6" },
+        "200": { "$type": "color", "$value": "#EBEBEB" },
+        "300": { "$type": "color", "$value": "#D6D6D6" },
+        "400": { "$type": "color", "$value": "#BFBFBF" },
+        "500": { "$type": "color", "$value": "#999999" }
       }
     },
     "common": {
-      "white": {
-        "$type": "color",
-        "$value": "#ffffff"
+      "white": { "$type": "color", "$value": "#ffffff" },
+      "black": { "$type": "color", "$value": "#000000" }
+    }
+  },
+  "brand": {
+    "shadow": {
+      "shadow": {
+        "zero": {
+          "$type": "boxShadow",
+          "$value": [
+            {
+              "x": "0",
+              "y": "0",
+              "blur": "0",
+              "spread": "0",
+              "color": "rgba(0,0,0,0)",
+              "type": "dropShadow"
+            }
+          ]
+        },
+        "100": {
+          "$type": "boxShadow",
+          "$value": [
+            {
+              "x": "0",
+              "y": "1",
+              "blur": "4",
+              "spread": "0",
+              "color": "rgba(18,18,18,0.15)",
+              "type": "dropShadow"
+            }
+          ]
+        },
+        "200": {
+          "$type": "boxShadow",
+          "$value": [
+            {
+              "x": "0",
+              "y": "2",
+              "blur": "8",
+              "spread": "0",
+              "color": "rgba(18,18,18,0.15)",
+              "type": "dropShadow"
+            }
+          ]
+        },
+        "300": {
+          "$type": "boxShadow",
+          "$value": [
+            {
+              "x": "0",
+              "y": "3",
+              "blur": "12",
+              "spread": "0",
+              "color": "rgba(18,18,18,0.18)",
+              "type": "dropShadow"
+            }
+          ]
+        },
+        "400": {
+          "$type": "boxShadow",
+          "$value": [
+            {
+              "x": "0",
+              "y": "8",
+              "blur": "20",
+              "spread": "0",
+              "color": "rgba(0,0,0,0.35)",
+              "type": "dropShadow"
+            }
+          ]
+        }
+      }
+    },
+    "typography": {
+      "fontVariant": {
+        "numeric": { "$type": "other", "$value": "tabular-nums" }
       },
-      "black": {
-        "$type": "color",
-        "$value": "#000000"
+      "textDecoration": {
+        "underline": { "$type": "other", "$value": "underline" }
       }
     }
   }

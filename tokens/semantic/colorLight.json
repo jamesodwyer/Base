@@ -547,6 +547,65 @@
           }
         }
       },
+      "inverse": {
+        "fill": {
+          "default": {
+            "$extensions": {
+              "studio.tokens": {
+                "modify": {
+                  "type": "alpha",
+                  "value": "{core.color.modify.zero}",
+                  "space": "hsl"
+                }
+              }
+            },
+            "$type": "color",
+            "$value": "{color.common.white}"
+          },
+          "hover": {
+            "$type": "color",
+            "$value": "{color.common.white}"
+          },
+          "pressed": {
+            "$type": "color",
+            "$value": "{color.brand.01}"
+          }
+        },
+        "text": {
+          "default": {
+            "$type": "color",
+            "$value": "{color.common.white}"
+          },
+          "hover": {
+            "$type": "color",
+            "$value": "{color.brand.02}"
+          },
+          "pressed": {
+            "$type": "color",
+            "$value": "{color.common.white}"
+          }
+        },
+        "icon": {
+          "default": {
+            "$type": "color",
+            "$value": "{color.common.white}"
+          },
+          "hover": {
+            "$type": "color",
+            "$value": "{color.brand.02}"
+          },
+          "pressed": {
+            "$type": "color",
+            "$value": "{color.common.white}"
+          }
+        },
+        "border": {
+          "default": {
+            "$type": "color",
+            "$value": "{color.common.white}"
+          }
+        }
+      },
       "transaction": {
         "fill": {
           "default": {
@@ -728,7 +787,7 @@
         "$type": "color",
         "$value": "{color.common.white}"
       },
-      "on-accent": {
+      "onAccent": {
         "$type": "color",
         "$value": "{color.common.white}"
       }
@@ -796,7 +855,7 @@
         "$type": "color",
         "$value": "{color.brand.02}"
       },
-      "on-accent": {
+      "onAccent": {
         "$type": "color",
         "$value": "{color.brand.02}"
       }
@@ -835,7 +894,7 @@
             "studio.tokens": {
               "modify": {
                 "type": "darken",
-                "value": "{core.color.modify.350} ",
+                "value": "{core.color.modify.350}",
                 "space": "hsl"
               }
             }
@@ -1137,7 +1196,7 @@
         "$type": "color",
         "$value": "{color.elevation.base}"
       },
-      "relative-1": {
+      "relative1": {
         "$extensions": {
           "studio.tokens": {
             "modify": {
@@ -1150,23 +1209,23 @@
         "$type": "color",
         "$value": "{color.elevation.base}"
       },
-      "level-1": {
+      "level1": {
         "$type": "color",
         "$value": "{color.elevation.base}"
       },
-      "level-2": {
+      "level2": {
         "$type": "color",
         "$value": "{color.elevation.base}"
       },
-      "level-3": {
+      "level3": {
         "$type": "color",
         "$value": "{color.elevation.base}"
       },
-      "level-4": {
+      "level4": {
         "$type": "color",
         "$value": "{color.elevation.base}"
       },
-      "level-5": {
+      "level5": {
         "$type": "color",
         "$value": "{color.elevation.base}"
       },
@@ -1187,7 +1246,7 @@
         "$type": "color",
         "$value": "{color.brand.02}"
       },
-      "accent-a": {
+      "accentA": {
         "$extensions": {
           "studio.tokens": {
             "modify": {
@@ -1201,7 +1260,7 @@
         "$type": "color",
         "$value": "{color.brand.02}"
       },
-      "accent-b": {
+      "accentB": {
         "$type": "color",
         "$value": "{color.brand.02}"
       }
@@ -1263,7 +1322,7 @@
               "studio.tokens": {
                 "modify": {
                   "type": "darken",
-                  "value": "{core.color.modify.100} ",
+                  "value": "{core.color.modify.100}",
                   "space": "hsl"
                 }
               }
@@ -1275,14 +1334,14 @@
         "text": {
           "default": {
             "$type": "color",
-            "$value": "{color.text.on-accent}"
+            "$value": "{color.text.onAccent}"
           },
           "hover": {
             "$extensions": {
               "studio.tokens": {
                 "modify": {
                   "type": "darken",
-                  "value": "{core.color.modify.50} ",
+                  "value": "{core.color.modify.50}",
                   "space": "hsl"
                 }
               }
@@ -1338,7 +1397,7 @@
               "studio.tokens": {
                 "modify": {
                   "type": "alpha",
-                  "value": "{core.color.modify.200} ",
+                  "value": "{core.color.modify.200}",
                   "space": "hsl"
                 }
               }
@@ -1610,7 +1669,7 @@
         },
         "text": {
           "$type": "color",
-          "$value": "{color.text.on-accent}"
+          "$value": "{color.text.onAccent}"
         }
       },
       "general": {
@@ -1627,10 +1686,33 @@
           "$value": "{color.border.primary}"
         }
       }
+    },
+    "surface": {
+      "primary": {
+        "$type": "color",
+        "$value": "{color.brand.01}"
+      },
+      "neutral": {
+        "$extensions": {
+          "studio.tokens": {
+            "modify": {
+              "type": "lighten",
+              "value": "{core.color.modify.900}",
+              "space": "hsl"
+            }
+          }
+        },
+        "$type": "color",
+        "$value": "{color.brand.02}"
+      },
+      "inverse": {
+        "$type": "color",
+        "$value": "{color.brand.02}"
+      }
     }
   },
   "elevation": {
-    "elevation-level-1": {
+    "elevationLevel1": {
       "$type": "boxShadow",
       "$value": [
         {
@@ -1643,7 +1725,7 @@
         }
       ]
     },
-    "elevation-level-2": {
+    "elevationLevel2": {
       "$type": "boxShadow",
       "$value": [
         {
@@ -1656,7 +1738,7 @@
         }
       ]
     },
-    "elevation-level-3": {
+    "elevationLevel3": {
       "$type": "boxShadow",
       "$value": [
         {
@@ -1669,7 +1751,7 @@
         }
       ]
     },
-    "elevation-level-4": {
+    "elevationLevel4": {
       "$type": "boxShadow",
       "$value": [
         {

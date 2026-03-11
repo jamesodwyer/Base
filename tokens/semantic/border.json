@@ -1,14 +1,8 @@
 {
   "border": {
     "interactive": {
-      "xsmall": {
-        "$type": "borderWidth",
-        "$value": "{core.border.width.xsmall}"
-      },
-      "small": {
-        "$type": "borderWidth",
-        "$value": "{core.border.width.small}"
-      }
+      "xSmall": { "$type": "borderWidth", "$value": "{core.border.width.xSmall}" },
+      "small": { "$type": "borderWidth", "$value": "{core.border.width.small}" }
     }
   }
 }
