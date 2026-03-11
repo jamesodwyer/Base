@@ -21,7 +21,7 @@
         "200": { "$type": "color", "$value": "#EBEBEB" },
         "300": { "$type": "color", "$value": "#D6D6D6" },
         "400": { "$type": "color", "$value": "#BFBFBF" },
-        "500": { "$type": "color", "$value": "#999999" }
+        "500": { "$type": "color", "$value": "#949494" }
       }
     },
     "common": {
