@@ -1,10 +1,22 @@
 {
   "icon": {
     "size": {
-      "small": { "$type": "dimension", "$value": "{core.dimension.300}" },
-      "medium": { "$type": "dimension", "$value": "{core.dimension.400}" },
-      "large": { "$type": "dimension", "$value": "{core.dimension.600}" },
-      "xLarge": { "$type": "dimension", "$value": "{core.dimension.800}" }
+      "small": {
+        "$type": "dimension",
+        "$value": "{core.dimension.300}"
+      },
+      "medium": {
+        "$type": "dimension",
+        "$value": "{core.dimension.400}"
+      },
+      "large": {
+        "$type": "dimension",
+        "$value": "{core.dimension.600}"
+      },
+      "xLarge": {
+        "$type": "dimension",
+        "$value": "{core.dimension.800}"
+      }
     }
   },
   "layout": {
@@ -34,19 +46,49 @@
   "button": {
     "spacing": {
       "large": {
-        "blockPadding": { "$type": "spacing", "$value": "{core.dimension.300}" },
-        "inlinePadding": { "$type": "spacing", "$value": "{core.dimension.400}" },
-        "gap": { "$type": "spacing", "$value": "{core.dimension.200}", "$description": "Gap between icon and label" }
+        "blockPadding": {
+          "$type": "spacing",
+          "$value": "{core.dimension.300}"
+        },
+        "inlinePadding": {
+          "$type": "spacing",
+          "$value": "{core.dimension.400}"
+        },
+        "gap": {
+          "$type": "spacing",
+          "$value": "{core.dimension.200}",
+          "$description": "Gap between icon and label"
+        }
       },
       "medium": {
-        "blockPadding": { "$type": "spacing", "$value": "{core.dimension.200}" },
-        "inlinePadding": { "$type": "spacing", "$value": "{core.dimension.400}" },
-        "gap": { "$type": "spacing", "$value": "{core.dimension.200}", "$description": "Gap between icon and label" }
+        "blockPadding": {
+          "$type": "spacing",
+          "$value": "{core.dimension.200}"
+        },
+        "inlinePadding": {
+          "$type": "spacing",
+          "$value": "{core.dimension.400}"
+        },
+        "gap": {
+          "$type": "spacing",
+          "$value": "{core.dimension.200}",
+          "$description": "Gap between icon and label"
+        }
       },
       "small": {
-        "blockPadding": { "$type": "spacing", "$value": "{core.dimension.200}" },
-        "inlinePadding": { "$type": "spacing", "$value": "{core.dimension.400}" },
-        "gap": { "$type": "spacing", "$value": "{core.dimension.200}", "$description": "Gap between icon and label" }
+        "blockPadding": {
+          "$type": "spacing",
+          "$value": "{core.dimension.200}"
+        },
+        "inlinePadding": {
+          "$type": "spacing",
+          "$value": "{core.dimension.400}"
+        },
+        "gap": {
+          "$type": "spacing",
+          "$value": "{core.dimension.200}",
+          "$description": "Gap between icon and label"
+        }
       }
     }
   }

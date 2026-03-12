@@ -1,10 +1,22 @@
 {
   "icon": {
     "size": {
-      "small": { "$type": "dimension", "$value": "{core.dimension.300}" },
-      "medium": { "$type": "dimension", "$value": "{core.dimension.400}" },
-      "large": { "$type": "dimension", "$value": "{core.dimension.600}" },
-      "xLarge": { "$type": "dimension", "$value": "{core.dimension.600}" }
+      "small": {
+        "$type": "dimension",
+        "$value": "{core.dimension.300}"
+      },
+      "medium": {
+        "$type": "dimension",
+        "$value": "{core.dimension.400}"
+      },
+      "large": {
+        "$type": "dimension",
+        "$value": "{core.dimension.600}"
+      },
+      "xLarge": {
+        "$type": "dimension",
+        "$value": "{core.dimension.600}"
+      }
     }
   },
   "layout": {

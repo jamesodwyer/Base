@@ -1,50 +1,105 @@
 {
   "color": {
     "brand": {
-      "01": { "$type": "color", "$value": "#024dff" },
-      "02": { "$type": "color", "$value": "#050505" },
-      "03": { "$type": "color", "$value": "#FFFFFF" }
+      "01": {
+        "$type": "color",
+        "$value": "#024dff"
+      },
+      "01-inverse": {
+        "$type": "color",
+        "$value": "#3074fe"
+      },
+      "02": {
+        "$type": "color",
+        "$value": "#121212"
+      },
+      "03": {
+        "$type": "color",
+        "$value": "#FFFFFF"
+      }
     },
     "accent": {
-      "green": { "$type": "color", "$value": "#048851" },
-      "red": { "$type": "color", "$value": "#EB0000" },
-      "purple": { "$type": "color", "$value": "#A733FF" },
-      "orange": { "$type": "color", "$value": "#FFB932" },
-      "turquoise": { "$type": "color", "$value": "#21FFF2" },
-      "yellow": { "$type": "color", "$value": "#FBFF2C" },
-      "blue": { "$type": "color", "$value": "#207de5" },
-      "magenta": { "$type": "color", "$value": "#D0006F" }
+      "green": {
+        "$type": "color",
+        "$value": "#048851"
+      },
+      "red": {
+        "$type": "color",
+        "$value": "#EB0000"
+      },
+      "purple": {
+        "$type": "color",
+        "$value": "#A733FF"
+      },
+      "orange": {
+        "$type": "color",
+        "$value": "#FFB932"
+      },
+      "turquoise": {
+        "$type": "color",
+        "$value": "#21FFF2"
+      },
+      "yellow": {
+        "$type": "color",
+        "$value": "#FBFF2C"
+      },
+      "blue": {
+        "$type": "color",
+        "$value": "#207de5"
+      },
+      "magenta": {
+        "$type": "color",
+        "$value": "#D0006F"
+      }
     },
     "neutrals": {
       "grey": {
-        "100": { "$type": "color", "$value": "#F6F6F6" },
-        "200": { "$type": "color", "$value": "#EBEBEB" },
-        "300": { "$type": "color", "$value": "#D6D6D6" },
-        "400": { "$type": "color", "$value": "#BFBFBF" },
-        "500": { "$type": "color", "$value": "#949494" }
+        "100": {
+          "$type": "color",
+          "$value": "#F6F6F6"
+        },
+        "200": {
+          "$type": "color",
+          "$value": "#EBEBEB"
+        },
+        "300": {
+          "$type": "color",
+          "$value": "#D6D6D6"
+        },
+        "400": {
+          "$type": "color",
+          "$value": "#BFBFBF"
+        },
+        "500": {
+          "$type": "color",
+          "$value": "#949494"
+        },
+        "600": {
+          "$type": "color",
+          "$value": "#646464"
+        }
       }
     },
     "common": {
-      "white": { "$type": "color", "$value": "#ffffff" },
-      "black": { "$type": "color", "$value": "#000000" }
+      "white": {
+        "$type": "color",
+        "$value": "#ffffff"
+      },
+      "black": {
+        "$type": "color",
+        "$value": "#000000"
+      }
+    },
+    "ism": {
+      "blue": {
+        "$type": "color",
+        "$value": "#2a55d9"
+      }
     }
   },
   "brand": {
     "shadow": {
       "shadow": {
-        "zero": {
-          "$type": "boxShadow",
-          "$value": [
-            {
-              "x": "0",
-              "y": "0",
-              "blur": "0",
-              "spread": "0",
-              "color": "rgba(0,0,0,0)",
-              "type": "dropShadow"
-            }
-          ]
-        },
         "100": {
           "$type": "boxShadow",
           "$value": [
@@ -96,15 +151,34 @@
               "type": "dropShadow"
             }
           ]
+        },
+        "zero": {
+          "$type": "boxShadow",
+          "$value": [
+            {
+              "x": "0",
+              "y": "0",
+              "blur": "0",
+              "spread": "0",
+              "color": "rgba(0,0,0,0)",
+              "type": "dropShadow"
+            }
+          ]
         }
       }
     },
     "typography": {
       "fontVariant": {
-        "numeric": { "$type": "other", "$value": "tabular-nums" }
+        "numeric": {
+          "$type": "other",
+          "$value": "tabular-nums"
+        }
       },
       "textDecoration": {
-        "underline": { "$type": "other", "$value": "underline" }
+        "underline": {
+          "$type": "other",
+          "$value": "underline"
+        }
       }
     }
   }
