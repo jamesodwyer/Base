@@ -1757,27 +1757,27 @@
         "$value": "{color.common.white}",
         "$description": "Light surface. Card or container backgrounds."
       },
-      "neutralLighter": {
+      "neutral01": {
         "$type": "color",
         "$value": "{color.neutrals.grey.100}",
         "$description": "Lightest neutral surface background."
       },
-      "neutralLight": {
+      "neutral02": {
         "$type": "color",
         "$value": "{color.neutrals.grey.200}",
         "$description": "Light neutral surface background."
       },
-      "neutralDark": {
+      "neutral03": {
         "$type": "color",
         "$value": "{color.neutrals.grey.300}",
-        "$description": "Dark neutral surface background."
+        "$description": "Mid neutral surface background."
       },
-      "neutralDarker": {
+      "neutral04": {
         "$type": "color",
         "$value": "{color.neutrals.grey.400}",
-        "$description": "Darker neutral surface background."
+        "$description": "Dark neutral surface background."
       },
-      "neutralDarkest": {
+      "neutral05": {
         "$type": "color",
         "$value": "{color.neutrals.grey.500}",
         "$description": "Darkest neutral surface background."
