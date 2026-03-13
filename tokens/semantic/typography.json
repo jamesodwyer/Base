@@ -9,7 +9,8 @@
           "fontSize": "{core.typography.fontSize.900}",
           "lineHeight": "{core.typography.lineHeight.full}",
           "letterSpacing": "{core.typography.letterSpacing.neg300}"
-        }
+        },
+        "$description": "Use for hero text. Largest display."
       },
       "medium": {
         "$type": "typography",
@@ -19,7 +20,8 @@
           "fontSize": "{core.dimension.1400}",
           "lineHeight": "{core.typography.lineHeight.full}",
           "letterSpacing": "{core.typography.letterSpacing.neg300}"
-        }
+        },
+        "$description": "Use for featured text. Medium display."
       },
       "small": {
         "$type": "typography",
@@ -29,7 +31,8 @@
           "fontSize": "{core.dimension.1000}",
           "lineHeight": "{core.typography.lineHeight.full}",
           "letterSpacing": "{core.typography.letterSpacing.neg300}"
-        }
+        },
+        "$description": "Use for prominent text. Small display."
       }
     },
     "heading": {
@@ -42,7 +45,8 @@
           "lineHeight": "{core.typography.lineHeight.full}",
           "textCase": "uppercase",
           "letterSpacing": "{core.typography.letterSpacing.neg200}"
-        }
+        },
+        "$description": "Use for page titles. Large heading."
       },
       "medium": {
         "$type": "typography",
@@ -53,7 +57,8 @@
           "lineHeight": "{core.typography.lineHeight.full}",
           "textCase": "uppercase",
           "letterSpacing": "{core.typography.letterSpacing.neg200}"
-        }
+        },
+        "$description": "Use for section titles. Medium heading."
       },
       "small": {
         "$type": "typography",
@@ -64,7 +69,8 @@
           "lineHeight": "{core.typography.lineHeight.full}",
           "textCase": "uppercase",
           "letterSpacing": "{core.typography.letterSpacing.neg200}"
-        }
+        },
+        "$description": "Use for subsection titles. Small heading."
       }
     },
     "title": {
@@ -77,7 +83,8 @@
           "lineHeight": "{core.typography.lineHeight.full}",
           "textCase": "uppercase",
           "letterSpacing": "{core.typography.letterSpacing.neg200}"
-        }
+        },
+        "$description": "Use for large UI titles. Dialogs/panels."
       },
       "medium": {
         "$type": "typography",
@@ -88,7 +95,8 @@
           "lineHeight": "{core.typography.lineHeight.full}",
           "textCase": "uppercase",
           "letterSpacing": "{core.typography.letterSpacing.neg200}"
-        }
+        },
+        "$description": "Use for medium UI titles. Cards/sections."
       },
       "small": {
         "$type": "typography",
@@ -99,7 +107,8 @@
           "lineHeight": "{core.typography.lineHeight.full}",
           "textCase": "uppercase",
           "letterSpacing": "{core.typography.letterSpacing.neg200}"
-        }
+        },
+        "$description": "Use for small UI titles. Components."
       }
     },
     "label": {
@@ -110,7 +119,8 @@
           "fontWeight": "{core.typography.fontWeight.semibold}",
           "fontSize": "{core.typography.fontSize.150}",
           "lineHeight": "{core.typography.lineHeight.250}"
-        }
+        },
+        "$description": "Use for large action labels. Buttons."
       },
       "medium": {
         "$type": "typography",
@@ -119,7 +129,8 @@
           "fontWeight": "{core.typography.fontWeight.semibold}",
           "fontSize": "{core.typography.fontSize.100}",
           "lineHeight": "{core.typography.lineHeight.200}"
-        }
+        },
+        "$description": "Use for medium action labels. Buttons."
       },
       "small": {
         "$type": "typography",
@@ -128,7 +139,8 @@
           "fontWeight": "{core.typography.fontWeight.semibold}",
           "fontSize": "{core.typography.fontSize.75}",
           "lineHeight": "{core.typography.lineHeight.150}"
-        }
+        },
+        "$description": "Use for small action labels. Tags."
       }
     },
     "body": {
@@ -140,7 +152,8 @@
             "fontWeight": "{core.typography.fontWeight.regular}",
             "fontSize": "{core.typography.fontSize.150}",
             "lineHeight": "{core.typography.lineHeight.200}"
-          }
+          },
+          "$description": "Use for large body text. Feature content."
         },
         "medium": {
           "$type": "typography",
@@ -149,7 +162,8 @@
             "fontWeight": "{core.typography.fontWeight.regular}",
             "fontSize": "{core.typography.fontSize.100}",
             "lineHeight": "{core.typography.lineHeight.200}"
-          }
+          },
+          "$description": "Use for standard body text. Main content."
         },
         "small": {
           "$type": "typography",
@@ -158,7 +172,8 @@
             "fontWeight": "{core.typography.fontWeight.regular}",
             "fontSize": "{core.typography.fontSize.75}",
             "lineHeight": "{core.typography.lineHeight.200}"
-          }
+          },
+          "$description": "Use for small body text. Captions."
         }
       },
       "bold": {
@@ -169,7 +184,8 @@
             "fontWeight": "{core.typography.fontWeight.bold}",
             "fontSize": "{core.typography.fontSize.150}",
             "lineHeight": "{core.typography.lineHeight.200}"
-          }
+          },
+          "$description": "Use for large bold body text. Emphasis."
         },
         "medium": {
           "$type": "typography",
@@ -178,7 +194,8 @@
             "fontWeight": "{core.typography.fontWeight.bold}",
             "fontSize": "{core.typography.fontSize.100}",
             "lineHeight": "{core.typography.lineHeight.200}"
-          }
+          },
+          "$description": "Use for bold body text. Emphasis."
         },
         "small": {
           "$type": "typography",
@@ -187,7 +204,8 @@
             "fontWeight": "{core.typography.fontWeight.bold}",
             "fontSize": "{core.typography.fontSize.75}",
             "lineHeight": "{core.typography.lineHeight.200}"
-          }
+          },
+          "$description": "Use for small bold body text. Emphasis."
         }
       }
     },
@@ -199,7 +217,8 @@
         "fontSize": "{core.typography.fontSize.50}",
         "lineHeight": "{core.typography.lineHeight.150}",
         "textCase": "uppercase"
-      }
+      },
+      "$description": "Use for caption text. Metadata."
     }
   }
 }

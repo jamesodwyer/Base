@@ -3,73 +3,89 @@
     "interactive": {
       "small": {
         "$type": "borderRadius",
-        "$value": "{core.border.radius.xSmall}"
+        "$value": "{core.border.radius.xSmall}",
+        "$description": "Use for small interactive corners."
       },
       "medium": {
         "$type": "borderRadius",
-        "$value": "{core.border.radius.small}"
+        "$value": "{core.border.radius.small}",
+        "$description": "Use for medium button corners."
       },
       "large": {
         "$type": "borderRadius",
-        "$value": "{core.border.radius.large}"
+        "$value": "{core.border.radius.large}",
+        "$description": "Use for large button corners."
       },
       "full": {
         "$type": "borderRadius",
-        "$value": "{core.border.radius.full}"
+        "$value": "{core.border.radius.full}",
+        "$description": "Use for pill button corners."
       }
     },
     "input": {
       "small": {
         "$type": "borderRadius",
-        "$value": "{core.border.radius.xSmall}"
+        "$value": "{core.border.radius.xSmall}",
+        "$description": "Use for small input corners."
       },
       "medium": {
         "$type": "borderRadius",
-        "$value": "{core.border.radius.small}"
+        "$value": "{core.border.radius.small}",
+        "$description": "Use for medium input corners."
       },
       "large": {
         "$type": "borderRadius",
-        "$value": "{core.border.radius.medium}"
+        "$value": "{core.border.radius.medium}",
+        "$description": "Use for large input corners."
       },
       "full": {
         "$type": "borderRadius",
-        "$value": "{core.border.radius.full}"
+        "$value": "{core.border.radius.full}",
+        "$description": "Use for pill input corners."
       }
     },
     "container": {
       "none": {
         "$type": "borderRadius",
-        "$value": "{core.dimension.zero}"
+        "$value": "{core.dimension.zero}",
+        "$description": "Use for sharp container corners."
       },
       "small": {
         "$type": "borderRadius",
-        "$value": "{core.dimension.50}"
+        "$value": "{core.dimension.50}",
+        "$description": "Use for small container corners."
       },
       "medium": {
         "$type": "borderRadius",
-        "$value": "{core.dimension.100}"
+        "$value": "{core.dimension.100}",
+        "$description": "Use for medium container corners."
       },
       "large": {
         "$type": "borderRadius",
-        "$value": "{core.dimension.200}"
+        "$value": "{core.dimension.200}",
+        "$description": "Use for large container corners."
       }
     },
     "popover": {
       "none": {
         "$type": "borderRadius",
-        "$value": "{core.dimension.zero}"
+        "$value": "{core.dimension.zero}",
+        "$description": "Use for sharp popover corners."
       },
       "small": {
         "$type": "borderRadius",
-        "$value": "{core.dimension.50}"
+        "$value": "{core.dimension.50}",
+        "$description": "Use for small popover corners."
       },
       "medium": {
         "$type": "borderRadius",
-        "$value": "{core.dimension.100}"
+        "$value": "{core.dimension.100}",
+        "$description": "Use for medium popover corners."
       },
       "large": {
         "$type": "borderRadius",
-        "$value": "{core.dimension.200}"
+        "$value": "{core.dimension.200}",
+        "$description": "Use for large popover corners."
       }
     }
   }

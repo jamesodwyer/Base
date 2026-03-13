@@ -4,53 +4,65 @@
       "radius": {
         "xSmall": {
           "$type": "borderRadius",
-          "$value": "2"
+          "$value": "2",
+          "$description": "Extra small corner radius."
         },
         "small": {
           "$type": "borderRadius",
-          "$value": "4"
+          "$value": "4",
+          "$description": "Small corner radius."
         },
         "medium": {
           "$type": "borderRadius",
-          "$value": "6"
+          "$value": "6",
+          "$description": "Medium corner radius."
         },
         "large": {
           "$type": "borderRadius",
-          "$value": "8"
+          "$value": "8",
+          "$description": "Large corner radius."
         },
         "xLarge": {
           "$type": "borderRadius",
-          "$value": "12"
+          "$value": "12",
+          "$description": "Extra large corner radius."
         },
         "xxLarge": {
           "$type": "borderRadius",
-          "$value": "20"
+          "$value": "20",
+          "$description": "2X large corner radius."
         },
         "full": {
           "$type": "borderRadius",
-          "$value": "999"
+          "$value": "999",
+          "$description": "Full corner radius. Pill shape."
         }
       },
       "width": {
         "xSmall": {
           "$type": "borderWidth",
-          "$value": "1"
+          "$value": "1",
+          "$description": "Extra small border width."
         },
         "small": {
           "$type": "borderWidth",
-          "$value": "2"
+          "$value": "2",
+          "$description": "Small border width."
         },
         "medium": {
           "$type": "borderWidth",
-          "$value": "3"
+          "$value": "3",
+          "$description": "Medium border width."
         },
         "large": {
           "$type": "borderWidth",
-          "$value": "4"
+          "$value": "4",
+          "$description": "Large border width."
         },
         "xLarge": {
           "$type": "borderWidth",
-          "$value": "8"
+          "$value": "8",
+          "$description": "Extra large border width."
         }
       }
     }

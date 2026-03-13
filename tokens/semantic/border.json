@@ -3,11 +3,13 @@
     "interactive": {
       "xSmall": {
         "$type": "borderWidth",
-        "$value": "{core.border.width.xSmall}"
+        "$value": "{core.border.width.xSmall}",
+        "$description": "Use for default interactive borders."
       },
       "small": {
         "$type": "borderWidth",
-        "$value": "{core.border.width.small}"
+        "$value": "{core.border.width.small}",
+        "$description": "Use for emphasized interactive borders."
       }
     }
   }

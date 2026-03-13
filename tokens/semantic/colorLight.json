@@ -5,7 +5,8 @@
         "fill": {
           "default": {
             "$type": "color",
-            "$value": "{color.brand.01}"
+            "$value": "{color.brand.01}",
+            "$description": "Use for solid buttons. Primary CTAs."
           },
           "hover": {
             "$extensions": {
@@ -18,7 +19,8 @@
               }
             },
             "$type": "color",
-            "$value": "{color.interactive.primary.fill.default}"
+            "$value": "{color.interactive.primary.fill.default}",
+            "$description": "Solid button fill on hover."
           },
           "pressed": {
             "$extensions": {
@@ -31,47 +33,57 @@
               }
             },
             "$type": "color",
-            "$value": "{color.interactive.primary.fill.default}"
+            "$value": "{color.interactive.primary.fill.default}",
+            "$description": "Solid button fill when pressed."
           },
           "disabled": {
             "$type": "color",
-            "$value": "{color.disabled.a}"
+            "$value": "{color.disabled.a}",
+            "$description": "Solid button fill when disabled."
           }
         },
         "text": {
           "default": {
             "$type": "color",
-            "$value": "{color.common.white}"
+            "$value": "{color.common.white}",
+            "$description": "Use for solid button text."
           },
           "hover": {
             "$type": "color",
-            "$value": "{color.common.white}"
+            "$value": "{color.common.white}",
+            "$description": "Solid button text on hover."
           },
           "pressed": {
             "$type": "color",
-            "$value": "{color.common.white}"
+            "$value": "{color.common.white}",
+            "$description": "Solid button text when pressed."
           },
           "disabled": {
             "$type": "color",
-            "$value": "{color.disabled.b}"
+            "$value": "{color.disabled.b}",
+            "$description": "Solid button text when disabled."
           }
         },
         "icon": {
           "default": {
             "$type": "color",
-            "$value": "{color.common.white}"
+            "$value": "{color.common.white}",
+            "$description": "Use for solid button icons."
           },
           "hover": {
             "$type": "color",
-            "$value": "{color.common.white}"
+            "$value": "{color.common.white}",
+            "$description": "Solid button icon on hover."
           },
           "pressed": {
             "$type": "color",
-            "$value": "{color.common.white}"
+            "$value": "{color.common.white}",
+            "$description": "Solid button icon when pressed."
           },
           "disabled": {
             "$type": "color",
-            "$value": "{color.disabled.b}"
+            "$value": "{color.disabled.b}",
+            "$description": "Solid button icon when disabled."
           }
         }
       },
@@ -79,11 +91,13 @@
         "fill": {
           "default": {
             "$type": "color",
-            "$value": "{color.common.white}"
+            "$value": "{color.common.white}",
+            "$description": "Use for outline buttons. Secondary actions."
           },
           "hover": {
             "$type": "color",
-            "$value": "{color.brand.01}"
+            "$value": "{color.brand.01}",
+            "$description": "Outline button fill on hover."
           },
           "pressed": {
             "$extensions": {
@@ -96,57 +110,69 @@
               }
             },
             "$type": "color",
-            "$value": "{color.brand.01}"
+            "$value": "{color.brand.01}",
+            "$description": "Outline button fill when pressed."
           },
           "disabled": {
             "$type": "color",
-            "$value": "{color.disabled.a}"
+            "$value": "{color.disabled.a}",
+            "$description": "Outline button fill when disabled."
           }
         },
         "text": {
           "default": {
             "$type": "color",
-            "$value": "{color.brand.01}"
+            "$value": "{color.brand.01}",
+            "$description": "Use for outline button text."
           },
           "hover": {
             "$type": "color",
-            "$value": "{color.common.white}"
+            "$value": "{color.common.white}",
+            "$description": "Outline button text on hover."
           },
           "pressed": {
             "$type": "color",
-            "$value": "{color.common.white}"
+            "$value": "{color.common.white}",
+            "$description": "Outline button text when pressed."
           },
           "disabled": {
             "$type": "color",
-            "$value": "{color.disabled.b}"
+            "$value": "{color.disabled.b}",
+            "$description": "Outline button text when disabled."
           }
         },
         "icon": {
           "default": {
             "$type": "color",
-            "$value": "{color.brand.01}"
+            "$value": "{color.brand.01}",
+            "$description": "Use for outline button icons."
           },
           "hover": {
             "$type": "color",
-            "$value": "{color.common.white}"
+            "$value": "{color.common.white}",
+            "$description": "Outline button icon on hover."
           },
           "pressed": {
             "$type": "color",
-            "$value": "{color.common.white}"
+            "$value": "{color.common.white}",
+            "$description": "Outline button icon when pressed."
           },
           "disabled": {
             "$type": "color",
-            "$value": "{color.disabled.b}"
+            "$value": "{color.disabled.b}",
+            "$description": "Outline button icon when disabled."
           }
         },
         "border": {
           "default": {
             "$type": "color",
-            "$value": "{color.brand.01}"
+            "$value": "{color.brand.01}",
+            "$description": "Use for outline button borders."
           },
           "hover": {
             "$type": "color",
-            "$value": "{color.brand.01}"
+            "$value": "{color.brand.01}",
+            "$description": "Outline button border on hover."
           },
           "pressed": {
             "$extensions": {
@@ -159,7 +185,8 @@
               }
             },
             "$type": "color",
-            "$value": "{color.brand.01}"
+            "$value": "{color.brand.01}",
+            "$description": "Outline button border when pressed."
           }
         }
       },
@@ -167,7 +194,8 @@
         "text": {
           "default": {
             "$type": "color",
-            "$value": "{color.brand.01}"
+            "$value": "{color.brand.01}",
+            "$description": "Use for ghost button text."
           },
           "hover": {
             "$extensions": {
@@ -180,7 +208,8 @@
               }
             },
             "$type": "color",
-            "$value": "{color.interactive.ghost.text.default}"
+            "$value": "{color.interactive.ghost.text.default}",
+            "$description": "Ghost button text on hover."
           },
           "pressed": {
             "$extensions": {
@@ -193,29 +222,35 @@
               }
             },
             "$type": "color",
-            "$value": "{color.brand.01}"
+            "$value": "{color.brand.01}",
+            "$description": "Ghost button text when pressed."
           },
           "disabled": {
             "$type": "color",
-            "$value": "{color.disabled.b}"
+            "$value": "{color.disabled.b}",
+            "$description": "Ghost button text when disabled."
           }
         },
         "icon": {
           "default": {
             "$type": "color",
-            "$value": "{color.brand.01}"
+            "$value": "{color.brand.01}",
+            "$description": "Use for ghost button icons."
           },
           "hover": {
             "$type": "color",
-            "$value": "{color.common.white}"
+            "$value": "{color.common.white}",
+            "$description": "Ghost button icon on hover."
           },
           "pressed": {
             "$type": "color",
-            "$value": "{color.common.white}"
+            "$value": "{color.common.white}",
+            "$description": "Ghost button icon when pressed."
           },
           "disabled": {
             "$type": "color",
-            "$value": "{color.disabled.b}"
+            "$value": "{color.disabled.b}",
+            "$description": "Ghost button icon when disabled."
           }
         },
         "fill": {
@@ -230,11 +265,13 @@
               }
             },
             "$type": "color",
-            "$value": "{color.brand.01}"
+            "$value": "{color.brand.01}",
+            "$description": "Use for ghost buttons. Minimal actions."
           },
           "hover": {
             "$type": "color",
-            "$value": "{color.interactive.primary.fill.default}"
+            "$value": "{color.interactive.primary.fill.default}",
+            "$description": "Ghost button fill on hover."
           },
           "pressed": {
             "$extensions": {
@@ -247,7 +284,8 @@
               }
             },
             "$type": "color",
-            "$value": "{color.brand.01}"
+            "$value": "{color.brand.01}",
+            "$description": "Ghost button fill when pressed."
           },
           "disabled": {
             "$extensions": {
@@ -260,50 +298,60 @@
               }
             },
             "$type": "color",
-            "$value": "{color.disabled.b}"
+            "$value": "{color.disabled.b}",
+            "$description": "Ghost button fill when disabled."
           }
         }
       },
       "fill": {
         "default": {
           "$type": "color",
-          "$value": "{color.interactive.secondary.fill.default}"
+          "$value": "{color.interactive.secondary.fill.default}",
+          "$description": "Neutral interactive fill. Links and cards."
         },
         "hover": {
           "$type": "color",
-          "$value": "{color.interactive.secondary.fill.hover}"
+          "$value": "{color.interactive.secondary.fill.hover}",
+          "$description": "Neutral interactive fill on hover."
         },
         "pressed": {
           "$type": "color",
-          "$value": "{color.interactive.secondary.fill.pressed}"
+          "$value": "{color.interactive.secondary.fill.pressed}",
+          "$description": "Neutral interactive fill when pressed."
         }
       },
       "text": {
         "default": {
           "$type": "color",
-          "$value": "{color.interactive.secondary.text.default}"
+          "$value": "{color.interactive.secondary.text.default}",
+          "$description": "Neutral interactive text. Links and cards."
         },
         "hover": {
           "$type": "color",
-          "$value": "{color.interactive.secondary.text.hover}"
+          "$value": "{color.interactive.secondary.text.hover}",
+          "$description": "Neutral interactive text on hover."
         },
         "pressed": {
           "$type": "color",
-          "$value": "{color.interactive.secondary.text.pressed}"
+          "$value": "{color.interactive.secondary.text.pressed}",
+          "$description": "Neutral interactive text when pressed."
         }
       },
       "icon": {
         "default": {
           "$type": "color",
-          "$value": "{color.interactive.secondary.text.default}"
+          "$value": "{color.interactive.secondary.text.default}",
+          "$description": "Neutral interactive icon. Links and cards."
         },
         "hover": {
           "$type": "color",
-          "$value": "{color.interactive.secondary.text.hover}"
+          "$value": "{color.interactive.secondary.text.hover}",
+          "$description": "Neutral interactive icon on hover."
         },
         "pressed": {
           "$type": "color",
-          "$value": "{color.interactive.secondary.text.pressed}"
+          "$value": "{color.interactive.secondary.text.pressed}",
+          "$description": "Neutral interactive icon when pressed."
         }
       },
       "tertiary": {
@@ -319,11 +367,13 @@
               }
             },
             "$type": "color",
-            "$value": "{color.brand.02}"
+            "$value": "{color.brand.02}",
+            "$description": "Use for tertiary buttons. Low emphasis."
           },
           "hover": {
             "$type": "color",
-            "$value": "{color.brand.02}"
+            "$value": "{color.brand.02}",
+            "$description": "Tertiary button fill on hover."
           },
           "pressed": {
             "$extensions": {
@@ -336,17 +386,20 @@
               }
             },
             "$type": "color",
-            "$value": "{color.brand.01}"
+            "$value": "{color.brand.01}",
+            "$description": "Tertiary button fill when pressed."
           },
           "disabled": {
             "$type": "color",
-            "$value": "{color.disabled.a}"
+            "$value": "{color.disabled.a}",
+            "$description": "Tertiary button fill when disabled."
           }
         },
         "text": {
           "default": {
             "$type": "color",
-            "$value": "{color.brand.02}"
+            "$value": "{color.brand.02}",
+            "$description": "Use for tertiary button text."
           },
           "hover": {
             "$extensions": {
@@ -359,7 +412,8 @@
               }
             },
             "$type": "color",
-            "$value": "{color.interactive.tertiary.fill.hover}"
+            "$value": "{color.interactive.tertiary.fill.hover}",
+            "$description": "Tertiary button text on hover."
           },
           "pressed": {
             "$extensions": {
@@ -372,17 +426,20 @@
               }
             },
             "$type": "color",
-            "$value": "{color.interactive.tertiary.text.default}"
+            "$value": "{color.interactive.tertiary.text.default}",
+            "$description": "Tertiary button text when pressed."
           },
           "disabled": {
             "$type": "color",
-            "$value": "{color.disabled.b}"
+            "$value": "{color.disabled.b}",
+            "$description": "Tertiary button text when disabled."
           }
         },
         "icon": {
           "default": {
             "$type": "color",
-            "$value": "{color.brand.02}"
+            "$value": "{color.brand.02}",
+            "$description": "Use for tertiary button icons."
           },
           "hover": {
             "$extensions": {
@@ -395,11 +452,13 @@
               }
             },
             "$type": "color",
-            "$value": "{color.interactive.tertiary.fill.hover}"
+            "$value": "{color.interactive.tertiary.fill.hover}",
+            "$description": "Tertiary button icon on hover."
           },
           "disabled": {
             "$type": "color",
-            "$value": "{color.disabled.b}"
+            "$value": "{color.disabled.b}",
+            "$description": "Tertiary button icon when disabled."
           }
         },
         "border": {
@@ -414,11 +473,13 @@
               }
             },
             "$type": "color",
-            "$value": "{color.brand.02}"
+            "$value": "{color.brand.02}",
+            "$description": "Use for tertiary button borders."
           },
           "hover": {
             "$type": "color",
-            "$value": "{color.interactive.tertiary.fill.hover}"
+            "$value": "{color.interactive.tertiary.fill.hover}",
+            "$description": "Tertiary button border on hover."
           },
           "pressed": {
             "$extensions": {
@@ -431,7 +492,8 @@
               }
             },
             "$type": "color",
-            "$value": "{color.interactive.tertiary.border.default}"
+            "$value": "{color.interactive.tertiary.border.default}",
+            "$description": "Tertiary button border when pressed."
           }
         }
       },
@@ -448,49 +510,59 @@
               }
             },
             "$type": "color",
-            "$value": "{color.common.white}"
+            "$value": "{color.common.white}",
+            "$description": "Use for inverse buttons. Dark backgrounds."
           },
           "hover": {
             "$type": "color",
-            "$value": "{color.common.white}"
+            "$value": "{color.common.white}",
+            "$description": "Inverse button fill on hover."
           },
           "pressed": {
             "$type": "color",
-            "$value": "{color.brand.01}"
+            "$value": "{color.brand.01}",
+            "$description": "Inverse button fill when pressed."
           }
         },
         "text": {
           "default": {
             "$type": "color",
-            "$value": "{color.common.white}"
+            "$value": "{color.common.white}",
+            "$description": "Use for inverse button text."
           },
           "hover": {
             "$type": "color",
-            "$value": "{color.brand.02}"
+            "$value": "{color.brand.02}",
+            "$description": "Inverse button text on hover."
           },
           "pressed": {
             "$type": "color",
-            "$value": "{color.common.white}"
+            "$value": "{color.common.white}",
+            "$description": "Inverse button text when pressed."
           }
         },
         "icon": {
           "default": {
             "$type": "color",
-            "$value": "{color.common.white}"
+            "$value": "{color.common.white}",
+            "$description": "Use for inverse button icons."
           },
           "hover": {
             "$type": "color",
-            "$value": "{color.brand.02}"
+            "$value": "{color.brand.02}",
+            "$description": "Inverse button icon on hover."
           },
           "pressed": {
             "$type": "color",
-            "$value": "{color.common.white}"
+            "$value": "{color.common.white}",
+            "$description": "Inverse button icon when pressed."
           }
         },
         "border": {
           "default": {
             "$type": "color",
-            "$value": "{color.common.white}"
+            "$value": "{color.common.white}",
+            "$description": "Use for inverse button borders."
           }
         }
       },
@@ -498,7 +570,8 @@
         "fill": {
           "default": {
             "$type": "color",
-            "$value": "{color.accent.green}"
+            "$value": "{color.accent.green}",
+            "$description": "Use for transaction buttons. Purchase CTAs."
           },
           "hover": {
             "$extensions": {
@@ -511,7 +584,8 @@
               }
             },
             "$type": "color",
-            "$value": "{color.interactive.transaction.fill.default}"
+            "$value": "{color.interactive.transaction.fill.default}",
+            "$description": "Transaction button fill on hover."
           },
           "pressed": {
             "$extensions": {
@@ -524,47 +598,57 @@
               }
             },
             "$type": "color",
-            "$value": "{color.interactive.transaction.fill.default}"
+            "$value": "{color.interactive.transaction.fill.default}",
+            "$description": "Transaction button fill when pressed."
           },
           "disabled": {
             "$type": "color",
-            "$value": "{color.disabled.a}"
+            "$value": "{color.disabled.a}",
+            "$description": "Transaction button fill when disabled."
           }
         },
         "text": {
           "default": {
             "$type": "color",
-            "$value": "{color.common.white}"
+            "$value": "{color.common.white}",
+            "$description": "Use for transaction button text."
           },
           "hover": {
             "$type": "color",
-            "$value": "{color.common.white}"
+            "$value": "{color.common.white}",
+            "$description": "Transaction button text on hover."
           },
           "pressed": {
             "$type": "color",
-            "$value": "{color.common.white}"
+            "$value": "{color.common.white}",
+            "$description": "Transaction button text when pressed."
           },
           "disabled": {
             "$type": "color",
-            "$value": "{color.disabled.b}"
+            "$value": "{color.disabled.b}",
+            "$description": "Transaction button text when disabled."
           }
         },
         "icon": {
           "default": {
             "$type": "color",
-            "$value": "{color.common.white}"
+            "$value": "{color.common.white}",
+            "$description": "Use for transaction button icons."
           },
           "hover": {
             "$type": "color",
-            "$value": "{color.common.white}"
+            "$value": "{color.common.white}",
+            "$description": "Transaction button icon on hover."
           },
           "pressed": {
             "$type": "color",
-            "$value": "{color.common.white}"
+            "$value": "{color.common.white}",
+            "$description": "Transaction button icon when pressed."
           },
           "disabled": {
             "$type": "color",
-            "$value": "{color.disabled.b}"
+            "$value": "{color.disabled.b}",
+            "$description": "Transaction button icon when disabled."
           }
         }
       }
@@ -572,7 +656,8 @@
     "disabled": {
       "a": {
         "$type": "color",
-        "$value": "{color.neutrals.grey.200}"
+        "$value": "{color.neutrals.grey.200}",
+        "$description": "Disabled fill. Primary disabled state."
       },
       "b": {
         "$extensions": {
@@ -585,7 +670,8 @@
           }
         },
         "$type": "color",
-        "$value": "{color.brand.02}"
+        "$value": "{color.brand.02}",
+        "$description": "Disabled text/icon. Secondary disabled."
       },
       "c": {
         "$extensions": {
@@ -598,19 +684,22 @@
           }
         },
         "$type": "color",
-        "$value": "{color.brand.02}"
+        "$value": "{color.brand.02}",
+        "$description": "Disabled border. Tertiary disabled."
       }
     },
     "focus": {
       "border": {
         "$type": "color",
-        "$value": "{color.accent.blue}"
+        "$value": "{color.accent.blue}",
+        "$description": "Focus border color."
       }
     },
     "text": {
       "primary": {
         "$type": "color",
-        "$value": "{color.brand.02}"
+        "$value": "{color.brand.02}",
+        "$description": "Use for primary text. Main content."
       },
       "secondary": {
         "$extensions": {
@@ -623,7 +712,8 @@
           }
         },
         "$type": "color",
-        "$value": "{color.common.black}"
+        "$value": "{color.common.black}",
+        "$description": "Use for secondary text. Helper text."
       },
       "placeholder": {
         "$extensions": {
@@ -636,25 +726,30 @@
           }
         },
         "$type": "color",
-        "$value": "{color.common.black}"
+        "$value": "{color.common.black}",
+        "$description": "Use for placeholder text. Inputs."
       },
       "inverse": {
         "$type": "color",
-        "$value": "{color.common.white}"
+        "$value": "{color.common.white}",
+        "$description": "Use for text on dark backgrounds."
       },
       "inverseSecondary": {
         "$type": "color",
-        "$value": "{color.neutrals.grey.300}"
+        "$value": "{color.neutrals.grey.300}",
+        "$description": "Use for inverse secondary text."
       },
       "onAccent": {
         "$type": "color",
-        "$value": "{color.common.white}"
+        "$value": "{color.common.white}",
+        "$description": "Use for text on colored backgrounds."
       }
     },
     "icon": {
       "primary": {
         "$type": "color",
-        "$value": "{color.brand.02}"
+        "$value": "{color.brand.02}",
+        "$description": "Use for primary icons. Main content."
       },
       "secondary": {
         "$extensions": {
@@ -667,11 +762,13 @@
           }
         },
         "$type": "color",
-        "$value": "{color.text.primary}"
+        "$value": "{color.text.primary}",
+        "$description": "Use for secondary icons. Helper icons."
       },
       "inverse": {
         "$type": "color",
-        "$value": "{color.common.white}"
+        "$value": "{color.common.white}",
+        "$description": "Use for icons on dark backgrounds."
       }
     },
     "border": {
@@ -686,7 +783,8 @@
           }
         },
         "$type": "color",
-        "$value": "{color.brand.02}"
+        "$value": "{color.brand.02}",
+        "$description": "Use for primary borders."
       },
       "secondary": {
         "$extensions": {
@@ -699,7 +797,8 @@
           }
         },
         "$type": "color",
-        "$value": "{color.brand.02}"
+        "$value": "{color.brand.02}",
+        "$description": "Use for secondary borders."
       },
       "elevation": {
         "$extensions": {
@@ -712,22 +811,26 @@
           }
         },
         "$type": "color",
-        "$value": "{color.brand.02}"
+        "$value": "{color.brand.02}",
+        "$description": "Use for elevation borders."
       },
       "inverse": {
         "$type": "color",
-        "$value": "{color.brand.02}"
+        "$value": "{color.brand.02}",
+        "$description": "Use for borders on dark backgrounds."
       },
       "onAccent": {
         "$type": "color",
-        "$value": "{color.brand.02}"
+        "$value": "{color.brand.02}",
+        "$description": "Use for borders on accent backgrounds."
       }
     },
     "input": {
       "fill": {
         "default": {
           "$type": "color",
-          "$value": "{color.common.white}"
+          "$value": "{color.common.white}",
+          "$description": "Use for input backgrounds. Text fields."
         },
         "hover": {
           "$extensions": {
@@ -740,17 +843,20 @@
             }
           },
           "$type": "color",
-          "$value": "{color.input.fill.default}"
+          "$value": "{color.input.fill.default}",
+          "$description": "Input background on hover."
         },
         "active": {
           "$type": "color",
-          "$value": "{color.input.fill.default}"
+          "$value": "{color.input.fill.default}",
+          "$description": "Input background when active."
         }
       },
       "border": {
         "default": {
           "$type": "color",
-          "$value": "{color.border.primary}"
+          "$value": "{color.border.primary}",
+          "$description": "Use for input borders. Text fields."
         },
         "hover": {
           "$extensions": {
@@ -763,29 +869,35 @@
             }
           },
           "$type": "color",
-          "$value": "{color.input.border.default}"
+          "$value": "{color.input.border.default}",
+          "$description": "Input border on hover."
         },
         "active": {
           "$type": "color",
-          "$value": "{color.brand.02}"
+          "$value": "{color.brand.02}",
+          "$description": "Input border when active."
         },
         "success": {
           "$type": "color",
-          "$value": "{color.accent.green}"
+          "$value": "{color.accent.green}",
+          "$description": "Input border for success state."
         },
         "error": {
           "$type": "color",
-          "$value": "{color.accent.red}"
+          "$value": "{color.accent.red}",
+          "$description": "Input border for error state."
         }
       },
       "text": {
         "default": {
           "$type": "color",
-          "$value": "{color.text.primary}"
+          "$value": "{color.text.primary}",
+          "$description": "Use for input text."
         },
         "active": {
           "$type": "color",
-          "$value": "{color.text.primary}"
+          "$value": "{color.text.primary}",
+          "$description": "Input text when active."
         },
         "hover": {
           "$extensions": {
@@ -798,13 +910,15 @@
             }
           },
           "$type": "color",
-          "$value": "{color.text.primary}"
+          "$value": "{color.text.primary}",
+          "$description": "Input text on hover."
         }
       },
       "icon": {
         "default": {
           "$type": "color",
-          "$value": "{color.input.text.default}"
+          "$value": "{color.input.text.default}",
+          "$description": "Use for input icons."
         },
         "hover": {
           "$extensions": {
@@ -817,11 +931,13 @@
             }
           },
           "$type": "color",
-          "$value": "{color.input.text.hover}"
+          "$value": "{color.input.text.hover}",
+          "$description": "Input icon on hover."
         },
         "active": {
           "$type": "color",
-          "$value": "{color.input.text.active}"
+          "$value": "{color.input.text.active}",
+          "$description": "Input icon when active."
         }
       }
     },
@@ -838,7 +954,8 @@
             }
           },
           "$type": "color",
-          "$value": "{color.accent.red}"
+          "$value": "{color.accent.red}",
+          "$description": "Use for error backgrounds. Banners."
         },
         "success": {
           "$extensions": {
@@ -851,7 +968,8 @@
             }
           },
           "$type": "color",
-          "$value": "{color.accent.green}"
+          "$value": "{color.accent.green}",
+          "$description": "Use for success backgrounds. Banners."
         },
         "warning": {
           "$extensions": {
@@ -864,7 +982,8 @@
             }
           },
           "$type": "color",
-          "$value": "{color.accent.orange}"
+          "$value": "{color.accent.orange}",
+          "$description": "Use for warning backgrounds. Banners."
         },
         "info": {
           "$extensions": {
@@ -877,13 +996,15 @@
             }
           },
           "$type": "color",
-          "$value": "{color.brand.01}"
+          "$value": "{color.brand.01}",
+          "$description": "Use for info backgrounds. Banners."
         }
       },
       "text": {
         "error": {
           "$type": "color",
-          "$value": "{color.accent.red}"
+          "$value": "{color.accent.red}",
+          "$description": "Use for error text. Messages."
         },
         "success": {
           "$extensions": {
@@ -896,7 +1017,8 @@
             }
           },
           "$type": "color",
-          "$value": "{color.accent.green}"
+          "$value": "{color.accent.green}",
+          "$description": "Use for success text. Messages."
         },
         "warning": {
           "$extensions": {
@@ -909,7 +1031,8 @@
             }
           },
           "$type": "color",
-          "$value": "{color.accent.orange}"
+          "$value": "{color.accent.orange}",
+          "$description": "Use for warning text. Messages."
         },
         "info": {
           "$extensions": {
@@ -922,13 +1045,15 @@
             }
           },
           "$type": "color",
-          "$value": "{color.brand.01}"
+          "$value": "{color.brand.01}",
+          "$description": "Use for info text. Messages."
         }
       },
       "icon": {
         "error": {
           "$type": "color",
-          "$value": "{color.accent.red}"
+          "$value": "{color.accent.red}",
+          "$description": "Use for error icons. Banners."
         },
         "success": {
           "$extensions": {
@@ -941,7 +1066,8 @@
             }
           },
           "$type": "color",
-          "$value": "{color.accent.green}"
+          "$value": "{color.accent.green}",
+          "$description": "Use for success icons. Banners."
         },
         "warning": {
           "$extensions": {
@@ -954,7 +1080,8 @@
             }
           },
           "$type": "color",
-          "$value": "{color.accent.orange}"
+          "$value": "{color.accent.orange}",
+          "$description": "Use for warning icons. Banners."
         },
         "info": {
           "$extensions": {
@@ -967,13 +1094,15 @@
             }
           },
           "$type": "color",
-          "$value": "{color.brand.01}"
+          "$value": "{color.brand.01}",
+          "$description": "Use for info icons. Banners."
         }
       },
       "border": {
         "error": {
           "$type": "color",
-          "$value": "{color.accent.red}"
+          "$value": "{color.accent.red}",
+          "$description": "Use for error borders. Banners."
         },
         "success": {
           "$extensions": {
@@ -986,7 +1115,8 @@
             }
           },
           "$type": "color",
-          "$value": "{color.accent.green}"
+          "$value": "{color.accent.green}",
+          "$description": "Use for success borders. Banners."
         },
         "warning": {
           "$extensions": {
@@ -999,7 +1129,8 @@
             }
           },
           "$type": "color",
-          "$value": "{color.accent.orange}"
+          "$value": "{color.accent.orange}",
+          "$description": "Use for warning borders. Banners."
         },
         "info": {
           "$extensions": {
@@ -1012,7 +1143,8 @@
             }
           },
           "$type": "color",
-          "$value": "{color.brand.01}"
+          "$value": "{color.brand.01}",
+          "$description": "Use for info borders. Banners."
         }
       }
     },
@@ -1020,31 +1152,35 @@
       "fill": {
         "default": {
           "$type": "color",
-          "$value": "{color.interactive.secondary.fill.default}"
+          "$value": "{color.interactive.secondary.fill.default}",
+          "$description": "Use for active state fill."
         }
       },
       "border": {
         "default": {
           "$type": "color",
-          "$value": "{color.interactive.primary.fill.default}"
+          "$value": "{color.interactive.primary.fill.default}",
+          "$description": "Use for active state border."
         }
       },
       "text": {
         "default": {
           "$type": "color",
-          "$value": "{color.interactive.primary.fill.default}"
+          "$value": "{color.interactive.primary.fill.default}",
+          "$description": "Use for active state text."
         }
       }
     },
     "elevation": {
       "canvas": {
         "$type": "color",
-        "$value": "{color.elevation.base}"
+        "$value": "{color.elevation.base}",
+        "$description": "Canvas background. Base layer."
       },
       "base": {
         "$type": "color",
         "$value": "{color.common.white}",
-        "$description": "This token is created purely to create mixins for the elevation. The Brand (blue) cannot be referenced directly as it needs to be desaturated a little. This is where it is desaturated by mixing with a grey (disabled a)."
+        "$description": "Use for elevation base. Internal mixin."
       },
       "undercanvas": {
         "$extensions": {
@@ -1057,7 +1193,8 @@
           }
         },
         "$type": "color",
-        "$value": "{color.elevation.base}"
+        "$value": "{color.elevation.base}",
+        "$description": "Under-canvas background. Behind content."
       },
       "relative1": {
         "$extensions": {
@@ -1070,31 +1207,38 @@
           }
         },
         "$type": "color",
-        "$value": "{color.elevation.base}"
+        "$value": "{color.elevation.base}",
+        "$description": "Relative elevation. Subtle lift."
       },
       "level1": {
         "$type": "color",
-        "$value": "{color.elevation.base}"
+        "$value": "{color.elevation.base}",
+        "$description": "Level 1 elevation. Cards."
       },
       "level2": {
         "$type": "color",
-        "$value": "{color.elevation.base}"
+        "$value": "{color.elevation.base}",
+        "$description": "Level 2 elevation. Raised cards."
       },
       "level3": {
         "$type": "color",
-        "$value": "{color.elevation.base}"
+        "$value": "{color.elevation.base}",
+        "$description": "Level 3 elevation. Dropdowns."
       },
       "level4": {
         "$type": "color",
-        "$value": "{color.elevation.base}"
+        "$value": "{color.elevation.base}",
+        "$description": "Level 4 elevation. Modals."
       },
       "level5": {
         "$type": "color",
-        "$value": "{color.elevation.base}"
+        "$value": "{color.elevation.base}",
+        "$description": "Level 5 elevation. Top layer."
       },
       "inverse": {
         "$type": "color",
-        "$value": "{color.brand.02}"
+        "$value": "{color.brand.02}",
+        "$description": "Inverse elevation. Dark surfaces."
       },
       "overlay": {
         "$extensions": {
@@ -1107,7 +1251,8 @@
           }
         },
         "$type": "color",
-        "$value": "{color.brand.02}"
+        "$value": "{color.brand.02}",
+        "$description": "Use for modal overlays. Backgrounds."
       },
       "accentA": {
         "$extensions": {
@@ -1121,11 +1266,13 @@
           }
         },
         "$type": "color",
-        "$value": "{color.brand.02}"
+        "$value": "{color.brand.02}",
+        "$description": "Accent elevation A. Branded surface."
       },
       "accentB": {
         "$type": "color",
-        "$value": "{color.brand.02}"
+        "$value": "{color.brand.02}",
+        "$description": "Accent elevation B. Branded surface."
       }
     },
     "selected": {
@@ -1133,7 +1280,8 @@
         "fill": {
           "default": {
             "$type": "color",
-            "$value": "{color.interactive.primary.fill.default}"
+            "$value": "{color.interactive.primary.fill.default}",
+            "$description": "Use for primary selected fill."
           },
           "hover": {
             "$extensions": {
@@ -1146,7 +1294,8 @@
               }
             },
             "$type": "color",
-            "$value": "{color.selected.primary.fill.default}"
+            "$value": "{color.selected.primary.fill.default}",
+            "$description": "Primary selected fill on hover."
           },
           "pressed": {
             "$extensions": {
@@ -1159,13 +1308,15 @@
               }
             },
             "$type": "color",
-            "$value": "{color.selected.primary.fill.default}"
+            "$value": "{color.selected.primary.fill.default}",
+            "$description": "Primary selected fill when pressed."
           }
         },
         "icon": {
           "default": {
             "$type": "color",
-            "$value": "{color.interactive.primary.icon.default}"
+            "$value": "{color.interactive.primary.icon.default}",
+            "$description": "Use for primary selected icon."
           },
           "hover": {
             "$extensions": {
@@ -1178,7 +1329,8 @@
               }
             },
             "$type": "color",
-            "$value": "{color.selected.primary.icon.default}"
+            "$value": "{color.selected.primary.icon.default}",
+            "$description": "Primary selected icon on hover."
           },
           "pressed": {
             "$extensions": {
@@ -1191,13 +1343,15 @@
               }
             },
             "$type": "color",
-            "$value": "{color.selected.primary.icon.default}"
+            "$value": "{color.selected.primary.icon.default}",
+            "$description": "Primary selected icon when pressed."
           }
         },
         "text": {
           "default": {
             "$type": "color",
-            "$value": "{color.text.onAccent}"
+            "$value": "{color.text.onAccent}",
+            "$description": "Use for primary selected text."
           },
           "hover": {
             "$extensions": {
@@ -1210,7 +1364,8 @@
               }
             },
             "$type": "color",
-            "$value": "{color.selected.primary.text.default}"
+            "$value": "{color.selected.primary.text.default}",
+            "$description": "Primary selected text on hover."
           },
           "pressed": {
             "$extensions": {
@@ -1223,7 +1378,8 @@
               }
             },
             "$type": "color",
-            "$value": "{color.selected.primary.text.default}"
+            "$value": "{color.selected.primary.text.default}",
+            "$description": "Primary selected text when pressed."
           }
         }
       },
@@ -1240,7 +1396,8 @@
               }
             },
             "$type": "color",
-            "$value": "{color.selected.primary.fill.default}"
+            "$value": "{color.selected.primary.fill.default}",
+            "$description": "Use for secondary selected fill."
           },
           "hover": {
             "$extensions": {
@@ -1253,7 +1410,8 @@
               }
             },
             "$type": "color",
-            "$value": "{color.selected.primary.fill.default}"
+            "$value": "{color.selected.primary.fill.default}",
+            "$description": "Secondary selected fill on hover."
           },
           "pressed": {
             "$extensions": {
@@ -1266,13 +1424,15 @@
               }
             },
             "$type": "color",
-            "$value": "{color.selected.primary.fill.default}"
+            "$value": "{color.selected.primary.fill.default}",
+            "$description": "Secondary selected fill when pressed."
           }
         },
         "icon": {
           "default": {
             "$type": "color",
-            "$value": "{color.interactive.ghost.icon.default}"
+            "$value": "{color.interactive.ghost.icon.default}",
+            "$description": "Use for secondary selected icon."
           },
           "hover": {
             "$extensions": {
@@ -1285,7 +1445,8 @@
               }
             },
             "$type": "color",
-            "$value": "{color.selected.secondary.icon.default}"
+            "$value": "{color.selected.secondary.icon.default}",
+            "$description": "Secondary selected icon on hover."
           },
           "pressed": {
             "$extensions": {
@@ -1298,13 +1459,15 @@
               }
             },
             "$type": "color",
-            "$value": "{color.selected.secondary.icon.default}"
+            "$value": "{color.selected.secondary.icon.default}",
+            "$description": "Secondary selected icon when pressed."
           }
         },
         "text": {
           "default": {
             "$type": "color",
-            "$value": "{color.interactive.ghost.text.default}"
+            "$value": "{color.interactive.ghost.text.default}",
+            "$description": "Use for secondary selected text."
           },
           "hover": {
             "$extensions": {
@@ -1317,7 +1480,8 @@
               }
             },
             "$type": "color",
-            "$value": "{color.selected.secondary.text.default}"
+            "$value": "{color.selected.secondary.text.default}",
+            "$description": "Secondary selected text on hover."
           },
           "pressed": {
             "$extensions": {
@@ -1330,7 +1494,8 @@
               }
             },
             "$type": "color",
-            "$value": "{color.selected.secondary.text.default}"
+            "$value": "{color.selected.secondary.text.default}",
+            "$description": "Secondary selected text when pressed."
           }
         }
       },
@@ -1338,61 +1503,74 @@
         "fill": {
           "default": {
             "$type": "color",
-            "$value": "{color.interactive.fill.default}"
+            "$value": "{color.interactive.fill.default}",
+            "$description": "Use for tertiary selected fill."
           },
           "hover": {
             "$type": "color",
-            "$value": "{color.interactive.fill.hover}"
+            "$value": "{color.interactive.fill.hover}",
+            "$description": "Tertiary selected fill on hover."
           },
           "pressed": {
             "$type": "color",
-            "$value": "{color.interactive.fill.pressed}"
+            "$value": "{color.interactive.fill.pressed}",
+            "$description": "Tertiary selected fill when pressed."
           }
         },
         "icon": {
           "default": {
             "$type": "color",
-            "$value": "{color.interactive.icon.default}"
+            "$value": "{color.interactive.icon.default}",
+            "$description": "Use for tertiary selected icon."
           },
           "hover": {
             "$type": "color",
-            "$value": "{color.selected.tertiary.icon.default}"
+            "$value": "{color.selected.tertiary.icon.default}",
+            "$description": "Tertiary selected icon on hover."
           },
           "pressed": {
             "$type": "color",
-            "$value": "{color.selected.tertiary.icon.default}"
+            "$value": "{color.selected.tertiary.icon.default}",
+            "$description": "Tertiary selected icon when pressed."
           }
         },
         "text": {
           "default": {
             "$type": "color",
-            "$value": "{color.interactive.text.default}"
+            "$value": "{color.interactive.text.default}",
+            "$description": "Use for tertiary selected text."
           },
           "hover": {
             "$type": "color",
-            "$value": "{color.selected.tertiary.text.default}"
+            "$value": "{color.selected.tertiary.text.default}",
+            "$description": "Tertiary selected text on hover."
           },
           "pressed": {
             "$type": "color",
-            "$value": "{color.selected.tertiary.text.default}"
+            "$value": "{color.selected.tertiary.text.default}",
+            "$description": "Tertiary selected text when pressed."
           }
         },
         "border": {
           "default": {
             "$type": "color",
-            "$value": "{color.brand.02}"
+            "$value": "{color.brand.02}",
+            "$description": "Use for tertiary selected border."
           },
           "hover": {
             "$type": "color",
-            "$value": "{color.selected.tertiary.border.default}"
+            "$value": "{color.selected.tertiary.border.default}",
+            "$description": "Tertiary selected border on hover."
           },
           "pressed": {
             "$type": "color",
-            "$value": "{color.selected.tertiary.border.default}"
+            "$value": "{color.selected.tertiary.border.default}",
+            "$description": "Tertiary selected border when pressed."
           },
           "error": {
             "$type": "color",
-            "$value": "{color.accent.red}"
+            "$value": "{color.accent.red}",
+            "$description": "Tertiary selected border error."
           }
         }
       }
@@ -1410,11 +1588,13 @@
             }
           },
           "$type": "color",
-          "$value": "{color.brand.02}"
+          "$value": "{color.brand.02}",
+          "$description": "Use for draft status fill."
         },
         "text": {
           "$type": "color",
-          "$value": "{color.text.primary}"
+          "$value": "{color.text.primary}",
+          "$description": "Use for draft status text."
         }
       },
       "active": {
@@ -1429,11 +1609,13 @@
             }
           },
           "$type": "color",
-          "$value": "{color.brand.01}"
+          "$value": "{color.brand.01}",
+          "$description": "Use for active status fill."
         },
         "text": {
           "$type": "color",
-          "$value": "{color.brand.01}"
+          "$value": "{color.brand.01}",
+          "$description": "Use for active status text."
         }
       },
       "positive": {
@@ -1448,7 +1630,8 @@
             }
           },
           "$type": "color",
-          "$value": "{color.accent.green}"
+          "$value": "{color.accent.green}",
+          "$description": "Use for positive status fill."
         },
         "text": {
           "$extensions": {
@@ -1461,7 +1644,8 @@
             }
           },
           "$type": "color",
-          "$value": "{color.accent.green}"
+          "$value": "{color.accent.green}",
+          "$description": "Use for positive status text."
         }
       },
       "critical": {
@@ -1476,11 +1660,13 @@
             }
           },
           "$type": "color",
-          "$value": "{color.accent.red}"
+          "$value": "{color.accent.red}",
+          "$description": "Use for critical status fill."
         },
         "text": {
           "$type": "color",
-          "$value": "{color.feedback.text.error}"
+          "$value": "{color.feedback.text.error}",
+          "$description": "Use for critical status text."
         }
       },
       "attention": {
@@ -1495,7 +1681,8 @@
             }
           },
           "$type": "color",
-          "$value": "{color.accent.orange}"
+          "$value": "{color.accent.orange}",
+          "$description": "Use for attention status fill."
         },
         "text": {
           "$extensions": {
@@ -1508,80 +1695,97 @@
             }
           },
           "$type": "color",
-          "$value": "{color.accent.orange}"
+          "$value": "{color.accent.orange}",
+          "$description": "Use for attention status text."
         }
       },
       "neutral": {
         "fill": {
           "$type": "color",
-          "$value": "{color.common.white}"
+          "$value": "{color.common.white}",
+          "$description": "Use for neutral status fill."
         },
         "text": {
           "$type": "color",
-          "$value": "{color.text.primary}"
+          "$value": "{color.text.primary}",
+          "$description": "Use for neutral status text."
         },
         "border": {
           "$type": "color",
-          "$value": "{color.border.primary}"
+          "$value": "{color.border.primary}",
+          "$description": "Use for neutral status border."
         }
       },
       "update": {
         "fill": {
           "$type": "color",
-          "$value": "{color.interactive.primary.fill.default}"
+          "$value": "{color.interactive.primary.fill.default}",
+          "$description": "Use for update status fill."
         },
         "text": {
           "$type": "color",
-          "$value": "{color.text.onAccent}"
+          "$value": "{color.text.onAccent}",
+          "$description": "Use for update status text."
         }
       },
       "general": {
         "fill": {
           "$type": "color",
-          "$value": "{color.common.white}"
+          "$value": "{color.common.white}",
+          "$description": "Use for general status fill."
         },
         "text": {
           "$type": "color",
-          "$value": "{color.text.primary}"
+          "$value": "{color.text.primary}",
+          "$description": "Use for general status text."
         },
         "border": {
           "$type": "color",
-          "$value": "{color.border.primary}"
+          "$value": "{color.border.primary}",
+          "$description": "Use for general status border."
         }
       }
     },
     "surface": {
       "primary": {
         "$type": "color",
-        "$value": "{color.brand.01}"
+        "$value": "{color.brand.01}",
+        "$description": "Brand surface. Branded container backgrounds."
       },
       "light": {
         "$type": "color",
-        "$value": "{color.common.white}"
+        "$value": "{color.common.white}",
+        "$description": "Light surface. Card or container backgrounds."
       },
       "neutralLighter": {
         "$type": "color",
-        "$value": "{color.neutrals.grey.100}"
+        "$value": "{color.neutrals.grey.100}",
+        "$description": "Lightest neutral surface background."
       },
       "neutralLight": {
         "$type": "color",
-        "$value": "{color.neutrals.grey.200}"
+        "$value": "{color.neutrals.grey.200}",
+        "$description": "Light neutral surface background."
       },
       "neutralDark": {
         "$type": "color",
-        "$value": "{color.neutrals.grey.300}"
+        "$value": "{color.neutrals.grey.300}",
+        "$description": "Dark neutral surface background."
       },
       "neutralDarker": {
         "$type": "color",
-        "$value": "{color.neutrals.grey.400}"
+        "$value": "{color.neutrals.grey.400}",
+        "$description": "Darker neutral surface background."
       },
       "neutralDarkest": {
         "$type": "color",
-        "$value": "{color.neutrals.grey.500}"
+        "$value": "{color.neutrals.grey.500}",
+        "$description": "Darkest neutral surface background."
       },
       "inverse": {
         "$type": "color",
-        "$value": "{color.brand.02}"
+        "$value": "{color.brand.02}",
+        "$description": "Inverse surface. Dark container backgrounds."
       }
     }
   },
@@ -1597,7 +1801,8 @@
           "color": "rgba(18,18, 18, 0.15)",
           "type": "dropShadow"
         }
-      ]
+      ],
+      "$description": "Level 1 shadow. Cards and tiles."
     },
     "elevationLevel2": {
       "$type": "boxShadow",
@@ -1610,7 +1815,8 @@
           "color": "rgba(18,18,18,0.15)",
           "type": "dropShadow"
         }
-      ]
+      ],
+      "$description": "Level 2 shadow. Raised elements."
     },
     "elevationLevel3": {
       "$type": "boxShadow",
@@ -1623,7 +1829,8 @@
           "color": "rgba(18,18,18,0.18)",
           "type": "dropShadow"
         }
-      ]
+      ],
+      "$description": "Level 3 shadow. Dropdowns and menus."
     },
     "elevationLevel4": {
       "$type": "boxShadow",
@@ -1636,7 +1843,8 @@
           "color": "rgba(0,0,0,0.35)",
           "type": "dropShadow"
         }
-      ]
+      ],
+      "$description": "Level 4 shadow. Modals and dialogs."
     }
   }
 }

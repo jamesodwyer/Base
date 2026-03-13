@@ -3,19 +3,23 @@
     "size": {
       "small": {
         "$type": "dimension",
-        "$value": "{core.dimension.300}"
+        "$value": "{core.dimension.300}",
+        "$description": "Small icon size."
       },
       "medium": {
         "$type": "dimension",
-        "$value": "{core.dimension.400}"
+        "$value": "{core.dimension.400}",
+        "$description": "Medium icon size."
       },
       "large": {
         "$type": "dimension",
-        "$value": "{core.dimension.600}"
+        "$value": "{core.dimension.600}",
+        "$description": "Large icon size."
       },
       "xLarge": {
         "$type": "dimension",
-        "$value": "{core.dimension.600}"
+        "$value": "{core.dimension.600}",
+        "$description": "Extra large icon size."
       }
     }
   },
@@ -29,7 +33,7 @@
       "inBetweenInteractive": {
         "$type": "dimension",
         "$value": "{core.dimension.600}",
-        "$description": "Spacing between 2 or more interactive elements i.e. button, chips"
+        "$description": "Gap between interactive elements."
       },
       "contentToButton": {
         "$type": "dimension",
@@ -39,7 +43,7 @@
       "formGap": {
         "$type": "dimension",
         "$value": "{core.dimension.600}",
-        "$description": "Spacing between form elements i.e. input fields and check box groups"
+        "$description": "Gap between form field elements."
       }
     }
   }

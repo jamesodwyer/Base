@@ -3,97 +3,118 @@
     "brand": {
       "01": {
         "$type": "color",
-        "$value": "#024dff"
+        "$value": "#024dff",
+        "$description": "Primary brand color. Main actions and links."
       },
       "01-inverse": {
         "$type": "color",
-        "$value": "#3074fe"
+        "$value": "#3074fe",
+        "$description": "Inverse brand color. For dark backgrounds."
       },
       "02": {
         "$type": "color",
-        "$value": "#121212"
+        "$value": "#121212",
+        "$description": "Secondary brand color. Headings and titles."
       },
       "03": {
         "$type": "color",
-        "$value": "#FFFFFF"
+        "$value": "#FFFFFF",
+        "$description": "Alternate brand color. Page backgrounds."
       }
     },
     "accent": {
       "green": {
         "$type": "color",
-        "$value": "#048851"
+        "$value": "#048851",
+        "$description": "Green accent. Success states."
       },
       "red": {
         "$type": "color",
-        "$value": "#EB0000"
+        "$value": "#EB0000",
+        "$description": "Red accent. Error states."
       },
       "purple": {
         "$type": "color",
-        "$value": "#A733FF"
+        "$value": "#A733FF",
+        "$description": "Purple accent. Decorative use."
       },
       "orange": {
         "$type": "color",
-        "$value": "#FFB932"
+        "$value": "#FFB932",
+        "$description": "Orange accent. Warning states."
       },
       "turquoise": {
         "$type": "color",
-        "$value": "#21FFF2"
+        "$value": "#21FFF2",
+        "$description": "Turquoise accent. Decorative use."
       },
       "yellow": {
         "$type": "color",
-        "$value": "#FBFF2C"
+        "$value": "#FBFF2C",
+        "$description": "Yellow accent. Highlight states."
       },
       "blue": {
         "$type": "color",
-        "$value": "#207de5"
+        "$value": "#207de5",
+        "$description": "Blue accent. Info states."
       },
       "magenta": {
         "$type": "color",
-        "$value": "#D0006F"
+        "$value": "#D0006F",
+        "$description": "Magenta accent. Decorative use."
       }
     },
     "neutrals": {
       "grey": {
         "100": {
           "$type": "color",
-          "$value": "#F6F6F6"
+          "$value": "#F6F6F6",
+          "$description": "Lightest neutral grey."
         },
         "200": {
           "$type": "color",
-          "$value": "#EBEBEB"
+          "$value": "#EBEBEB",
+          "$description": "Light neutral grey."
         },
         "300": {
           "$type": "color",
-          "$value": "#D6D6D6"
+          "$value": "#D6D6D6",
+          "$description": "Mid-light neutral grey."
         },
         "400": {
           "$type": "color",
-          "$value": "#BFBFBF"
+          "$value": "#BFBFBF",
+          "$description": "Mid neutral grey."
         },
         "500": {
           "$type": "color",
-          "$value": "#949494"
+          "$value": "#949494",
+          "$description": "Mid-tone neutral grey."
         },
         "600": {
           "$type": "color",
-          "$value": "#646464"
+          "$value": "#646464",
+          "$description": "Dark neutral grey."
         }
       }
     },
     "common": {
       "white": {
         "$type": "color",
-        "$value": "#ffffff"
+        "$value": "#ffffff",
+        "$description": "Pure white. Base light value."
       },
       "black": {
         "$type": "color",
-        "$value": "#000000"
+        "$value": "#000000",
+        "$description": "Pure black. Base dark value."
       }
     },
     "ism": {
       "blue": {
         "$type": "color",
-        "$value": "#2a55d9"
+        "$value": "#2a55d9",
+        "$description": "ISM blue. Classification color."
       }
     }
   },
@@ -111,7 +132,8 @@
               "color": "rgba(18,18,18,0.15)",
               "type": "dropShadow"
             }
-          ]
+          ],
+          "$description": "Small brand shadow. Subtle depth."
         },
         "200": {
           "$type": "boxShadow",
@@ -124,7 +146,8 @@
               "color": "rgba(18,18,18,0.15)",
               "type": "dropShadow"
             }
-          ]
+          ],
+          "$description": "Medium brand shadow. Cards."
         },
         "300": {
           "$type": "boxShadow",
@@ -137,7 +160,8 @@
               "color": "rgba(18,18,18,0.18)",
               "type": "dropShadow"
             }
-          ]
+          ],
+          "$description": "Large brand shadow. Modals."
         },
         "400": {
           "$type": "boxShadow",
@@ -150,7 +174,8 @@
               "color": "rgba(0,0,0,0.35)",
               "type": "dropShadow"
             }
-          ]
+          ],
+          "$description": "Extra large brand shadow. Popovers."
         },
         "zero": {
           "$type": "boxShadow",
@@ -163,7 +188,8 @@
               "color": "rgba(0,0,0,0)",
               "type": "dropShadow"
             }
-          ]
+          ],
+          "$description": "No shadow. Zero elevation."
         }
       }
     },
@@ -171,13 +197,15 @@
       "fontVariant": {
         "numeric": {
           "$type": "other",
-          "$value": "tabular-nums"
+          "$value": "tabular-nums",
+          "$description": "Numeric font variant. Tabular figures."
         }
       },
       "textDecoration": {
         "underline": {
           "$type": "other",
-          "$value": "underline"
+          "$value": "underline",
+          "$description": "Underline text decoration."
         }
       }
     }

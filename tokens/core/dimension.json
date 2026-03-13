@@ -3,123 +3,153 @@
     "dimension": {
       "50": {
         "$type": "dimension",
-        "$value": "{core.dimension.100}/2"
+        "$value": "{core.dimension.100}/2",
+        "$description": "Minimal spacing. Use for tight gaps."
       },
       "100": {
         "$type": "dimension",
-        "$value": "4px"
+        "$value": "4px",
+        "$description": "Base spacing unit. Foundation for scale."
       },
       "150": {
         "$type": "dimension",
-        "$value": "{core.dimension.100}*1.5"
+        "$value": "{core.dimension.100}*1.5",
+        "$description": "1.5x base spacing."
       },
       "200": {
         "$type": "dimension",
-        "$value": "{core.dimension.100}*2"
+        "$value": "{core.dimension.100}*2",
+        "$description": "Small spacing. Compact gaps."
       },
       "250": {
         "$type": "dimension",
-        "$value": "{core.dimension.100}*2.5"
+        "$value": "{core.dimension.100}*2.5",
+        "$description": "Small-medium spacing."
       },
       "300": {
         "$type": "dimension",
-        "$value": "{core.dimension.100}*3"
+        "$value": "{core.dimension.100}*3",
+        "$description": "Medium spacing."
       },
       "350": {
         "$type": "dimension",
-        "$value": "{core.dimension.100}*3.5"
+        "$value": "{core.dimension.100}*3.5",
+        "$description": "Medium spacing."
       },
       "400": {
         "$type": "dimension",
-        "$value": "{core.dimension.100}*4"
+        "$value": "{core.dimension.100}*4",
+        "$description": "Medium spacing."
       },
       "450": {
         "$type": "dimension",
-        "$value": "{core.dimension.100}*4.5"
+        "$value": "{core.dimension.100}*4.5",
+        "$description": "Medium-large spacing."
       },
       "500": {
         "$type": "dimension",
-        "$value": "{core.dimension.100}*5"
+        "$value": "{core.dimension.100}*5",
+        "$description": "Large spacing. Section gaps."
       },
       "550": {
         "$type": "dimension",
-        "$value": "{core.dimension.100}*5.5"
+        "$value": "{core.dimension.100}*5.5",
+        "$description": "Large spacing. Section gaps."
       },
       "600": {
         "$type": "dimension",
-        "$value": "{core.dimension.100}*6"
+        "$value": "{core.dimension.100}*6",
+        "$description": "Extra large spacing."
       },
       "650": {
         "$type": "dimension",
-        "$value": "{core.dimension.100}*6.5"
+        "$value": "{core.dimension.100}*6.5",
+        "$description": "Extra large spacing."
       },
       "700": {
         "$type": "dimension",
-        "$value": "{core.dimension.100}*7"
+        "$value": "{core.dimension.100}*7",
+        "$description": "2X large spacing."
       },
       "750": {
         "$type": "dimension",
-        "$value": "{core.dimension.100}*7.5"
+        "$value": "{core.dimension.100}*7.5",
+        "$description": "2X large spacing."
       },
       "800": {
         "$type": "dimension",
-        "$value": "{core.dimension.100}*8"
+        "$value": "{core.dimension.100}*8",
+        "$description": "2X large spacing."
       },
       "850": {
         "$type": "dimension",
-        "$value": "{core.dimension.100}*8.5"
+        "$value": "{core.dimension.100}*8.5",
+        "$description": "2X large spacing."
       },
       "900": {
         "$type": "dimension",
-        "$value": "{core.dimension.100}*9"
+        "$value": "{core.dimension.100}*9",
+        "$description": "3X large spacing."
       },
       "1000": {
         "$type": "dimension",
-        "$value": "{core.dimension.100}*10"
+        "$value": "{core.dimension.100}*10",
+        "$description": "3X large spacing."
       },
       "1100": {
         "$type": "dimension",
-        "$value": "{core.dimension.100}*11"
+        "$value": "{core.dimension.100}*11",
+        "$description": "3X large spacing."
       },
       "1200": {
         "$type": "dimension",
-        "$value": "{core.dimension.100}*12"
+        "$value": "{core.dimension.100}*12",
+        "$description": "3X large spacing."
       },
       "1300": {
         "$type": "dimension",
-        "$value": "{core.dimension.100}*13"
+        "$value": "{core.dimension.100}*13",
+        "$description": "4X large spacing."
       },
       "1400": {
         "$type": "dimension",
-        "$value": "{core.dimension.100}*14"
+        "$value": "{core.dimension.100}*14",
+        "$description": "4X large spacing."
       },
       "1500": {
         "$type": "dimension",
-        "$value": "{core.dimension.100}*15"
+        "$value": "{core.dimension.100}*15",
+        "$description": "4X large spacing."
       },
       "1600": {
         "$type": "dimension",
-        "$value": "{core.dimension.100}*16"
+        "$value": "{core.dimension.100}*16",
+        "$description": "5X large spacing."
       },
       "1700": {
         "$type": "dimension",
-        "$value": "{core.dimension.100}*17"
+        "$value": "{core.dimension.100}*17",
+        "$description": "5X large spacing."
       },
       "1800": {
         "$type": "dimension",
-        "$value": "{core.dimension.100}*18"
+        "$value": "{core.dimension.100}*18",
+        "$description": "5X large spacing."
       },
       "1900": {
         "$type": "dimension",
-        "$value": "{core.dimension.100}*19"
+        "$value": "{core.dimension.100}*19",
+        "$description": "6X large spacing."
       },
       "2000": {
         "$type": "dimension",
-        "$value": "{core.dimension.100}*20"
+        "$value": "{core.dimension.100}*20",
+        "$description": "6X large spacing."
       },
       "zero": {
         "$type": "dimension",
-        "$value": "0"
+        "$value": "0",
+        "$description": "Zero spacing. Removes all space."
       }
     }
   }
