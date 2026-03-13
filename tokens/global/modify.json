@@ -1,0 +1,133 @@
+{
+  "core": {
+    "color": {
+      "modify": {
+        "50": {
+          "$type": "other",
+          "$value": "{core.color.modify.100}/2",
+          "$description": "0.05 modifier. For lighten/darken/alpha."
+        },
+        "100": {
+          "$type": "other",
+          "$value": "0.1",
+          "$description": "0.1 modifier. For lighten/darken/alpha."
+        },
+        "150": {
+          "$type": "other",
+          "$value": "{core.color.modify.100}*1.5",
+          "$description": "0.15 modifier. For lighten/darken/alpha."
+        },
+        "200": {
+          "$type": "other",
+          "$value": "{core.color.modify.100}*2",
+          "$description": "0.2 modifier. For lighten/darken/alpha."
+        },
+        "250": {
+          "$type": "other",
+          "$value": "{core.color.modify.100}*2.5",
+          "$description": "0.25 modifier. For lighten/darken/alpha."
+        },
+        "300": {
+          "$type": "other",
+          "$value": "{core.color.modify.100}*3",
+          "$description": "0.3 modifier. For lighten/darken/alpha."
+        },
+        "350": {
+          "$type": "other",
+          "$value": "{core.color.modify.100}*3.5",
+          "$description": "0.35 modifier. For lighten/darken/alpha."
+        },
+        "390": {
+          "$type": "other",
+          "$value": "{core.color.modify.100}*3.9",
+          "$description": "0.39 modifier. For lighten/darken/alpha."
+        },
+        "400": {
+          "$type": "other",
+          "$value": "{core.color.modify.100}*4",
+          "$description": "0.4 modifier. For lighten/darken/alpha."
+        },
+        "450": {
+          "$type": "other",
+          "$value": "{core.color.modify.100}*4.5",
+          "$description": "0.45 modifier. For lighten/darken/alpha."
+        },
+        "500": {
+          "$type": "other",
+          "$value": "{core.color.modify.100}*5",
+          "$description": "0.5 modifier. For lighten/darken/alpha."
+        },
+        "550": {
+          "$type": "other",
+          "$value": "{core.color.modify.100}*5.5",
+          "$description": "0.55 modifier. For lighten/darken/alpha."
+        },
+        "600": {
+          "$type": "other",
+          "$value": "{core.color.modify.100}*6",
+          "$description": "0.6 modifier. For lighten/darken/alpha."
+        },
+        "650": {
+          "$type": "other",
+          "$value": "{core.color.modify.100}*6.5",
+          "$description": "0.65 modifier. For lighten/darken/alpha."
+        },
+        "700": {
+          "$type": "other",
+          "$value": "{core.color.modify.100}*7",
+          "$description": "0.7 modifier. For lighten/darken/alpha."
+        },
+        "750": {
+          "$type": "other",
+          "$value": "{core.color.modify.100}*7.5",
+          "$description": "0.75 modifier. For lighten/darken/alpha."
+        },
+        "800": {
+          "$type": "other",
+          "$value": "{core.color.modify.100}*8",
+          "$description": "0.8 modifier. For lighten/darken/alpha."
+        },
+        "840": {
+          "$type": "other",
+          "$value": "{core.color.modify.100}*8.4",
+          "$description": "0.84 modifier. For lighten/darken/alpha."
+        },
+        "850": {
+          "$type": "other",
+          "$value": "{core.color.modify.100}*8.5",
+          "$description": "0.85 modifier. For lighten/darken/alpha."
+        },
+        "900": {
+          "$type": "other",
+          "$value": "{core.color.modify.100}*9",
+          "$description": "0.9 modifier. For lighten/darken/alpha."
+        },
+        "920": {
+          "$type": "other",
+          "$value": "{core.color.modify.100}*9.2",
+          "$description": "0.92 modifier. For lighten/darken/alpha."
+        },
+        "950": {
+          "$type": "other",
+          "$value": "{core.color.modify.100}*9.5",
+          "$description": "0.95 modifier. For lighten/darken/alpha."
+        },
+        "960": {
+          "$type": "other",
+          "$value": "{core.color.modify.100}*9.6",
+          "$description": "0.96 modifier. For lighten/darken/alpha."
+        },
+        "1000": {
+          "$type": "other",
+          "$value": "{core.color.modify.100}*10",
+          "$description": "1.0 modifier. For lighten/darken/alpha."
+        },
+        "zero": {
+          "$type": "other",
+          "$value": "0",
+          "$description": "Zero modifier. No modification."
+        }
+      }
+    }
+  }
+}

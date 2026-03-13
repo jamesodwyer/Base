@@ -1,0 +1,513 @@
+{
+  "semantic/colorLight": {
+    "color": {
+      "interactive": {
+        "primary": {
+          "fill": {
+            "default": {
+              "$value": "{color.brand.01}",
+              "$type": "color",
+              "$description": "High-emphasis fills for buttons, icon buttons, and toggle buttons."
+            },
+            "hover": {
+              "$value": "{color.brand.01}",
+              "$type": "color",
+              "$extensions": {
+                "studio.tokens": {
+                  "modify": {
+                    "type": "darken",
+                    "value": "{core.color.modify.100}",
+                    "space": "hsl"
+                  }
+                }
+              },
+              "$description": "High-emphasis fills on hover."
+            },
+            "pressed": {
+              "$value": "{color.brand.01}",
+              "$type": "color",
+              "$extensions": {
+                "studio.tokens": {
+                  "modify": {
+                    "type": "darken",
+                    "value": "{core.color.modify.200}",
+                    "space": "hsl"
+                  }
+                }
+              },
+              "$description": "High-emphasis fills when pressed."
+            },
+            "disabled": {
+              "$value": "{color.disabled.a}",
+              "$type": "color",
+              "$description": "Solid button fill when disabled."
+            }
+          },
+          "text": {
+            "default": {
+              "$value": "{color.common.white}",
+              "$type": "color",
+              "$description": "Use for solid button text."
+            },
+            "disabled": {
+              "$value": "{color.disabled.b}",
+              "$type": "color",
+              "$description": "Solid button text when disabled."
+            }
+          },
+          "icon": {
+            "default": {
+              "$value": "{color.common.white}",
+              "$type": "color",
+              "$description": "Use for solid button icons."
+            },
+            "disabled": {
+              "$value": "{color.disabled.b}",
+              "$type": "color",
+              "$description": "Solid button icon when disabled."
+            }
+          }
+        },
+        "secondary": {
+          "fill": {
+            "default": {
+              "$value": "{color.common.white}",
+              "$type": "color",
+              "$description": "Use for outline buttons. Secondary actions."
+            },
+            "hover": {
+              "$value": "{color.brand.01}",
+              "$type": "color",
+              "$extensions": {
+                "studio.tokens": {
+                  "modify": {
+                    "type": "alpha",
+                    "value": "{core.color.modify.100}",
+                    "space": "hsl"
+                  }
+                }
+              },
+              "$description": "Outline button fill on hover."
+            }
+          },
+          "text": {
+            "default": {
+              "$value": "{color.brand.01}",
+              "$type": "color",
+              "$description": "Use for outline button text."
+            }
+          },
+          "border": {
+            "default": {
+              "$value": "{color.brand.01}",
+              "$type": "color",
+              "$description": "Use for outline button borders."
+            }
+          }
+        },
+        "ghost": {
+          "fill": {
+            "default": {
+              "$value": "{color.common.white}",
+              "$type": "color",
+              "$extensions": {
+                "studio.tokens": {
+                  "modify": {
+                    "type": "alpha",
+                    "value": "{core.color.modify.zero}",
+                    "space": "hsl"
+                  }
+                }
+              },
+              "$description": "Use for ghost buttons. Cards/banners."
+            }
+          },
+          "text": {
+            "default": {
+              "$value": "{color.brand.01}",
+              "$type": "color",
+              "$description": "Use for ghost button text."
+            }
+          }
+        },
+        "inverse": {
+          "fill": {
+            "default": {
+              "$value": "{color.common.white}",
+              "$type": "color",
+              "$extensions": {
+                "studio.tokens": {
+                  "modify": {
+                    "type": "alpha",
+                    "value": "{core.color.modify.zero}",
+                    "space": "hsl"
+                  }
+                }
+              },
+              "$description": "Inverse button fill. Transparent by default."
+            }
+          },
+          "text": {
+            "default": {
+              "$value": "{color.common.white}",
+              "$type": "color",
+              "$description": "Inverse button text. White on dark backgrounds."
+            }
+          }
+        },
+        "text": {
+          "inverse": {
+            "default": {
+              "$value": "{color.common.white}",
+              "$type": "color",
+              "$description": "Text that inverts with mode. Light on dark, dark on light."
+            },
+            "primary": {
+              "default": {
+                "$value": "{color.brand.01-inverse}",
+                "$type": "color",
+                "$description": "Inverse primary text. Brand blue on dark backgrounds."
+              }
+            }
+          }
+        }
+      },
+      "text": {
+        "primary": {
+          "$value": "{color.brand.02}",
+          "$type": "color",
+          "$description": "Use for primary text. Main content."
+        },
+        "secondary": {
+          "$value": "{color.neutrals.grey.500}",
+          "$type": "color",
+          "$description": "Commonly used for body text, small titles, and helper text."
+        },
+        "placeholder": {
+          "$value": "{color.neutrals.grey.400}",
+          "$type": "color",
+          "$description": "Use for text that explains expected input to the user."
+        },
+        "inverse": {
+          "$value": "{color.common.white}",
+          "$type": "color",
+          "$description": "Text on non-canvas, usually dark backgrounds. Always white between modes."
+        },
+        "onAccent": {
+          "$value": "{color.common.white}",
+          "$type": "color",
+          "$description": "Use for text on colored accent backgrounds."
+        }
+      },
+      "input": {
+        "fill": {
+          "default": {
+            "$value": "{color.common.white}",
+            "$type": "color",
+            "$description": "Use for input backgrounds. Text fields."
+          },
+          "hover": {
+            "$value": "{color.common.white}",
+            "$type": "color",
+            "$description": "Input background on hover."
+          }
+        },
+        "border": {
+          "default": {
+            "$value": "{color.neutrals.grey.300}",
+            "$type": "color",
+            "$description": "Use for input borders. Text fields."
+          },
+          "error": {
+            "$value": "{color.accent.red}",
+            "$type": "color",
+            "$description": "Input border for errors. Invalid state."
+          },
+          "success": {
+            "$value": "{color.accent.green}",
+            "$type": "color",
+            "$description": "Input border for valid state."
+          }
+        }
+      },
+      "feedback": {
+        "fill": {
+          "error": {
+            "$value": "{color.accent.red}",
+            "$type": "color",
+            "$extensions": {
+              "studio.tokens": {
+                "modify": {
+                  "type": "lighten",
+                  "value": "{core.color.modify.950}",
+                  "space": "hsl"
+                }
+              }
+            },
+            "$description": "Use for error backgrounds. Banners."
+          },
+          "success": {
+            "$value": "{color.accent.green}",
+            "$type": "color",
+            "$extensions": {
+              "studio.tokens": {
+                "modify": {
+                  "type": "lighten",
+                  "value": "{core.color.modify.950}",
+                  "space": "hsl"
+                }
+              }
+            },
+            "$description": "Use for success backgrounds. Banners."
+          }
+        },
+        "text": {
+          "error": {
+            "$value": "{color.accent.red}",
+            "$type": "color",
+            "$description": "Use for error text. Validation messages."
+          },
+          "success": {
+            "$value": "{color.accent.green}",
+            "$type": "color",
+            "$description": "Use for success text. Confirmations."
+          }
+        }
+      },
+      "surface": {
+        "primary": {
+          "$value": "{color.brand.01}",
+          "$type": "color",
+          "$description": "Brand surface. Use for branded container backgrounds."
+        },
+        "light": {
+          "$value": "{color.common.white}",
+          "$type": "color",
+          "$description": "Light surface. Use for card or container backgrounds."
+        },
+        "neutralLighter": {
+          "$value": "{color.neutrals.grey.100}",
+          "$type": "color",
+          "$description": "Lightest neutral surface background."
+        },
+        "neutralLight": {
+          "$value": "{color.neutrals.grey.200}",
+          "$type": "color",
+          "$description": "Light neutral surface background."
+        },
+        "neutralDark": {
+          "$value": "{color.neutrals.grey.300}",
+          "$type": "color",
+          "$description": "Dark neutral surface background."
+        },
+        "neutralDarker": {
+          "$value": "{color.neutrals.grey.400}",
+          "$type": "color",
+          "$description": "Darker neutral surface background."
+        },
+        "neutralDarkest": {
+          "$value": "{color.neutrals.grey.500}",
+          "$type": "color",
+          "$description": "Darkest neutral surface background."
+        },
+        "inverse": {
+          "$value": "{color.brand.02}",
+          "$type": "color",
+          "$description": "Inverse surface. Use for dark container backgrounds."
+        }
+      },
+      "elevation": {
+        "canvas": {
+          "$value": "{color.common.white}",
+          "$type": "color",
+          "$description": "Use for page canvas backgrounds."
+        },
+        "base": {
+          "$value": "{color.neutrals.grey.100}",
+          "$type": "color",
+          "$description": "Use for elevation base. Internal mixin."
+        },
+        "inverse": {
+          "$value": "{color.brand.02}",
+          "$type": "color",
+          "$description": "Use for inverse elevation. Dark containers."
+        }
+      },
+      "border": {
+        "primary": {
+          "$value": "{color.neutrals.grey.200}",
+          "$type": "color",
+          "$description": "Use for primary borders. Cards."
+        },
+        "secondary": {
+          "$value": "{color.neutrals.grey.300}",
+          "$type": "color",
+          "$description": "Use for secondary borders. Medium emphasis."
+        },
+        "inverse": {
+          "$value": "{color.brand.02}",
+          "$type": "color",
+          "$description": "Use for borders on dark backgrounds."
+        },
+        "onAccent": {
+          "$value": "{color.common.white}",
+          "$type": "color",
+          "$description": "Use for borders on accent backgrounds."
+        }
+      }
+    }
+  },
+  "semantic/typography": {
+    "typography": {
+      "display": {
+        "large": {
+          "$value": {
+            "fontFamily": "{core.typography.fontFamily.01}",
+            "fontWeight": "{core.typography.fontWeight.black}",
+            "fontSize": "{core.typography.fontSize.900}",
+            "lineHeight": "{core.typography.lineHeight.full}"
+          },
+          "$type": "typography",
+          "$description": "Use for hero display text. Largest heading."
+        },
+        "medium": {
+          "$value": {
+            "fontFamily": "{core.typography.fontFamily.01}",
+            "fontWeight": "{core.typography.fontWeight.black}",
+            "fontSize": "{core.typography.fontSize.800}",
+            "lineHeight": "{core.typography.lineHeight.800}"
+          },
+          "$type": "typography",
+          "$description": "Use for large display text. Feature areas."
+        }
+      },
+      "heading": {
+        "large": {
+          "$value": {
+            "fontFamily": "{core.typography.fontFamily.01}",
+            "fontWeight": "{core.typography.fontWeight.bold}",
+            "fontSize": "{core.typography.fontSize.600}",
+            "lineHeight": "{core.typography.lineHeight.600}"
+          },
+          "$type": "typography",
+          "$description": "Use for page titles. Applied to H1."
+        },
+        "medium": {
+          "$value": {
+            "fontFamily": "{core.typography.fontFamily.01}",
+            "fontWeight": "{core.typography.fontWeight.bold}",
+            "fontSize": "{core.typography.fontSize.400}",
+            "lineHeight": "{core.typography.lineHeight.400}"
+          },
+          "$type": "typography",
+          "$description": "Use for section titles. Applied to H2."
+        }
+      },
+      "body": {
+        "regular": {
+          "medium": {
+            "$value": {
+              "fontFamily": "{core.typography.fontFamily.01}",
+              "fontWeight": "{core.typography.fontWeight.regular}",
+              "fontSize": "{core.typography.fontSize.200}",
+              "lineHeight": "{core.typography.lineHeight.200}"
+            },
+            "$type": "typography",
+            "$description": "Use for standard body text. Main content."
+          }
+        },
+        "bold": {
+          "medium": {
+            "$value": {
+              "fontFamily": "{core.typography.fontFamily.01}",
+              "fontWeight": "{core.typography.fontWeight.bold}",
+              "fontSize": "{core.typography.fontSize.200}",
+              "lineHeight": "{core.typography.lineHeight.200}"
+            },
+            "$type": "typography",
+            "$description": "Use for emphasized body text. Inline emphasis."
+          }
+        }
+      },
+      "label": {
+        "medium": {
+          "$value": {
+            "fontFamily": "{core.typography.fontFamily.01}",
+            "fontWeight": "{core.typography.fontWeight.semibold}",
+            "fontSize": "{core.typography.fontSize.200}",
+            "lineHeight": "{core.typography.lineHeight.200}"
+          },
+          "$type": "typography",
+          "$description": "Use for medium size action labels."
+        }
+      },
+      "caption": {
+        "$value": {
+          "fontFamily": "{core.typography.fontFamily.01}",
+          "fontWeight": "{core.typography.fontWeight.regular}",
+          "fontSize": "{core.typography.fontSize.50}",
+          "lineHeight": "{core.typography.lineHeight.50}"
+        },
+        "$type": "typography",
+        "$description": "Use for caption text. Smallest readable size."
+      }
+    }
+  },
+  "semantic/borderRadius": {
+    "borderRadius": {
+      "interactive": {
+        "small": {
+          "$value": "{core.border.radius.small}",
+          "$type": "borderRadius",
+          "$description": "Use for small interactive corners."
+        },
+        "medium": {
+          "$value": "{core.border.radius.medium}",
+          "$type": "borderRadius",
+          "$description": "Use for medium button corners."
+        },
+        "large": {
+          "$value": "{core.border.radius.large}",
+          "$type": "borderRadius",
+          "$description": "Use for large button corners."
+        },
+        "full": {
+          "$value": "{core.border.radius.full}",
+          "$type": "borderRadius",
+          "$description": "Use for pill button corners."
+        }
+      },
+      "input": {
+        "small": {
+          "$value": "{core.border.radius.small}",
+          "$type": "borderRadius",
+          "$description": "Use for small input corners."
+        },
+        "medium": {
+          "$value": "{core.border.radius.medium}",
+          "$type": "borderRadius",
+          "$description": "Use for medium input corners."
+        }
+      },
+      "container": {
+        "none": {
+          "$value": "0",
+          "$type": "borderRadius",
+          "$description": "Use for sharp container corners."
+        },
+        "medium": {
+          "$value": "{core.border.radius.large}",
+          "$type": "borderRadius",
+          "$description": "Use for medium container corners. Cards/banners."
+        }
+      },
+      "popover": {
+        "medium": {
+          "$value": "{core.border.radius.large}",
+          "$type": "borderRadius",
+          "$description": "Use for medium popover corners."
+        }
+      }
+    }
+  }
+}

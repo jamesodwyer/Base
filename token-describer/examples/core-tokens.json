@@ -1,0 +1,306 @@
+{
+  "global/dimension": {
+    "core": {
+      "dimension": {
+        "50": {
+          "$value": "{core.dimension.100}/2",
+          "$type": "dimension",
+          "$description": "Minimal spacing. Use for tight gaps."
+        },
+        "100": {
+          "$value": "4",
+          "$type": "dimension",
+          "$description": "Base spacing unit. Foundation for scale."
+        },
+        "150": {
+          "$value": "{core.dimension.100}*1.5",
+          "$type": "dimension",
+          "$description": "1.5x base spacing."
+        },
+        "200": {
+          "$value": "{core.dimension.100}*2",
+          "$type": "dimension",
+          "$description": "Small spacing."
+        },
+        "300": {
+          "$value": "{core.dimension.100}*3",
+          "$type": "dimension",
+          "$description": "Medium spacing."
+        },
+        "500": {
+          "$value": "{core.dimension.100}*5",
+          "$type": "dimension",
+          "$description": "Large spacing."
+        },
+        "600": {
+          "$value": "{core.dimension.100}*6",
+          "$type": "dimension",
+          "$description": "Extra large spacing."
+        },
+        "1000": {
+          "$value": "{core.dimension.100}*10",
+          "$type": "dimension",
+          "$description": "3X large spacing."
+        },
+        "zero": {
+          "$value": "0",
+          "$type": "dimension",
+          "$description": "Zero spacing. Removes all space."
+        }
+      }
+    }
+  },
+  "global/typography": {
+    "core": {
+      "typography": {
+        "fontFamily": {
+          "01": {
+            "$value": "Averta",
+            "$type": "fontFamily",
+            "$description": "Primary font family (Averta)."
+          }
+        },
+        "fontWeight": {
+          "light": {
+            "$value": "300",
+            "$type": "fontWeight",
+            "$description": "Light weight (300). Use for subtle text."
+          },
+          "regular": {
+            "$value": "400",
+            "$type": "fontWeight",
+            "$description": "Regular weight (400). Default text."
+          },
+          "semibold": {
+            "$value": "600",
+            "$type": "fontWeight",
+            "$description": "Semibold weight (600). Use for emphasis."
+          },
+          "bold": {
+            "$value": "700",
+            "$type": "fontWeight",
+            "$description": "Bold weight (700). Use for emphasis."
+          },
+          "black": {
+            "$value": "900",
+            "$type": "fontWeight",
+            "$description": "Black weight (900). Use for headings."
+          }
+        },
+        "fontSize": {
+          "100": {
+            "$value": "16",
+            "$type": "fontSize",
+            "$description": "Base font size. Foundation for scale."
+          },
+          "200": {
+            "$value": "{core.typography.fontSize.100}*1.125",
+            "$type": "fontSize",
+            "$description": "Font size. Scale: 1.13x."
+          },
+          "300": {
+            "$value": "{core.typography.fontSize.100}*1.25",
+            "$type": "fontSize",
+            "$description": "Font size. Scale: 1.25x."
+          }
+        },
+        "lineHeight": {
+          "100": {
+            "$value": "24",
+            "$type": "lineHeight",
+            "$description": "Base line height. Foundation for scale."
+          },
+          "200": {
+            "$value": "{core.typography.lineHeight.100}*1.167",
+            "$type": "lineHeight",
+            "$description": "Line height. Scale: 1.17x."
+          }
+        },
+        "letterSpacing": {
+          "100": {
+            "$value": "0",
+            "$type": "letterSpacing",
+            "$description": "0% letter spacing."
+          },
+          "neg100": {
+            "$value": "-0.2",
+            "$type": "letterSpacing",
+            "$description": "Negative letter spacing. Tighter text."
+          }
+        }
+      }
+    }
+  },
+  "core/color": {
+    "color": {
+      "brand": {
+        "01": {
+          "$value": "#024ddf",
+          "$type": "color",
+          "$description": "Primary brand color. Use for main actions, links, or in any element that highlights the brand."
+        },
+        "01-inverse": {
+          "$value": "#3074fe",
+          "$type": "color",
+          "$description": "Inverse primary brand color. Lighter variant for use on dark backgrounds."
+        },
+        "02": {
+          "$value": "#121212",
+          "$type": "color",
+          "$description": "Secondary brand color. Also used as background for headings and titles in areas which represent brand's visual language."
+        },
+        "03": {
+          "$value": "#FFFFFF",
+          "$type": "color",
+          "$description": "Alternate brand color. Also used as background for pages, or text on dark backgrounds."
+        }
+      },
+      "accent": {
+        "green": {
+          "$value": "#048851",
+          "$type": "color",
+          "$description": "Green accent. Use for success states."
+        },
+        "red": {
+          "$value": "#EB0000",
+          "$type": "color",
+          "$description": "Red accent. Use for error states."
+        }
+      },
+      "neutrals": {
+        "grey": {
+          "100": {
+            "$value": "#F6F6F6",
+            "$type": "color",
+            "$description": "Lightest neutral grey."
+          },
+          "500": {
+            "$value": "#949494",
+            "$type": "color",
+            "$description": "Mid-tone neutral grey."
+          }
+        }
+      },
+      "common": {
+        "white": {
+          "$value": "#ffffff",
+          "$type": "color",
+          "$description": "Pure white."
+        },
+        "black": {
+          "$value": "#000000",
+          "$type": "color",
+          "$description": "Pure black."
+        }
+      }
+    }
+  },
+  "global/modify": {
+    "core": {
+      "color": {
+        "modify": {
+          "100": {
+            "$value": "0.1",
+            "$type": "other",
+            "$description": "0.1 modifier. For lighten/darken/alpha."
+          },
+          "300": {
+            "$value": "0.3",
+            "$type": "other",
+            "$description": "0.3 modifier. For lighten/darken/alpha."
+          },
+          "500": {
+            "$value": "0.5",
+            "$type": "other",
+            "$description": "0.5 modifier. For lighten/darken/alpha."
+          },
+          "700": {
+            "$value": "0.7",
+            "$type": "other",
+            "$description": "0.7 modifier. For lighten/darken/alpha."
+          },
+          "1000": {
+            "$value": "1.0",
+            "$type": "other",
+            "$description": "1.0 modifier. For lighten/darken/alpha."
+          },
+          "zero": {
+            "$value": "0",
+            "$type": "other",
+            "$description": "Zero modifier. No modification."
+          }
+        }
+      }
+    }
+  },
+  "global/border": {
+    "core": {
+      "border": {
+        "radius": {
+          "xSmall": {
+            "$value": "2",
+            "$type": "borderRadius",
+            "$description": "Extra small corner radius."
+          },
+          "small": {
+            "$value": "4",
+            "$type": "borderRadius",
+            "$description": "Small corner radius."
+          },
+          "medium": {
+            "$value": "8",
+            "$type": "borderRadius",
+            "$description": "Medium corner radius."
+          },
+          "large": {
+            "$value": "12",
+            "$type": "borderRadius",
+            "$description": "Large corner radius."
+          },
+          "xLarge": {
+            "$value": "16",
+            "$type": "borderRadius",
+            "$description": "Extra large corner radius."
+          },
+          "xxLarge": {
+            "$value": "20",
+            "$type": "borderRadius",
+            "$description": "2X large corner radius."
+          },
+          "full": {
+            "$value": "999",
+            "$type": "borderRadius",
+            "$description": "Full corner radius. Pill shape."
+          }
+        },
+        "width": {
+          "xSmall": {
+            "$value": "1",
+            "$type": "borderWidth",
+            "$description": "Extra small border width."
+          },
+          "small": {
+            "$value": "2",
+            "$type": "borderWidth",
+            "$description": "Small border width."
+          },
+          "medium": {
+            "$value": "3",
+            "$type": "borderWidth",
+            "$description": "Medium border width."
+          },
+          "large": {
+            "$value": "4",
+            "$type": "borderWidth",
+            "$description": "Large border width."
+          },
+          "xLarge": {
+            "$value": "8",
+            "$type": "borderWidth",
+            "$description": "Extra large border width."
+          }
+        }
+      }
+    }
+  }
+}
