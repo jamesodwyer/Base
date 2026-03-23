@@ -4,7 +4,7 @@
   "description": "Design token management, transformation, and migration pipeline using Token Studio and Style Dictionary",
   "private": true,
   "scripts": {
-    "build": "style-dictionary build --config style-dictionary.config.json",
+    "build": "node build.js",
     "build:css": "style-dictionary build --config style-dictionary.config.json --platform css",
     "build:scss": "style-dictionary build --config style-dictionary.config.json --platform scss",
     "build:js": "style-dictionary build --config style-dictionary.config.json --platform js",

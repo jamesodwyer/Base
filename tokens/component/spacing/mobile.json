@@ -1,4 +1,40 @@
 {
+  "badge": {
+    "spacing": {
+      "blockPadding": {
+        "$type": "spacing",
+        "$value": "{core.dimension.100}",
+        "$description": "Vertical padding for badge."
+      },
+      "inlinePadding": {
+        "$type": "spacing",
+        "$value": "{core.dimension.200}",
+        "$description": "Horizontal padding for badge."
+      },
+      "inBetween": {
+        "$type": "spacing",
+        "$value": "{core.dimension.100}",
+        "$description": "Gap between icon and label in badge."
+      },
+      "minHeight": {
+        "$type": "dimension",
+        "$value": "{core.dimension.550}",
+        "$description": "Minimum height for badge."
+      }
+    },
+    "size": {
+      "icon": {
+        "$type": "dimension",
+        "$value": "{core.dimension.300}",
+        "$description": "Icon size within badge."
+      }
+    },
+    "borderRadius": {
+      "$type": "borderRadius",
+      "$value": "{core.border.radius.small}",
+      "$description": "Corner radius for badge."
+    }
+  },
   "icon": {
     "size": {
       "small": {
