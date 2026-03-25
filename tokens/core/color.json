@@ -3,7 +3,7 @@
     "brand": {
       "01": {
         "$type": "color",
-        "$value": "#024ddf",
+        "$value": "#024dff",
         "$description": "Primary brand color. Main actions and links."
       },
       "01-inverse": {
@@ -115,6 +115,98 @@
         "$type": "color",
         "$value": "#2a55d9",
         "$description": "ISM blue. Classification color."
+      }
+    }
+  },
+  "brand": {
+    "shadow": {
+      "shadow": {
+        "100": {
+          "$type": "boxShadow",
+          "$value": [
+            {
+              "x": "0",
+              "y": "1",
+              "blur": "4",
+              "spread": "0",
+              "color": "rgba(18,18,18,0.15)",
+              "type": "dropShadow"
+            }
+          ],
+          "$description": "Small brand shadow. Subtle depth."
+        },
+        "200": {
+          "$type": "boxShadow",
+          "$value": [
+            {
+              "x": "0",
+              "y": "2",
+              "blur": "8",
+              "spread": "0",
+              "color": "rgba(18,18,18,0.15)",
+              "type": "dropShadow"
+            }
+          ],
+          "$description": "Medium brand shadow. Cards."
+        },
+        "300": {
+          "$type": "boxShadow",
+          "$value": [
+            {
+              "x": "0",
+              "y": "3",
+              "blur": "12",
+              "spread": "0",
+              "color": "rgba(18,18,18,0.18)",
+              "type": "dropShadow"
+            }
+          ],
+          "$description": "Large brand shadow. Modals."
+        },
+        "400": {
+          "$type": "boxShadow",
+          "$value": [
+            {
+              "x": "0",
+              "y": "8",
+              "blur": "20",
+              "spread": "0",
+              "color": "rgba(0,0,0,0.35)",
+              "type": "dropShadow"
+            }
+          ],
+          "$description": "Extra large brand shadow. Popovers."
+        },
+        "zero": {
+          "$type": "boxShadow",
+          "$value": [
+            {
+              "x": "0",
+              "y": "0",
+              "blur": "0",
+              "spread": "0",
+              "color": "rgba(0,0,0,0)",
+              "type": "dropShadow"
+            }
+          ],
+          "$description": "No shadow. Zero elevation."
+        }
+      }
+    },
+    "typography": {
+      "fontVariant": {
+        "numeric": {
+          "$type": "other",
+          "$value": "tabular-nums",
+          "$description": "Numeric font variant. Tabular figures."
+        }
+      },
+      "textDecoration": {
+        "underline": {
+          "$type": "other",
+          "$value": "underline",
+          "$description": "Underline text decoration."
+        }
       }
     }
   }

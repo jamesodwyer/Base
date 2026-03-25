@@ -1,10 +1,10 @@
 {
   "tokenSetOrder": [
-    "core/dimension",
-    "core/typography",
-    "core/modify",
-    "core/border",
-    "brand/color",
+    "global/dimension",
+    "global/typography",
+    "global/modify",
+    "global/border",
+    "core/color",
     "semantic/colorLight",
     "semantic/typography",
     "semantic/borderRadius",

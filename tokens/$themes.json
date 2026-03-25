@@ -3,7 +3,7 @@
     "id": "core-dimension",
     "name": "Core - Dimension",
     "selectedTokenSets": {
-      "core/dimension": "enabled"
+      "global/dimension": "enabled"
     },
     "$figmaStyleReferences": {},
     "$figmaVariableReferences": {},
@@ -14,7 +14,7 @@
     "id": "core-typography",
     "name": "Core - Typography",
     "selectedTokenSets": {
-      "core/typography": "enabled"
+      "global/typography": "enabled"
     },
     "$figmaStyleReferences": {},
     "$figmaVariableReferences": {},
@@ -25,7 +25,7 @@
     "id": "core-colour",
     "name": "Core - Colour",
     "selectedTokenSets": {
-      "core/modify": "enabled"
+      "global/modify": "enabled"
     },
     "$figmaStyleReferences": {},
     "$figmaVariableReferences": {},
@@ -36,7 +36,7 @@
     "id": "core-border",
     "name": "Core - Border",
     "selectedTokenSets": {
-      "core/border": "enabled"
+      "global/border": "enabled"
     },
     "$figmaStyleReferences": {},
     "$figmaVariableReferences": {},
@@ -47,7 +47,7 @@
     "id": "gdsm-color",
     "name": "GDS-M - Color",
     "selectedTokenSets": {
-      "brand/color": "enabled"
+      "core/color": "enabled"
     },
     "$figmaStyleReferences": {},
     "$figmaVariableReferences": {},
@@ -79,16 +79,16 @@
     "name": "Light",
     "group": "GDS-M - Theme",
     "selectedTokenSets": {
-      "core/dimension": "enabled",
-      "core/typography": "enabled",
-      "core/modify": "enabled",
-      "core/border": "enabled",
-      "brand/color": "enabled",
       "semantic/colorLight": "enabled",
       "semantic/typography": "enabled",
       "semantic/borderRadius": "enabled",
       "semantic/border": "enabled",
-      "component/spacing/desktop": "enabled"
+      "component/spacing/desktop": "enabled",
+      "global/dimension": "enabled",
+      "global/typography": "enabled",
+      "global/modify": "enabled",
+      "global/border": "enabled",
+      "core/color": "enabled"
     },
     "$figmaStyleReferences": {},
     "$figmaVariableReferences": {},
