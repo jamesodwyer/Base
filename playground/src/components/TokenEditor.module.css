@@ -1,0 +1,70 @@
+.overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+
+.editor {
+  background: #16182a;
+  border: 1px solid #2a2a4e;
+  border-radius: 8px;
+  padding: 16px;
+  width: 400px;
+  max-width: 90vw;
+}
+
+.title { font-size: 12px; color: #e0e0e0; font-weight: bold; margin-bottom: 4px; }
+.description { font-size: 10px; color: #546e7a; margin-bottom: 12px; }
+.label { font-size: 10px; color: #888; margin-bottom: 4px; }
+
+.input {
+  width: 100%;
+  background: #1a1a3e;
+  border: 1px solid #2a2a4e;
+  color: #ccc;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-family: monospace;
+  outline: none;
+  margin-bottom: 8px;
+}
+
+.input:focus { border-color: #4a4a6e; }
+.suggestions { max-height: 150px; overflow-y: auto; margin-bottom: 8px; }
+
+.suggestion {
+  padding: 4px 8px;
+  font-size: 10px;
+  color: #ccc;
+  cursor: pointer;
+  border-radius: 3px;
+  font-family: monospace;
+}
+
+.suggestion:hover { background: #2a2a4e; }
+.buttons { display: flex; gap: 8px; justify-content: flex-end; }
+
+.saveButton {
+  background: #024ddf; color: white; border: none;
+  padding: 6px 16px; border-radius: 4px; font-size: 11px; cursor: pointer;
+}
+
+.saveButton:hover { background: #0141b8; }
+
+.cancelButton {
+  background: transparent; color: #888; border: 1px solid #2a2a4e;
+  padding: 6px 16px; border-radius: 4px; font-size: 11px; cursor: pointer;
+}
+
+.cancelButton:hover { color: #ccc; border-color: #4a4a6e; }
+.colorPreview { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+
+.colorInput {
+  width: 40px; height: 30px; border: none;
+  border-radius: 4px; cursor: pointer; background: transparent;
+}
