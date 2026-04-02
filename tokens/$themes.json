@@ -84,6 +84,7 @@
       "semantic/borderRadius": "enabled",
       "semantic/border": "enabled",
       "component/spacing/desktop": "enabled",
+      "component/stepper": "enabled",
       "global/dimension": "enabled",
       "global/typography": "enabled",
       "global/modify": "enabled",

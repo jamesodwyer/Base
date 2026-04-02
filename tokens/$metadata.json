@@ -11,6 +11,7 @@
     "semantic/border",
     "semantic/icon",
     "component/spacing/desktop",
-    "component/spacing/mobile"
+    "component/spacing/mobile",
+    "component/stepper"
   ]
 }
