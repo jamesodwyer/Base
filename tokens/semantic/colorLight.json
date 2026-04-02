@@ -1161,6 +1161,39 @@
           "$type": "color",
           "$value": "{color.interactive.primary.fill.default}",
           "$description": "Use for active state border."
+        },
+        "hover": {
+          "$extensions": {
+            "studio.tokens": {
+              "modify": {
+                "type": "darken",
+                "value": "{core.color.modify.100}",
+                "space": "hsl"
+              }
+            }
+          },
+          "$type": "color",
+          "$value": "{color.active.border.default}",
+          "$description": "Active state border on hover."
+        },
+        "pressed": {
+          "$extensions": {
+            "studio.tokens": {
+              "modify": {
+                "type": "darken",
+                "value": "{core.color.modify.150}",
+                "space": "hsl"
+              }
+            }
+          },
+          "$type": "color",
+          "$value": "{color.active.border.default}",
+          "$description": "Active state border when pressed."
+        },
+        "disabled": {
+          "$type": "color",
+          "$value": "{color.disabled.a}",
+          "$description": "Active state border when disabled."
         }
       },
       "text": {
