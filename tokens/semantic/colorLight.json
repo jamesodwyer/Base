@@ -1381,6 +1381,46 @@
             "$value": "{color.selected.primary.text.default}",
             "$description": "Primary selected text when pressed."
           }
+        },
+        "border": {
+          "default": {
+            "$type": "color",
+            "$value": "{color.interactive.primary.fill.default}",
+            "$description": "Use for primary selected border."
+          },
+          "hover": {
+            "$extensions": {
+              "studio.tokens": {
+                "modify": {
+                  "type": "darken",
+                  "value": "{core.color.modify.100}",
+                  "space": "hsl"
+                }
+              }
+            },
+            "$type": "color",
+            "$value": "{color.selected.primary.border.default}",
+            "$description": "Primary selected border on hover."
+          },
+          "pressed": {
+            "$extensions": {
+              "studio.tokens": {
+                "modify": {
+                  "type": "darken",
+                  "value": "{core.color.modify.150}",
+                  "space": "hsl"
+                }
+              }
+            },
+            "$type": "color",
+            "$value": "{color.selected.primary.border.default}",
+            "$description": "Primary selected border when pressed."
+          },
+          "error": {
+            "$type": "color",
+            "$value": "{color.accent.red}",
+            "$description": "Primary selected border error."
+          }
         }
       },
       "secondary": {
@@ -1496,6 +1536,55 @@
             "$type": "color",
             "$value": "{color.selected.secondary.text.default}",
             "$description": "Secondary selected text when pressed."
+          }
+        },
+        "border": {
+          "default": {
+            "$extensions": {
+              "studio.tokens": {
+                "modify": {
+                  "type": "alpha",
+                  "value": "{core.color.modify.100}",
+                  "space": "hsl"
+                }
+              }
+            },
+            "$type": "color",
+            "$value": "{color.selected.primary.border.default}",
+            "$description": "Use for secondary selected border."
+          },
+          "hover": {
+            "$extensions": {
+              "studio.tokens": {
+                "modify": {
+                  "type": "alpha",
+                  "value": "{core.color.modify.150}",
+                  "space": "hsl"
+                }
+              }
+            },
+            "$type": "color",
+            "$value": "{color.selected.primary.border.default}",
+            "$description": "Secondary selected border on hover."
+          },
+          "pressed": {
+            "$extensions": {
+              "studio.tokens": {
+                "modify": {
+                  "type": "alpha",
+                  "value": "{core.color.modify.200}",
+                  "space": "hsl"
+                }
+              }
+            },
+            "$type": "color",
+            "$value": "{color.selected.primary.border.default}",
+            "$description": "Secondary selected border when pressed."
+          },
+          "error": {
+            "$type": "color",
+            "$value": "{color.accent.red}",
+            "$description": "Secondary selected border error."
           }
         }
       },
