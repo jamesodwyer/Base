@@ -1747,7 +1747,7 @@
           },
           "disabled": {
             "$type": "color",
-            "$value": "{color.border.secondary}",
+            "$value": "{color.disabled.a}",
             "$description": "Selection control border when disabled."
           }
         },
