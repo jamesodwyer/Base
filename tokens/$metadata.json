@@ -12,6 +12,7 @@
     "semantic/icon",
     "component/spacing/desktop",
     "component/spacing/mobile",
-    "component/stepper"
+    "component/stepper",
+    "component/selectionControl"
   ]
 }

@@ -107,6 +107,30 @@
           "$description": "Selection control error icon."
         }
       }
+    },
+    "borderWidth": {
+      "default": {
+        "$type": "borderWidth",
+        "$value": "{border.interactive.xSmall}",
+        "$description": "Selection control default border width."
+      },
+      "active": {
+        "$type": "borderWidth",
+        "$value": "{border.interactive.small}",
+        "$description": "Selection control border width on hover, focus, pressed, and error."
+      }
+    },
+    "borderRadius": {
+      "control": {
+        "$type": "borderRadius",
+        "$value": "{core.border.radius.xSmall}",
+        "$description": "Selection control corner radius."
+      },
+      "focusRing": {
+        "$type": "borderRadius",
+        "$value": "{core.border.radius.small}",
+        "$description": "Selection control focus ring corner radius."
+      }
     }
   }
 }
