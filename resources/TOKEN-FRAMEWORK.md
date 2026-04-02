@@ -361,7 +361,7 @@ Each tier uses a structured set of columns that concatenate to form the final to
 | Component | Target component | `button`, `inputBox`, `accordion`, `tableCell` |
 | Type | Token category | `.spacing`, `.size`, `.color` |
 | Scale | Size variant | `.s`, `.m`, `.l` |
-| Role | Target property | `.blockPadding`, `.inlinePadding`, `.inBetween`, `.minHeight`, `.fill` |
+| Role | Target property | `.blockPadding`, `.inlinePadding`, `.gap`, `.minHeight`, `.fill` |
 | State | Interaction state | `.default`, `.hover`, `.pressed` |
 | Token | Resulting token path | `button.spacing.s.blockPadding`, `columnHeader.color.fill.default` |
 
@@ -507,7 +507,7 @@ These are the valid values for each segment of a semantic token name.
 | `.border` | Border/stroke |
 | `.inlinePadding` | Inline (left/right / start/end) padding |
 | `.blockPadding` | Block (top/bottom) padding |
-| `.inBetween` | Gap between elements |
+| `.gap` | Gap between elements |
 | `.minHeight` | Minimum height constraint |
 | `.maxWidth` | Maximum width constraint |
 | `.height` | Fixed height |
@@ -545,7 +545,7 @@ These are the valid values for each segment of a semantic token name.
 `.xxSmall`, `.xSmall`, `.small`, `.medium`, `.large`, `.xLarge`, `.xxLarge`
 
 ### Role
-`.fill`, `.text`, `.icon`, `.border`, `.inlinePadding`, `.blockPadding`, `.inBetween`, `.minHeight`, `.maxWidth`, `.height`
+`.fill`, `.text`, `.icon`, `.border`, `.inlinePadding`, `.blockPadding`, `.gap`, `.minHeight`, `.maxWidth`, `.height`
 
 ### State
 `.default`, `.hover`, `.pressed`, `.error`, `.success`, `.info`, `.warning`, `.focus`, `.active`, `.selected`
@@ -676,7 +676,7 @@ Most components follow this pattern per size variant:
 ```
 {component}.spacing.{xxSmall..xxLarge}.blockPadding
 {component}.spacing.{xxSmall..xxLarge}.inlinePadding
-{component}.spacing.{xxSmall..xxLarge}.inBetween
+{component}.spacing.{xxSmall..xxLarge}.gap
 {component}.spacing.{xxSmall..xxLarge}.minHeight
 ```
 
@@ -695,7 +695,7 @@ Some components omit the scale segment:
 ```
 {component}.spacing.blockPadding
 {component}.spacing.inlinePadding
-{component}.spacing.inBetween
+{component}.spacing.gap
 ```
 
 Examples: `tooltip`, `accordion`, `segmentedControl`, `objectList`
@@ -744,7 +744,7 @@ Examples: `tooltip`, `accordion`, `segmentedControl`, `objectList`
 
 7. **State is optional**: Only include state when the token varies by interaction (e.g., hover, pressed). Static tokens omit state.
 
-8. **camelCase for role properties**: Padding/spacing roles use camelCase (`inlinePadding`, `blockPadding`, `inBetween`, `minHeight`).
+8. **camelCase for role properties**: Padding/spacing roles use camelCase (`inlinePadding`, `blockPadding`, `gap`, `minHeight`).
 
 9. **camelCase for everything**: All token name segments use camelCase. No hyphens in token names (`inputBox`, `borderRadius`, `onAccent`, `iconButton`, `columnHeader`).
 

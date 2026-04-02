@@ -26,12 +26,12 @@
     },
     "layout": {
       "spacing": {
-        "inBetweenCards": {
+        "cardGap": {
           "$value": "{core.dimension.300}",
           "$type": "dimension",
           "$description": "Gap between card elements."
         },
-        "inBetweenInteractive": {
+        "interactiveGap": {
           "$value": "{core.dimension.200}",
           "$type": "dimension",
           "$description": "Gap between interactive elements."
@@ -110,46 +110,46 @@
         "small": {
           "$value": "{core.dimension.350}",
           "$type": "dimension",
-          "$description": "Small icon size (mobile)."
+          "$description": "Small icon size."
         },
         "medium": {
           "$value": "{core.dimension.400}",
           "$type": "dimension",
-          "$description": "Medium icon size (mobile)."
+          "$description": "Medium icon size."
         },
         "large": {
           "$value": "{core.dimension.500}",
           "$type": "dimension",
-          "$description": "Large icon size (mobile)."
+          "$description": "Large icon size."
         },
         "xLarge": {
           "$value": "{core.dimension.600}",
           "$type": "dimension",
-          "$description": "XL icon size (mobile)."
+          "$description": "XL icon size."
         }
       }
     },
     "layout": {
       "spacing": {
-        "inBetweenCards": {
+        "cardGap": {
           "$value": "{core.dimension.200}",
           "$type": "dimension",
-          "$description": "Gap between card elements (mobile)."
+          "$description": "Gap between card elements."
         },
-        "inBetweenInteractive": {
+        "interactiveGap": {
           "$value": "{core.dimension.200}",
           "$type": "dimension",
-          "$description": "Gap between interactive elements (mobile)."
+          "$description": "Gap between interactive elements."
         },
         "contentToButton": {
           "$value": "{core.dimension.300}",
           "$type": "dimension",
-          "$description": "Gap from content to button (mobile)."
+          "$description": "Gap from content to button elements."
         },
         "formGap": {
           "$value": "{core.dimension.200}",
           "$type": "dimension",
-          "$description": "Gap between form field elements (mobile)."
+          "$description": "Gap between form field elements."
         }
       }
     }

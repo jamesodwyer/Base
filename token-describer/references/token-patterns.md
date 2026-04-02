@@ -98,7 +98,7 @@ Tier 1: Core (global/) - Foundation primitives
 
 **Categories**:
 - `icon.size.*` - Icon dimensions (small, medium, large, xLarge)
-- `layout.spacing.*` - Layout gaps (inBetweenCards, inBetweenInteractive, contentToButton, formGap)
+- `layout.spacing.*` - Layout gaps (cardGap, interactiveGap, contentToButton, formGap)
 - `button.spacing.*` - Button padding and gaps per size (blockPadding, inlinePadding, gap)
 
 **Separate sets for desktop and mobile** (`component/spacing/desktop`, `component/spacing/mobile`)
@@ -185,7 +185,7 @@ icon.size.{size}
   size: small, medium, large, xLarge
 
 layout.spacing.{name}
-  name: inBetweenCards, inBetweenInteractive, contentToButton, formGap
+  name: cardGap, interactiveGap, contentToButton, formGap
 ```
 
 ---

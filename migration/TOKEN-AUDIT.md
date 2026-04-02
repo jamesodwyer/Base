@@ -88,7 +88,7 @@ The tokens follow a **3-tier hierarchy**: Core → Semantic (Brand) → Componen
 
 ### 10. `component / spacing / desktop` (14 tokens)
 - **Icon size**: small (12), medium (16), large (24), xlarge (32)
-- **Layout spacing**: inBetweenCards (24), inBetweenInteractive (16), contentToButton (24), formGap (24)
+- **Layout spacing**: cardGap (24), interactiveGap (16), contentToButton (24), formGap (24)
 - **Button spacing**: large/medium/small — verticalPadding + horizontalPadding
 
 ### 11. `component / spacing / mobile` (8 tokens)
@@ -123,7 +123,7 @@ Each theme maps to a **Figma Variable Collection** and **Mode**, with `$figmaVar
 
 | # | Issue | Location | Impact |
 |---|-------|----------|--------|
-| 3 | **Inconsistent naming convention between desktop and mobile** | Desktop uses camelCase (`inBetweenCards`, `formGap`), mobile uses kebab-case (`in-between-cards`, `form`) | Tokens are not interchangeable between breakpoints. Cannot use theme switching for responsive tokens. |
+| 3 | **Inconsistent naming convention between desktop and mobile** | Desktop uses camelCase (`cardGap`, `formGap`), mobile uses kebab-case (`in-between-cards`, `form`) | Tokens are not interchangeable between breakpoints. Cannot use theme switching for responsive tokens. |
 | 4 | **Mobile tokens append `px` to reference values** | `component / spacing / mobile.json` — e.g. `"{core.dimension.600}px"` | Double unit in output (e.g. `24pxpx`). Style Dictionary will not resolve the reference correctly. |
 | 5 | **Mobile missing button spacing tokens** | `component / spacing / mobile.json` has no `button.spacing` section | Incomplete responsive token coverage. Desktop buttons will have explicit padding, mobile will fall back to defaults or break. |
 | 6 | **`display.medium` references dimension instead of font-size** | `semantic/typography.json` line 19 — `fontSize: "{core.dimension.1400}"` | Crosses concern boundaries. Should reference `{core.typography.font-size.*}` for consistency and correctness. The value resolves the same (56px) but the semantic intent is wrong. |

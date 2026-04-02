@@ -11,7 +11,7 @@
         "$value": "{core.dimension.200}",
         "$description": "Horizontal padding for badge."
       },
-      "inBetween": {
+      "gap": {
         "$type": "spacing",
         "$value": "{core.dimension.100}",
         "$description": "Gap between icon and label in badge."
@@ -61,12 +61,12 @@
   },
   "layout": {
     "spacing": {
-      "inBetweenCards": {
+      "cardGap": {
         "$type": "dimension",
         "$value": "{core.dimension.600}",
         "$description": "Spacing between card elements i.e. carousels, event cards"
       },
-      "inBetweenInteractive": {
+      "interactiveGap": {
         "$type": "dimension",
         "$value": "{core.dimension.600}",
         "$description": "Gap between interactive elements."

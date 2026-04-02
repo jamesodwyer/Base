@@ -83,7 +83,7 @@
 |----------|----------|-------------|
 | Horizontal padding | `button.spacing.large.horizontalPadding` | Auditorium 16px |
 | Vertical padding | `button.spacing.large.verticalPadding` | 10px |
-| Icon gap | `layout.spacing.inBetweenInteractive` | Club 8px |
+| Icon gap | `layout.spacing.interactiveGap` | Club 8px |
 
 ### Border Tokens
 

@@ -534,8 +534,8 @@ COMPONENT_PADDING = {
 ```python
 COMPONENT_GAP = {
     "button.spacing.{size}.gap": "Gap between icon and text. {Size} buttons.",
-    "layout.spacing.inBetweenCards": "Gap between card elements.",
-    "layout.spacing.inBetweenInteractive": "Gap between interactive elements.",
+    "layout.spacing.cardGap": "Gap between card elements.",
+    "layout.spacing.interactiveGap": "Gap between interactive elements.",
     "layout.spacing.contentToButton": "Gap from content to button elements.",
     "layout.spacing.formGap": "Gap between form field elements."
 }
@@ -655,7 +655,7 @@ def select_pattern(token_path):
         if 'spacing' in parts:
             if 'Padding' in parts[-1]:
                 return COMPONENT_PADDING
-            elif 'gap' in parts or parts[-1] in ('inBetweenCards', 'inBetweenInteractive', 'contentToButton', 'formGap'):
+            elif 'gap' in parts or parts[-1] in ('cardGap', 'interactiveGap', 'contentToButton', 'formGap'):
                 return COMPONENT_GAP
             else:
                 return COMPONENT_SIZE
