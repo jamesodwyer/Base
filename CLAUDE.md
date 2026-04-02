@@ -48,8 +48,9 @@ The tokens in `tokens/` are the **current Token Studio tokens** (not yet migrate
 | Semantic | `semantic/typography` | 17 | Composite typography: display, heading, title, label, body, caption |
 | Semantic | `semantic/border-radius` | 16 | Interactive, input, container, popover radius tokens |
 | Semantic | `semantic/border` | 2 | Interactive border widths |
-| Component | `component / spacing / desktop` | 14 | Icon sizes, layout spacing, button padding (desktop) |
-| Component | `component / spacing / mobile` | 8 | Icon sizes, layout spacing (mobile, no button tokens) |
+| Semantic | `semantic/icon` | 4 | Shared icon sizes (small–xLarge) |
+| Component | `component/spacing/desktop` | Spacing-only | Layout spacing, badge/selectionControl/button spacing (desktop) |
+| Component | `component/spacing/mobile` | Spacing-only | Layout spacing, badge spacing (mobile, no button tokens) |
 
 ### Known Issues (see `migration/TOKEN-AUDIT.md` for full details)
 
@@ -76,3 +77,5 @@ The tokens in `tokens/` are the **current Token Studio tokens** (not yet migrate
 - All generated files go to `build/` and should never be manually edited.
 - Migration decisions and mappings are documented in `migration/`.
 - Color transforms use Token Studio's `$extensions.studio.tokens.modify` (darken, lighten, alpha, mix in HSL/LCH).
+- **Component spacing files (`component/spacing/`) must only contain spacing tokens** (padding, gap, minHeight, layout dimension gaps). Non-spacing tokens (color, borderRadius, borderWidth, size) are handled by the semantic layer or dedicated component files — never in the spacing sets.
+- **Use `gap` not `inBetween`** for spacing between elements. This applies everywhere: component tokens, framework docs, and tooling.

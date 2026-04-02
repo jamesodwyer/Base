@@ -753,3 +753,5 @@ Examples: `tooltip`, `accordion`, `segmentedControl`, `objectList`
 11. **Shadows live in Brand tier**: Shadow values are defined at `brand.shadow.shadow.{scale}`, not at the semantic level.
 
 12. **Elevation surfaces live in Semantic tier**: Surface colors for elevation levels are semantic tokens (`color.elevation.level1`), while shadow values come from brand.
+
+13. **Component spacing files contain only spacing tokens**: The `component/spacing/` files (desktop.json, mobile.json) must only contain spacing-related tokens (`spacing`, `gap`, `padding`, `minHeight`, dimension tokens used for layout gaps). Non-spacing tokens (color, borderRadius, borderWidth, size) belong in the semantic layer or dedicated component token files, not in the spacing sets.

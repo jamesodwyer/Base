@@ -21,18 +21,6 @@
         "$value": "{core.dimension.550}",
         "$description": "Minimum height for badge."
       }
-    },
-    "size": {
-      "icon": {
-        "$type": "dimension",
-        "$value": "{core.dimension.300}",
-        "$description": "Icon size within badge."
-      }
-    },
-    "borderRadius": {
-      "$type": "borderRadius",
-      "$value": "{core.border.radius.small}",
-      "$description": "Corner radius for badge."
     }
   },
   "layout": {
