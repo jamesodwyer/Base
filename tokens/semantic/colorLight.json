@@ -1747,7 +1747,7 @@
           },
           "disabled": {
             "$type": "color",
-            "$value": "{color.disabled.a}",
+            "$value": "{color.disabled.b}",
             "$description": "Selection control border when disabled."
           }
         },
@@ -1769,7 +1769,7 @@
           },
           "disabled": {
             "$type": "color",
-            "$value": "{color.disabled.a}",
+            "$value": "{color.disabled.c}",
             "$description": "Selected control fill when disabled."
           }
         }
