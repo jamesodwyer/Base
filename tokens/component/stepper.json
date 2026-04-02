@@ -15,9 +15,43 @@
       },
       "counter": {
         "fill": {
-          "$type": "color",
-          "$value": "{color.surface.neutral01}",
-          "$description": "Counter display background."
+          "default": {
+            "$type": "color",
+            "$value": "{color.surface.neutral01}",
+            "$description": "Counter display background."
+          },
+          "disabled": {
+            "$type": "color",
+            "$value": "{color.disabled.a}",
+            "$description": "Counter display background when disabled."
+          }
+        },
+        "border": {
+          "default": {
+            "$type": "color",
+            "$value": "{color.input.border.default}",
+            "$description": "Counter display border."
+          },
+          "hover": {
+            "$type": "color",
+            "$value": "{color.input.border.hover}",
+            "$description": "Counter display border on hover."
+          },
+          "pressed": {
+            "$type": "color",
+            "$value": "{color.input.border.active}",
+            "$description": "Counter display border when pressed."
+          },
+          "focus": {
+            "$type": "color",
+            "$value": "{color.focus.border}",
+            "$description": "Counter display border on focus."
+          },
+          "disabled": {
+            "$type": "color",
+            "$value": "{color.disabled.c}",
+            "$description": "Counter display border when disabled."
+          }
         },
         "text": {
           "default": {
@@ -52,7 +86,7 @@
             },
             "disabled": {
               "$type": "color",
-              "$value": "{color.interactive.primary.fill.disabled}",
+              "$value": "{color.disabled.a}",
               "$description": "Primary stepper button fill when disabled."
             }
           },
@@ -67,19 +101,55 @@
               "$value": "{color.disabled.b}",
               "$description": "Icon on primary stepper button when disabled."
             }
+          },
+          "border": {
+            "focus": {
+              "$type": "color",
+              "$value": "{color.focus.border}",
+              "$description": "Primary stepper button focus ring."
+            }
           }
         },
         "secondary": {
+          "fill": {
+            "default": {
+              "$type": "color",
+              "$value": "{color.brand.02}",
+              "$description": "Secondary stepper button fill."
+            },
+            "hover": {
+              "$type": "color",
+              "$value": "{color.brand.02}",
+              "$description": "Secondary stepper button fill on hover."
+            },
+            "pressed": {
+              "$type": "color",
+              "$value": "{color.brand.02}",
+              "$description": "Secondary stepper button fill when pressed."
+            },
+            "disabled": {
+              "$type": "color",
+              "$value": "{color.disabled.a}",
+              "$description": "Secondary stepper button fill when disabled."
+            }
+          },
           "icon": {
             "default": {
               "$type": "color",
-              "$value": "{color.interactive.primary.fill.default}",
+              "$value": "{color.interactive.primary.text.default}",
               "$description": "Icon on secondary stepper button."
             },
             "disabled": {
               "$type": "color",
               "$value": "{color.disabled.b}",
               "$description": "Icon on secondary stepper button when disabled."
+            }
+          },
+          "border": {
+            "focus": {
+              "$type": "color",
+              "$value": "{color.focus.border}",
+              "$description": "Secondary stepper button focus ring."
             }
           }
         }
