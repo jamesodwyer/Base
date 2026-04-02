@@ -1697,6 +1697,114 @@
         }
       }
     },
+    "select": {
+      "control": {
+        "fill": {
+          "default": {
+            "$type": "color",
+            "$value": "{color.elevation.base}",
+            "$description": "Selection control background."
+          },
+          "disabled": {
+            "$type": "color",
+            "$value": "{color.disabled.a}",
+            "$description": "Selection control background when disabled."
+          }
+        },
+        "border": {
+          "default": {
+            "$type": "color",
+            "$value": "{color.border.primary}",
+            "$description": "Selection control border."
+          },
+          "hover": {
+            "$type": "color",
+            "$value": "{color.active.border.default}",
+            "$description": "Selection control border on hover."
+          },
+          "pressed": {
+            "$type": "color",
+            "$value": "{color.active.border.pressed}",
+            "$description": "Selection control border when pressed."
+          },
+          "error": {
+            "$type": "color",
+            "$value": "{color.feedback.border.error}",
+            "$description": "Selection control border for error state."
+          },
+          "focus": {
+            "$type": "color",
+            "$value": "{color.focus.border}",
+            "$description": "Selection control focus ring."
+          },
+          "disabled": {
+            "$type": "color",
+            "$value": "{color.border.secondary}",
+            "$description": "Selection control border when disabled."
+          }
+        }
+      },
+      "selected": {
+        "fill": {
+          "default": {
+            "$type": "color",
+            "$value": "{color.brand.02}",
+            "$description": "Selected control fill. Uses brand dark."
+          },
+          "hover": {
+            "$type": "color",
+            "$value": "{color.interactive.primary.fill.default}",
+            "$description": "Selected control fill on hover."
+          },
+          "pressed": {
+            "$type": "color",
+            "$value": "{color.interactive.primary.fill.hover}",
+            "$description": "Selected control fill when pressed."
+          },
+          "disabled": {
+            "$type": "color",
+            "$value": "{color.disabled.a}",
+            "$description": "Selected control fill when disabled."
+          }
+        },
+        "icon": {
+          "default": {
+            "$type": "color",
+            "$value": "{color.text.onAccent}",
+            "$description": "Icon on selected control."
+          },
+          "disabled": {
+            "$type": "color",
+            "$value": "{color.disabled.b}",
+            "$description": "Icon on selected control when disabled."
+          }
+        }
+      },
+      "label": {
+        "default": {
+          "$type": "color",
+          "$value": "{color.text.primary}",
+          "$description": "Selection control label text."
+        },
+        "disabled": {
+          "$type": "color",
+          "$value": "{color.disabled.b}",
+          "$description": "Selection control label when disabled."
+        }
+      },
+      "validation": {
+        "text": {
+          "$type": "color",
+          "$value": "{color.text.primary}",
+          "$description": "Selection control error message text."
+        },
+        "icon": {
+          "$type": "color",
+          "$value": "{color.feedback.text.error}",
+          "$description": "Selection control error icon."
+        }
+      }
+    },
     "status": {
       "draft": {
         "fill": {
