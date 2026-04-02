@@ -1,28 +1,4 @@
 {
-  "icon": {
-    "size": {
-      "small": {
-        "$type": "dimension",
-        "$value": "{core.dimension.300}",
-        "$description": "Small icon size."
-      },
-      "medium": {
-        "$type": "dimension",
-        "$value": "{core.dimension.400}",
-        "$description": "Medium icon size."
-      },
-      "large": {
-        "$type": "dimension",
-        "$value": "{core.dimension.600}",
-        "$description": "Large icon size."
-      },
-      "xLarge": {
-        "$type": "dimension",
-        "$value": "{core.dimension.800}",
-        "$description": "Extra large icon size."
-      }
-    }
-  },
   "layout": {
     "spacing": {
       "cardGap": {
