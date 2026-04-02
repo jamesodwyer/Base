@@ -9,6 +9,7 @@
     "semantic/typography",
     "semantic/borderRadius",
     "semantic/border",
+    "semantic/icon",
     "component/spacing/desktop",
     "component/spacing/mobile"
   ]
