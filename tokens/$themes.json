@@ -85,7 +85,6 @@
       "semantic/border": "enabled",
       "component/spacing/desktop": "enabled",
       "component/stepper": "enabled",
-      "component/selectionControl": "enabled",
       "global/dimension": "enabled",
       "global/typography": "enabled",
       "global/modify": "enabled",

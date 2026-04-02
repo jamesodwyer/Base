@@ -113,6 +113,15 @@
         "secondary": {
           "fill": {
             "default": {
+              "$extensions": {
+                "studio.tokens": {
+                  "modify": {
+                    "type": "alpha",
+                    "value": "{core.color.modify.zero}",
+                    "space": "hsl"
+                  }
+                }
+              },
               "$type": "color",
               "$value": "{color.brand.02}",
               "$description": "Secondary stepper button fill."
@@ -136,7 +145,7 @@
           "icon": {
             "default": {
               "$type": "color",
-              "$value": "{color.interactive.primary.text.default}",
+              "$value": "{color.interactive.icon.default}",
               "$description": "Icon on secondary stepper button."
             },
             "disabled": {
