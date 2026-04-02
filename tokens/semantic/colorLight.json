@@ -1695,15 +1695,23 @@
             "$description": "Tertiary selected border error."
           }
         }
-      }
-    },
-    "select": {
+      },
       "control": {
         "fill": {
           "default": {
             "$type": "color",
             "$value": "{color.elevation.base}",
-            "$description": "Selection control background."
+            "$description": "Use for selection control background."
+          },
+          "hover": {
+            "$type": "color",
+            "$value": "{color.elevation.base}",
+            "$description": "Selection control background on hover."
+          },
+          "pressed": {
+            "$type": "color",
+            "$value": "{color.elevation.base}",
+            "$description": "Selection control background when pressed."
           },
           "disabled": {
             "$type": "color",
@@ -1715,7 +1723,7 @@
           "default": {
             "$type": "color",
             "$value": "{color.border.primary}",
-            "$description": "Selection control border."
+            "$description": "Use for selection control border."
           },
           "hover": {
             "$type": "color",
@@ -1742,66 +1750,62 @@
             "$value": "{color.border.secondary}",
             "$description": "Selection control border when disabled."
           }
-        }
-      },
-      "selected": {
-        "fill": {
-          "default": {
-            "$type": "color",
-            "$value": "{color.brand.02}",
-            "$description": "Selected control fill. Uses brand dark."
-          },
-          "hover": {
-            "$type": "color",
-            "$value": "{color.interactive.primary.fill.default}",
-            "$description": "Selected control fill on hover."
-          },
-          "pressed": {
-            "$type": "color",
-            "$value": "{color.interactive.primary.fill.hover}",
-            "$description": "Selected control fill when pressed."
-          },
-          "disabled": {
-            "$type": "color",
-            "$value": "{color.disabled.a}",
-            "$description": "Selected control fill when disabled."
-          }
         },
         "icon": {
           "default": {
             "$type": "color",
             "$value": "{color.text.onAccent}",
-            "$description": "Icon on selected control."
+            "$description": "Use for icon on selected control."
+          },
+          "hover": {
+            "$type": "color",
+            "$value": "{color.text.onAccent}",
+            "$description": "Icon on selected control on hover."
+          },
+          "pressed": {
+            "$type": "color",
+            "$value": "{color.text.onAccent}",
+            "$description": "Icon on selected control when pressed."
           },
           "disabled": {
             "$type": "color",
             "$value": "{color.disabled.b}",
             "$description": "Icon on selected control when disabled."
           }
-        }
-      },
-      "label": {
-        "default": {
-          "$type": "color",
-          "$value": "{color.text.primary}",
-          "$description": "Selection control label text."
         },
-        "disabled": {
-          "$type": "color",
-          "$value": "{color.disabled.b}",
-          "$description": "Selection control label when disabled."
+        "text": {
+          "default": {
+            "$type": "color",
+            "$value": "{color.text.primary}",
+            "$description": "Use for selection control label."
+          },
+          "hover": {
+            "$type": "color",
+            "$value": "{color.text.primary}",
+            "$description": "Selection control label on hover."
+          },
+          "pressed": {
+            "$type": "color",
+            "$value": "{color.text.primary}",
+            "$description": "Selection control label when pressed."
+          },
+          "disabled": {
+            "$type": "color",
+            "$value": "{color.disabled.b}",
+            "$description": "Selection control label when disabled."
+          }
         }
       },
       "validation": {
         "text": {
           "$type": "color",
           "$value": "{color.text.primary}",
-          "$description": "Selection control error message text."
+          "$description": "Use for selection control error text."
         },
         "icon": {
           "$type": "color",
           "$value": "{color.feedback.text.error}",
-          "$description": "Selection control error icon."
+          "$description": "Use for selection control error icon."
         }
       }
     },
