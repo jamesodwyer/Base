@@ -1,53 +1,55 @@
 {
   "stepper": {
     "color": {
-      "primary": {
-        "fill": {
-          "default": {
-            "$type": "color",
-            "$value": "{color.interactive.primary.fill.default}",
-            "$description": "Primary stepper button fill."
+      "interactive": {
+        "primary": {
+          "fill": {
+            "default": {
+              "$type": "color",
+              "$value": "{color.interactive.primary.fill.default}",
+              "$description": "Primary stepper button fill."
+            },
+            "hover": {
+              "$type": "color",
+              "$value": "{color.interactive.primary.fill.hover}",
+              "$description": "Primary stepper button fill on hover."
+            },
+            "pressed": {
+              "$type": "color",
+              "$value": "{color.interactive.primary.fill.pressed}",
+              "$description": "Primary stepper button fill when pressed."
+            },
+            "disabled": {
+              "$type": "color",
+              "$value": "{color.interactive.primary.fill.disabled}",
+              "$description": "Primary stepper button fill when disabled."
+            }
           },
-          "hover": {
-            "$type": "color",
-            "$value": "{color.interactive.primary.fill.hover}",
-            "$description": "Primary stepper button fill on hover."
-          },
-          "pressed": {
-            "$type": "color",
-            "$value": "{color.interactive.primary.fill.pressed}",
-            "$description": "Primary stepper button fill when pressed."
-          },
-          "disabled": {
-            "$type": "color",
-            "$value": "{color.interactive.primary.fill.disabled}",
-            "$description": "Primary stepper button fill when disabled."
+          "icon": {
+            "default": {
+              "$type": "color",
+              "$value": "{color.interactive.primary.text.default}",
+              "$description": "Icon on primary stepper button."
+            },
+            "disabled": {
+              "$type": "color",
+              "$value": "{color.disabled.b}",
+              "$description": "Icon on primary stepper button when disabled."
+            }
           }
         },
-        "icon": {
-          "default": {
-            "$type": "color",
-            "$value": "{color.interactive.primary.text.default}",
-            "$description": "Icon on primary stepper button."
-          },
-          "disabled": {
-            "$type": "color",
-            "$value": "{color.disabled.b}",
-            "$description": "Icon on primary stepper button when disabled."
-          }
-        }
-      },
-"secondary": {
-        "icon": {
-          "default": {
-            "$type": "color",
-            "$value": "{color.interactive.primary.fill.default}",
-            "$description": "Icon on secondary stepper button."
-          },
-          "disabled": {
-            "$type": "color",
-            "$value": "{color.disabled.b}",
-            "$description": "Icon on secondary stepper button when disabled."
+        "secondary": {
+          "icon": {
+            "default": {
+              "$type": "color",
+              "$value": "{color.interactive.primary.fill.default}",
+              "$description": "Icon on secondary stepper button."
+            },
+            "disabled": {
+              "$type": "color",
+              "$value": "{color.disabled.b}",
+              "$description": "Icon on secondary stepper button when disabled."
+            }
           }
         }
       }
