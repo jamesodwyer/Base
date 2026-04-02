@@ -1,6 +1,37 @@
 {
   "stepper": {
     "color": {
+      "container": {
+        "fill": {
+          "$type": "color",
+          "$value": "{color.elevation.level1}",
+          "$description": "Stepper container background."
+        },
+        "border": {
+          "$type": "color",
+          "$value": "{color.border.secondary}",
+          "$description": "Stepper container border."
+        }
+      },
+      "counter": {
+        "fill": {
+          "$type": "color",
+          "$value": "{color.surface.neutral01}",
+          "$description": "Counter display background."
+        },
+        "text": {
+          "default": {
+            "$type": "color",
+            "$value": "{color.text.primary}",
+            "$description": "Counter display text."
+          },
+          "disabled": {
+            "$type": "color",
+            "$value": "{color.disabled.b}",
+            "$description": "Counter display text when disabled."
+          }
+        }
+      },
       "interactive": {
         "primary": {
           "fill": {
