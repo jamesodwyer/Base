@@ -1,0 +1,266 @@
+<h2>Proposed Design: Token Playground</h2>
+<p class="subtitle">Full architecture overview — review and let me know what needs changing</p>
+
+<div class="section">
+  <h3>Main View: Tier Columns with Integrated Insights</h3>
+</div>
+
+<div class="mockup">
+  <div class="mockup-header">Token Playground — Main View</div>
+  <div class="mockup-body" style="background: #0f0f1a; padding: 0; min-height: 500px;">
+    <!-- Top bar -->
+    <div style="display: flex; justify-content: space-between; align-items: center; padding: 12px 20px; background: #16182a; border-bottom: 1px solid #2a2a3e;">
+      <div style="display: flex; align-items: center; gap: 16px;">
+        <span style="font-weight: bold; color: #e0e0e0; font-size: 14px;">Token Playground</span>
+        <input type="text" placeholder="Search tokens..." style="background: #1a1a3e; border: 1px solid #2a2a4e; color: #999; padding: 6px 12px; border-radius: 6px; width: 250px; font-size: 11px;">
+      </div>
+      <div style="display: flex; gap: 10px; font-size: 11px;">
+        <span style="background: #1e3a2e; color: #7fdbca; padding: 4px 10px; border-radius: 12px;">599 tokens</span>
+        <span style="background: #3a2e1e; color: #f78c6c; padding: 4px 10px; border-radius: 12px;">3 orphans</span>
+        <span style="background: #3a1e1e; color: #ff5370; padding: 4px 10px; border-radius: 12px;">2 broken refs</span>
+        <span style="background: #1e2a3a; color: #82aaff; padding: 4px 10px; border-radius: 12px;">92% coverage</span>
+        <div style="display: flex; gap: 4px; margin-left: 8px; align-items: center;">
+          <span style="color: #666; font-size: 10px;">View:</span>
+          <span style="background: #2a2a4e; color: #e0e0e0; padding: 3px 8px; border-radius: 4px;">Desktop</span>
+          <span style="background: transparent; color: #666; padding: 3px 8px; border-radius: 4px;">Mobile</span>
+          <span style="background: transparent; color: #666; padding: 3px 8px; border-radius: 4px;">Diff</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Four tier columns -->
+    <div style="display: flex; gap: 1px; height: 440px; background: #1a1a2e;">
+
+      <!-- CORE column -->
+      <div style="flex: 1; background: #0f0f1a; display: flex; flex-direction: column;">
+        <div style="padding: 10px 12px; background: #16182a; border-bottom: 1px solid #2a2a3e; display: flex; justify-content: space-between; align-items: center;">
+          <span style="font-weight: bold; color: #7fdbca; font-size: 12px;">Core</span>
+          <span style="color: #546e7a; font-size: 10px;">169</span>
+        </div>
+        <!-- Category groups -->
+        <div style="flex: 1; overflow: auto; padding: 8px;">
+          <div style="margin-bottom: 8px;">
+            <div style="color: #546e7a; font-size: 9px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px; padding: 0 4px;">Dimension (30)</div>
+            <div style="background: #16182a; border-radius: 4px; padding: 5px 8px; margin-bottom: 2px; font-size: 10px; color: #ccc; cursor: pointer; border-left: 3px solid #7fdbca;">
+              dimension.100 <span style="color: #546e7a; float: right;">4</span>
+            </div>
+            <div style="background: #16182a; border-radius: 4px; padding: 5px 8px; margin-bottom: 2px; font-size: 10px; color: #ccc; cursor: pointer; border-left: 3px solid transparent;">
+              dimension.200 <span style="color: #546e7a; float: right;">8</span>
+            </div>
+            <div style="background: #16182a; border-radius: 4px; padding: 5px 8px; margin-bottom: 2px; font-size: 10px; color: #888; cursor: pointer; border-left: 3px solid transparent;">
+              dimension.300 <span style="color: #546e7a; float: right;">12</span>
+            </div>
+            <div style="color: #546e7a; font-size: 9px; padding: 2px 8px;">+27 more...</div>
+          </div>
+          <div style="margin-bottom: 8px;">
+            <div style="color: #546e7a; font-size: 9px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px; padding: 0 4px;">Typography (52)</div>
+            <div style="background: #16182a; border-radius: 4px; padding: 5px 8px; margin-bottom: 2px; font-size: 10px; color: #ccc; cursor: pointer;">
+              fontFamily.01 <span style="color: #546e7a; float: right;">Averta</span>
+            </div>
+            <div style="background: #16182a; border-radius: 4px; padding: 5px 8px; margin-bottom: 2px; font-size: 10px; color: #ccc; cursor: pointer;">
+              fontWeight.bold <span style="color: #546e7a; float: right;">700</span>
+            </div>
+          </div>
+          <div>
+            <div style="color: #546e7a; font-size: 9px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px; padding: 0 4px;">Border (12)</div>
+            <div style="background: #16182a; border-radius: 4px; padding: 5px 8px; margin-bottom: 2px; font-size: 10px; color: #ccc; cursor: pointer;">
+              radius.medium <span style="color: #546e7a; float: right;">8</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- BRAND column -->
+      <div style="flex: 0.8; background: #0f0f1a; display: flex; flex-direction: column;">
+        <div style="padding: 10px 12px; background: #16182a; border-bottom: 1px solid #2a2a3e; display: flex; justify-content: space-between; align-items: center;">
+          <span style="font-weight: bold; color: #c792ea; font-size: 12px;">Brand</span>
+          <span style="color: #546e7a; font-size: 10px;">28</span>
+        </div>
+        <div style="flex: 1; overflow: auto; padding: 8px;">
+          <div style="margin-bottom: 8px;">
+            <div style="color: #546e7a; font-size: 9px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px; padding: 0 4px;">Brand (4)</div>
+            <div style="background: #16182a; border-radius: 4px; padding: 5px 8px; margin-bottom: 2px; font-size: 10px; color: #ccc; cursor: pointer; display: flex; align-items: center; gap: 6px;">
+              <div style="width: 14px; height: 14px; background: #024ddf; border-radius: 3px; flex-shrink: 0;"></div>
+              brand.01
+              <span style="color: #82aaff; font-size: 9px; margin-left: auto; background: #1e2a3a; padding: 1px 5px; border-radius: 8px;">→18</span>
+            </div>
+            <div style="background: #16182a; border-radius: 4px; padding: 5px 8px; margin-bottom: 2px; font-size: 10px; color: #ccc; cursor: pointer; display: flex; align-items: center; gap: 6px;">
+              <div style="width: 14px; height: 14px; background: #121212; border-radius: 3px; flex-shrink: 0;"></div>
+              brand.02
+              <span style="color: #82aaff; font-size: 9px; margin-left: auto; background: #1e2a3a; padding: 1px 5px; border-radius: 8px;">→12</span>
+            </div>
+          </div>
+          <div style="margin-bottom: 8px;">
+            <div style="color: #546e7a; font-size: 9px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px; padding: 0 4px;">Accent (8)</div>
+            <div style="background: #16182a; border-radius: 4px; padding: 5px 8px; margin-bottom: 2px; font-size: 10px; color: #ccc; cursor: pointer; display: flex; align-items: center; gap: 6px;">
+              <div style="width: 14px; height: 14px; background: #048851; border-radius: 3px; flex-shrink: 0;"></div>
+              accent.green
+              <span style="color: #82aaff; font-size: 9px; margin-left: auto; background: #1e2a3a; padding: 1px 5px; border-radius: 8px;">→6</span>
+            </div>
+            <div style="background: #16182a; border-radius: 4px; padding: 5px 8px; margin-bottom: 2px; font-size: 10px; color: #ccc; cursor: pointer; display: flex; align-items: center; gap: 6px;">
+              <div style="width: 14px; height: 14px; background: #EB0000; border-radius: 3px; flex-shrink: 0;"></div>
+              accent.red
+              <span style="color: #82aaff; font-size: 9px; margin-left: auto; background: #1e2a3a; padding: 1px 5px; border-radius: 8px;">→8</span>
+            </div>
+            <div style="background: #16182a; border-radius: 4px; padding: 5px 8px; margin-bottom: 2px; font-size: 10px; color: #888; cursor: pointer; display: flex; align-items: center; gap: 6px;">
+              <div style="width: 14px; height: 14px; background: #7B2D8E; border-radius: 3px; flex-shrink: 0;"></div>
+              accent.purple
+              <span style="color: #f78c6c; font-size: 9px; margin-left: auto; background: #3a2e1e; padding: 1px 5px; border-radius: 8px;" title="Orphan: nothing references this token">orphan</span>
+            </div>
+          </div>
+          <div>
+            <div style="color: #546e7a; font-size: 9px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px; padding: 0 4px;">Neutrals (6)</div>
+            <div style="background: #16182a; border-radius: 4px; padding: 5px 8px; margin-bottom: 2px; font-size: 10px; color: #ccc; cursor: pointer; display: flex; align-items: center; gap: 6px;">
+              <div style="width: 14px; height: 14px; background: #F6F6F6; border-radius: 3px; flex-shrink: 0;"></div>
+              grey.100
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SEMANTIC column -->
+      <div style="flex: 1.8; background: #0f0f1a; display: flex; flex-direction: column;">
+        <div style="padding: 10px 12px; background: #16182a; border-bottom: 1px solid #2a2a3e; display: flex; justify-content: space-between; align-items: center;">
+          <span style="font-weight: bold; color: #f78c6c; font-size: 12px;">Semantic</span>
+          <span style="color: #546e7a; font-size: 10px;">336</span>
+        </div>
+        <div style="flex: 1; overflow: auto; padding: 8px;">
+          <div style="margin-bottom: 8px;">
+            <div style="color: #546e7a; font-size: 9px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px; padding: 0 4px;">Interactive &bull; Primary (12)</div>
+            <div style="background: #16182a; border-radius: 4px; padding: 5px 8px; margin-bottom: 2px; font-size: 10px; color: #ccc; cursor: pointer; display: flex; align-items: center; gap: 6px; border: 1px solid #024ddf44;">
+              <div style="width: 14px; height: 14px; background: #024ddf; border-radius: 3px; flex-shrink: 0;"></div>
+              fill.default
+              <span style="color: #546e7a; font-size: 9px; margin-left: auto;">← brand.01</span>
+            </div>
+            <div style="background: #16182a; border-radius: 4px; padding: 5px 8px; margin-bottom: 2px; font-size: 10px; color: #ccc; cursor: pointer; display: flex; align-items: center; gap: 6px;">
+              <div style="width: 14px; height: 14px; background: #0141b8; border-radius: 3px; flex-shrink: 0;"></div>
+              fill.hover
+              <span style="color: #546e7a; font-size: 9px; margin-left: auto;">← brand.01 <span style="color: #c792ea;">darken 0.1</span></span>
+            </div>
+            <div style="background: #16182a; border-radius: 4px; padding: 5px 8px; margin-bottom: 2px; font-size: 10px; color: #ccc; cursor: pointer; display: flex; align-items: center; gap: 6px;">
+              <div style="width: 14px; height: 14px; background: #013591; border-radius: 3px; flex-shrink: 0;"></div>
+              fill.pressed
+              <span style="color: #546e7a; font-size: 9px; margin-left: auto;">← brand.01 <span style="color: #c792ea;">darken 0.2</span></span>
+            </div>
+            <div style="background: #16182a; border-radius: 4px; padding: 5px 8px; margin-bottom: 2px; font-size: 10px; color: #ccc; cursor: pointer; display: flex; align-items: center; gap: 6px;">
+              <div style="width: 14px; height: 14px; background: #ffffff; border-radius: 3px; flex-shrink: 0;"></div>
+              text.default
+              <span style="color: #546e7a; font-size: 9px; margin-left: auto;">← common.white</span>
+            </div>
+          </div>
+          <div style="margin-bottom: 8px;">
+            <div style="color: #546e7a; font-size: 9px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px; padding: 0 4px;">Surface (8)</div>
+            <div style="background: #16182a; border-radius: 4px; padding: 5px 8px; margin-bottom: 2px; font-size: 10px; color: #ccc; cursor: pointer; display: flex; align-items: center; gap: 6px;">
+              <div style="width: 14px; height: 14px; background: #024ddf; border-radius: 3px; flex-shrink: 0;"></div>
+              surface.primary
+              <span style="color: #546e7a; font-size: 9px; margin-left: auto;">← brand.01</span>
+            </div>
+            <div style="background: #16182a; border-radius: 4px; padding: 5px 8px; margin-bottom: 2px; font-size: 10px; color: #888; display: flex; align-items: center; gap: 6px; border: 1px dashed #3a3a1e;">
+              <div style="width: 14px; height: 14px; background: transparent; border: 1px dashed #666; border-radius: 3px; flex-shrink: 0;"></div>
+              <span style="color: #ffcb6b; font-style: italic;">No dark theme variant</span>
+              <span style="color: #ffcb6b; font-size: 9px; margin-left: auto; background: #3a3a1e; padding: 1px 5px; border-radius: 8px;">scaffold</span>
+            </div>
+          </div>
+          <div style="margin-bottom: 8px;">
+            <div style="color: #546e7a; font-size: 9px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px; padding: 0 4px; display: flex; justify-content: space-between;">
+              <span>Feedback (20)</span>
+              <span style="color: #7fdbca;">✓ complete</span>
+            </div>
+            <div style="background: #16182a; border-radius: 4px; padding: 5px 8px; margin-bottom: 2px; font-size: 10px; color: #ccc; cursor: pointer; display: flex; align-items: center; gap: 6px;">
+              <div style="width: 14px; height: 14px; background: #EB000019; border: 1px solid #EB0000; border-radius: 3px; flex-shrink: 0;"></div>
+              error.fill
+              <span style="color: #546e7a; font-size: 9px; margin-left: auto;">← accent.red <span style="color: #c792ea;">lighten 0.95</span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- COMPONENT column -->
+      <div style="flex: 1; background: #0f0f1a; display: flex; flex-direction: column;">
+        <div style="padding: 10px 12px; background: #16182a; border-bottom: 1px solid #2a2a3e; display: flex; justify-content: space-between; align-items: center;">
+          <span style="font-weight: bold; color: #ffcb6b; font-size: 12px;">Component</span>
+          <span style="color: #546e7a; font-size: 10px;">66</span>
+        </div>
+        <div style="flex: 1; overflow: auto; padding: 8px;">
+          <div style="margin-bottom: 8px;">
+            <div style="color: #546e7a; font-size: 9px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px; padding: 0 4px; display: flex; justify-content: space-between;">
+              <span>Button (9)</span>
+              <span style="color: #7fdbca;">✓</span>
+            </div>
+            <div style="background: #16182a; border-radius: 4px; padding: 5px 8px; margin-bottom: 2px; font-size: 10px; color: #ccc; cursor: pointer;">
+              btn.spacing.m.blockPadding
+              <span style="color: #546e7a; font-size: 9px; float: right;">← dim.150</span>
+            </div>
+            <div style="background: #16182a; border-radius: 4px; padding: 5px 8px; margin-bottom: 2px; font-size: 10px; color: #ccc; cursor: pointer;">
+              btn.spacing.m.inlinePadding
+              <span style="color: #546e7a; font-size: 9px; float: right;">← dim.300</span>
+            </div>
+          </div>
+          <div style="margin-bottom: 8px;">
+            <div style="color: #546e7a; font-size: 9px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px; padding: 0 4px;">Icon (4)</div>
+            <div style="background: #16182a; border-radius: 4px; padding: 5px 8px; margin-bottom: 2px; font-size: 10px; color: #ccc; cursor: pointer;">
+              icon.size.medium
+              <span style="color: #546e7a; font-size: 9px; float: right;">← dim.400</span>
+            </div>
+          </div>
+          <!-- Coverage gap -->
+          <div style="margin-bottom: 8px;">
+            <div style="color: #546e7a; font-size: 9px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px; padding: 0 4px; display: flex; justify-content: space-between;">
+              <span>Missing Components</span>
+              <span style="color: #ff5370;">17 needed</span>
+            </div>
+            <div style="border: 1px dashed #3a1e1e; border-radius: 4px; padding: 5px 8px; margin-bottom: 2px; font-size: 10px; color: #ff537088; font-style: italic;">
+              Card — no tokens
+            </div>
+            <div style="border: 1px dashed #3a1e1e; border-radius: 4px; padding: 5px 8px; margin-bottom: 2px; font-size: 10px; color: #ff537088; font-style: italic;">
+              Input — no tokens
+            </div>
+            <div style="border: 1px dashed #3a1e1e; border-radius: 4px; padding: 5px 8px; margin-bottom: 2px; font-size: 10px; color: #ff537088; font-style: italic;">
+              Badge — no tokens
+            </div>
+            <div style="color: #546e7a; font-size: 9px; padding: 2px 8px;">+14 more from framework...</div>
+          </div>
+          <!-- Desktop/Mobile toggle indicator -->
+          <div style="background: #1e2a3a; border-radius: 6px; padding: 6px 8px; margin-top: 8px;">
+            <div style="color: #82aaff; font-size: 9px; font-weight: bold; margin-bottom: 4px;">DESKTOP vs MOBILE</div>
+            <div style="font-size: 9px; color: #ccc; display: flex; justify-content: space-between;">
+              <span>btn.spacing.m.blockPadding</span>
+              <span><span style="color: #7fdbca;">6</span> vs <span style="color: #f78c6c;">—</span></span>
+            </div>
+            <div style="font-size: 9px; color: #888; margin-top: 2px;">Mobile missing 6 button tokens</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section" style="margin-top: 24px;">
+  <h3>Key elements shown in this mockup</h3>
+  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; font-size: 13px;">
+    <div>
+      <strong style="color: #f78c6c;">Orphan badges</strong> — orange "orphan" tag on tokens nothing references (accent.purple)
+    </div>
+    <div>
+      <strong style="color: #ff5370;">Broken ref indicators</strong> — red count in the status bar
+    </div>
+    <div>
+      <strong style="color: #c792ea;">Modifier chains</strong> — purple text showing darken/lighten/alpha on hover/pressed states
+    </div>
+    <div>
+      <strong style="color: #ffcb6b;">Dark theme scaffolding</strong> — dashed "scaffold" placeholder where dark variants are missing
+    </div>
+    <div>
+      <strong style="color: #7fdbca;">Coverage checkmarks</strong> — green ✓ on complete categories, red count on gaps
+    </div>
+    <div>
+      <strong style="color: #82aaff;">Desktop/Mobile diff</strong> — compact panel showing divergences and missing tokens
+    </div>
+    <div>
+      <strong style="color: #82aaff;">Reference counts</strong> — "→18" badge showing how many tokens depend on this one
+    </div>
+    <div>
+      <strong style="color: #024ddf;">Color swatches</strong> — resolved color preview next to every color token
+    </div>
+  </div>
+</div>

@@ -1,0 +1,99 @@
+{
+  "skill_name": "figma-token-applicator",
+  "evals": [
+    {
+      "id": 0,
+      "prompt": "Apply tokens to the Stepper component in our Figma file WU01oSRfSHpOxUn3ThcvC5. The stepper component tokens are in tokens/component/stepper.json and the semantic colors are in tokens/semantic/colorLight.json. Create all the Figma variables needed and bind them to the component variants.",
+      "expected_output": "Should read stepper.json and colorLight.json, resolve the alias chain, compute any HSL modifiers via Python, create Figma variables with proper alias references, and describe the binding plan for each variant property (fill, text, icon, border, spacing).",
+      "files": [],
+      "assertions": [
+        {
+          "name": "reads_token_files",
+          "description": "Reads stepper.json and colorLight.json to understand token structure",
+          "type": "output_contains"
+        },
+        {
+          "name": "runs_python_resolver",
+          "description": "Uses Python (resolve_tokens.py or inline colorsys) to compute HSL modifiers rather than trying to do it in Figma JS",
+          "type": "behavior"
+        },
+        {
+          "name": "uses_variable_alias",
+          "description": "Creates alias references (VARIABLE_ALIAS) for pure reference tokens, not flat computed values",
+          "type": "output_contains"
+        },
+        {
+          "name": "uses_figma_mcp",
+          "description": "Uses mcp__plugin_figma_figma__use_figma for Figma operations, not a local plugin approach",
+          "type": "behavior"
+        },
+        {
+          "name": "correct_variable_naming",
+          "description": "Uses / separator for Figma variable names (not . dot-notation)",
+          "type": "output_contains"
+        },
+        {
+          "name": "sets_shared_plugin_data",
+          "description": "Sets Token Studio sharedPluginData with dot-notation paths",
+          "type": "output_contains"
+        }
+      ]
+    },
+    {
+      "id": 1,
+      "prompt": "Create Figma variables for the Badge component tokens. The badge spacing tokens are in tokens/component/spacing/desktop.json under the badge key. The Figma file key is WU01oSRfSHpOxUn3ThcvC5. Just create the variables for now, don't bind them yet.",
+      "expected_output": "Should resolve badge spacing tokens (blockPadding, inlinePadding, gap, minHeight) and their dependencies (core dimensions), create variables in the right collections (Component for badge, Global for core), using VARIABLE_ALIAS for the alias chain.",
+      "files": [],
+      "assertions": [
+        {
+          "name": "identifies_badge_tokens",
+          "description": "Correctly identifies badge.spacing.blockPadding, inlinePadding, gap, minHeight tokens",
+          "type": "output_contains"
+        },
+        {
+          "name": "resolves_dependencies",
+          "description": "Also creates the Global tier variables (core/dimension/*) that badge tokens reference",
+          "type": "behavior"
+        },
+        {
+          "name": "correct_collections",
+          "description": "Puts badge tokens in Component collection and core dimensions in Global collection",
+          "type": "output_contains"
+        },
+        {
+          "name": "respects_phase1_only",
+          "description": "Only creates variables, does not attempt to bind them to component variants",
+          "type": "behavior"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "I need to bind the secondary variant hover state tokens to the Button component in Figma. File key WU01oSRfSHpOxUn3ThcvC5, component set node 29422:3597. Assume the variables already exist. Just do the bindings for Variant=Secondary, State=Hover across all icon positions.",
+      "expected_output": "Should identify the correct semantic tokens for secondary hover (color.interactive.secondary.fill.hover, text.hover, icon.hover, border.hover), find the right variant nodes, apply paint bindings with actual resolved hex colors (not black), and set sharedPluginData.",
+      "files": [],
+      "assertions": [
+        {
+          "name": "correct_token_paths",
+          "description": "Uses color.interactive.secondary.fill.hover, text.hover, icon.hover, border.hover token paths",
+          "type": "output_contains"
+        },
+        {
+          "name": "actual_hex_in_paint",
+          "description": "Uses actual resolved hex colors in base paint, not {r:0,g:0,b:0} black",
+          "type": "output_contains"
+        },
+        {
+          "name": "filters_variants_correctly",
+          "description": "Only targets Variant=Secondary, State=Hover variants (including None/Left/Right icon positions, excluding isLoading=True)",
+          "type": "behavior"
+        },
+        {
+          "name": "handles_icon_drill",
+          "description": "Drills into INSTANCE > VECTOR for icon binding, skipping Loading Spinner",
+          "type": "output_contains"
+        }
+      ]
+    }
+  ]
+}

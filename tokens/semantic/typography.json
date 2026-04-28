@@ -1,38 +1,75 @@
 {
   "typography": {
     "display": {
-      "large": {
-        "$type": "typography",
-        "$value": {
-          "fontFamily": "{core.typography.fontFamily.01}",
-          "fontWeight": "{core.typography.fontWeight.black}",
-          "fontSize": "{core.typography.fontSize.900}",
-          "lineHeight": "{core.typography.lineHeight.full}",
-          "letterSpacing": "{core.typography.letterSpacing.neg300}"
+      "desktop": {
+        "large": {
+          "$type": "typography",
+          "$value": {
+            "fontFamily": "{core.typography.fontFamily.01}",
+            "fontWeight": "{core.typography.fontWeight.black}",
+            "fontSize": "{core.typography.fontSize.900}",
+            "lineHeight": "{core.typography.lineHeight.full}",
+            "letterSpacing": "{core.typography.letterSpacing.neg300}"
+          },
+          "$description": "Desktop hero text. 96px."
         },
-        "$description": "Use for hero text. Largest display."
+        "medium": {
+          "$type": "typography",
+          "$value": {
+            "fontFamily": "{core.typography.fontFamily.01}",
+            "fontWeight": "{core.typography.fontWeight.black}",
+            "fontSize": "{core.dimension.1400}",
+            "lineHeight": "{core.typography.lineHeight.full}",
+            "letterSpacing": "{core.typography.letterSpacing.neg300}"
+          },
+          "$description": "Desktop featured text. 56px."
+        },
+        "small": {
+          "$type": "typography",
+          "$value": {
+            "fontFamily": "{core.typography.fontFamily.01}",
+            "fontWeight": "{core.typography.fontWeight.black}",
+            "fontSize": "{core.dimension.1000}",
+            "lineHeight": "{core.typography.lineHeight.full}",
+            "letterSpacing": "{core.typography.letterSpacing.neg300}"
+          },
+          "$description": "Desktop prominent text. 40px."
+        }
       },
-      "medium": {
-        "$type": "typography",
-        "$value": {
-          "fontFamily": "{core.typography.fontFamily.01}",
-          "fontWeight": "{core.typography.fontWeight.black}",
-          "fontSize": "{core.dimension.1400}",
-          "lineHeight": "{core.typography.lineHeight.full}",
-          "letterSpacing": "{core.typography.letterSpacing.neg300}"
+      "mobile": {
+        "large": {
+          "$type": "typography",
+          "$value": {
+            "fontFamily": "{core.typography.fontFamily.01}",
+            "fontWeight": "{core.typography.fontWeight.black}",
+            "fontSize": "{core.dimension.1400}",
+            "lineHeight": "{core.typography.lineHeight.full}",
+            "letterSpacing": "{core.typography.letterSpacing.neg300}"
+          },
+          "$description": "Mobile hero text. 56px."
         },
-        "$description": "Use for featured text. Medium display."
-      },
-      "small": {
-        "$type": "typography",
-        "$value": {
-          "fontFamily": "{core.typography.fontFamily.01}",
-          "fontWeight": "{core.typography.fontWeight.black}",
-          "fontSize": "{core.dimension.1000}",
-          "lineHeight": "{core.typography.lineHeight.full}",
-          "letterSpacing": "{core.typography.letterSpacing.neg300}"
+        "medium": {
+          "$type": "typography",
+          "$value": {
+            "fontFamily": "{core.typography.fontFamily.01}",
+            "fontWeight": "{core.typography.fontWeight.black}",
+            "fontSize": "{core.typography.fontSize.300}",
+            "lineHeight": "{core.typography.lineHeight.full}",
+            "letterSpacing": "{core.typography.letterSpacing.neg300}"
+          },
+          "$description": "Mobile featured text. 32px."
         },
-        "$description": "Use for prominent text. Small display."
+        "small": {
+          "$type": "typography",
+          "$value": {
+            "fontFamily": "{core.typography.fontFamily.01}",
+            "fontWeight": "{core.typography.fontWeight.black}",
+            "fontSize": "{core.typography.fontSize.300}",
+            "lineHeight": "{core.typography.lineHeight.full}",
+            "letterSpacing": "{core.typography.letterSpacing.neg300}"
+          },
+          "$description": "Mobile prominent text. 32px."
+        }
       }
     },
     "heading": {

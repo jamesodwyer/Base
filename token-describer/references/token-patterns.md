@@ -100,6 +100,9 @@ Tier 1: Core (global/) - Foundation primitives
 - `icon.size.*` - Icon dimensions (small, medium, large, xLarge)
 - `layout.spacing.*` - Layout gaps (cardGap, interactiveGap, contentToButton, formGap)
 - `button.spacing.*` - Button padding and gaps per size (blockPadding, inlinePadding, gap)
+- `badge.spacing.*` - Badge padding, gap, and minHeight
+- `selectionControl.spacing.*` - Gaps for checkbox/radio/toggle layout
+- `stepper.color.*` - Stepper container, counter, and interactive button colors
 
 **Separate sets for desktop and mobile** (`component/spacing/desktop`, `component/spacing/mobile`)
 
@@ -110,6 +113,9 @@ Tier 1: Core (global/) - Foundation primitives
 - `button.spacing.medium.inlinePadding` = Inline (horizontal) padding for medium buttons
 - `icon.size.medium` = Medium icon dimensions
 - `layout.spacing.formGap` = Gap between form elements
+- `badge.spacing.gap` = Gap between icon and label in badge
+- `selectionControl.spacing.gap` = Gap between control and label text
+- `stepper.color.counter.border.hover` = Counter display border on hover
 
 ---
 
@@ -318,8 +324,11 @@ START: You have a token path
 |      -- Has other state? -> "{Component} {property} {state}."
 |      -- Is typography? -> "Use for {element}. Applied to {context}."
 
--- Does it start with button, icon, layout?
+-- Does it start with button, icon, layout, badge, selectionControl, stepper?
    YES -> COMPONENT TOKEN (Tier 4)
+       -- Is stepper? -> "Stepper {part} {property}." / "{Variant} stepper button {property} {state}."
+       -- Is badge? -> "{Property} for badge."
+       -- Is selectionControl? -> "Gap between {what}."
        -- Is spacing? -> "{Property} for {size} {component}."
        -- Is gap? -> "Gap {between what}. {Size} {component}."
        -- Is size? -> "{Size} {component} size."

@@ -643,6 +643,36 @@ No semantic colour tokens — icons are brand-specific SVGs. Container may use:
 
 ---
 
+## 30. DisplayHeading
+
+### Colour Tokens
+
+| Property | Inverse | v2 Token | Legacy (TM) |
+|----------|---------|----------|-------------|
+| Text | `true` | `color.text.inverse` | Spotlight `#FFFFFF` |
+| Text | `false` | `color.text.primary` | Cosmos `#121212` |
+| Underline decoration | all | `color.brand.01` | Neptune `#024DDF` |
+
+### Typography Tokens
+
+**Desktop variants:**
+
+| Size | v2 Token | Resolved |
+|------|----------|----------|
+| Large | `typography.display.desktop.large` | Averta Black 96px / 100% LH / -3% LS |
+| Medium | `typography.display.desktop.medium` | Averta Black 56px / 100% LH / -3% LS |
+| Small | `typography.display.desktop.small` | Averta Black 40px / 100% LH / -3% LS |
+
+**Mobile variants:**
+
+| Size | v2 Token | Resolved |
+|------|----------|----------|
+| Large | `typography.display.mobile.large` | Averta Black 56px / 100% LH / -3% LS |
+| Medium | `typography.display.mobile.medium` | Averta Black 32px / 100% LH / -3% LS |
+| Small | `typography.display.mobile.small` | Averta Black 32px / 100% LH / -3% LS |
+
+---
+
 ## Token Gaps Identified
 
 Tokens that are needed by components but **do not exist yet** in the v2 token set:

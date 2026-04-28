@@ -66,6 +66,121 @@
       }
     }
   },
+  "accordion": {
+    "spacing": {
+      "blockPadding": {
+        "$type": "spacing",
+        "$value": "{core.dimension.400}",
+        "$description": "Vertical padding for accordion header and body."
+      },
+      "inlinePadding": {
+        "$type": "spacing",
+        "$value": "{core.dimension.600}",
+        "$description": "Horizontal padding for accordion header and body."
+      },
+      "iconGap": {
+        "$type": "spacing",
+        "$value": "{core.dimension.300}",
+        "$description": "Gap between start icon and title text."
+      },
+      "bodyGap": {
+        "$type": "spacing",
+        "$value": "{core.dimension.400}",
+        "$description": "Gap between body content items."
+      }
+    }
+  },
+  "alertBox": {
+    "spacing": {
+      "nonNested": {
+        "blockPaddingTop": {
+          "$type": "spacing",
+          "$value": "{core.dimension.600}",
+          "$description": "Top padding for non-nested alert box."
+        },
+        "blockPaddingBottom": {
+          "$type": "spacing",
+          "$value": "{core.dimension.400}",
+          "$description": "Bottom padding for non-nested alert box."
+        },
+        "inlinePadding": {
+          "$type": "spacing",
+          "$value": "{core.dimension.400}",
+          "$description": "Horizontal padding for non-nested alert box."
+        },
+        "contentGap": {
+          "$type": "spacing",
+          "$value": "{core.dimension.400}",
+          "$description": "Gap between content area and buttons."
+        },
+        "iconTextGap": {
+          "$type": "spacing",
+          "$value": "{core.dimension.400}",
+          "$description": "Gap between icon and text frame."
+        },
+        "textGap": {
+          "$type": "spacing",
+          "$value": "{core.dimension.200}",
+          "$description": "Gap between title and body text."
+        }
+      },
+      "nested": {
+        "padding": {
+          "$type": "spacing",
+          "$value": "{core.dimension.400}",
+          "$description": "Padding for nested alert box (all sides)."
+        },
+        "gap": {
+          "$type": "spacing",
+          "$value": "{core.dimension.300}",
+          "$description": "Gap between icon and text in nested alert box."
+        }
+      }
+    }
+  },
+  "input": {
+    "spacing": {
+      "labelGap": {
+        "$type": "spacing",
+        "$value": "{core.dimension.100}",
+        "$description": "Gap between label and input field."
+      },
+      "validationGap": {
+        "$type": "spacing",
+        "$value": "{core.dimension.100}",
+        "$description": "Gap between input field and validation text."
+      },
+      "blockPadding": {
+        "$type": "spacing",
+        "$value": "{core.dimension.250}",
+        "$description": "Vertical padding inside the input field."
+      },
+      "inlinePaddingStart": {
+        "$type": "spacing",
+        "$value": "{core.dimension.400}",
+        "$description": "Left padding inside the input field (start edge)."
+      },
+      "inlinePaddingEnd": {
+        "$type": "spacing",
+        "$value": "{core.dimension.300}",
+        "$description": "Right padding inside the input field (end edge)."
+      },
+      "iconGap": {
+        "$type": "spacing",
+        "$value": "{core.dimension.250}",
+        "$description": "Gap between icons and input text inside the field."
+      }
+    }
+  },
+  "dropdown": {
+    "spacing": {
+      "labelGap": {
+        "$type": "spacing",
+        "$value": "{core.dimension.100}",
+        "$description": "Gap between label and input field."
+      }
+    }
+  },
   "button": {
     "spacing": {
       "large": {

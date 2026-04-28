@@ -1,0 +1,71 @@
+{
+  "loading": {
+    "arc": {
+      "fill": {
+        "primary": {
+          "$type": "color",
+          "$value": "{color.brand.01}",
+          "$description": "Active arc fill for primary spinner. Uses brand color."
+        },
+        "secondary": {
+          "$type": "color",
+          "$value": "{color.icon.secondary}",
+          "$description": "Active arc fill for secondary spinner. Uses secondary icon color."
+        },
+        "inverse": {
+          "$type": "color",
+          "$value": "{color.text.inverse}",
+          "$description": "Active arc fill for inverse spinner. White on dark backgrounds."
+        }
+      }
+    },
+    "trail": {
+      "fill": {
+        "primary": {
+          "$type": "color",
+          "$value": "{color.brand.01}",
+          "$description": "Trail arc fill for primary spinner. Same hue as active arc, rendered at 25% opacity."
+        },
+        "secondary": {
+          "$type": "color",
+          "$value": "{color.icon.secondary}",
+          "$description": "Trail arc fill for secondary spinner. Same hue as active arc, rendered at 25% opacity."
+        },
+        "inverse": {
+          "$type": "color",
+          "$value": "{color.text.inverse}",
+          "$description": "Trail arc fill for inverse spinner. Same hue as active arc, rendered at 25% opacity."
+        }
+      },
+      "opacity": {
+        "$type": "opacity",
+        "$value": "0.25",
+        "$description": "Trail arc opacity. Applied to trail fill to create the inactive segment."
+      }
+    },
+    "size": {
+      "small": {
+        "$type": "dimension",
+        "$value": "{icon.size.large}",
+        "$description": "Small spinner size (24px). Default inline size."
+      },
+      "medium": {
+        "$type": "dimension",
+        "$value": "{icon.size.xLarge}",
+        "$description": "Medium spinner size (32px). Used in buttons and cards."
+      },
+      "large": {
+        "$type": "dimension",
+        "$value": "72px",
+        "$description": "Large spinner size (72px). Full-page or section loading."
+      }
+    },
+    "spacing": {
+      "labelGap": {
+        "$type": "dimension",
+        "$value": "{core.dimension.400}",
+        "$description": "Gap between spinner and label text."
+      }
+    }
+  }
+}

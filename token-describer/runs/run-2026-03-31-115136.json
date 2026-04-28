@@ -1,0 +1,13 @@
+{
+  "date": "2026-03-31T11:51:36Z",
+  "files_processed": 16,
+  "tokens_total": 599,
+  "descriptions_added": 0,
+  "descriptions_updated": 0,
+  "descriptions_unchanged": 553,
+  "coverage_before_pct": 100.0,
+  "coverage_after_pct": 92.3,
+  "validation_errors": 0,
+  "validation_warnings": 0,
+  "user_corrections": []
+}

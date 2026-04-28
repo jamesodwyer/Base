@@ -231,20 +231,37 @@ SEMANTIC_INTERACTIVE_SECONDARY = {
 }
 ```
 
-**Tertiary (Ghost Buttons)**:
+**Ghost Buttons**:
+
+```python
+SEMANTIC_INTERACTIVE_GHOST = {
+    "interactive.ghost.fill.default": "Use for ghost buttons. Minimal actions.",
+    "interactive.ghost.text.default": "Use for ghost button text.",
+    "interactive.ghost.icon.default": "Use for ghost button icons.",
+
+    "interactive.ghost.fill.hover": "Ghost button fill on hover.",
+    "interactive.ghost.fill.pressed": "Ghost button fill when pressed.",
+    "interactive.ghost.text.hover": "Ghost button text on hover.",
+    "interactive.ghost.text.pressed": "Ghost button text when pressed.",
+    "interactive.ghost.icon.hover": "Ghost button icon on hover.",
+    "interactive.ghost.icon.pressed": "Ghost button icon when pressed."
+}
+```
+
+**Tertiary Buttons** (low-emphasis with border, distinct from ghost):
 
 ```python
 SEMANTIC_INTERACTIVE_TERTIARY = {
-    "interactive.tertiary.fill.default": "Use for ghost buttons. Cards/banners.",
-    "interactive.tertiary.text.default": "Use for ghost button text.",
-    "interactive.tertiary.icon.default": "Use for ghost button icons. Close/more.",
+    "interactive.tertiary.fill.default": "Use for tertiary buttons. Low emphasis.",
+    "interactive.tertiary.text.default": "Use for tertiary button text.",
+    "interactive.tertiary.icon.default": "Use for tertiary button icons.",
 
-    "interactive.tertiary.fill.hover": "Ghost button fill on hover.",
-    "interactive.tertiary.fill.pressed": "Ghost button fill when pressed.",
-    "interactive.tertiary.text.hover": "Ghost button text on hover.",
-    "interactive.tertiary.text.pressed": "Ghost button text when pressed.",
-    "interactive.tertiary.icon.hover": "Ghost button icon on hover.",
-    "interactive.tertiary.icon.pressed": "Ghost button icon when pressed."
+    "interactive.tertiary.fill.hover": "Tertiary button fill on hover.",
+    "interactive.tertiary.fill.pressed": "Tertiary button fill when pressed.",
+    "interactive.tertiary.text.hover": "Tertiary button text on hover.",
+    "interactive.tertiary.text.pressed": "Tertiary button text when pressed.",
+    "interactive.tertiary.icon.hover": "Tertiary button icon on hover.",
+    "interactive.tertiary.icon.pressed": "Tertiary button icon when pressed."
 }
 ```
 
@@ -392,6 +409,52 @@ SEMANTIC_BORDER = {
 
 ---
 
+### Selection Control Tokens
+
+**Pattern**: `"Use for selection control {property}."` or `"Selection control {property} {state}."`
+
+```python
+SEMANTIC_SELECTION_CONTROL = {
+    # Fill states
+    "selected.control.fill.default": "Use for selection control background.",
+    "selected.control.fill.hover": "Selection control background on hover.",
+    "selected.control.fill.pressed": "Selection control background when pressed.",
+    "selected.control.fill.disabled": "Selection control background when disabled.",
+
+    # Border states
+    "selected.control.border.default": "Use for selection control border.",
+    "selected.control.border.hover": "Selection control border on hover.",
+    "selected.control.border.pressed": "Selection control border when pressed.",
+    "selected.control.border.error": "Selection control border for error state.",
+    "selected.control.border.focus": "Selection control focus ring.",
+    "selected.control.border.disabled": "Selection control border when disabled.",
+
+    # Select states (checked/on fill)
+    "selected.control.select.default": "Use for selected control fill. Checkbox tick background.",
+    "selected.control.select.hover": "Selected control fill on hover.",
+    "selected.control.select.pressed": "Selected control fill when pressed.",
+    "selected.control.select.disabled": "Selected control fill when disabled."
+}
+```
+
+Note: `color.disabled.a` = backgrounds/fills (lightest), `color.disabled.b` = borders/text/icons (medium), `color.disabled.c` = selected/checked fills (heaviest). The select.disabled uses `disabled.c` deliberately for contrast against the `disabled.a` fill background.
+
+---
+
+### Disabled Tokens
+
+**Pattern**: `"Disabled {role}. {Usage context}."`
+
+```python
+SEMANTIC_DISABLED = {
+    "disabled.a": "Disabled fill. Backgrounds and containers.",
+    "disabled.b": "Disabled stroke. Borders, text, and icons.",
+    "disabled.c": "Disabled checked fill. Selected controls."
+}
+```
+
+---
+
 ### Status Tokens
 
 **Pattern**: `"Use for {status} badges. {Optional context}."`
@@ -517,6 +580,72 @@ SEMANTIC_BORDER_RADIUS = {
 ---
 
 ## Tier 3: Component Token Templates
+
+### Stepper Component Tokens
+
+**Container Pattern**: `"Stepper container {property}."`
+
+```python
+COMPONENT_STEPPER_CONTAINER = {
+    "stepper.color.container.fill": "Stepper container background.",
+    "stepper.color.container.border": "Stepper container border."
+}
+```
+
+**Counter Pattern**: `"Counter display {property}."` or `"Counter display {property} {state}."`
+
+```python
+COMPONENT_STEPPER_COUNTER = {
+    "stepper.color.counter.fill.default": "Counter display background.",
+    "stepper.color.counter.fill.disabled": "Counter display background when disabled.",
+    "stepper.color.counter.border.default": "Counter display border.",
+    "stepper.color.counter.border.hover": "Counter display border on hover.",
+    "stepper.color.counter.border.pressed": "Counter display border when pressed.",
+    "stepper.color.counter.border.focus": "Counter display border on focus.",
+    "stepper.color.counter.border.disabled": "Counter display border when disabled.",
+    "stepper.color.counter.text.default": "Counter display text.",
+    "stepper.color.counter.text.disabled": "Counter display text when disabled."
+}
+```
+
+**Interactive Pattern**: `"{Variant} stepper button {property}."` or `"Icon on {variant} stepper button."`
+
+```python
+COMPONENT_STEPPER_INTERACTIVE = {
+    "stepper.color.interactive.primary.fill.default": "Primary stepper button fill.",
+    "stepper.color.interactive.primary.fill.hover": "Primary stepper button fill on hover.",
+    "stepper.color.interactive.primary.icon.default": "Icon on primary stepper button.",
+    "stepper.color.interactive.primary.border.focus": "Primary stepper button focus ring."
+    # ... same pattern for secondary variant
+}
+```
+
+---
+
+### Badge Component Tokens
+
+```python
+COMPONENT_BADGE = {
+    "badge.spacing.blockPadding": "Vertical padding for badge.",
+    "badge.spacing.inlinePadding": "Horizontal padding for badge.",
+    "badge.spacing.gap": "Gap between icon and label in badge.",
+    "badge.spacing.minHeight": "Minimum height for badge."
+}
+```
+
+---
+
+### Selection Control Component Tokens
+
+```python
+COMPONENT_SELECTION_CONTROL = {
+    "selectionControl.spacing.gap": "Gap between control and label text.",
+    "selectionControl.spacing.validationGap": "Gap between control row and validation message.",
+    "selectionControl.spacing.errorGap": "Gap between error icon and error text."
+}
+```
+
+---
 
 ### Spacing Tokens
 
@@ -651,8 +780,14 @@ def select_pattern(token_path):
         return SEMANTIC_BORDER_RADIUS
 
     # TIER 4: Component tokens
-    elif parts[0] in ['button', 'icon', 'layout']:
-        if 'spacing' in parts:
+    elif parts[0] in ['button', 'icon', 'layout', 'badge', 'selectionControl', 'stepper']:
+        if parts[0] == 'stepper':
+            return COMPONENT_STEPPER
+        elif parts[0] == 'badge':
+            return COMPONENT_BADGE
+        elif parts[0] == 'selectionControl':
+            return COMPONENT_SELECTION_CONTROL
+        elif 'spacing' in parts:
             if 'Padding' in parts[-1]:
                 return COMPONENT_PADDING
             elif 'gap' in parts or parts[-1] in ('cardGap', 'interactiveGap', 'contentToButton', 'formGap'):

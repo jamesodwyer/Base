@@ -399,6 +399,44 @@ SIZE_LABELS = {
     "xxLarge": "XXL",
 }
 
+# ─── COMPONENT: STEPPER PATTERNS ───────────────────────────────────────────
+
+STEPPER_CONTAINER = {
+    "fill": "Stepper container background.",
+    "border": "Stepper container border.",
+}
+
+STEPPER_COUNTER_DEFAULTS = {
+    "fill": "Counter display background.",
+    "border": "Counter display border.",
+    "text": "Counter display text.",
+}
+
+# ─── SEMANTIC: SELECTION CONTROL PATTERNS ──────────────────────────────────
+
+SELECTION_CONTROL = {
+    "fill": {
+        "default": "Use for selection control background.",
+        "hover": "Selection control background on hover.",
+        "pressed": "Selection control background when pressed.",
+        "disabled": "Selection control background when disabled.",
+    },
+    "border": {
+        "default": "Use for selection control border.",
+        "hover": "Selection control border on hover.",
+        "pressed": "Selection control border when pressed.",
+        "error": "Selection control border for error state.",
+        "focus": "Selection control focus ring.",
+        "disabled": "Selection control border when disabled.",
+    },
+    "select": {
+        "default": "Use for selected control fill. Checkbox tick background.",
+        "hover": "Selected control fill on hover.",
+        "pressed": "Selected control fill when pressed.",
+        "disabled": "Selected control fill when disabled.",
+    },
+}
+
 
 # ─── HELPER FUNCTIONS ───────────────────────────────────────────────────────
 
@@ -629,9 +667,9 @@ def generate_description_for_path(path_parts, file_context):
         if len(path_parts) >= 3 and path_parts[1] == "disabled":
             key = path_parts[2]
             labels = {
-                "a": "Disabled fill. Primary disabled state.",
-                "b": "Disabled text/icon. Secondary disabled.",
-                "c": "Disabled border. Tertiary disabled.",
+                "a": "Disabled fill. Backgrounds and containers.",
+                "b": "Disabled stroke. Borders, text, and icons.",
+                "c": "Disabled checked fill. Selected controls.",
             }
             return labels.get(key)
 
@@ -641,6 +679,17 @@ def generate_description_for_path(path_parts, file_context):
             if key == "default":
                 return "Focus ring color. Accessibility."
             return f"Focus {key} color."
+
+        # color.selected.control.{prop}.{state} — selectionControl tokens
+        if (len(path_parts) >= 5 and path_parts[1] == "selected"
+                and path_parts[2] == "control"):
+            prop = path_parts[3]
+            state = path_parts[4]
+            ctrl_prop = SELECTION_CONTROL.get(prop, {})
+            if isinstance(ctrl_prop, dict):
+                desc = ctrl_prop.get(state)
+                if desc:
+                    return desc
 
         # color.selected.{variant}.{prop}.{state} — e.g. selected.primary.fill.default
         if len(path_parts) >= 3 and path_parts[1] == "selected":
@@ -715,6 +764,67 @@ def generate_description_for_path(path_parts, file_context):
 
     # ── COMPONENT TOKENS ─────────────────────────────────────────────
     if file_context.startswith("component/"):
+        # stepper.color.container.{prop}
+        if (path_parts[0] == "stepper" and len(path_parts) >= 4
+                and path_parts[1] == "color" and path_parts[2] == "container"):
+            prop = path_parts[3]
+            return STEPPER_CONTAINER.get(prop)
+
+        # stepper.color.counter.{prop}.{state}
+        if (path_parts[0] == "stepper" and len(path_parts) >= 5
+                and path_parts[1] == "color" and path_parts[2] == "counter"):
+            prop = path_parts[3]
+            state = path_parts[4]
+            if state == "default":
+                return STEPPER_COUNTER_DEFAULTS.get(prop)
+            prop_label = {
+                "fill": "Counter display background",
+                "border": "Counter display border",
+                "text": "Counter display text",
+            }.get(prop, f"Counter {prop}")
+            state_phrase = STATE_PHRASES.get(state, state)
+            return f"{prop_label} {state_phrase}."
+
+        # stepper.color.interactive.{variant}.{prop}.{state}
+        if (path_parts[0] == "stepper" and len(path_parts) >= 6
+                and path_parts[1] == "color" and path_parts[2] == "interactive"):
+            variant = path_parts[3]  # primary/secondary
+            prop = path_parts[4]     # fill/icon/border
+            state = path_parts[5]
+            variant_label = variant.capitalize()
+            if state == "default":
+                if prop == "icon":
+                    return f"Icon on {variant} stepper button."
+                return f"{variant_label} stepper button {prop}."
+            if prop == "icon":
+                state_phrase = STATE_PHRASES.get(state, state)
+                return f"Icon on {variant} stepper button {state_phrase}."
+            if state == "focus":
+                return f"{variant_label} stepper button focus ring."
+            state_phrase = STATE_PHRASES.get(state, state)
+            return f"{variant_label} stepper button {prop} {state_phrase}."
+
+        # badge.spacing.*
+        if path_parts[0] == "badge" and len(path_parts) >= 3:
+            prop = path_parts[-1]
+            badge_descs = {
+                "blockPadding": "Vertical padding for badge.",
+                "inlinePadding": "Horizontal padding for badge.",
+                "gap": "Gap between icon and label in badge.",
+                "minHeight": "Minimum height for badge.",
+            }
+            return badge_descs.get(prop)
+
+        # selectionControl.spacing.*
+        if path_parts[0] == "selectionControl" and len(path_parts) >= 3:
+            prop = path_parts[-1]
+            sc_descs = {
+                "gap": "Gap between control and label text.",
+                "validationGap": "Gap between control row and validation message.",
+                "errorGap": "Gap between error icon and error text.",
+            }
+            return sc_descs.get(prop)
+
         # icon.size.*
         if path_parts[0] == "icon" and len(path_parts) >= 3:
             size_key = path_parts[2]
@@ -828,7 +938,7 @@ def determine_file_context(file_path):
     return "/".join(remaining)
 
 
-def process_file(file_path, stats, overrides=None):
+def process_file(file_path, stats, overrides=None, dry_run=False):
     """Process a single token file."""
     if overrides is None:
         overrides = {}
@@ -854,10 +964,11 @@ def process_file(file_path, stats, overrides=None):
 
     process_token_tree(data, [], file_context, file_stats, overrides)
 
-    # Write back
-    with open(file_path, "w") as f:
-        json.dump(data, f, indent=2, ensure_ascii=False)
-        f.write("\n")
+    # Write back (skip in dry-run mode)
+    if not dry_run:
+        with open(file_path, "w") as f:
+            json.dump(data, f, indent=2, ensure_ascii=False)
+            f.write("\n")
 
     print(f"  Added: {file_stats['added']}")
     print(f"  Overwritten (--force): {file_stats['updated']}")
@@ -876,9 +987,9 @@ def process_file(file_path, stats, overrides=None):
 
 
 def main():
-    # Parse --force flag: when set, existing descriptions are replaced with
-    # generated ones. Without it, existing descriptions are never overwritten.
+    # Parse flags
     force = "--force" in sys.argv
+    dry_run = "--dry-run" in sys.argv
 
     tokens_dir = Path(__file__).parent.parent.parent / "tokens"
     if not tokens_dir.exists():
@@ -886,7 +997,9 @@ def main():
         sys.exit(1)
 
     print(f"Token directory: {tokens_dir}")
-    if force:
+    if dry_run:
+        print("Mode: --dry-run — preview only, no files will be modified")
+    elif force:
         print("Mode: --force — existing descriptions will be overwritten")
     else:
         print("Mode: safe — existing descriptions will be preserved (use --force to overwrite)")
@@ -939,10 +1052,13 @@ def main():
     }
 
     for fp in token_files:
-        process_file(fp, stats, overrides)
+        process_file(fp, stats, overrides, dry_run=dry_run)
 
     print(f"\n{'='*60}")
-    print("SUMMARY")
+    if dry_run:
+        print("DRY RUN SUMMARY (no files modified)")
+    else:
+        print("SUMMARY")
     print(f"{'='*60}")
     print(f"Descriptions added:    {stats['added']}")
     print(f"Descriptions overwritten (--force): {stats['updated']}")
@@ -966,6 +1082,10 @@ def main():
             print(f"  - {p}")
 
     # Save a run manifest so quality-dashboard.py can track progress over time.
+    # Skip in dry-run mode since no actual changes were made.
+    if dry_run:
+        return
+
     save_run_manifest(
         files_processed=len(token_files),
         tokens_total=total,
