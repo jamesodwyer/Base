@@ -125,12 +125,12 @@
           "icon": {
             "default": {
               "$type": "color",
-              "$value": "{color.interactive.icon.default}",
+              "$value": "{color.interactive.secondary.icon.default}",
               "$description": "Icon on secondary stepper button."
             },
             "hover": {
               "$type": "color",
-              "$value": "{color.interactive.icon.hover}",
+              "$value": "{color.interactive.secondary.icon.hover}",
               "$description": "Icon on secondary stepper button."
             },
             "disabled": {
