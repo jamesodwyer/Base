@@ -29,28 +29,8 @@
         "border": {
           "default": {
             "$type": "color",
-            "$value": "{color.input.border.default}",
+            "$value": "{color.border.secondary}",
             "$description": "Counter display border."
-          },
-          "hover": {
-            "$type": "color",
-            "$value": "{color.input.border.hover}",
-            "$description": "Counter display border on hover."
-          },
-          "pressed": {
-            "$type": "color",
-            "$value": "{color.input.border.active}",
-            "$description": "Counter display border when pressed."
-          },
-          "focus": {
-            "$type": "color",
-            "$value": "{color.focus.border}",
-            "$description": "Counter display border on focus."
-          },
-          "disabled": {
-            "$type": "color",
-            "$value": "{color.disabled.c}",
-            "$description": "Counter display border when disabled."
           }
         },
         "text": {
@@ -93,7 +73,7 @@
           "icon": {
             "default": {
               "$type": "color",
-              "$value": "{color.interactive.primary.text.default}",
+              "$value": "{color.interactive.primary.icon.default}",
               "$description": "Icon on primary stepper button."
             },
             "disabled": {
@@ -146,6 +126,11 @@
             "default": {
               "$type": "color",
               "$value": "{color.interactive.icon.default}",
+              "$description": "Icon on secondary stepper button."
+            },
+            "hover": {
+              "$type": "color",
+              "$value": "{color.interactive.icon.hover}",
               "$description": "Icon on secondary stepper button."
             },
             "disabled": {

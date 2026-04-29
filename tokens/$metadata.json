@@ -13,7 +13,6 @@
     "component/spacing/desktop",
     "component/spacing/mobile",
     "component/stepper",
-    "component/selectionControl",
     "component/loading"
   ]
 }
