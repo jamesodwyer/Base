@@ -859,17 +859,8 @@
           "$description": "Use for input borders. Text fields."
         },
         "hover": {
-          "$extensions": {
-            "studio.tokens": {
-              "modify": {
-                "type": "darken",
-                "value": "{core.color.modify.350}",
-                "space": "hsl"
-              }
-            }
-          },
           "$type": "color",
-          "$value": "{color.input.border.default}",
+          "$value": "{color.active.border.default}",
           "$description": "Input border on hover."
         },
         "active": {
@@ -917,7 +908,7 @@
       "icon": {
         "default": {
           "$type": "color",
-          "$value": "{color.input.text.default}",
+          "$value": "{color.icon.secondary}",
           "$description": "Use for input icons."
         },
         "hover": {
