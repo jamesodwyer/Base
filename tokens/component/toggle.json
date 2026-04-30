@@ -19,19 +19,21 @@
             "$description": "Toggle track fill when disabled."
           },
           "selected": {
-            "$type": "color",
-            "$value": "{color.interactive.primary.fill.default}",
-            "$description": "Toggle track fill when selected."
-          },
-          "selectedHover": {
-            "$type": "color",
-            "$value": "{color.interactive.primary.fill.default}",
-            "$description": "Toggle track fill when selected and hovered."
-          },
-          "selectedDisabled": {
-            "$type": "color",
-            "$value": "{color.disabled.a}",
-            "$description": "Toggle track fill when selected and disabled."
+            "default": {
+              "$type": "color",
+              "$value": "{color.interactive.primary.fill.default}",
+              "$description": "Toggle track fill when selected."
+            },
+            "hover": {
+              "$type": "color",
+              "$value": "{color.interactive.primary.fill.default}",
+              "$description": "Toggle track fill when selected and hovered."
+            },
+            "disabled": {
+              "$type": "color",
+              "$value": "{color.disabled.a}",
+              "$description": "Toggle track fill when selected and disabled."
+            }
           }
         },
         "border": {
@@ -50,10 +52,12 @@
             "$value": "{color.disabled.b}",
             "$description": "Toggle track border when disabled."
           },
-          "selectedHover": {
-            "$type": "color",
-            "$value": "{color.brand.02}",
-            "$description": "Toggle track hover overlay when selected."
+          "selected": {
+            "hover": {
+              "$type": "color",
+              "$value": "{color.brand.02}",
+              "$description": "Toggle track hover overlay when selected."
+            }
           },
           "focus": {
             "$type": "color",
@@ -75,14 +79,16 @@
             "$description": "Toggle thumb fill when disabled."
           },
           "selected": {
-            "$type": "color",
-            "$value": "{color.selected.control.fill.default}",
-            "$description": "Toggle thumb fill when selected."
-          },
-          "selectedDisabled": {
-            "$type": "color",
-            "$value": "{color.selected.control.fill.default}",
-            "$description": "Toggle thumb fill when selected and disabled."
+            "default": {
+              "$type": "color",
+              "$value": "{color.selected.control.fill.default}",
+              "$description": "Toggle thumb fill when selected."
+            },
+            "disabled": {
+              "$type": "color",
+              "$value": "{color.selected.control.fill.default}",
+              "$description": "Toggle thumb fill when selected and disabled."
+            }
           }
         }
       }
