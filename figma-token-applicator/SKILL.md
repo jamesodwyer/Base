@@ -350,6 +350,7 @@ Each component has a unique variant structure. When starting a new component:
 - **Accordion** -- 24 variants bound, 27 variables. File: `cfzFFRdygJ3eEoHuDplxHO`, node: `36820:4228`
 - **Alert Box** -- 16 variants bound (4 statuses × 2 devices × nested/non-nested), 28 new variables. File: `cfzFFRdygJ3eEoHuDplxHO`, node: `10410:52042`
 - **Checkbox (_CheckboxControl)** -- 13 variants bound, 22 new variables, 20 nodes with sharedPluginData. File: `cfzFFRdygJ3eEoHuDplxHO`, node: `41163:1815`
+- **Radio Button** -- 14 variants bound, 53 variables (3 collections), 60 sharedPluginData entries. File: `dfLpxHSoyojN9805EQXqy6`, node: `21:28156`
 
 ---
 

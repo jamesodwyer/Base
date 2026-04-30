@@ -13,6 +13,8 @@
     "component/spacing/desktop",
     "component/spacing/mobile",
     "component/stepper",
-    "component/loading"
+    "component/loading",
+    "component/popover",
+    "component/toast"
   ]
 }
