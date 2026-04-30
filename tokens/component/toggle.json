@@ -34,6 +34,23 @@
               "$value": "{color.disabled.a}",
               "$description": "Toggle track fill when selected and disabled."
             }
+          },
+          "presale": {
+            "default": {
+              "$type": "color",
+              "$value": "{color.interactive.presale.fill.default}",
+              "$description": "Toggle track fill when selected (presale)."
+            },
+            "hover": {
+              "$type": "color",
+              "$value": "{color.interactive.presale.fill.default}",
+              "$description": "Toggle track fill when selected and hovered (presale)."
+            },
+            "disabled": {
+              "$type": "color",
+              "$value": "{color.disabled.a}",
+              "$description": "Toggle track fill when selected and disabled (presale)."
+            }
           }
         },
         "border": {
@@ -57,6 +74,18 @@
               "$type": "color",
               "$value": "{color.brand.02}",
               "$description": "Toggle track hover overlay when selected."
+            }
+          },
+          "presale": {
+            "default": {
+              "$type": "color",
+              "$value": "{color.interactive.presale.fill.default}",
+              "$description": "Toggle track border on hover (presale)."
+            },
+            "hover": {
+              "$type": "color",
+              "$value": "{color.brand.02}",
+              "$description": "Toggle track hover overlay when selected (presale)."
             }
           },
           "focus": {

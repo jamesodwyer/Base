@@ -651,6 +651,92 @@
             "$description": "Transaction button icon when disabled."
           }
         }
+      },
+      "presale": {
+        "fill": {
+          "default": {
+            "$type": "color",
+            "$value": "{color.accent.magenta}",
+            "$description": "Use for presale/resale interactive elements."
+          },
+          "hover": {
+            "$extensions": {
+              "studio.tokens": {
+                "modify": {
+                  "type": "darken",
+                  "value": "{core.color.modify.100}",
+                  "space": "hsl"
+                }
+              }
+            },
+            "$type": "color",
+            "$value": "{color.interactive.presale.fill.default}",
+            "$description": "Presale interactive fill on hover."
+          },
+          "pressed": {
+            "$extensions": {
+              "studio.tokens": {
+                "modify": {
+                  "type": "darken",
+                  "value": "{core.color.modify.200}",
+                  "space": "hsl"
+                }
+              }
+            },
+            "$type": "color",
+            "$value": "{color.interactive.presale.fill.default}",
+            "$description": "Presale interactive fill when pressed."
+          },
+          "disabled": {
+            "$type": "color",
+            "$value": "{color.disabled.a}",
+            "$description": "Presale interactive fill when disabled."
+          }
+        },
+        "text": {
+          "default": {
+            "$type": "color",
+            "$value": "{color.common.white}",
+            "$description": "Use for presale interactive text."
+          },
+          "hover": {
+            "$type": "color",
+            "$value": "{color.common.white}",
+            "$description": "Presale interactive text on hover."
+          },
+          "pressed": {
+            "$type": "color",
+            "$value": "{color.common.white}",
+            "$description": "Presale interactive text when pressed."
+          },
+          "disabled": {
+            "$type": "color",
+            "$value": "{color.disabled.b}",
+            "$description": "Presale interactive text when disabled."
+          }
+        },
+        "icon": {
+          "default": {
+            "$type": "color",
+            "$value": "{color.common.white}",
+            "$description": "Use for presale interactive icons."
+          },
+          "hover": {
+            "$type": "color",
+            "$value": "{color.common.white}",
+            "$description": "Presale interactive icon on hover."
+          },
+          "pressed": {
+            "$type": "color",
+            "$value": "{color.common.white}",
+            "$description": "Presale interactive icon when pressed."
+          },
+          "disabled": {
+            "$type": "color",
+            "$value": "{color.disabled.b}",
+            "$description": "Presale interactive icon when disabled."
+          }
+        }
       }
     },
     "disabled": {
