@@ -93,27 +93,18 @@
         "secondary": {
           "fill": {
             "default": {
-              "$extensions": {
-                "studio.tokens": {
-                  "modify": {
-                    "type": "alpha",
-                    "value": "{core.color.modify.zero}",
-                    "space": "hsl"
-                  }
-                }
-              },
               "$type": "color",
-              "$value": "{color.brand.02}",
+              "$value": "{color.interactive.tertiary.fill.default}",
               "$description": "Secondary stepper button fill."
             },
             "hover": {
               "$type": "color",
-              "$value": "{color.brand.02}",
+              "$value": "{color.interactive.tertiary.fill.hover}",
               "$description": "Secondary stepper button fill on hover."
             },
             "pressed": {
               "$type": "color",
-              "$value": "{color.brand.02}",
+              "$value": "{color.interactive.tertiary.fill.hover}",
               "$description": "Secondary stepper button fill when pressed."
             },
             "disabled": {

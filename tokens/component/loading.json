@@ -4,8 +4,8 @@
       "fill": {
         "primary": {
           "$type": "color",
-          "$value": "{color.brand.01}",
-          "$description": "Active arc fill for primary spinner. Uses brand color."
+          "$value": "{color.interactive.primary.fill.default}",
+          "$description": "Active arc fill for primary spinner."
         },
         "secondary": {
           "$type": "color",
@@ -23,7 +23,7 @@
       "fill": {
         "primary": {
           "$type": "color",
-          "$value": "{color.brand.01}",
+          "$value": "{color.interactive.primary.fill.default}",
           "$description": "Trail arc fill for primary spinner. Same hue as active arc, rendered at 25% opacity."
         },
         "secondary": {
