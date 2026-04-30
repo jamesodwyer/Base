@@ -1,0 +1,55 @@
+{
+  "popover": {
+    "color": {
+      "fill": {
+        "$type": "color",
+        "$value": "{color.elevation.level3}",
+        "$description": "Popover container background."
+      },
+      "border": {
+        "$type": "color",
+        "$value": "{color.border.primary}",
+        "$description": "Popover container border."
+      }
+    },
+    "borderRadius": {
+      "$type": "borderRadius",
+      "$value": "{borderRadius.popover.small}",
+      "$description": "Popover container corner radius."
+    },
+    "borderWidth": {
+      "$type": "borderWidth",
+      "$value": "{border.interactive.xSmall}",
+      "$description": "Popover container border width."
+    },
+    "shadow": {
+      "$type": "boxShadow",
+      "$value": "{elevation.elevationLevel3}",
+      "$description": "Popover container drop shadow."
+    },
+    "spacing": {
+      "padding": {
+        "$type": "spacing",
+        "$value": "{core.dimension.200}",
+        "$description": "Internal padding for popover container."
+      }
+    },
+    "size": {
+      "minHeight": {
+        "$type": "dimension",
+        "$value": "160px",
+        "$description": "Minimum height for popover."
+      },
+      "maxHeight": {
+        "$type": "dimension",
+        "$value": "300px",
+        "$description": "Maximum height for popover."
+      },
+      "minWidth": {
+        "$type": "dimension",
+        "$value": "180px",
+        "$description": "Minimum width for popover."
+      }
+    }
+  }
+}

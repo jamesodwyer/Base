@@ -43,7 +43,7 @@ These validate input token patterns (fill, border, text per state).
 | 12 | Input Field | [x] | [ ] | [ ] | [ ] | Core form component. Validates input colour + feedback tokens. |
 | 13 | Checkbox | [x] | [ ] | [ ] | [ ] | |
 | 14 | CheckboxControl | [x] | [ ] | [ ] | [ ] | Visual wrapper of Checkbox. |
-| 15 | Radio Button | [x] | [ ] | [ ] | [ ] | |
+| 15 | Radio Button | [x] | [x] | [ ] | [ ] | 14 variants, 53 variables, 60 bindings. File: `dfLpxHSoyojN9805EQXqy6`, node: `21:28156` |
 | 16 | Dropdown | [x] | [ ] | [ ] | [ ] | Input tokens + popover/elevation tokens. |
 | 17 | Toggle | [x] | [ ] | [ ] | [ ] | |
 | 18 | Date Picker | [x] | [ ] | [ ] | [ ] | Input tokens + calendar popover. |
@@ -57,7 +57,7 @@ These validate the feedback token set (error, success, warning, info).
 | # | Component | Mapped | Figma Applied | Verified | Storybook | Notes |
 |---|-----------|--------|---------------|----------|-----------|-------|
 | 21 | Alert | [x] | [ ] | [ ] | [ ] | All 4 feedback variants. |
-| 22 | Toast | [x] | [ ] | [ ] | [ ] | Subset of Alert tokens. |
+| 22 | Toast | [x] | [x] | [ ] | [ ] | 2 variants, 14 variables, 16 bindings. File: `dfLpxHSoyojN9805EQXqy6`, node: `38852:13585`. Close icon pre-existing issue: fills are #121212 (invisible on dark bg) — needs fix at icon component level. |
 | 23 | Badge | [x] | [ ] | [ ] | [ ] | |
 | 24 | Loading Spinner | [x] | [ ] | [ ] | [ ] | 3 colour variants. Large size needs token. |
 
@@ -93,7 +93,7 @@ Lower priority — simpler token needs.
 |----------|-----------|--------|
 | P1: Interactive Primitives | 11 | 0/11 applied |
 | P2: Form Controls | 9 | 0/9 applied |
-| P3: Feedback & Status | 4 | 0/4 applied |
+| P3: Feedback & Status | 4 | 1/4 applied |
 | P4: Overlays & Containers | 4 | 0/4 applied |
 | P5: Content & Utility | 6 | 0/6 applied |
 | **Total** | **34** | **0/34 applied** |

@@ -86,6 +86,8 @@
       "component/spacing/desktop": "enabled",
       "component/stepper": "enabled",
       "component/loading": "enabled",
+      "component/popover": "enabled",
+      "component/toast": "enabled",
       "global/dimension": "enabled",
       "global/typography": "enabled",
       "global/modify": "enabled",

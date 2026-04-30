@@ -1,0 +1,57 @@
+{
+  "toast": {
+    "color": {
+      "fill": {
+        "$type": "color",
+        "$value": "{color.elevation.inverse}",
+        "$description": "Toast container background. Dark inverse surface."
+      },
+      "text": {
+        "$type": "color",
+        "$value": "{color.text.inverse}",
+        "$description": "Toast message text. White on dark background."
+      },
+      "icon": {
+        "close": {
+          "$type": "color",
+          "$value": "{color.icon.inverse}",
+          "$description": "Toast close/dismiss icon. White on dark background."
+        }
+      }
+    },
+    "borderRadius": {
+      "$type": "borderRadius",
+      "$value": "{borderRadius.container.medium}",
+      "$description": "Toast container corner radius."
+    },
+    "shadow": {
+      "$type": "boxShadow",
+      "$value": "{elevation.elevationLevel3}",
+      "$description": "Toast container drop shadow. Elevated overlay."
+    },
+    "spacing": {
+      "padding": {
+        "$type": "spacing",
+        "$value": "{core.dimension.400}",
+        "$description": "Internal padding for toast container (all sides)."
+      },
+      "gap": {
+        "$type": "spacing",
+        "$value": "{core.dimension.300}",
+        "$description": "Gap between icon, text, and close button."
+      }
+    },
+    "size": {
+      "closeIcon": {
+        "$type": "dimension",
+        "$value": "{icon.size.medium}",
+        "$description": "Close icon size in toast (16px)."
+      },
+      "statusIcon": {
+        "$type": "dimension",
+        "$value": "{icon.size.large}",
+        "$description": "Status feedback icon size in toast (24px)."
+      }
+    }
+  }
+}
