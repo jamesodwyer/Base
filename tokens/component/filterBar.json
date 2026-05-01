@@ -10,8 +10,13 @@
           },
           "hover": {
             "$type": "color",
-            "$value": "{color.selected.control.fill.default}",
+            "$value": "{color.interactive.primary.fill.hover}",
             "$description": "Filter bar fill on hover."
+          },
+          "pressed": {
+            "$type": "color",
+            "$value": "{color.interactive.primary.fill.pressed}",
+            "$description": "Filter bar fill when pressed."
           },
           "disabled": {
             "$type": "color",
@@ -21,7 +26,7 @@
           "selected": {
             "default": {
               "$type": "color",
-              "$value": "{color.interactive.primary.fill.default}",
+              "$value": "{color.interactive.tertiary.fill.hover}",
               "$description": "Filter bar fill when selected."
             },
             "hover": {
@@ -34,29 +39,7 @@
               "$value": "{color.disabled.a}",
               "$description": "Filter bar fill when selected and disabled."
             }
-          },
-          "presale": {
-            "default": {
-              "$type": "color",
-              "$value": "{color.interactive.presale.fill.default}",
-              "$description": "Filter bar fill when selected (presale)."
-            },
-            "hover": {
-              "$type": "color",
-              "$value": "{color.interactive.presale.fill.default}",
-              "$description": "Filter bar fill when selected and hovered (presale)."
-            },
-            "disabled": {
-              "$type": "color",
-              "$value": "{color.disabled.a}",
-              "$description": "Filter bar fill when selected and disabled (presale)."
-            }
           }
-        },
-        "pressed": {
-          "$type": "color",
-          "$value": "{color.interactive.primary.fill.pressed}",
-          "$description": "Filter bar fill when pressed."
         },
         "border": {
           "default": {
@@ -64,83 +47,15 @@
             "$value": "{color.border.primary}",
             "$description": "Filter bar border."
           },
-          "hover": {
-            "$type": "color",
-            "$value": "{color.active.border.default}",
-            "$description": "Filter bar border on hover."
-          },
           "disabled": {
             "$type": "color",
             "$value": "{color.disabled.b}",
             "$description": "Filter bar border when disabled."
           },
-          "selected": {
-            "hover": {
-              "$type": "color",
-              "$value": "{color.brand.02}",
-              "$description": "Filter bar border when selected and hovered."
-            }
-          },
-          "presale": {
-            "default": {
-              "$type": "color",
-              "$value": "{color.interactive.presale.fill.default}",
-              "$description": "Filter bar border (presale)."
-            },
-            "hover": {
-              "$type": "color",
-              "$value": "{color.brand.02}",
-              "$description": "Filter bar border when selected and hovered (presale)."
-            }
-          },
           "focus": {
             "$type": "color",
             "$value": "{color.focus.border}",
             "$description": "Filter bar focus ring."
-          },
-          "pressed": {
-            "$type": "color",
-            "$value": "{color.interactive.primary.fill.pressed}",
-            "$description": "Filter bar border when pressed."
-          }
-        }
-      },
-      "text": {
-        "default": {
-          "$type": "color",
-          "$value": "{color.text.primary}",
-          "$description": "Filter bar text in default state."
-        },
-        "hover": {
-          "$type": "color",
-          "$value": "{color.text.inverse}",
-          "$description": "Filter bar text on hover."
-        },
-        "pressed": {
-          "$type": "color",
-          "$value": "{color.text.inverse}",
-          "$description": "Filter bar text when pressed."
-        },
-        "disabled": {
-          "$type": "color",
-          "$value": "{color.disabled.b}",
-          "$description": "Filter bar text when disabled."
-        },
-        "selected": {
-          "default": {
-            "$type": "color",
-            "$value": "{color.text.inverse}",
-            "$description": "Filter bar text when selected."
-          },
-          "hover": {
-            "$type": "color",
-            "$value": "{color.text.inverse}",
-            "$description": "Filter bar text when selected and hovered."
-          },
-          "disabled": {
-            "$type": "color",
-            "$value": "{color.disabled.b}",
-            "$description": "Filter bar text when selected and disabled."
           }
         }
       },
@@ -175,11 +90,6 @@
             "$type": "color",
             "$value": "{color.icon.inverse}",
             "$description": "Filter bar icon when selected and hovered."
-          },
-          "disabled": {
-            "$type": "color",
-            "$value": "{color.disabled.b}",
-            "$description": "Filter bar icon when selected and disabled."
           }
         }
       }
