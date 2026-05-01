@@ -8,18 +8,29 @@ allowed-tools: Read, Write, Edit, Bash, Glob, Grep, ToolSearch, mcp__plugin_figm
 
 Apply W3C DTCG design tokens to Figma components using the **Figma MCP `use_figma` tool** -- not a local Figma plugin.
 
-The workflow creates Figma Variables that mirror the 4-tier token hierarchy (Global > Brand > Semantic > Component), computes Token Studio HSL modifiers in Python, and binds variables to every variant of a component.
+The workflow sets Token Studio `sharedPluginData` on component variant layers with plain paint colours. It does **NOT** create Figma native variable collections or bind Figma variables -- Token Studio bindings are the only binding mechanism.
+
+---
+
+## Critical Rules
+
+1. **Token Studio bindings only.** Set `sharedPluginData` with separate keys per property (`fill`, `borderColor`, etc.). Do NOT create Figma variable collections or use `setBoundVariableForPaint`.
+2. **Correct file key.** Always extract the Figma file key from the user's URL. Never assume from memory -- the project has multiple files.
+3. **State naming.** Use `default`/`hover`/`disabled`/`selected.default`/`selected.hover`/`selected.disabled` -- never `on`/`off`, never camelCase (`selectedHover`). In Token Studio JSON, dots become nested objects.
+4. **No new semantic groups for components.** Component-specific tokens go in `tokens/component/{name}.json`. Only add to the semantic layer for genuinely cross-component concepts.
+5. **Register new token sets.** When adding a new component token file, register it in Token Studio's `usedTokenSet` on the document root.
+6. **sharedPluginData format.** Each property is a separate key (not a single `values` key). Value is a JSON-stringified string of the dot-notation token path.
 
 ---
 
 ## Before You Start
 
 You need:
-1. A **Figma file key** (e.g. `WU01oSRfSHpOxUn3ThcvC5`)
-2. A **component set node ID** (e.g. `29422:3597` for Button)
+1. A **Figma file key** -- always extract from the user's URL (e.g. `dfLpxHSoyojN9805EQXqy6` from `figma.com/design/dfLpxHSoyojN9805EQXqy6/...`)
+2. A **component set node ID** (e.g. `21:28235` for Toggle)
 3. The **token JSON files** in `tokens/` (this project's source of truth)
 
-If you don't have the file key or node ID, ask the user or use `get_metadata` to find the component.
+If you don't have the file key, ask the user for the Figma URL. If you don't have the node ID, use `use_figma` to search for the component by name.
 
 ---
 
@@ -183,18 +194,35 @@ For each variant, bind these properties (where tokens exist):
 
 **Icons are tokenized at the icon component level, not the consuming component.** Icon components (e.g. ErrorFilled, ChevronLeft) own their color tokens on their vector/SVG nodes. When an icon instance is placed inside a component like Button or Alert Box, it carries its token with it. Do NOT override icon fills at the consuming component level — the icon color is controlled by the icon component itself, even when the color changes per variant or state. When processing a consuming component, skip all INSTANCE nodes that are icons; they are a separate component with their own token workflow.
 
-**Important paint binding pattern:** When binding a variable to a paint (fill or stroke), always set the base paint color to the actual resolved hex -- never use black `{r:0, g:0, b:0}`. Figma sometimes shows the base color if the variable doesn't resolve immediately.
+**Plain paints only -- no variable binding.** Set fills and strokes as plain SolidPaint with the actual resolved hex colour. Do NOT use `setBoundVariableForPaint` or create Figma variable collections. Token Studio `sharedPluginData` is the only binding.
 
 ```javascript
-// Correct: use actual resolved color
-const paint = {
-  type: "SOLID",
-  color: { r: 0.008, g: 0.302, b: 1.0 }, // actual #024dff
-  opacity: 1.0,
-  visible: true
-};
-node.fills = [figma.variables.setBoundVariableForPaint(paint, "color", variable)];
+// CORRECT: plain paint with actual resolved colour
+node.fills = [figma.util.solidPaint(
+  { r: 0.008, g: 0.302, b: 1.0 }, // actual #024dff
+  { opacity: 1, visible: true }
+)];
+// Then set Token Studio data
+node.setSharedPluginData("tokens", "fill", JSON.stringify("toggle.color.container.fill.selected.default"));
+
+// WRONG: Figma variable binding (overrides Token Studio inspect)
+// node.fills = [figma.variables.setBoundVariableForPaint(paint, "color", variable)];
 ```
+
+**State naming convention.** Token states must follow the system-wide pattern:
+- Default (unselected): `default`, `hover`, `disabled`
+- Selected (active/on): `selected.default`, `selected.hover`, `selected.disabled`
+- In Token Studio JSON, compound states use nested objects (dots become nesting):
+```json
+{
+  "selected": {
+    "default": { "$type": "color", "$value": "..." },
+    "hover": { "$type": "color", "$value": "..." },
+    "disabled": { "$type": "color", "$value": "..." }
+  }
+}
+```
+- Never use `on`/`off`, never use camelCase (`selectedHover`)
 
 **Typography binding:** Typography tokens are composite (`$type: "typography"`) with sub-properties that must be applied individually to TEXT nodes. Figma doesn't support composite typography variables, so each sub-property is handled differently:
 
@@ -297,16 +325,27 @@ See `references/figma-component-binding.md` for complete binding code patterns.
 
 ### Phase 3: Set Token Studio sharedPluginData
 
-Every binding also needs Token Studio metadata so Token Studio recognises the bindings when the file is opened.
+**This is the primary binding mechanism.** Token Studio metadata tells Token Studio which token path is applied to each layer.
 
-For each bound property, call:
+**Step 1: Set sharedPluginData on each layer.**
+
+Each property is a **separate key** on the node. The value is a JSON-stringified string of the dot-notation token path:
+
 ```javascript
-node.setSharedPluginData("tokens", key, JSON.stringify(dotNotationPath));
+// CORRECT: separate keys per property
+node.setSharedPluginData("tokens", "fill", JSON.stringify("toggle.color.container.fill.default"));
+node.setSharedPluginData("tokens", "borderColor", JSON.stringify("toggle.color.container.border.default"));
+
+// WRONG: single values key (Token Studio won't read this)
+node.setSharedPluginData("tokens", "values", JSON.stringify({ fill: "...", borderColor: "..." }));
 ```
 
-Where:
-- `key` is the Token Studio property key (e.g. `fill`, `borderColor`, `borderRadius`, `spacing`, `itemSpacing`, `typography`)
-- `dotNotationPath` uses `.` separators (Token Studio format): `color.interactive.primary.fill.default`
+When updating bindings, always clear existing keys first to avoid stale data:
+```javascript
+const existingKeys = node.getSharedPluginDataKeys("tokens");
+for (const key of existingKeys) node.setSharedPluginData("tokens", key, "");
+// Then set new keys
+```
 
 **Token Studio key mapping:**
 
@@ -323,6 +362,20 @@ Where:
 | fontSize | `fontSize` (on the TEXT node, via variable) |
 | lineHeight | `lineHeight` (on the TEXT node, via variable) |
 | typography composite | `typography` (on the TEXT node, covers fontFamily + fontWeight + fontSize + lineHeight) |
+
+**Step 2: Register the token set in usedTokenSet.**
+
+Token Studio only resolves paths for registered token sets. When adding a new component token file, register it:
+
+```javascript
+const current = JSON.parse(figma.root.getSharedPluginData("tokens", "usedTokenSet"));
+current["component/toggle"] = "enabled";
+figma.root.setSharedPluginData("tokens", "usedTokenSet", JSON.stringify(current));
+```
+
+**Step 3: Verify by reading back the data.**
+
+Always verify bindings after applying by reading `getSharedPluginDataKeys` and checking the values match expectations. Inspect a sample of nodes from different variant states.
 
 ---
 
@@ -351,6 +404,7 @@ Each component has a unique variant structure. When starting a new component:
 - **Alert Box** -- 16 variants bound (4 statuses × 2 devices × nested/non-nested), 28 new variables. File: `cfzFFRdygJ3eEoHuDplxHO`, node: `10410:52042`
 - **Checkbox (_CheckboxControl)** -- 13 variants bound, 22 new variables, 20 nodes with sharedPluginData. File: `cfzFFRdygJ3eEoHuDplxHO`, node: `41163:1815`
 - **Radio Button** -- 14 variants bound, 53 variables (3 collections), 60 sharedPluginData entries. File: `dfLpxHSoyojN9805EQXqy6`, node: `21:28156`
+- **Toggle** -- 12 variants (On/Off × Default/Hover/Disabled × Resale?), 26 layers bound via Token Studio sharedPluginData only (no Figma variables). Includes `presale` variant for Resale?=Yes using `color.interactive.presale`. File: `dfLpxHSoyojN9805EQXqy6`, node: `21:28235`
 
 ---
 

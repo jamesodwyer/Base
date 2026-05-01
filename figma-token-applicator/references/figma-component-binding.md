@@ -1,6 +1,6 @@
 # Figma Component Binding Patterns
 
-After creating variables, bind them to component variants. All binding happens via `mcp__plugin_figma_figma__use_figma`.
+Bind tokens to component variants using **Token Studio `sharedPluginData` only**. Do NOT create Figma variable collections or use `setBoundVariableForPaint`. All binding happens via `mcp__plugin_figma_figma__use_figma`.
 
 ## Reading the Component Structure
 
@@ -27,40 +27,37 @@ for (const variant of variants) {
 
 ## Binding Fill (Background Color)
 
+Set plain SolidPaint with the resolved hex, then set Token Studio sharedPluginData:
+
 ```javascript
-const allVars = await figma.variables.getLocalVariablesAsync();
-const fillVar = allVars.find(v => v.name === "color/interactive/primary/fill/default");
+// Set plain paint (no Figma variable binding)
+node.fills = [figma.util.solidPaint(
+  { r: 0.008, g: 0.302, b: 1.0 }, // actual resolved hex
+  { opacity: 1, visible: true }
+)];
 
-// Use the actual resolved color in the base paint
-const paint = {
-  type: "SOLID",
-  color: { r: 0.008, g: 0.302, b: 1.0 }, // actual hex of the variable
-  opacity: 1.0,
-  visible: true
-};
-
-const boundPaint = figma.variables.setBoundVariableForPaint(paint, "color", fillVar);
-variant.fills = [boundPaint];
+// Set Token Studio binding
+node.setSharedPluginData("tokens", "fill",
+  JSON.stringify("toggle.color.container.fill.selected.default")
+);
 ```
 
-Never use `{r:0, g:0, b:0}` as the base paint color. Always use the actual resolved hex. Figma sometimes renders the base color instead of the variable value.
+Never use `setBoundVariableForPaint` -- Figma variable bindings override Token Studio inspect.
 
 ## Binding Text Color
 
-Find the TEXT child node and bind its fill:
+Find the TEXT child node and set its fill:
 
 ```javascript
 const textNode = variant.children.find(c => c.type === "TEXT");
 if (textNode) {
-  const textVar = allVars.find(v => v.name === "color/interactive/primary/text/default");
-  const paint = {
-    type: "SOLID",
-    color: { r: 1.0, g: 1.0, b: 1.0 }, // actual resolved color
-    opacity: 1.0,
-    visible: true
-  };
-  const boundPaint = figma.variables.setBoundVariableForPaint(paint, "color", textVar);
-  textNode.fills = [boundPaint];
+  textNode.fills = [figma.util.solidPaint(
+    { r: 1.0, g: 1.0, b: 1.0 },
+    { opacity: 1, visible: true }
+  )];
+  textNode.setSharedPluginData("tokens", "fill",
+    JSON.stringify("color.interactive.primary.text.default")
+  );
 }
 ```
 
@@ -111,14 +108,13 @@ if (iconVector) {
 ## Binding Border Color (Stroke)
 
 ```javascript
-const borderVar = allVars.find(v => v.name === "color/interactive/secondary/border/default");
-const strokePaint = {
-  type: "SOLID",
-  color: { r: 0.008, g: 0.302, b: 1.0 },
-  opacity: 1.0,
-  visible: true
-};
-variant.strokes = [figma.variables.setBoundVariableForPaint(strokePaint, "color", borderVar)];
+node.strokes = [figma.util.solidPaint(
+  { r: 0.008, g: 0.302, b: 1.0 },
+  { opacity: 1, visible: true }
+)];
+node.setSharedPluginData("tokens", "borderColor",
+  JSON.stringify("toggle.color.container.border.default")
+);
 ```
 
 ## Binding Numeric Properties
@@ -211,6 +207,29 @@ Note: Figma font style names vary by font family. Always try the expected style,
 | Button (small) | `typography.label.small` |
 | Body text | `typography.body.regular.medium` |
 | Heading | `typography.heading.{size}` |
+
+## Clearing Existing Bindings
+
+Always clear existing Token Studio keys before setting new ones to avoid stale data:
+
+```javascript
+const existingKeys = node.getSharedPluginDataKeys("tokens");
+for (const key of existingKeys) {
+  node.setSharedPluginData("tokens", key, "");
+}
+// Then set new keys
+node.setSharedPluginData("tokens", "fill", JSON.stringify("toggle.color.container.fill.default"));
+```
+
+## Registering New Token Sets
+
+When you create a new component token file (e.g. `tokens/component/toggle.json`), register it in Token Studio's config so the inspect panel can resolve the paths:
+
+```javascript
+const current = JSON.parse(figma.root.getSharedPluginData("tokens", "usedTokenSet"));
+current["component/toggle"] = "enabled";
+figma.root.setSharedPluginData("tokens", "usedTokenSet", JSON.stringify(current));
+```
 
 ## Setting Token Studio sharedPluginData
 
