@@ -6,50 +6,50 @@
           "default": {
             "$type": "color",
             "$value": "{color.selected.control.fill.default}",
-            "$description": "Toggle track fill."
+            "$description": "Filter bar fill."
           },
           "hover": {
             "$type": "color",
             "$value": "{color.selected.control.fill.default}",
-            "$description": "Toggle track fill on hover."
+            "$description": "Filter bar fill on hover."
           },
           "disabled": {
             "$type": "color",
             "$value": "{color.disabled.a}",
-            "$description": "Toggle track fill when disabled."
+            "$description": "Filter bar fill when disabled."
           },
           "selected": {
             "default": {
               "$type": "color",
               "$value": "{color.interactive.primary.fill.default}",
-              "$description": "Toggle track fill when selected."
+              "$description": "Filter bar fill when selected."
             },
             "hover": {
               "$type": "color",
               "$value": "{color.interactive.primary.fill.default}",
-              "$description": "Toggle track fill when selected and hovered."
+              "$description": "Filter bar fill when selected and hovered."
             },
             "disabled": {
               "$type": "color",
               "$value": "{color.disabled.a}",
-              "$description": "Toggle track fill when selected and disabled."
+              "$description": "Filter bar fill when selected and disabled."
             }
           },
           "presale": {
             "default": {
               "$type": "color",
               "$value": "{color.interactive.presale.fill.default}",
-              "$description": "Toggle track fill when selected (presale)."
+              "$description": "Filter bar fill when selected (presale)."
             },
             "hover": {
               "$type": "color",
               "$value": "{color.interactive.presale.fill.default}",
-              "$description": "Toggle track fill when selected and hovered (presale)."
+              "$description": "Filter bar fill when selected and hovered (presale)."
             },
             "disabled": {
               "$type": "color",
               "$value": "{color.disabled.a}",
-              "$description": "Toggle track fill when selected and disabled (presale)."
+              "$description": "Filter bar fill when selected and disabled (presale)."
             }
           }
         },
@@ -62,41 +62,41 @@
           "default": {
             "$type": "color",
             "$value": "{color.border.primary}",
-            "$description": "Toggle track border."
+            "$description": "Filter bar border."
           },
           "hover": {
             "$type": "color",
             "$value": "{color.active.border.default}",
-            "$description": "Toggle track border on hover."
+            "$description": "Filter bar border on hover."
           },
           "disabled": {
             "$type": "color",
             "$value": "{color.disabled.b}",
-            "$description": "Toggle track border when disabled."
+            "$description": "Filter bar border when disabled."
           },
           "selected": {
             "hover": {
               "$type": "color",
               "$value": "{color.brand.02}",
-              "$description": "Toggle track hover overlay when selected."
+              "$description": "Filter bar border when selected and hovered."
             }
           },
           "presale": {
             "default": {
               "$type": "color",
               "$value": "{color.interactive.presale.fill.default}",
-              "$description": "Toggle track border on hover (presale)."
+              "$description": "Filter bar border (presale)."
             },
             "hover": {
               "$type": "color",
               "$value": "{color.brand.02}",
-              "$description": "Toggle track hover overlay when selected (presale)."
+              "$description": "Filter bar border when selected and hovered (presale)."
             }
           },
           "focus": {
             "$type": "color",
             "$value": "{color.focus.border}",
-            "$description": "Toggle focus ring."
+            "$description": "Filter bar focus ring."
           },
           "pressed": {
             "$type": "color",
@@ -180,32 +180,6 @@
             "$type": "color",
             "$value": "{color.disabled.b}",
             "$description": "Filter bar icon when selected and disabled."
-          }
-        }
-      },
-      "thumb": {
-        "fill": {
-          "default": {
-            "$type": "color",
-            "$value": "{color.border.primary}",
-            "$description": "Toggle thumb fill."
-          },
-          "disabled": {
-            "$type": "color",
-            "$value": "{color.disabled.b}",
-            "$description": "Toggle thumb fill when disabled."
-          },
-          "selected": {
-            "default": {
-              "$type": "color",
-              "$value": "{color.selected.control.fill.default}",
-              "$description": "Toggle thumb fill when selected."
-            },
-            "disabled": {
-              "$type": "color",
-              "$value": "{color.selected.control.fill.default}",
-              "$description": "Toggle thumb fill when selected and disabled."
-            }
           }
         }
       }
