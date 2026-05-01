@@ -16,6 +16,6 @@
     "component/loading",
     "component/popover",
     "component/toast",
-    "component/toggle"
+    "component/filterBar"
   ]
 }
