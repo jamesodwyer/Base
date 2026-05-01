@@ -15,6 +15,7 @@
     "component/stepper",
     "component/loading",
     "component/popover",
-    "component/toast"
+    "component/toast",
+    "component/toggle"
   ]
 }
