@@ -53,6 +53,11 @@
             }
           }
         },
+        "pressed": {
+          "$type": "color",
+          "$value": "{color.interactive.primary.fill.pressed}",
+          "$description": "Filter bar fill when pressed."
+        },
         "border": {
           "default": {
             "$type": "color",
@@ -92,6 +97,89 @@
             "$type": "color",
             "$value": "{color.focus.border}",
             "$description": "Toggle focus ring."
+          },
+          "pressed": {
+            "$type": "color",
+            "$value": "{color.interactive.primary.fill.pressed}",
+            "$description": "Filter bar border when pressed."
+          }
+        }
+      },
+      "text": {
+        "default": {
+          "$type": "color",
+          "$value": "{color.text.primary}",
+          "$description": "Filter bar text in default state."
+        },
+        "hover": {
+          "$type": "color",
+          "$value": "{color.text.inverse}",
+          "$description": "Filter bar text on hover."
+        },
+        "pressed": {
+          "$type": "color",
+          "$value": "{color.text.inverse}",
+          "$description": "Filter bar text when pressed."
+        },
+        "disabled": {
+          "$type": "color",
+          "$value": "{color.disabled.b}",
+          "$description": "Filter bar text when disabled."
+        },
+        "selected": {
+          "default": {
+            "$type": "color",
+            "$value": "{color.text.inverse}",
+            "$description": "Filter bar text when selected."
+          },
+          "hover": {
+            "$type": "color",
+            "$value": "{color.text.inverse}",
+            "$description": "Filter bar text when selected and hovered."
+          },
+          "disabled": {
+            "$type": "color",
+            "$value": "{color.disabled.b}",
+            "$description": "Filter bar text when selected and disabled."
+          }
+        }
+      },
+      "icon": {
+        "default": {
+          "$type": "color",
+          "$value": "{color.icon.primary}",
+          "$description": "Filter bar icon in default state."
+        },
+        "hover": {
+          "$type": "color",
+          "$value": "{color.icon.inverse}",
+          "$description": "Filter bar icon on hover."
+        },
+        "pressed": {
+          "$type": "color",
+          "$value": "{color.icon.inverse}",
+          "$description": "Filter bar icon when pressed."
+        },
+        "disabled": {
+          "$type": "color",
+          "$value": "{color.disabled.b}",
+          "$description": "Filter bar icon when disabled."
+        },
+        "selected": {
+          "default": {
+            "$type": "color",
+            "$value": "{color.icon.inverse}",
+            "$description": "Filter bar icon when selected."
+          },
+          "hover": {
+            "$type": "color",
+            "$value": "{color.icon.inverse}",
+            "$description": "Filter bar icon when selected and hovered."
+          },
+          "disabled": {
+            "$type": "color",
+            "$value": "{color.disabled.b}",
+            "$description": "Filter bar icon when selected and disabled."
           }
         }
       },

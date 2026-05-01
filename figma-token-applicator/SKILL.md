@@ -1,416 +1,253 @@
 ---
 name: figma-token-applicator
-description: Apply W3C DTCG design tokens to Figma components via the Figma MCP. Use this skill whenever the user wants to apply tokens to Figma, bind variables to components, create Figma variables from token JSON, connect Token Studio tokens to Figma, or set up the variable alias chain in Figma. Also trigger when the user mentions "apply tokens to Badge/Checkbox/Stepper/etc", "create variables in Figma", "bind tokens to components", or "Token Studio sharedPluginData".
-allowed-tools: Read, Write, Edit, Bash, Glob, Grep, ToolSearch, mcp__plugin_figma_figma__use_figma, mcp__plugin_figma_figma__get_design_context, mcp__plugin_figma_figma__get_metadata, mcp__plugin_figma_figma__get_screenshot
+description: Apply design tokens to Figma components via Token Studio sharedPluginData only. Use when the user wants to bind tokens to Figma components, attach Token Studio metadata, or create missing component tokens for a Figma component. Triggers on "apply tokens to [component]", "bind tokens", "attach tokens", "Token Studio sharedPluginData", or "create component tokens for [name]".
+allowed-tools: Read, Write, Edit, Bash, Glob, Grep, ToolSearch, mcp__plugin_figma_figma__use_figma, mcp__plugin_figma_figma__get_design_context, mcp__plugin_figma_figma__get_metadata, mcp__plugin_figma_figma__get_screenshot, mcp__jira__jira_create_issue
 ---
 
 # Figma Token Applicator
 
-Apply W3C DTCG design tokens to Figma components using the **Figma MCP `use_figma` tool** -- not a local Figma plugin.
-
-The workflow sets Token Studio `sharedPluginData` on component variant layers with plain paint colours. It does **NOT** create Figma native variable collections or bind Figma variables -- Token Studio bindings are the only binding mechanism.
+Bind design tokens to Figma component variants using **Token Studio `sharedPluginData` only**. No Figma native variables, no variable collections, no `setBoundVariable`, no `setBoundVariableForPaint`.
 
 ---
 
 ## Critical Rules
 
-1. **Token Studio bindings only.** Set `sharedPluginData` with separate keys per property (`fill`, `borderColor`, etc.). Do NOT create Figma variable collections or use `setBoundVariableForPaint`.
-2. **Correct file key.** Always extract the Figma file key from the user's URL. Never assume from memory -- the project has multiple files.
-3. **State naming.** Use `default`/`hover`/`disabled`/`selected.default`/`selected.hover`/`selected.disabled` -- never `on`/`off`, never camelCase (`selectedHover`). In Token Studio JSON, dots become nested objects.
-4. **No new semantic groups for components.** Component-specific tokens go in `tokens/component/{name}.json`. Only add to the semantic layer for genuinely cross-component concepts.
-5. **Register new token sets.** When adding a new component token file, register it in Token Studio's `usedTokenSet` on the document root.
-6. **sharedPluginData format.** Each property is a separate key (not a single `values` key). Value is a JSON-stringified string of the dot-notation token path.
+1. **sharedPluginData ONLY.** The sole mechanism is `node.setSharedPluginData("tokens", key, value)`. Never create Figma variable collections. Never call `setBoundVariable` or `setBoundVariableForPaint`. Never call `figma.variables.createVariable` or `figma.variables.createVariableCollection`.
+2. **Do not modify paints.** Do not change `node.fills` or `node.strokes`. Only write sharedPluginData keys — Token Studio reads these to show token paths in Deep Inspect. The visual appearance of the component stays exactly as designed.
+3. **Correct file key.** Always extract the Figma file key from the user's URL. Never assume from memory.
+4. **sharedPluginData format.** Each property is a separate key. Value is a JSON-stringified string of the dot-notation token path:
+   ```javascript
+   node.setSharedPluginData("tokens", "fill", JSON.stringify("color.interactive.primary.fill.hover"));
+   node.setSharedPluginData("tokens", "borderColor", JSON.stringify("color.disabled.c"));
+   // WRONG — single values key:
+   // node.setSharedPluginData("tokens", "values", JSON.stringify({...}));
+   ```
+5. **State naming.** Use `default`/`hover`/`pressed`/`disabled`/`selected.default`/`selected.hover`/`selected.disabled`. Never `on`/`off`, never camelCase.
+6. **No new semantic groups for components.** Component-specific tokens go in `tokens/component/{name}.json`, not in the semantic layer.
+7. **Register new token sets.** When creating a new component token file, register it in Token Studio's `usedTokenSet` on the document root.
 
 ---
 
 ## Before You Start
 
 You need:
-1. A **Figma file key** -- always extract from the user's URL (e.g. `dfLpxHSoyojN9805EQXqy6` from `figma.com/design/dfLpxHSoyojN9805EQXqy6/...`)
-2. A **component set node ID** (e.g. `21:28235` for Toggle)
-3. The **token JSON files** in `tokens/` (this project's source of truth)
-
-If you don't have the file key, ask the user for the Figma URL. If you don't have the node ID, use `use_figma` to search for the component by name.
+1. A **Figma file key** — extract from the user's URL (e.g. `dfLpxHSoyojN9805EQXqy6`)
+2. A **component set node ID** — extract from the URL or discover via `use_figma`
+3. The **token JSON files** in `tokens/` (source of truth)
 
 ---
 
-## The 3-Phase Workflow
+## Phase 1: Analyse Component & Resolve Tokens
 
-### Phase 1: Resolve Tokens and Create Figma Variables
+### Step 1: Get the Figma component structure
 
-**Step 1: Identify which tokens the component needs.**
+Use `get_design_context` for a screenshot + code context, then use `use_figma` to explore the component set:
+- List all variants (name, id)
+- For each variant, list children (name, type, id, existing sharedPluginData)
+- Note fills, strokes, and visual colours already present on each node
 
-Read the component's token files. Components use tokens from multiple tiers:
-- **Component tier**: `tokens/component/` -- spacing, layout (e.g. `button.spacing.medium.blockPadding`)
-- **Semantic tier**: `tokens/semantic/colorLight.json` -- colors by variant/state (e.g. `color.interactive.primary.fill.default`)
-- **Semantic tier**: `tokens/semantic/borderRadius.json`, `tokens/semantic/border.json` -- structural tokens
-- **Semantic tier**: `tokens/semantic/typography.json` -- composite typography tokens (e.g. `typography.label.medium`)
-- **Global tier**: `tokens/global/dimension.json`, `tokens/global/border.json` -- primitives referenced by semantic/component
-- **Global tier**: `tokens/global/typography.json` -- font sizes, line heights, weights, letter spacing, font families
-- **Core tier**: `tokens/core/color.json` -- brand colors, accents, neutrals
+### Step 2: Read the token files
 
-Trace every `{reference}` in `$value` fields to build the full dependency tree. A component token like `{core.dimension.200}` means you need the `core.dimension.200` global variable too.
+Identify which tokens cover this component:
 
-**Step 1b: Resolve composite typography tokens.**
+| Tier | Location | Contains |
+|------|----------|----------|
+| Core | `tokens/core/color.json` | Brand colours, accents, neutrals |
+| Global | `tokens/global/modify.json` | HSL modifier scale (0.05–1.0) |
+| Global | `tokens/global/dimension.json` | 4px spacing scale |
+| Global | `tokens/global/border.json` | Border radius + width primitives |
+| Semantic | `tokens/semantic/colorLight.json` | Interactive, disabled, text, icon, border, elevation colours |
+| Semantic | `tokens/semantic/borderRadius.json`, `border.json` | Semantic border tokens |
+| Semantic | `tokens/semantic/typography.json` | Composite typography tokens |
+| Component | `tokens/component/{name}.json` | Component-specific colour/spacing |
 
-Typography tokens (`$type: "typography"`) are composite -- they bundle multiple sub-properties into one token. Figma has no composite typography variable type, so you must decompose them into individual variables.
+Trace every `{reference}` in `$value` fields to understand the alias chain. Resolve HSL modifiers (`$extensions.studio.tokens.modify`) using Python `colorsys` to verify the resolved hex matches the Figma node's current colour.
 
-For each typography token the component uses (e.g. `typography.label.medium` for button text):
+### Step 3: Map Figma states to token paths
 
-1. Read `tokens/semantic/typography.json` to get the composite `$value` object
-2. Resolve each sub-property reference against `tokens/global/typography.json`
-3. Create **FLOAT variables** for `fontSize` and `lineHeight` (these can be variable-bound in Figma)
-4. Note the `fontFamily`, `fontWeight`, `letterSpacing`, and `textCase` values -- these are set directly on the TEXT node, not via variables
+For each variant, decide which token path maps to each visual property. Build a mapping table:
 
-**Typography variable naming convention:**
-```
-typography/{category}/{size}/fontSize    → aliases core/typography/fontSize/{scale}
-typography/{category}/{size}/lineHeight  → aliases core/typography/lineHeight/{scale}
-```
+| Variant State | Node | Property Key | Token Path |
+|---------------|------|-------------|------------|
+| Unselected | wrapper | — | (no fill) |
+| Unselected | pill | borderColor | `color.brand.02` |
+| Hover | wrapper | fill | `color.interactive.primary.fill.hover` |
+| Disabled | wrapper | fill | `color.disabled.a` |
+| ... | ... | ... | ... |
 
-**Example: `typography.label.medium`**
+Compare the resolved token hex with the Figma node's actual colour to confirm the mapping is correct. If a token resolves to a different colour than what's on the node, investigate before binding.
 
-| Sub-property | Token reference | Resolved value |
-|---|---|---|
-| fontFamily | `{core.typography.fontFamily.01}` | "Averta, sans-serif" |
-| fontWeight | `{core.typography.fontWeight.semibold}` | 600 → Figma style "Semibold" |
-| fontSize | `{core.typography.fontSize.100}` | 16 |
-| lineHeight | `{core.typography.lineHeight.200}` | 24 |
+### Step 4: Identify missing tokens
 
-**Global typography variables to create (in the Global collection):**
-```
-core/typography/fontSize/100  = 16  (FLOAT, base)
-core/typography/fontSize/75   = 14  (FLOAT, 16 * 0.875)
-core/typography/fontSize/150  = 18  (FLOAT, 16 * 1.125)
-core/typography/lineHeight/100 = 16 (FLOAT, base)
-core/typography/lineHeight/150 = 18 (FLOAT, 16 * 1.125)
-core/typography/lineHeight/200 = 24 (FLOAT, 16 * 1.5)
-core/typography/lineHeight/250 = 28 (FLOAT, 16 * 1.75)
-```
+If the component needs token paths that don't exist in any token file, these are **missing tokens**. Do NOT invent token paths that don't exist in the JSON files. Instead, proceed to Phase 1b.
 
-Only create the specific scale values that your component's typography tokens reference -- you don't need every size in the scale.
+---
 
-**Semantic typography variables (in the Semantic collection):**
-```
-typography/label/medium/fontSize    → VARIABLE_ALIAS to core/typography/fontSize/100
-typography/label/medium/lineHeight  → VARIABLE_ALIAS to core/typography/lineHeight/200
-```
+## Phase 1b: Create Missing Component Tokens (if needed)
 
-**Mapping fontWeight numbers to Figma font styles:**
+When a component needs tokens that don't exist at the semantic level — for example, a segmented toggle bar that uses `color.brand.02` for its selected fill instead of `color.interactive.primary.fill.default` — you have two options:
 
-| Token weight value | Figma fontName style |
-|---|---|
-| 300 | "Light" |
-| 400 | "Regular" |
-| 600 | "Semibold" |
-| 700 | "Bold" |
-| 900 | "Black" |
+### Option A: Use existing semantic tokens directly
 
-Note: Figma font style names are font-dependent. Averta uses "Semibold" (one word), but some fonts use "Semi Bold" (two words, e.g. Inter). Always check the font's available styles.
+If the component's colours match existing semantic tokens (even if the conceptual mapping is slightly different), bind to the semantic token. Most components can be covered this way.
 
-**Step 2: Compute HSL modifier values in Python.**
+### Option B: Create a new component token file
 
-Some semantic color tokens have `$extensions.studio.tokens.modify` entries (darken, lighten, alpha). Figma can't do runtime HSL transforms, so you must precompute them.
+If the component genuinely needs its own token paths (unique colour relationships, states that don't map to any semantic token), create a component token file:
 
-Run the resolver script:
+1. **Create the token JSON** at `tokens/component/{componentName}.json` following DTCG format:
+   ```json
+   {
+     "componentName": {
+       "color": {
+         "container": {
+           "fill": {
+             "default": {
+               "$type": "color",
+               "$value": "{color.interactive.primary.fill.default}",
+               "$description": "Container fill in default state."
+             }
+           }
+         }
+       }
+     }
+   }
+   ```
 
-```bash
-python3 figma-token-applicator/scripts/resolve_tokens.py --component button
-```
+2. **Reference semantic tokens** — component tokens should alias semantic tokens, not core/brand directly. The alias chain is: Core → Brand → Semantic → Component.
 
-Or compute inline. The algorithm is documented in `references/hsl-modifiers.md`. The key rules:
-- Use Python's `colorsys.rgb_to_hls` / `colorsys.hls_to_rgb` (note: Python uses HLS order, not HSL)
-- **darken**: `L = L * (1 - amount)`
-- **lighten**: `L = L + (1 - L) * amount`
-- **alpha**: set RGBA alpha to `amount` (no hue/saturation change)
-- Modifier amounts come from `tokens/global/modify.json`: `modify.100` = 0.1, `modify.200` = 0.2, etc.
+3. **Register the token set** in the Figma file:
+   ```javascript
+   const current = JSON.parse(figma.root.getSharedPluginData("tokens", "usedTokenSet"));
+   current["component/componentName"] = "enabled";
+   figma.root.setSharedPluginData("tokens", "usedTokenSet", JSON.stringify(current));
+   ```
 
-**Step 3: Create Figma Variables via MCP.**
+4. **Create a JIRA Story** for missing tokens using `mcp__jira__jira_create_issue`:
+   - `project_key`: `GDS`
+   - `issue_type`: `Story`
+   - `summary`: `[Tokens] Create {component} component tokens`
+   - `description`: List the missing token paths, which tier they belong to, and why
+   - `additional_fields`: `{ "parent": "GDS-419", "labels": ["design", "gds", "tokens", "new-token-request"] }`
 
-Use `mcp__plugin_figma_figma__use_figma` to create variables. Critical rules:
+### Spacing tokens
 
-**Maintain the alias chain.** Pure reference tokens (no modifier) must use `VARIABLE_ALIAS`:
-```javascript
-variable.setValueForMode(modeId, {
-  type: "VARIABLE_ALIAS",
-  id: parentVariable.id
-});
-```
+Component spacing tokens live in `tokens/component/spacing/desktop.json` and `mobile.json`. If the component's spacing values (padding, gap, minHeight) aren't covered there, note the gap but bind what you can.
 
-Only tokens with HSL modifiers get flat computed RGB values. This is essential -- it means when `color.brand.01` changes, every semantic token referencing it updates automatically.
+---
 
-**Variable naming uses `/` separators** (Figma convention), not `.` (Token Studio convention):
-- Figma: `color/brand/01`
-- Token Studio: `color.brand.01`
+## Phase 2: Bind Token Studio sharedPluginData
 
-**Organize variables into collections** matching the tier:
-- `Global` collection: core dimensions, border primitives
-- `Brand` collection: brand colors, accents, neutrals
-- `Semantic` collection: interactive colors, border radius, border width
-- `Component` collection: button spacing, badge spacing, etc.
+### Step 1: Apply bindings
 
-**Create variables bottom-up** (Global first, then Brand, then Semantic, then Component) so parent variables exist before children reference them.
-
-See `references/figma-variable-creation.md` for the full MCP code patterns and collection setup.
-
-### Phase 2: Bind Variables to Component Variants
-
-**Step 1: Get the component structure.**
-
-Use `get_design_context` or `use_figma` to read the component set and understand its variant structure. Key things to identify:
-- Variant property names (e.g. `Variant`, `State`, `IconPosition`, `isLoading`)
-- Variant values (e.g. `Primary`, `Default`, `None`, `False`)
-- Child node types and structure (TEXT nodes, INSTANCE nodes containing VECTORs)
-
-**Step 2: Map token paths to variant properties.**
-
-Build a mapping from variant combinations to token paths. For example, for Button:
-- `Variant=Primary, State=Default` --> `color.interactive.primary.fill.default` (fill), `color.interactive.primary.text.default` (text)
-- `Variant=Primary, State=Hover` --> `color.interactive.primary.fill.hover` (fill), `color.interactive.primary.text.hover` (text)
-
-The semantic color tokens follow a consistent pattern: `color.interactive.{variant}.{property}.{state}` where:
-- `{variant}` maps to the Figma variant name (primary, secondary, ghost, tertiary, inverse, transactional)
-- `{property}` is fill, text, or border (icon color is handled at the icon component level -- see note below)
-- `{state}` is default, hover, pressed, or disabled
-
-**Step 3: Apply bindings to each variant node.**
-
-For each variant, bind these properties (where tokens exist):
-
-| Property | Figma API | Token Category |
-|----------|-----------|----------------|
-| **Fill** (background) | `setBoundVariableForPaint(fills[0], "color", variable)` | `color.interactive.{variant}.fill.{state}` |
-| **Text color** | On TEXT child: `setBoundVariableForPaint(fills[0], "color", variable)` | `color.interactive.{variant}.text.{state}` |
-| **Border color** | `setBoundVariableForPaint(strokes[0], "color", variable)` | `color.interactive.{variant}.border.{state}` |
-| **Border radius** | `setBoundVariable("topLeftRadius", variable)` (all 4 corners) | `borderRadius.interactive.{size}` |
-| **Border width** | `setBoundVariable("strokeWeight", variable)` | `border.interactive.{size}` |
-| **Padding** | `setBoundVariable("paddingTop", variable)` etc. | `button.spacing.{size}.blockPadding` etc. |
-| **Item spacing** | `setBoundVariable("itemSpacing", variable)` | `button.spacing.{size}.gap` |
-| **Font** | On TEXT child: `loadFontAsync` + set `fontName` directly | `typography.{category}.{size}` → fontFamily + fontWeight |
-| **Font size** | On TEXT child: `setBoundVariable("fontSize", variable)` | `typography/{category}/{size}/fontSize` |
-| **Line height** | On TEXT child: `setBoundVariable("lineHeight", variable)` | `typography/{category}/{size}/lineHeight` |
-| **Letter spacing** | On TEXT child: set `letterSpacing` directly | `typography.{category}.{size}` → letterSpacing (if present) |
-| **Text case** | On TEXT child: set `textCase` directly | `typography.{category}.{size}` → textCase (if present) |
-
-**Icons are tokenized at the icon component level, not the consuming component.** Icon components (e.g. ErrorFilled, ChevronLeft) own their color tokens on their vector/SVG nodes. When an icon instance is placed inside a component like Button or Alert Box, it carries its token with it. Do NOT override icon fills at the consuming component level — the icon color is controlled by the icon component itself, even when the color changes per variant or state. When processing a consuming component, skip all INSTANCE nodes that are icons; they are a separate component with their own token workflow.
-
-**Plain paints only -- no variable binding.** Set fills and strokes as plain SolidPaint with the actual resolved hex colour. Do NOT use `setBoundVariableForPaint` or create Figma variable collections. Token Studio `sharedPluginData` is the only binding.
+For each variant, set sharedPluginData on the appropriate nodes. **Only set the data key — do not modify the node's visual properties (fills, strokes, etc.).**
 
 ```javascript
-// CORRECT: plain paint with actual resolved colour
-node.fills = [figma.util.solidPaint(
-  { r: 0.008, g: 0.302, b: 1.0 }, // actual #024dff
-  { opacity: 1, visible: true }
-)];
-// Then set Token Studio data
-node.setSharedPluginData("tokens", "fill", JSON.stringify("toggle.color.container.fill.selected.default"));
+// Wrapper fill
+wrapper.setSharedPluginData("tokens", "fill", JSON.stringify("color.interactive.primary.fill.hover"));
 
-// WRONG: Figma variable binding (overrides Token Studio inspect)
-// node.fills = [figma.variables.setBoundVariableForPaint(paint, "color", variable)];
-```
+// Pill border
+pill.setSharedPluginData("tokens", "borderColor", JSON.stringify("color.brand.02"));
 
-**State naming convention.** Token states must follow the system-wide pattern:
-- Default (unselected): `default`, `hover`, `disabled`
-- Selected (active/on): `selected.default`, `selected.hover`, `selected.disabled`
-- In Token Studio JSON, compound states use nested objects (dots become nesting):
-```json
-{
-  "selected": {
-    "default": { "$type": "color", "$value": "..." },
-    "hover": { "$type": "color", "$value": "..." },
-    "disabled": { "$type": "color", "$value": "..." }
-  }
-}
-```
-- Never use `on`/`off`, never use camelCase (`selectedHover`)
+// Text fill (on the TEXT node)
+textNode.setSharedPluginData("tokens", "fill", JSON.stringify("color.text.inverse"));
 
-**Typography binding:** Typography tokens are composite (`$type: "typography"`) with sub-properties that must be applied individually to TEXT nodes. Figma doesn't support composite typography variables, so each sub-property is handled differently:
+// Icon fill (on the icon INSTANCE node)
+iconInstance.setSharedPluginData("tokens", "fill", JSON.stringify("color.icon.inverse"));
 
-**Important: Clear existing Figma Text Styles first.** Components often have Figma Text Styles (e.g. "Desktop/Body - Rainier") applied to TEXT nodes. These are non-token references that conflict with token-driven typography. Before binding typography variables, clear any text style on the node:
-
-```javascript
-// Remove Figma Text Style so typography is purely token-driven
-if (textNode.textStyleId && textNode.textStyleId !== "") {
-  textNode.textStyleId = "";
-}
-```
-
-Do this for every TEXT node in the component (excluding text inside nested component instances like Buttons — those have their own tokens). A good pattern is to sweep all text nodes after binding is complete:
-
-```javascript
-function clearTextStyles(node, skipInstances) {
-  if (skipInstances && node.type === "INSTANCE") return;
-  if (node.type === "TEXT" && node.textStyleId && node.textStyleId !== "") {
-    node.textStyleId = "";
-  }
-  if ("children" in node && node.children) {
-    for (const child of node.children) {
-      clearTextStyles(child, skipInstances);
-    }
-  }
-}
-// Call on each variant, skipping nested component instances
-clearTextStyles(variant, true);
-```
-
-**Step-by-step for each TEXT node:**
-
-1. **Load the font** before changing any text properties:
-```javascript
-await figma.loadFontAsync({ family: "Averta", style: "Semibold" });
-```
-
-2. **Set fontName directly** (not a variable -- Figma has no font variable type):
-```javascript
-textNode.fontName = { family: "Averta", style: "Semibold" };
-```
-
-3. **Bind fontSize variable:**
-```javascript
-const fontSizeVar = variablesByName["typography/label/medium/fontSize"];
-textNode.setBoundVariable("fontSize", fontSizeVar);
-```
-
-4. **Bind lineHeight variable:**
-```javascript
-const lineHeightVar = variablesByName["typography/label/medium/lineHeight"];
-textNode.setBoundVariable("lineHeight", lineHeightVar);
-```
-
-5. **Set letterSpacing directly** (if the typography token includes it). Figma uses `{ value: number, unit: "PERCENT" | "PIXELS" }`:
-```javascript
-// Token value "-1.20%" → { value: -1.2, unit: "PERCENT" }
-textNode.letterSpacing = { value: -1.2, unit: "PERCENT" };
-```
-Note: label typography tokens (used by buttons) have no letterSpacing, so skip this for buttons.
-
-6. **Set textCase directly** (if the typography token includes it):
-```javascript
-// Token value "uppercase" → "UPPER"
-textNode.textCase = "UPPER";
-```
-Mapping: `"uppercase"` → `"UPPER"`, `"lowercase"` → `"LOWER"`, `"capitalize"` → `"TITLE"`, `none` → `"ORIGINAL"`.
-Note: label tokens don't have textCase; heading/title/caption tokens do.
-
-**Complete typography binding example (button medium label):**
-```javascript
-const textNode = button.findOne(n => n.type === "TEXT");
-await figma.loadFontAsync({ family: "Averta", style: "Semibold" });
-textNode.fontName = { family: "Averta", style: "Semibold" };
-textNode.setBoundVariable("fontSize", variablesByName["typography/label/medium/fontSize"]);
-textNode.setBoundVariable("lineHeight", variablesByName["typography/label/medium/lineHeight"]);
-```
-
-**Common typography-to-component mapping:**
-
-| Component | Size | Typography token | Font | Weight | Size | Line height |
-|---|---|---|---|---|---|---|
-| Button | large | `typography.label.large` | Averta | Semibold | 18 | 28 |
-| Button | medium | `typography.label.medium` | Averta | Semibold | 16 | 24 |
-| Button | small | `typography.label.small` | Averta | Semibold | 14 | 18 |
-| Badge | -- | `typography.label.small` | Averta | Semibold | 14 | 18 |
-
-**Typography sharedPluginData:** Set a single `typography` key on the TEXT node pointing to the composite token path. This tells Token Studio the node uses the full composite token, even though individual sub-properties are bound separately:
-```javascript
+// Typography (on the TEXT node — composite token path)
 textNode.setSharedPluginData("tokens", "typography", JSON.stringify("typography.label.medium"));
-```
-This is in addition to any `fill` sharedPluginData already set on the TEXT node for text color.
 
-**Finding child nodes:**
-- **Text**: find child with `type === "TEXT"`
-- **Skip `isLoading=True` variants** entirely -- they have a spinner, not standard content
-- **Exclude nested component instances** (icons, buttons, etc.): these are separate components with their own tokens. Only bind tokens to nodes that belong directly to this component. When traversing children to find TEXT nodes or apply bindings, skip INSTANCE nodes. Icons carry their own color tokens from the icon component level; buttons carry their own fill/text/spacing tokens.
+// Spacing
+pill.setSharedPluginData("tokens", "itemSpacing", JSON.stringify("button.spacing.medium.gap"));
+pill.setSharedPluginData("tokens", "paddingTop", JSON.stringify("button.spacing.medium.blockPadding"));
+pill.setSharedPluginData("tokens", "paddingBottom", JSON.stringify("button.spacing.medium.blockPadding"));
+pill.setSharedPluginData("tokens", "paddingLeft", JSON.stringify("button.spacing.medium.inlinePadding"));
+pill.setSharedPluginData("tokens", "paddingRight", JSON.stringify("button.spacing.medium.inlinePadding"));
 
-See `references/figma-component-binding.md` for complete binding code patterns.
+// Border radius
+node.setSharedPluginData("tokens", "borderRadius", JSON.stringify("borderRadius.interactive.medium"));
 
-### Phase 3: Set Token Studio sharedPluginData
-
-**This is the primary binding mechanism.** Token Studio metadata tells Token Studio which token path is applied to each layer.
-
-**Step 1: Set sharedPluginData on each layer.**
-
-Each property is a **separate key** on the node. The value is a JSON-stringified string of the dot-notation token path:
-
-```javascript
-// CORRECT: separate keys per property
-node.setSharedPluginData("tokens", "fill", JSON.stringify("toggle.color.container.fill.default"));
-node.setSharedPluginData("tokens", "borderColor", JSON.stringify("toggle.color.container.border.default"));
-
-// WRONG: single values key (Token Studio won't read this)
-node.setSharedPluginData("tokens", "values", JSON.stringify({ fill: "...", borderColor: "..." }));
+// Border width
+node.setSharedPluginData("tokens", "borderWidth", JSON.stringify("border.interactive.default"));
 ```
 
-When updating bindings, always clear existing keys first to avoid stale data:
-```javascript
-const existingKeys = node.getSharedPluginDataKeys("tokens");
-for (const key of existingKeys) node.setSharedPluginData("tokens", key, "");
-// Then set new keys
-```
+### Token Studio key reference
 
-**Token Studio key mapping:**
-
-| Figma Property | Token Studio Key |
-|----------------|-----------------|
+| Figma Property | sharedPluginData Key |
+|----------------|---------------------|
 | fills (background) | `fill` |
-| strokes (border color) | `borderColor` |
+| strokes (border colour) | `borderColor` |
 | strokeWeight | `borderWidth` |
-| topLeftRadius etc. | `borderRadius` |
-| paddingTop/Bottom | `verticalPadding` or `spacing` |
-| paddingLeft/Right | `horizontalPadding` or `spacing` |
+| corner radius | `borderRadius` |
+| paddingTop / paddingBottom | `paddingTop` / `paddingBottom` |
+| paddingLeft / paddingRight | `paddingLeft` / `paddingRight` |
 | itemSpacing | `itemSpacing` |
-| text fills | `fill` (on the TEXT node) |
-| fontSize | `fontSize` (on the TEXT node, via variable) |
-| lineHeight | `lineHeight` (on the TEXT node, via variable) |
-| typography composite | `typography` (on the TEXT node, covers fontFamily + fontWeight + fontSize + lineHeight) |
+| text fills | `fill` (on TEXT node) |
+| composite typography | `typography` (on TEXT node) |
 
-**Step 2: Register the token set in usedTokenSet.**
-
-Token Studio only resolves paths for registered token sets. When adding a new component token file, register it:
+### Step 2: Register new token sets (if created in Phase 1b)
 
 ```javascript
 const current = JSON.parse(figma.root.getSharedPluginData("tokens", "usedTokenSet"));
-current["component/toggle"] = "enabled";
+current["component/newComponentName"] = "enabled";
 figma.root.setSharedPluginData("tokens", "usedTokenSet", JSON.stringify(current));
 ```
 
-**Step 3: Verify by reading back the data.**
+### Step 3: Verify bindings
 
-Always verify bindings after applying by reading `getSharedPluginDataKeys` and checking the values match expectations. Inspect a sample of nodes from different variant states.
+Read back all sharedPluginData to confirm:
+```javascript
+const keys = node.getSharedPluginDataKeys("tokens");
+for (const key of keys) {
+  console.log(key, node.getSharedPluginData("tokens", key));
+}
+```
+
+Take a screenshot to confirm the visual appearance is unchanged.
 
 ---
 
 ## Working in Batches
 
-Figma MCP calls have size limits. Work in batches:
-
-1. **Variables**: Create ~20-30 variables per `use_figma` call. Group by collection.
-2. **Bindings**: Process ~5-10 variants per call. Each variant may need 6-8 bindings.
-3. **Verify between batches**: Use `get_screenshot` to visually confirm bindings are rendering correctly before moving to the next batch.
+Figma MCP calls have size limits. Process ~10–15 variants per `use_figma` call. Verify between batches with `get_screenshot`.
 
 ---
 
-## Component-Specific Notes
+## HSL Modifier Resolution
 
-Each component has a unique variant structure. When starting a new component:
+Some semantic colour tokens have `$extensions.studio.tokens.modify` entries. Compute these in Python to verify the mapping between token and Figma colour:
 
-1. **Screenshot first**: Use `get_screenshot` to see the current component layout
-2. **Read the variant structure**: Use `use_figma` with `figma.currentPage.findAll(n => n.type === "COMPONENT")` scoped to the component set
-3. **Identify the token mapping pattern**: Check `tokens/semantic/colorLight.json` for the component's color tokens and `tokens/component/` for spacing
-4. **Check for component-specific tokens**: Some components (Stepper, Badge) have their own token file in `tokens/component/`
+```python
+import colorsys
 
-### Completed Components
-- **Button** -- 72 variants bound, 96 variables, 571 bindings. File: `WU01oSRfSHpOxUn3ThcvC5`, node: `29422:3597`
-- **Accordion** -- 24 variants bound, 27 variables. File: `cfzFFRdygJ3eEoHuDplxHO`, node: `36820:4228`
-- **Alert Box** -- 16 variants bound (4 statuses × 2 devices × nested/non-nested), 28 new variables. File: `cfzFFRdygJ3eEoHuDplxHO`, node: `10410:52042`
-- **Checkbox (_CheckboxControl)** -- 13 variants bound, 22 new variables, 20 nodes with sharedPluginData. File: `cfzFFRdygJ3eEoHuDplxHO`, node: `41163:1815`
-- **Radio Button** -- 14 variants bound, 53 variables (3 collections), 60 sharedPluginData entries. File: `dfLpxHSoyojN9805EQXqy6`, node: `21:28156`
-- **Toggle** -- 12 variants (On/Off × Default/Hover/Disabled × Resale?), 26 layers bound via Token Studio sharedPluginData only (no Figma variables). Includes `presale` variant for Resale?=Yes using `color.interactive.presale`. File: `dfLpxHSoyojN9805EQXqy6`, node: `21:28235`
+def darken_hsl(hex_color, amount):
+    r, g, b = tuple(int(hex_color.lstrip("#")[i:i+2], 16)/255.0 for i in (0,2,4))
+    h, l, s = colorsys.rgb_to_hls(r, g, b)
+    l = l * (1 - amount)
+    r2, g2, b2 = colorsys.hls_to_rgb(h, l, s)
+    return r2, g2, b2
+
+def lighten_hsl(hex_color, amount):
+    r, g, b = tuple(int(hex_color.lstrip("#")[i:i+2], 16)/255.0 for i in (0,2,4))
+    h, l, s = colorsys.rgb_to_hls(r, g, b)
+    l = l + (1 - l) * amount
+    r2, g2, b2 = colorsys.hls_to_rgb(h, l, s)
+    return r2, g2, b2
+```
+
+Modifier amounts from `tokens/global/modify.json`: `modify.100` = 0.1, `modify.200` = 0.2, etc.
+
+Use this to confirm that a token like `color.interactive.primary.fill.hover` (darken brand01 by 0.1) resolves to the same hex as the Figma node's current fill. If they don't match, the token mapping is wrong.
 
 ---
 
-## Reference Files
+## Completed Components
 
-- **references/hsl-modifiers.md** -- HSL modifier algorithm, Python implementation, edge cases
-- **references/figma-variable-creation.md** -- MCP code patterns for creating variables and collections
-- **references/figma-component-binding.md** -- MCP code patterns for binding variables to component properties
-- **scripts/resolve_tokens.py** -- Python script to resolve full alias chain and compute modifier values
+- **Button** — 72 variants, 571 bindings. File: `WU01oSRfSHpOxUn3ThcvC5`, node: `29422:3597`
+- **Accordion** — 24 variants. File: `cfzFFRdygJ3eEoHuDplxHO`, node: `36820:4228`
+- **Alert Box** — 16 variants. File: `cfzFFRdygJ3eEoHuDplxHO`, node: `10410:52042`
+- **Checkbox** — 13 variants. File: `cfzFFRdygJ3eEoHuDplxHO`, node: `41163:1815`
+- **Radio Button** — 14 variants. File: `dfLpxHSoyojN9805EQXqy6`, node: `21:28156`
+- **Toggle** — 12 variants. File: `dfLpxHSoyojN9805EQXqy6`, node: `21:28235`
+- **FilterBar (.Toggler Bar/Block)** — 18 variants, 75 bindings. File: `dfLpxHSoyojN9805EQXqy6`, node: `30:20751`

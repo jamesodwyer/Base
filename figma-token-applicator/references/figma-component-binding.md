@@ -1,330 +1,172 @@
 # Figma Component Binding Patterns
 
-Bind tokens to component variants using **Token Studio `sharedPluginData` only**. Do NOT create Figma variable collections or use `setBoundVariableForPaint`. All binding happens via `mcp__plugin_figma_figma__use_figma`.
+Bind tokens to Figma component variants using **Token Studio `sharedPluginData` only**. No Figma variables, no variable collections, no `setBoundVariable`, no `setBoundVariableForPaint`.
+
+## The Only Binding Mechanism
+
+```javascript
+node.setSharedPluginData("tokens", "fill", JSON.stringify("color.interactive.primary.fill.default"));
+```
+
+That's it. Set the key, set the value. Do not touch `node.fills`, `node.strokes`, or any other visual property.
 
 ## Reading the Component Structure
 
-First, understand the component set:
-
 ```javascript
-const componentSet = await figma.getNodeByIdAsync("29422:3597");
-// componentSet.type === "COMPONENT_SET"
+const componentSet = figma.getNodeById("30:20751");
 
-const variants = componentSet.children; // array of COMPONENT nodes
-// Each variant has a name like:
-// "Variant=Primary, State=Default, IconPosition=None, isLoading=False"
-
-// Parse variant properties
-for (const variant of variants) {
+for (const variant of componentSet.children) {
+  // Parse variant properties from name
   const props = {};
   variant.name.split(", ").forEach(pair => {
     const [key, value] = pair.split("=");
     props[key] = value;
   });
-  // props = { Variant: "Primary", State: "Default", IconPosition: "None", isLoading: "False" }
+
+  // Explore children
+  for (const child of variant.children) {
+    console.log(child.id, child.name, child.type);
+    // Check existing bindings
+    const keys = child.getSharedPluginDataKeys("tokens");
+    for (const k of keys) {
+      console.log(`  ${k} = ${child.getSharedPluginData("tokens", k)}`);
+    }
+  }
 }
 ```
 
-## Binding Fill (Background Color)
+## Setting Bindings by Property
 
-Set plain SolidPaint with the resolved hex, then set Token Studio sharedPluginData:
+### Fill (background colour)
 
 ```javascript
-// Set plain paint (no Figma variable binding)
-node.fills = [figma.util.solidPaint(
-  { r: 0.008, g: 0.302, b: 1.0 }, // actual resolved hex
-  { opacity: 1, visible: true }
-)];
-
-// Set Token Studio binding
-node.setSharedPluginData("tokens", "fill",
-  JSON.stringify("toggle.color.container.fill.selected.default")
+wrapper.setSharedPluginData("tokens", "fill",
+  JSON.stringify("color.interactive.primary.fill.hover")
 );
 ```
 
-Never use `setBoundVariableForPaint` -- Figma variable bindings override Token Studio inspect.
-
-## Binding Text Color
-
-Find the TEXT child node and set its fill:
+### Border colour (stroke)
 
 ```javascript
-const textNode = variant.children.find(c => c.type === "TEXT");
-if (textNode) {
-  textNode.fills = [figma.util.solidPaint(
-    { r: 1.0, g: 1.0, b: 1.0 },
-    { opacity: 1, visible: true }
-  )];
-  textNode.setSharedPluginData("tokens", "fill",
-    JSON.stringify("color.interactive.primary.text.default")
-  );
-}
-```
-
-## Binding Icon Color
-
-Icons are nested inside INSTANCE nodes. Drill through the hierarchy:
-
-```javascript
-function findIconVector(node) {
-  // Look for INSTANCE children (excluding Loading Spinner)
-  for (const child of node.children) {
-    if (child.type === "INSTANCE" && !child.name.includes("Loading Spinner")) {
-      // Drill into the instance to find the VECTOR
-      return findDeepestVector(child);
-    }
-    if (child.type === "FRAME") {
-      const result = findIconVector(child);
-      if (result) return result;
-    }
-  }
-  return null;
-}
-
-function findDeepestVector(node) {
-  if (node.type === "VECTOR") return node;
-  if (node.children) {
-    for (const child of node.children) {
-      const result = findDeepestVector(child);
-      if (result) return result;
-    }
-  }
-  return null;
-}
-
-const iconVector = findIconVector(variant);
-if (iconVector) {
-  const iconVar = allVars.find(v => v.name === "color/interactive/primary/icon/default");
-  const paint = {
-    type: "SOLID",
-    color: { r: 1.0, g: 1.0, b: 1.0 },
-    opacity: 1.0,
-    visible: true
-  };
-  iconVector.fills = [figma.variables.setBoundVariableForPaint(paint, "color", iconVar)];
-}
-```
-
-## Binding Border Color (Stroke)
-
-```javascript
-node.strokes = [figma.util.solidPaint(
-  { r: 0.008, g: 0.302, b: 1.0 },
-  { opacity: 1, visible: true }
-)];
 node.setSharedPluginData("tokens", "borderColor",
-  JSON.stringify("toggle.color.container.border.default")
+  JSON.stringify("color.brand.02")
 );
 ```
 
-## Binding Numeric Properties
+### Text colour
 
-Border radius, border width, padding, and spacing use `setBoundVariable`:
-
+On the TEXT child node:
 ```javascript
-// Border radius (all 4 corners)
-const radiusVar = allVars.find(v => v.name === "borderRadius/interactive/medium");
-variant.setBoundVariable("topLeftRadius", radiusVar);
-variant.setBoundVariable("topRightRadius", radiusVar);
-variant.setBoundVariable("bottomLeftRadius", radiusVar);
-variant.setBoundVariable("bottomRightRadius", radiusVar);
-
-// Border width
-const widthVar = allVars.find(v => v.name === "border/interactive/default");
-variant.setBoundVariable("strokeWeight", widthVar);
-
-// Padding
-const blockPadVar = allVars.find(v => v.name === "button/spacing/medium/blockPadding");
-variant.setBoundVariable("paddingTop", blockPadVar);
-variant.setBoundVariable("paddingBottom", blockPadVar);
-
-const inlinePadVar = allVars.find(v => v.name === "button/spacing/medium/inlinePadding");
-variant.setBoundVariable("paddingLeft", inlinePadVar);
-variant.setBoundVariable("paddingRight", inlinePadVar);
-
-// Item spacing (gap between children)
-const gapVar = allVars.find(v => v.name === "button/spacing/medium/gap");
-variant.setBoundVariable("itemSpacing", gapVar);
-```
-
-## Binding Typography
-
-Typography tokens are composite, so bind sub-properties individually. Font family and weight must be set directly (not variable-bound).
-
-```javascript
-const textNode = variant.children.find(c => c.type === "TEXT");
-if (textNode) {
-  const allVars = await figma.variables.getLocalVariablesAsync();
-
-  // 1. Bind fontSize variable
-  const fontSizeVar = allVars.find(v => v.name === "typography/label/medium/fontSize");
-  if (fontSizeVar) {
-    textNode.setBoundVariable("fontSize", fontSizeVar);
-  }
-
-  // 2. Bind lineHeight variable (must set a fixed value first, not AUTO)
-  const lineHeightVar = allVars.find(v => v.name === "typography/label/medium/lineHeight");
-  if (lineHeightVar) {
-    textNode.lineHeight = { value: 24, unit: "PIXELS" }; // resolved value
-    textNode.setBoundVariable("lineHeight", lineHeightVar);
-  }
-
-  // 3. Set fontName directly (family + weight from the composite token)
-  // Try the token font first, fall back to alternatives
-  try {
-    await figma.loadFontAsync({ family: "Averta", style: "Semibold" });
-    textNode.fontName = { family: "Averta", style: "Semibold" };
-  } catch (e) {
-    // Font not available - try common fallback or keep existing
-    console.log(`Averta not available: ${e.message}`);
-  }
-
-  // 4. Set Token Studio sharedPluginData for the composite token
-  textNode.setSharedPluginData("tokens", "typography",
-    JSON.stringify("typography.label.medium")
-  );
-}
-```
-
-**Font weight mapping** (Token Studio weight → Figma style name):
-
-| Token Weight | Figma Style |
-|-------------|-------------|
-| 300 (light) | "Light" |
-| 400 (regular) | "Regular" |
-| 600 (semibold) | "Semibold" or "Semi Bold" |
-| 700 (bold) | "Bold" |
-| 900 (black) | "Black" |
-
-Note: Figma font style names vary by font family. Always try the expected style, then common alternatives. Use `figma.loadFontAsync` before setting `fontName`.
-
-**Typography token → component mapping:**
-
-| Component | Typography Token |
-|-----------|-----------------|
-| Button (large) | `typography.label.large` |
-| Button (medium) | `typography.label.medium` |
-| Button (small) | `typography.label.small` |
-| Body text | `typography.body.regular.medium` |
-| Heading | `typography.heading.{size}` |
-
-## Clearing Existing Bindings
-
-Always clear existing Token Studio keys before setting new ones to avoid stale data:
-
-```javascript
-const existingKeys = node.getSharedPluginDataKeys("tokens");
-for (const key of existingKeys) {
-  node.setSharedPluginData("tokens", key, "");
-}
-// Then set new keys
-node.setSharedPluginData("tokens", "fill", JSON.stringify("toggle.color.container.fill.default"));
-```
-
-## Registering New Token Sets
-
-When you create a new component token file (e.g. `tokens/component/toggle.json`), register it in Token Studio's config so the inspect panel can resolve the paths:
-
-```javascript
-const current = JSON.parse(figma.root.getSharedPluginData("tokens", "usedTokenSet"));
-current["component/toggle"] = "enabled";
-figma.root.setSharedPluginData("tokens", "usedTokenSet", JSON.stringify(current));
-```
-
-## Setting Token Studio sharedPluginData
-
-After every binding, set the Token Studio metadata:
-
-```javascript
-// Fill binding
-variant.setSharedPluginData("tokens", "fill",
-  JSON.stringify("color.interactive.primary.fill.default")
-);
-
-// Text fill (on the TEXT node)
 textNode.setSharedPluginData("tokens", "fill",
-  JSON.stringify("color.interactive.primary.text.default")
+  JSON.stringify("color.text.inverse")
 );
+```
 
-// Border color
-variant.setSharedPluginData("tokens", "borderColor",
-  JSON.stringify("color.interactive.secondary.border.default")
+### Icon colour
+
+On the icon INSTANCE node (not the vector inside it):
+```javascript
+iconInstance.setSharedPluginData("tokens", "fill",
+  JSON.stringify("color.icon.inverse")
 );
+```
 
-// Border radius
-variant.setSharedPluginData("tokens", "borderRadius",
-  JSON.stringify("borderRadius.interactive.medium")
-);
+### Typography (composite)
 
-// Border width
-variant.setSharedPluginData("tokens", "borderWidth",
-  JSON.stringify("border.interactive.default")
-);
-
-// Spacing (Token Studio uses a JSON object for padding)
-variant.setSharedPluginData("tokens", "spacing",
-  JSON.stringify("button.spacing.medium.blockPadding")
-);
-
-// Item spacing
-variant.setSharedPluginData("tokens", "itemSpacing",
-  JSON.stringify("button.spacing.medium.gap")
-);
-
-// Typography (on the TEXT node, using the composite token path)
+On the TEXT node — a single key for the composite token:
+```javascript
 textNode.setSharedPluginData("tokens", "typography",
   JSON.stringify("typography.label.medium")
 );
 ```
 
-Note the `.` dot-notation for Token Studio paths (not `/`).
+### Spacing
+
+```javascript
+pill.setSharedPluginData("tokens", "paddingTop", JSON.stringify("button.spacing.medium.blockPadding"));
+pill.setSharedPluginData("tokens", "paddingBottom", JSON.stringify("button.spacing.medium.blockPadding"));
+pill.setSharedPluginData("tokens", "paddingLeft", JSON.stringify("button.spacing.medium.inlinePadding"));
+pill.setSharedPluginData("tokens", "paddingRight", JSON.stringify("button.spacing.medium.inlinePadding"));
+pill.setSharedPluginData("tokens", "itemSpacing", JSON.stringify("button.spacing.medium.gap"));
+```
+
+### Border radius and width
+
+```javascript
+node.setSharedPluginData("tokens", "borderRadius", JSON.stringify("borderRadius.interactive.medium"));
+node.setSharedPluginData("tokens", "borderWidth", JSON.stringify("border.interactive.default"));
+```
+
+## Key Reference
+
+| Figma Property | sharedPluginData Key |
+|----------------|---------------------|
+| fills (background) | `fill` |
+| strokes (border colour) | `borderColor` |
+| strokeWeight | `borderWidth` |
+| corner radius | `borderRadius` |
+| paddingTop / paddingBottom | `paddingTop` / `paddingBottom` |
+| paddingLeft / paddingRight | `paddingLeft` / `paddingRight` |
+| itemSpacing | `itemSpacing` |
+| text fills | `fill` (on TEXT node) |
+| composite typography | `typography` (on TEXT node) |
+
+## Clearing Existing Bindings
+
+Always clear stale keys before setting new ones:
+```javascript
+const existingKeys = node.getSharedPluginDataKeys("tokens");
+for (const key of existingKeys) {
+  node.setSharedPluginData("tokens", key, "");
+}
+```
+
+## Registering New Token Sets
+
+When creating a new component token file (e.g. `tokens/component/toggleBar.json`), register it:
+```javascript
+const current = JSON.parse(figma.root.getSharedPluginData("tokens", "usedTokenSet"));
+current["component/toggleBar"] = "enabled";
+figma.root.setSharedPluginData("tokens", "usedTokenSet", JSON.stringify(current));
+```
 
 ## Batch Binding Pattern
 
-Process 5-10 variants per MCP call:
-
+Process 10–15 variants per MCP call:
 ```javascript
-const componentSet = await figma.getNodeByIdAsync("29422:3597");
-const allVars = await figma.variables.getLocalVariablesAsync();
-
-// Build a lookup map for fast variable access
-const varMap = {};
-for (const v of allVars) { varMap[v.name] = v; }
-
-// Process a batch of variants
-const targetVariants = componentSet.children.filter(c => {
-  const name = c.name;
-  // Filter to specific variant + state combinations
-  return name.includes("Variant=Primary") &&
-         name.includes("isLoading=False") &&
-         (name.includes("State=Default") || name.includes("State=Hover"));
-});
-
+const componentSet = figma.getNodeById("30:20751");
 const results = [];
-for (const variant of targetVariants) {
+
+for (const variant of componentSet.children) {
   const props = {};
   variant.name.split(", ").forEach(pair => {
     const [k, v] = pair.split("=");
     props[k] = v;
   });
 
-  const state = props.State.toLowerCase(); // "default", "hover", etc.
-  const variantType = props.Variant.toLowerCase(); // "primary", etc.
-
-  // Bind fill
-  const fillVarName = `color/interactive/${variantType}/fill/${state}`;
-  const fillVar = varMap[fillVarName];
-  if (fillVar) {
-    // ... apply binding as shown above
+  // Map state to tokens and apply
+  const state = props.State;
+  if (state === "Hover") {
+    variant.setSharedPluginData("tokens", "fill",
+      JSON.stringify("color.interactive.primary.fill.hover"));
   }
 
-  results.push({ variant: variant.name, bound: true });
+  // Find and bind children
+  if (variant.children) {
+    for (const child of variant.children) {
+      if (child.type === "TEXT" || child.name === "Text") {
+        child.setSharedPluginData("tokens", "fill",
+          JSON.stringify("color.text.inverse"));
+      }
+    }
+  }
+
+  results.push({ id: variant.id, name: variant.name });
 }
-return results;
+return JSON.stringify(results);
 ```
 
 ## Skipping Variants
 
-Skip these variants entirely:
-- **isLoading=True**: These have a Loading Spinner replacing standard content. The spinner has its own bindings that are handled separately.
-- **Variants without matching tokens**: If a variant combination doesn't have corresponding tokens, skip it and flag it for the user.
+- **isLoading=True**: Spinner replaces standard content. Skip.
+- **Variants without matching tokens**: Flag for the user, don't invent token paths.
