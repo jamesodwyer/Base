@@ -18,11 +18,6 @@
           "$description": "Toast close/dismiss icon. White on dark background."
         }
       }
-    },
-    "shadow": {
-      "$type": "boxShadow",
-      "$value": "{elevation.elevationLevel3}",
-      "$description": "Toast container drop shadow. Elevated overlay."
     }
   }
 }

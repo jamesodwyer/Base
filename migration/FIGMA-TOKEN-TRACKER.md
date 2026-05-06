@@ -61,7 +61,7 @@
 | 13 | Alert Box | `30:15280` | `—` | 33% | [ ] | [~] | [ ] | Partial — fill/border applied, missing icon colour + typography. |
 | 14 | Toast | `38852:11802` | `38852:13585` | ✅ | ✅ | [x] | [ ] | Stripped and re-applied 2026-05-06. 7 nodes bound: 2 containers, 2 text, 2 close icons, 1 status icon. Awaiting Token Studio sync to verify visual. |
 | 15 | Badge | `30:15282` | `—` | 53% | [ ] | [~] | [ ] | Medium coverage. Fill/border/typography present. Check spacing. |
-| 16 | Loading Spinner | `33145:4265` | `—` | 27% | [ ] | [~] | [ ] | Partial — fill only. Missing size tokens. |
+| 16 | Loading Spinner | `33145:4265` | `33145:3778` | ✅ | ✅ | [x] | [ ] | Stripped and re-applied 2026-05-06. 35 nodes bound: arc + trail fills on all 4 base variants and all 9 main variants (3 sizes × 3 colours), plus fill + typography on all 9 Label text nodes. Note: all main variants were pointing to Variant1 (Primary) as base — colour override tokens set at instance level to compensate. Awaiting Token Studio sync. |
 
 ## Priority 4: Overlays & Containers
 

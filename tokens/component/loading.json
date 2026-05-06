@@ -36,28 +36,6 @@
           "$value": "{color.text.inverse}",
           "$description": "Trail arc fill for inverse spinner. Same hue as active arc, rendered at 25% opacity."
         }
-      },
-      "opacity": {
-        "$type": "opacity",
-        "$value": "0.25",
-        "$description": "Trail arc opacity. Applied to trail fill to create the inactive segment."
-      }
-    },
-    "size": {
-      "small": {
-        "$type": "dimension",
-        "$value": "{icon.size.large}",
-        "$description": "Small spinner size (24px). Default inline size."
-      },
-      "medium": {
-        "$type": "dimension",
-        "$value": "{icon.size.xLarge}",
-        "$description": "Medium spinner size (32px). Used in buttons and cards."
-      },
-      "large": {
-        "$type": "dimension",
-        "$value": "72px",
-        "$description": "Large spinner size (72px). Full-page or section loading."
       }
     }
   }
