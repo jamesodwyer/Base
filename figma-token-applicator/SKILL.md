@@ -13,7 +13,7 @@ Bind design tokens to Figma component variants using **Token Studio `sharedPlugi
 ## Critical Rules
 
 1. **sharedPluginData ONLY.** The sole mechanism is `node.setSharedPluginData("tokens", key, value)`. Never create Figma variable collections. Never call `setBoundVariable` or `setBoundVariableForPaint`. Never call `figma.variables.createVariable` or `figma.variables.createVariableCollection`.
-2. **Do not modify paints.** Do not change `node.fills` or `node.strokes`. Only write sharedPluginData keys — Token Studio reads these to show token paths in Deep Inspect. The visual appearance of the component stays exactly as designed.
+2. **Strip hardcoded fills before applying tokens.** Set `node.fills = []` and `node.strokes = []` on every node before writing sharedPluginData. Token Studio must be the sole source of colour — any residual hardcoded fill will override token values after sync.
 3. **Correct file key.** Always extract the Figma file key from the user's URL. Never assume from memory.
 4. **sharedPluginData format.** Each property is a separate key. Value is a JSON-stringified string of the dot-notation token path:
    ```javascript
@@ -25,6 +25,9 @@ Bind design tokens to Figma component variants using **Token Studio `sharedPlugi
 5. **State naming.** Use `default`/`hover`/`pressed`/`disabled`/`selected.default`/`selected.hover`/`selected.disabled`. Never `on`/`off`, never camelCase.
 6. **No new semantic groups for components.** Component-specific tokens go in `tokens/component/{name}.json`, not in the semantic layer.
 7. **Register new token sets.** When creating a new component token file, register it in Token Studio's `usedTokenSet` on the document root.
+8. **Never use `verticalPadding` or `horizontalPadding` shorthand keys.** These shorthands cause Token Studio to display the resolved individual padding properties as "hexagon" (unresolved) entries in the Inspect panel, creating noise and confusion. Always use the four explicit keys: `paddingTop`, `paddingBottom`, `paddingLeft`, `paddingRight`. If you find these shorthands already applied to a component, replace them before moving on.
+9. **Component token files contain colours only.** Named component files (e.g. `toast.json`, `stepper.json`) must only contain `$type: "color"` tokens. Spacing goes in `component/spacing/desktop.json`. borderRadius, borderWidth, shadow, typography, and icon sizes bind directly to semantic tokens in Figma — no component token needed for these.
+10. **Always validate JSON after editing token files.** Run `python3 -c "import json; json.load(open('file.json'))"` after any edit. Removing a block can leave a trailing comma on the sibling above, making the file invalid. Token Studio reports this as "Failed to parse token file — invalid JSON format."
 
 ---
 
@@ -244,10 +247,16 @@ Use this to confirm that a token like `color.interactive.primary.fill.hover` (da
 
 ## Completed Components
 
+All in file `dfLpxHSoyojN9805EQXqy6` unless noted.
+
 - **Button** — 72 variants, 571 bindings. File: `WU01oSRfSHpOxUn3ThcvC5`, node: `29422:3597`
 - **Accordion** — 24 variants. File: `cfzFFRdygJ3eEoHuDplxHO`, node: `36820:4228`
 - **Alert Box** — 16 variants. File: `cfzFFRdygJ3eEoHuDplxHO`, node: `10410:52042`
 - **Checkbox** — 13 variants. File: `cfzFFRdygJ3eEoHuDplxHO`, node: `41163:1815`
-- **Radio Button** — 14 variants. File: `dfLpxHSoyojN9805EQXqy6`, node: `21:28156`
-- **Toggle** — 12 variants. File: `dfLpxHSoyojN9805EQXqy6`, node: `21:28235`
-- **FilterBar (.Toggler Bar/Block)** — 18 variants, 75 bindings. File: `dfLpxHSoyojN9805EQXqy6`, node: `30:20751`
+- **Radio Button** — 14 variants. Node: `21:28156`
+- **Toggle** — 12 variants. Node: `21:28235`
+- **FilterBar (.Toggler Bar/Block)** — 18 variants, 75 bindings. Node: `30:20751`
+- **Toast** — 7 nodes bound. Page: `38852:11802`, node: `38852:13585`. Stripped 2026-05-06.
+- **Pagination Button** — 4 nodes bound. Page: `30:20730`, node: `355:36072`. Stripped 2026-05-06.
+- **Loading Spinner** — 35 nodes bound (9 variants × arc/trail/label + 4 base variants). Page: `33145:4265`, node: `33145:3778`. Stripped 2026-05-06.
+- **Badge** — 37 variants, fully bound. Node: `21:25864`. Stripped 2026-05-06. Uses individual `paddingTop/Bottom/Left/Right` + `minHeight`. ⚠️ Fill tokens reference brand-level paths — semantic wrappers needed.
