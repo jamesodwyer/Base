@@ -80,6 +80,7 @@ The tokens in `tokens/` are the **current Token Studio tokens** (not yet migrate
 - **Component spacing files (`component/spacing/`) must only contain spacing tokens** (padding, gap, minHeight, layout dimension gaps). Non-spacing tokens (color, borderRadius, borderWidth, size) are handled by the semantic layer or dedicated component files — never in the spacing sets.
 - **Individual component token files (e.g. `toast.json`, `stepper.json`) must only contain non-spacing tokens** — colors, borderRadius, borderWidth, shadow, opacity, and size/dimension. All spacing tokens (padding, gap, minHeight) for every component must go into `component/spacing/desktop.json` (and `mobile.json` where applicable). Never put a `spacing` block inside a named component file.
 - **Use `gap` not `inBetween`** for spacing between elements. This applies everywhere: component tokens, framework docs, and tooling.
+- **Always check for trailing commas after removing a JSON block.** When a property is deleted from a token file, the sibling above it may be left with a trailing comma that makes the file invalid. Run `python3 -c "import json; json.load(open('file.json'))"` to validate before saving. Token Studio surfaces this as "Failed to parse token file — invalid JSON format."
 
 ### Semantic-first token binding (critical)
 

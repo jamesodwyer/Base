@@ -59,6 +59,6 @@
         "$value": "72px",
         "$description": "Large spinner size (72px). Full-page or section loading."
       }
-    },
+    }
   }
 }
