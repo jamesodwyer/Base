@@ -19,27 +19,10 @@
         }
       }
     },
-    "borderRadius": {
-      "$type": "borderRadius",
-      "$value": "{borderRadius.container.medium}",
-      "$description": "Toast container corner radius."
-    },
     "shadow": {
       "$type": "boxShadow",
       "$value": "{elevation.elevationLevel3}",
       "$description": "Toast container drop shadow. Elevated overlay."
-    },
-    "size": {
-      "closeIcon": {
-        "$type": "dimension",
-        "$value": "{icon.size.medium}",
-        "$description": "Close icon size in toast (16px)."
-      },
-      "statusIcon": {
-        "$type": "dimension",
-        "$value": "{icon.size.large}",
-        "$description": "Status feedback icon size in toast (24px)."
-      }
     }
   }
 }
