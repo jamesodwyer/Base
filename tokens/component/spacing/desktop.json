@@ -181,6 +181,38 @@
       }
     }
   },
+  "toast": {
+    "spacing": {
+      "padding": {
+        "$type": "spacing",
+        "$value": "{core.dimension.400}",
+        "$description": "Internal padding for toast container (all sides)."
+      },
+      "gap": {
+        "$type": "spacing",
+        "$value": "{core.dimension.300}",
+        "$description": "Gap between icon, text, and close button."
+      }
+    }
+  },
+  "loading": {
+    "spacing": {
+      "labelGap": {
+        "$type": "spacing",
+        "$value": "{core.dimension.400}",
+        "$description": "Gap between spinner and label text."
+      }
+    }
+  },
+  "popover": {
+    "spacing": {
+      "padding": {
+        "$type": "spacing",
+        "$value": "{core.dimension.200}",
+        "$description": "Internal padding for popover container."
+      }
+    }
+  },
   "button": {
     "spacing": {
       "large": {

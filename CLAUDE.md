@@ -78,7 +78,36 @@ The tokens in `tokens/` are the **current Token Studio tokens** (not yet migrate
 - Migration decisions and mappings are documented in `migration/`.
 - Color transforms use Token Studio's `$extensions.studio.tokens.modify` (darken, lighten, alpha, mix in HSL/LCH).
 - **Component spacing files (`component/spacing/`) must only contain spacing tokens** (padding, gap, minHeight, layout dimension gaps). Non-spacing tokens (color, borderRadius, borderWidth, size) are handled by the semantic layer or dedicated component files — never in the spacing sets.
+- **Individual component token files (e.g. `toast.json`, `stepper.json`) must only contain non-spacing tokens** — colors, borderRadius, borderWidth, shadow, opacity, and size/dimension. All spacing tokens (padding, gap, minHeight) for every component must go into `component/spacing/desktop.json` (and `mobile.json` where applicable). Never put a `spacing` block inside a named component file.
 - **Use `gap` not `inBetween`** for spacing between elements. This applies everywhere: component tokens, framework docs, and tooling.
+
+### Semantic-first token binding (critical)
+
+**Always bind to a semantic token. Only create a component token when semantic can't express it.**
+
+This rule exists because theme switching (light → dark) works by swapping the semantic layer. Any Figma node bound to a semantic token responds to a theme change automatically. Any node bound to brand, core, or a hardcoded value does not.
+
+The alias chain flows in one direction only:
+
+```
+Core (primitives, never changes)
+  └── Brand (identity, never changes)
+        └── Semantic ← swapped per theme (colorLight / colorDark)
+              └── Component (aliases of semantic — themes automatically)
+                    └── Figma node binding (resolves through the full chain)
+```
+
+**Binding decision order when working in Figma:**
+1. Bind directly to a semantic token (`color.*`, `typography.*`, `borderRadius.*`, `border.*`). Do this for the vast majority of nodes.
+2. If no exact semantic token exists but one is close enough in intent, use the closest match and document it in the migration tracker.
+3. Only create a `tokens/component/{name}.json` file when the component genuinely needs a named token that no semantic token can express. That component token's `$value` must reference a semantic token — never core or brand directly.
+
+**Never do this:**
+- Bind a Figma node directly to `color.brand.01` or `core.dimension.400` — these bypass the semantic layer and won't respond to theme switching.
+- Create a component token whose `$value` is a raw brand or core reference.
+- Bind to a hardcoded hex value — this is completely outside the token system.
+
+See `resources/TOKEN-FRAMEWORK.md` → "Core Principle: Semantic-First Token Usage" for the full decision tree, worked examples, and the dark mode contract.
 
 ## New Token Request — JIRA Automation
 

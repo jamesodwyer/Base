@@ -27,13 +27,6 @@
       "$value": "{elevation.elevationLevel3}",
       "$description": "Popover container drop shadow."
     },
-    "spacing": {
-      "padding": {
-        "$type": "spacing",
-        "$value": "{core.dimension.200}",
-        "$description": "Internal padding for popover container."
-      }
-    },
     "size": {
       "minHeight": {
         "$type": "dimension",

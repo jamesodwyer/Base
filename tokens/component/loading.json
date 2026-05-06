@@ -60,12 +60,5 @@
         "$description": "Large spinner size (72px). Full-page or section loading."
       }
     },
-    "spacing": {
-      "labelGap": {
-        "$type": "dimension",
-        "$value": "{core.dimension.400}",
-        "$description": "Gap between spinner and label text."
-      }
-    }
   }
 }

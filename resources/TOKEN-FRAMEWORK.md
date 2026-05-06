@@ -4,6 +4,86 @@
 
 ---
 
+## Core Principle: Semantic-First Token Usage
+
+**Always use a semantic token. Only create a component token when semantic can't express it.**
+
+This is the single most important rule in the system. Every Figma node binding should point to the semantic layer (`color.*`, `typography.*`, `borderRadius.*`, `border.*`) unless there is a specific reason it can't.
+
+### Why this matters: theme switching
+
+The entire theming system — including light → dark mode — works by swapping the semantic layer. Core and Brand tokens don't change between themes. What changes is `semantic/colorLight.json` → `semantic/colorDark.json`. Because component tokens reference semantic tokens, and semantic tokens reference brand/core, the full cascade updates automatically when you switch themes.
+
+```
+Core (never changes)
+  └── Brand (never changes)
+        └── Semantic ← THIS IS WHAT CHANGES PER THEME
+              └── Component (follows automatically)
+                    └── Figma node binding (follows automatically)
+```
+
+If a component token skips the semantic layer and references `color.brand.01` directly, it will **not** respond to theme switching. That's a bug.
+
+### Decision tree: when to use which tier
+
+```
+Q: Does a semantic token express this intent?
+   → Yes → Use it directly. Don't create a component token.
+   → No  → Does another semantic token express it close enough?
+              → Yes → Use the closest semantic token. Document the mapping.
+              → No  → Create a component token that references the semantic token.
+                       Never reference core or brand directly from a component token.
+```
+
+### What "semantic-first" looks like in practice
+
+**Good — binding directly to semantic:**
+```
+Button fill (primary, default)  →  color.interactive.primary.fill.default
+Button text (disabled)          →  color.interactive.primary.text.disabled
+Input border (error)            →  color.feedback.border.error
+Modal overlay                   →  color.elevation.overlay
+Badge fill (success)            →  color.status.positive.fill
+```
+
+**Good — component token that wraps semantic (used when the component has unique logic):**
+```
+toggle.color.container.fill.on  →  { $value: "{color.interactive.primary.fill.default}" }
+toast.color.fill                →  { $value: "{color.elevation.inverse}" }
+stepper.color.counter.fill.default → { $value: "{color.surface.neutral01}" }
+```
+
+**Bad — skipping the semantic layer:**
+```
+Button fill  →  color.brand.01          ← Hard-coded to TM brand, won't theme
+Input text   →  core.typography.100     ← Raw primitive, no semantic meaning
+Modal border →  #121212                 ← Hardcoded hex, completely outside the system
+```
+
+### When a component token IS the right choice
+
+Create a component-level token file when:
+- The component uses a colour relationship that no existing semantic token captures (e.g. the Toggle's container fill differs depending on on/off state in a way that `color.interactive.primary.*` alone can't represent)
+- The component needs a unique combination of tokens per visual state that benefits from being named explicitly (e.g. stepper's counter display, which has its own fill/text/border triad)
+- You need to document the intent clearly — a component token is self-describing in a way that a raw semantic reference isn't
+
+Even then, the component token's `$value` must always be a reference to a semantic token, never to core or brand directly.
+
+### The dark mode contract
+
+When `semantic/colorDark.json` is created, it will mirror the exact same token paths as `semantic/colorLight.json`, but with dark-appropriate resolved values. For example:
+
+| Token path | Light | Dark |
+|-----------|-------|------|
+| `color.elevation.base` | `#FFFFFF` | `#1A1A1A` |
+| `color.text.primary` | `#121212` | `#F5F5F5` |
+| `color.interactive.primary.fill.default` | `#024DDF` | `#4D8AFF` |
+| `color.elevation.overlay` | `rgba(18,18,18,0.7)` | `rgba(0,0,0,0.85)` |
+
+Any Figma binding that points to a semantic token will automatically resolve to the dark value when the dark theme is active — zero additional work required at the component level.
+
+---
+
 ## Architecture: 4-Tier Token Hierarchy
 
 ```

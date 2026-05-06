@@ -29,18 +29,6 @@
       "$value": "{elevation.elevationLevel3}",
       "$description": "Toast container drop shadow. Elevated overlay."
     },
-    "spacing": {
-      "padding": {
-        "$type": "spacing",
-        "$value": "{core.dimension.400}",
-        "$description": "Internal padding for toast container (all sides)."
-      },
-      "gap": {
-        "$type": "spacing",
-        "$value": "{core.dimension.300}",
-        "$description": "Gap between icon, text, and close button."
-      }
-    },
     "size": {
       "closeIcon": {
         "$type": "dimension",

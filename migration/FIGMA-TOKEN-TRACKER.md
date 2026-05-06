@@ -1,127 +1,124 @@
 # Figma Token Application Tracker
 
-> Track progress of applying v2 design tokens to GDS Figma components.
+> **Last audited:** 2026-05-06 — full automated sharedPluginData audit across all pages in `dfLpxHSoyojN9805EQXqy6`
 >
 > **Status key:**
 > - [ ] Not started
-> - [~] In progress
+> - [~] In progress / partial
 > - [x] Complete
-> - [!] Blocked (see notes)
+> - [!] Needs redo — format issues or broken token paths
 >
 > **Columns:**
-> - **Mapped** = token-to-property mapping is documented in COMPONENT-TOKEN-MAPPING.md
-> - **Figma Applied** = tokens are attached to the Figma component as variables
-> - **Verified** = visual QA confirms the component looks correct with tokens applied
-> - **Storybook** = coded token output matches Figma (future phase)
+> - **Mapped** = token-to-property mapping documented in COMPONENT-TOKEN-MAPPING.md
+> - **Stripped** = hardcoded fills/strokes/style references removed from all nodes
+> - **Tokens Applied** = Token Studio sharedPluginData attached to all nodes
+> - **Verified** = visual QA confirms component looks correct after Token Studio sync
+
+---
+
+## Audit Summary (2026-05-06)
+
+| Group | Components | Action needed |
+|-------|-----------|---------------|
+| Not started | 8 | Apply tokens from scratch; strip styles |
+| Format issues | 3 | Clear legacy keys; reapply correctly; strip styles |
+| Partial (low) | 7 | Complete token application; strip styles |
+| Partial (medium) | 5 | Complete token application; strip styles |
+| Higher coverage | 3 | Verify + complete gaps; strip styles |
+
+**Critical:** No component has been stripped of embedded styles yet. All components still carry hardcoded fills/strokes/style references regardless of token coverage.
+
+**Token file gap:** Toggle bindings reference `toggle.color.*` paths that don't exist in `tokens/component/` — a `toggle.json` needs to be created before Toggle can be properly re-applied.
 
 ---
 
 ## Priority 1: Interactive Primitives
 
-These are the foundation — most other components compose from these patterns.
-
-| # | Component | Mapped | Figma Applied | Verified | Storybook | Notes |
-|---|-----------|--------|---------------|----------|-----------|-------|
-| 1 | Button (Primary) | [x] | [ ] | [ ] | [ ] | Start here. Validates interactive colour tokens + spacing + border. |
-| 2 | Button (Secondary) | [x] | [ ] | [ ] | [ ] | Validates border colour tokens. |
-| 3 | Button (Tertiary) | [x] | [ ] | [ ] | [ ] | |
-| 4 | Button (Ghost) | [x] | [ ] | [ ] | [ ] | |
-| 5 | Button (Inverse) | [x] | [ ] | [ ] | [ ] | |
-| 6 | Button (Transaction) | [x] | [ ] | [ ] | [ ] | |
-| 7 | CircleButton | [x] | [ ] | [ ] | [ ] | Shares button colour tokens. |
-| 8 | SquareButton | [x] | [ ] | [ ] | [ ] | Shares button colour tokens. |
-| 9 | PillButton | [x] | [ ] | [ ] | [ ] | Validates selected state tokens. |
-| 10 | CloseButton | [x] | [ ] | [ ] | [ ] | Ghost icon variant. |
-| 11 | PaginationButton | [x] | [ ] | [ ] | [ ] | |
+| # | Component | Page | Node | Token Coverage | Stripped | Tokens Applied | Verified | Notes |
+|---|-----------|------|------|---------------|----------|----------------|----------|-------|
+| 1 | Button (all variants) | `3:14` | `—` | 48% | [ ] | [!] | [ ] | `tokenName` key on component set is legacy format — needs clearing. Otherwise bindings on child nodes look structurally valid. |
+| 2 | Circle Button | `34612:13776` | `—` | 0% | [ ] | [ ] | [ ] | Not started. |
+| 3 | Square Button | `34612:14405` | `—` | 0% | [ ] | [ ] | [ ] | Not started. |
+| 4 | Pill Button | `33403:293` | `—` | 71% | [ ] | [~] | [ ] | Highest coverage of all. Spot-check bindings then complete gaps. |
+| 5 | Pagination Button | `30:20730` | `355:36072` | ✅ | ✅ | [x] | [ ] | Stripped and re-applied 2026-05-06. 4 nodes bound: container fill, text (fill + typography), loading bar (fill + borderRadius), progress bar (fill + borderRadius). Awaiting Token Studio sync to verify visual. |
 
 ## Priority 2: Form Controls
 
-These validate input token patterns (fill, border, text per state).
-
-| # | Component | Mapped | Figma Applied | Verified | Storybook | Notes |
-|---|-----------|--------|---------------|----------|-----------|-------|
-| 12 | Input Field | [x] | [ ] | [ ] | [ ] | Core form component. Validates input colour + feedback tokens. |
-| 13 | Checkbox | [x] | [ ] | [ ] | [ ] | |
-| 14 | CheckboxControl | [x] | [ ] | [ ] | [ ] | Visual wrapper of Checkbox. |
-| 15 | Radio Button | [x] | [x] | [ ] | [ ] | 14 variants, 53 variables, 60 bindings. File: `dfLpxHSoyojN9805EQXqy6`, node: `21:28156` |
-| 16 | Dropdown | [x] | [ ] | [ ] | [ ] | Input tokens + popover/elevation tokens. |
-| 17 | Toggle | [x] | [ ] | [ ] | [ ] | |
-| 18 | Date Picker | [x] | [ ] | [ ] | [ ] | Input tokens + calendar popover. |
-| 19 | Double Range Input | [x] | [ ] | [ ] | [ ] | |
-| 20 | Stepper | [x] | [ ] | [ ] | [ ] | |
+| # | Component | Page | Node | Token Coverage | Stripped | Tokens Applied | Verified | Notes |
+|---|-----------|------|------|---------------|----------|----------------|----------|-------|
+| 6 | Input Field | `30:15296` | `—` | 7% | [ ] | [~] | [ ] | Very low coverage — effectively not started. 557 nodes. |
+| 7 | Checkbox | `30:15297` | `—` | 25% | [ ] | [~] | [ ] | Partial — only fill/border applied, no text or spacing tokens. |
+| 8 | Radio Button | `30:15298` | `21:28156` | 56% | [ ] | [~] | [ ] | Previously marked done but coverage incomplete. Missing typography + spacing. |
+| 9 | Toggle | `30:15299` | `21:28235` | 69% | [ ] | [!] | [ ] | Token paths reference `toggle.color.*` — no matching file in `tokens/component/`. Need to create `toggle.json`. Component set also has legacy `values` key. |
+| 10 | Dropdown | `30:15300` | `—` | 15% | [ ] | [~] | [ ] | Partial — fill/border only, no text, typography, or spacing. |
+| 11 | Double Range Input | `30:15301` | `—` | 0% | [ ] | [ ] | [ ] | Not started. |
+| 12 | Stepper | `30:15302` | `—` | 69% | [ ] | [~] | [ ] | High coverage. Spot-check paths and fill gaps. |
 
 ## Priority 3: Feedback & Status
 
-These validate the feedback token set (error, success, warning, info).
-
-| # | Component | Mapped | Figma Applied | Verified | Storybook | Notes |
-|---|-----------|--------|---------------|----------|-----------|-------|
-| 21 | Alert | [x] | [ ] | [ ] | [ ] | All 4 feedback variants. |
-| 22 | Toast | [x] | [x] | [ ] | [ ] | 2 variants, 14 variables, 16 bindings. File: `dfLpxHSoyojN9805EQXqy6`, node: `38852:13585`. Close icon pre-existing issue: fills are #121212 (invisible on dark bg) — needs fix at icon component level. |
-| 23 | Badge | [x] | [ ] | [ ] | [ ] | |
-| 24 | Loading Spinner | [x] | [ ] | [ ] | [ ] | 3 colour variants. Large size needs token. |
+| # | Component | Page | Node | Token Coverage | Stripped | Tokens Applied | Verified | Notes |
+|---|-----------|------|------|---------------|----------|----------------|----------|-------|
+| 13 | Alert Box | `30:15280` | `—` | 33% | [ ] | [~] | [ ] | Partial — fill/border applied, missing icon colour + typography. |
+| 14 | Toast | `38852:11802` | `38852:13585` | ✅ | ✅ | [x] | [ ] | Stripped and re-applied 2026-05-06. 7 nodes bound: 2 containers, 2 text, 2 close icons, 1 status icon. Awaiting Token Studio sync to verify visual. |
+| 15 | Badge | `30:15282` | `—` | 53% | [ ] | [~] | [ ] | Medium coverage. Fill/border/typography present. Check spacing. |
+| 16 | Loading Spinner | `33145:4265` | `—` | 27% | [ ] | [~] | [ ] | Partial — fill only. Missing size tokens. |
 
 ## Priority 4: Overlays & Containers
 
-These validate elevation and border-radius tokens.
-
-| # | Component | Mapped | Figma Applied | Verified | Storybook | Notes |
-|---|-----------|--------|---------------|----------|-----------|-------|
-| 25 | Modal | [x] | [ ] | [ ] | [ ] | Elevation + overlay tokens. |
-| 26 | Side Panel | [x] | [ ] | [ ] | [ ] | |
-| 27 | Tooltip | [x] | [ ] | [ ] | [ ] | Inverse elevation. |
-| 28 | Accordion | [x] | [ ] | [ ] | [ ] | |
+| # | Component | Page | Node | Token Coverage | Stripped | Tokens Applied | Verified | Notes |
+|---|-----------|------|------|---------------|----------|----------------|----------|-------|
+| 17 | Modal | `21:4835` | `—` | 0% | [ ] | [ ] | [ ] | Not started. Largest component — 1,261 nodes across 35 component sets. |
+| 18 | Tooltip | `3:9` | `—` | 0% | [ ] | [ ] | [ ] | Not started. |
+| 19 | PopOver | `49448:2639` | `—` | 0% | [ ] | [ ] | [ ] | Not started. Token file exists (`tokens/component/popover.json`). |
+| 20 | Accordion | `2508:146157` | `—` | 48% | [ ] | [~] | [ ] | Medium coverage. 766 nodes. |
 
 ## Priority 5: Content & Utility
 
-Lower priority — simpler token needs.
-
-| # | Component | Mapped | Figma Applied | Verified | Storybook | Notes |
-|---|-----------|--------|---------------|----------|-----------|-------|
-| 29 | Divider | [x] | [ ] | [ ] | [ ] | Single border colour token. |
-| 30 | Image | [x] | [ ] | [ ] | [ ] | Minimal — placeholder fill + optional radius. |
-| 31 | Countdown Timer | [x] | [ ] | [ ] | [ ] | Text + elevation tokens. |
-| 32 | Filterbar | [x] | [ ] | [ ] | [ ] | Interactive + selected tokens. |
-| 33 | Toggler BarBlock | [x] | [ ] | [ ] | [ ] | Same as Filterbar. |
-| 34 | Payment Icons | [x] | [ ] | [ ] | [ ] | Minimal — container only. |
+| # | Component | Page | Node | Token Coverage | Stripped | Tokens Applied | Verified | Notes |
+|---|-----------|------|------|---------------|----------|----------------|----------|-------|
+| 21 | Filter Bar | `30:22688` | `30:20751` | 45% | [ ] | [~] | [ ] | Previously marked done. Coverage audit shows only fill/border — missing spacing. |
+| 22 | Display Heading | `42691:1307` | `—` | 49% | [ ] | [~] | [ ] | Typography + fill applied. Check all heading levels. |
+| 23 | Image | `38863:4977` | `—` | 0% | [ ] | [ ] | [ ] | Not started. Minimal — placeholder fill + optional radius only. |
+| 24 | Slot | `25353:4183` | `—` | 0% | [ ] | [ ] | [ ] | Not started. |
 
 ---
 
-## Summary
-
-| Priority | Components | Status |
-|----------|-----------|--------|
-| P1: Interactive Primitives | 11 | 0/11 applied |
-| P2: Form Controls | 9 | 0/9 applied |
-| P3: Feedback & Status | 4 | 1/4 applied |
-| P4: Overlays & Containers | 4 | 0/4 applied |
-| P5: Content & Utility | 6 | 0/6 applied |
-| **Total** | **34** | **0/34 applied** |
-
----
-
-## Blockers & Dependencies
+## Blockers & Outstanding Issues
 
 | Blocker | Impact | Resolution |
 |---------|--------|------------|
-| Zero-width Unicode chars in token names | Tokens won't bind correctly in Figma | Clean token names before applying (see TOKEN-AUDIT.md #1) |
-| Spaces in component/spacing directory names | Style Dictionary glob issues | Rename directories before building (see TOKEN-AUDIT.md #2) |
-| Missing input spacing tokens | Input Field spacing can't be fully tokenised | Add `input.spacing.*` tokens to component set |
-| Mobile token inconsistencies | Mobile variants can't be applied until fixed | Fix naming + remove `px` suffix (see TOKEN-AUDIT.md #3, #4) |
-| No dark theme | Only light theme can be applied | Dark theme is future work; not a blocker for light theme |
+| No `tokens/component/toggle.json` | Toggle bindings reference non-existent token paths | Create toggle.json before re-applying Toggle |
+| Legacy `values` key on Toggle component set | Old Token Studio format — won't work in current Token Studio | Clear all `values` keys, reapply with correct individual property keys |
+| Legacy `tokenName` key on Button component set | Non-standard key — will be ignored by Token Studio | Clear key before re-validating Button coverage |
+| ~~Non-standard `spacing` key on Toast~~ | ~~Token Studio does not recognise `spacing` as a property key~~ | ✅ Resolved 2026-05-06 — Toast Figma bindings updated to use `paddingTop/Bottom/Left/Right` and `itemSpacing`. Toast spacing tokens also moved to `component/spacing/desktop.json`. |
+| No embedded styles stripped yet | Hardcoded fills/strokes remain on all nodes | Strip phase must precede or accompany token application |
+| Zero-width Unicode chars in `colorLight.json` token names | Bindings will break silently at sync | Clean token names first (see TOKEN-AUDIT.md #1) |
+
+---
+
+## Token Files vs Component Coverage
+
+| Token file | Component(s) | Status |
+|-----------|-------------|--------|
+| `tokens/component/toast.json` | Toast | ✅ File exists |
+| `tokens/component/stepper.json` | Stepper | ✅ File exists |
+| `tokens/component/filterBar.json` | Filter Bar | ✅ File exists |
+| `tokens/component/loading.json` | Loading Spinner | ✅ File exists |
+| `tokens/component/popover.json` | PopOver | ✅ File exists |
+| `tokens/component/spacing/desktop.json` | All spacing | ✅ File exists |
+| `tokens/component/spacing/mobile.json` | All spacing | ✅ File exists |
+| ❌ `tokens/component/toggle.json` | Toggle | ❌ Missing — must create |
+| ❌ `tokens/component/button.json` | Button (spacing) | ❌ No component file — spacing uses semantic tokens directly |
+| ❌ `tokens/component/badge.json` | Badge | ❌ No component file |
+| ❌ `tokens/component/modal.json` | Modal | ❌ No component file |
+| ❌ `tokens/component/tooltip.json` | Tooltip | ❌ No component file |
 
 ---
 
 ## Workflow per Component
 
-1. Open the GDS Figma file
-2. Navigate to the component
-3. For each property in the mapping doc:
-   a. Select the layer/element
-   b. In the Fill/Stroke/Text panel, click the variable picker
-   c. Select the corresponding v2 token variable
-   d. Repeat for all states (use Figma's component properties / variants)
-4. Mark "Figma Applied" in this tracker
-5. Visually compare against the current component — should look identical for TM brand
-6. Mark "Verified" when confirmed
-7. Repeat for all variants and states of the component
+1. **Strip** — remove all fills, strokes, and style references from every node on the page
+2. **Resolve** — trace token paths for each node/state against the token JSON files; verify colour math
+3. **Apply** — write `sharedPluginData` bindings using `setSharedPluginData("tokens", key, JSON.stringify(path))`
+4. **Verify** — read back keys; sync Token Studio; visual QA
+5. **Mark complete** in this tracker
