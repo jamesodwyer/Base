@@ -77,7 +77,6 @@
   {
     "id": "gdsm-theme-light",
     "name": "Light",
-    "group": "GDS-M - Theme",
     "selectedTokenSets": {
       "semantic/colorLight": "enabled",
       "semantic/typography": "enabled",
@@ -92,12 +91,15 @@
       "global/typography": "enabled",
       "global/modify": "enabled",
       "global/border": "enabled",
-      "core/color": "enabled"
+      "core/color": "enabled",
+      "semantic/icon": "enabled",
+      "component/filterBar": "enabled"
     },
     "$figmaStyleReferences": {},
     "$figmaVariableReferences": {},
     "$figmaCollectionId": "",
-    "$figmaModeId": ""
+    "$figmaModeId": "",
+    "group": "GDS-M - Theme"
   },
   {
     "id": "gdsm-theme-dark",
