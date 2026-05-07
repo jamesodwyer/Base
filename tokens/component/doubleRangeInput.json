@@ -1,0 +1,49 @@
+{
+  "doubleRangeInput": {
+    "color": {
+      "handle": {
+        "fill": {
+          "default": {
+            "$type": "color",
+            "$value": "{color.input.fill.default}",
+            "$description": "Range slider handle fill in default, hover, and focused states."
+          },
+          "pressed": {
+            "$type": "color",
+            "$value": "{color.surface.inverse}",
+            "$description": "Range slider handle fill when pressed."
+          },
+          "disabled": {
+            "$type": "color",
+            "$value": "{color.disabled.a}",
+            "$description": "Range slider handle fill when disabled."
+          }
+        },
+        "border": {
+          "default": {
+            "$type": "color",
+            "$value": "{color.input.border.active}",
+            "$description": "Range slider handle border in default, hover, focused, and pressed states."
+          },
+          "disabled": {
+            "$type": "color",
+            "$value": "{color.disabled.b}",
+            "$description": "Range slider handle border when disabled."
+          },
+          "focus": {
+            "$type": "color",
+            "$value": "{color.focus.border}",
+            "$description": "Range slider handle focus ring."
+          }
+        },
+        "focusRing": {
+          "fill": {
+            "$type": "color",
+            "$value": "{color.input.fill.default}",
+            "$description": "Range slider handle focus ring inner fill."
+          }
+        }
+      }
+    }
+  }
+}

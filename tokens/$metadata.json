@@ -16,6 +16,7 @@
     "component/loading",
     "component/popover",
     "component/toast",
-    "component/filterBar"
+    "component/filterBar",
+    "component/doubleRangeInput"
   ]
 }
