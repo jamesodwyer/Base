@@ -13,7 +13,7 @@ Bind design tokens to Figma component variants using **Token Studio `sharedPlugi
 ## Critical Rules
 
 1. **sharedPluginData ONLY.** The sole mechanism is `node.setSharedPluginData("tokens", key, value)`. Never create Figma variable collections. Never call `setBoundVariable` or `setBoundVariableForPaint`. Never call `figma.variables.createVariable` or `figma.variables.createVariableCollection`.
-2. **Strip hardcoded fills before applying tokens.** Set `node.fills = []` and `node.strokes = []` on every node before writing sharedPluginData. Token Studio must be the sole source of colour — any residual hardcoded fill will override token values after sync.
+2. **Strip hardcoded fills AND clear variable bindings before applying tokens.** Set `node.fills = []` and `node.strokes = []` on every node before writing sharedPluginData. Also call `node.setBoundVariable(prop, null)` for every previously bound property — `fills`, `strokes`, `itemSpacing`, `paddingLeft/Right/Top/Bottom`, `topLeftRadius`/`topRightRadius`/`bottomLeftRadius`/`bottomRightRadius`, `strokeTopWeight`/`strokeBottomWeight`/`strokeLeftWeight`/`strokeRightWeight`. If you don't clear the variable binding, Figma keeps painting the previous variable value and Token Studio's sync gets overridden. Token Studio must be the sole source of every property — any residual hardcoded paint OR Figma variable binding will override token values after sync. Audit step before applying: `Object.keys(node.boundVariables || {})` should return `[]` after stripping.
 3. **Correct file key.** Always extract the Figma file key from the user's URL. Never assume from memory.
 4. **sharedPluginData format.** Each property is a separate key. Value is a JSON-stringified string of the dot-notation token path:
    ```javascript
@@ -29,6 +29,8 @@ Bind design tokens to Figma component variants using **Token Studio `sharedPlugi
 9. **Never use `verticalPadding` or `horizontalPadding` shorthand keys.** These shorthands cause Token Studio to display the resolved individual padding properties as "hexagon" (unresolved) entries in the Inspect panel, creating noise and confusion. Always use the four explicit keys: `paddingTop`, `paddingBottom`, `paddingLeft`, `paddingRight`. If you find these shorthands already applied to a component, replace them before moving on.
 10. **Component token files contain colours only.** Named component files (e.g. `toast.json`, `stepper.json`) must only contain `$type: "color"` tokens. Spacing goes in `component/spacing/desktop.json`. borderRadius, borderWidth, shadow, typography, and icon sizes bind directly to semantic tokens in Figma — no component token needed for these.
 11. **Always validate JSON after editing token files.** Run `python3 -c "import json; json.load(open('file.json'))"` after any edit. Removing a block can leave a trailing comma on the sibling above, making the file invalid. Token Studio reports this as "Failed to parse token file — invalid JSON format."
+12. **Don't strip vector internals inside icon BOOLEAN_OPERATIONs.** Icon nodes in this design system are typed as `BOOLEAN_OPERATION` and their `sharedPluginData("tokens", "fill", ...)` is set on that boolean op itself. Their inner `Vector (Stroke)` / `Union` / `Exclude` children carry geometry-defining fills (often #000000, #121212, etc.) that are part of the vector path, not design system colour. Strip the fills/strokes on the BOOLEAN_OPERATION node only — leave its descendant vectors untouched. Pattern: `if (node.type === "BOOLEAN_OPERATION") { strip(node); /* do not recurse */ }`.
+13. **Validation/feedback icon name varies by state.** Frames named `ErrorFilled` and `SuccessFilled` (and likely `WarningFilled`, `InfoFilled`) are sibling icons that swap by variant. When binding, look up by either name and pick the matching feedback token: `color.feedback.icon.error`, `color.feedback.icon.success`, `color.feedback.icon.warning`, `color.feedback.icon.info`. Don't hard-code one icon path across variants.
 
 ---
 
@@ -190,6 +192,21 @@ node.setSharedPluginData("tokens", "borderWidth", JSON.stringify("border.interac
 | text fills | `fill` (on TEXT node) |
 | composite typography | `typography` (on TEXT node) |
 
+### Composite typography path mapping
+
+When binding a text node's `typography` key, match the resolved fontSize/lineHeight/weight to a composite token in `tokens/semantic/typography.json`. Common mappings observed across components:
+
+| fontSize / lineHeight / weight | Token path |
+|-----|-----|
+| 16 / 24 / Regular | `typography.body.regular.large` |
+| 14 / 20 / Regular | `typography.body.regular.medium` |
+| 12 / 20 / Regular | `typography.body.regular.small` |
+| 16 / 20 / Semibold | `typography.label.large` |
+| 14 / 20 / Semibold | `typography.label.medium` |
+| 12 / 16 / Semibold | `typography.label.small` |
+
+If a node uses `Bold` or `Black` instead of `Semibold`/`Regular`, look in `typography.body.bold.*`, `typography.heading.*`, `typography.title.*`, or `typography.display.*`.
+
 ### Step 2: Register new token sets (if created in Phase 1b)
 
 ```javascript
@@ -261,3 +278,4 @@ All in file `dfLpxHSoyojN9805EQXqy6` unless noted.
 - **Pagination Button** — 4 nodes bound. Page: `30:20730`, node: `355:36072`. Stripped 2026-05-06.
 - **Loading Spinner** — 35 nodes bound (9 variants × arc/trail/label + 4 base variants). Page: `33145:4265`, node: `33145:3778`. Stripped 2026-05-06.
 - **Badge** — 37 variants, fully bound. Node: `21:25864`. Stripped 2026-05-06. Uses individual `paddingTop/Bottom/Left/Right` + `minHeight`. ⚠️ Fill tokens reference brand-level paths — semantic wrappers needed.
+- **Input Field** — 9 variants (Default/Filled/Active/Hover/Disabled/Error/Success/Read Only/Focused), fully bound. Node: `355:37218`. Stripped 2026-05-07. Required clearing pre-existing Figma variable bindings (`boundVariables`) on Input frame's padding/radius/strokeWeight/itemSpacing/fills/strokes — not just stripping paints. Icon vectors inside BOOLEAN_OPERATIONs left untouched. Validation icon swaps `ErrorFilled` / `SuccessFilled` per state, bound to `color.feedback.icon.error` / `color.feedback.icon.success` accordingly.

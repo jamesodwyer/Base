@@ -46,7 +46,7 @@
 
 | # | Component | Page | Node | Token Coverage | Stripped | Tokens Applied | Verified | Notes |
 |---|-----------|------|------|---------------|----------|----------------|----------|-------|
-| 6 | Input Field | `30:15296` | `—` | 7% | [ ] | [~] | [ ] | Very low coverage — effectively not started. 557 nodes. |
+| 6 | Input Field | `30:15296` | `355:37218` | ✅ | ✅ | [x] | [ ] | Stripped and re-applied 2026-05-07. All 9 variants (Default, Filled, Active, Hover, Disabled, Error, Success, Read Only, Focused). Tokens applied to: variant itemSpacing, label/optional text fill+typography, input frame fill+borderColor+borderWidth+borderRadius+4 paddings+itemSpacing, value text fill+typography, CVV/Hide icons, validation frame itemSpacing, validation icon fill (error→`color.feedback.icon.error`, success→`color.feedback.icon.success`), validation text fill+typography. State-specific colour mapping documented in skill. Vector glyph internals inside icon BOOLEAN_OPERATIONs left untouched. Awaiting Token Studio sync to verify visual. |
 | 7 | Checkbox | `30:15297` | `—` | 25% | [ ] | [~] | [ ] | Partial — only fill/border applied, no text or spacing tokens. |
 | 8 | Radio Button | `30:15298` | `21:28156` | 56% | [ ] | [~] | [ ] | Previously marked done but coverage incomplete. Missing typography + spacing. |
 | 9 | Toggle | `30:15299` | `21:28235` | 69% | [ ] | [!] | [ ] | Token paths reference `toggle.color.*` — no matching file in `tokens/component/`. Need to create `toggle.json`. Component set also has legacy `values` key. |
