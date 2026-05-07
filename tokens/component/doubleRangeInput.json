@@ -43,6 +43,25 @@
             "$description": "Range slider handle focus ring inner fill."
           }
         }
+      },
+      "track": {
+        "fill": {
+          "inactive": {
+            "$type": "color",
+            "$value": "{color.border.primary}",
+            "$description": "Range slider track fill in the unselected portion."
+          },
+          "active": {
+            "$type": "color",
+            "$value": "{color.interactive.primary.fill.default}",
+            "$description": "Range slider track fill in the selected portion."
+          },
+          "disabled": {
+            "$type": "color",
+            "$value": "{color.disabled.a}",
+            "$description": "Range slider track fill when disabled."
+          }
+        }
       }
     }
   }
