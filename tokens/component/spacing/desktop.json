@@ -305,5 +305,31 @@
         }
       }
     }
+  },
+  "paginationButton": {
+    "spacing": {
+      "gap": {
+        "$type": "spacing",
+        "$value": "{core.dimension.300}",
+        "$description": "Gap between the content loader and the pill button."
+      },
+      "container": {
+        "blockPadding": {
+          "$type": "spacing",
+          "$value": "{core.dimension.300}",
+          "$description": "Vertical padding inside the pagination button content loader."
+        },
+        "inlinePadding": {
+          "$type": "spacing",
+          "$value": "{core.dimension.600}",
+          "$description": "Horizontal padding inside the pagination button content loader."
+        },
+        "gap": {
+          "$type": "spacing",
+          "$value": "{core.dimension.300}",
+          "$description": "Gap between the label and progress track inside the content loader."
+        }
+      }
+    }
   }
 }

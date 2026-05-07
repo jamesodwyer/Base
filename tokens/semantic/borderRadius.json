@@ -64,6 +64,11 @@
         "$type": "borderRadius",
         "$value": "{core.dimension.200}",
         "$description": "Use for large container corners."
+      },
+      "xLarge": {
+        "$type": "borderRadius",
+        "$value": "{core.dimension.800}",
+        "$description": "Use for extra large container corners. Pagination loader."
       }
     },
     "popover": {
