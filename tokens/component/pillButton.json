@@ -1,0 +1,236 @@
+{
+  "pillButton": {
+    "color": {
+      "fill": {
+        "default": {
+          "$type": "color",
+          "$value": "{color.interactive.inverse.fill.default}",
+          "$description": "Pill Button (light) fill in default state. Transparent."
+        },
+        "hover": {
+          "$type": "color",
+          "$value": "{color.interactive.tertiary.fill.hover}",
+          "$description": "Pill Button (light) fill on hover."
+        },
+        "pressed": {
+          "$type": "color",
+          "$value": "{color.interactive.primary.fill.default}",
+          "$description": "Pill Button (light) fill when pressed."
+        },
+        "disabled": {
+          "$type": "color",
+          "$value": "{color.disabled.a}",
+          "$description": "Pill Button (light) fill when disabled."
+        },
+        "selected": {
+          "default": {
+            "$type": "color",
+            "$value": "{color.selected.accent.fill.default}",
+            "$description": "Pill Button (light) fill when selected."
+          },
+          "hover": {
+            "$type": "color",
+            "$value": "{color.selected.accent.fill.hover}",
+            "$description": "Pill Button (light) fill when selected and hovered."
+          }
+        }
+      },
+      "text": {
+        "default": {
+          "$type": "color",
+          "$value": "{color.text.primary}",
+          "$description": "Pill Button (light) text in default state."
+        },
+        "hover": {
+          "$type": "color",
+          "$value": "{color.text.onAccent}",
+          "$description": "Pill Button (light) text on hover."
+        },
+        "pressed": {
+          "$type": "color",
+          "$value": "{color.text.onAccent}",
+          "$description": "Pill Button (light) text when pressed."
+        },
+        "disabled": {
+          "$type": "color",
+          "$value": "{color.disabled.b}",
+          "$description": "Pill Button (light) text when disabled."
+        },
+        "selected": {
+          "default": {
+            "$type": "color",
+            "$value": "{color.text.primary}",
+            "$description": "Pill Button (light) text when selected."
+          },
+          "hover": {
+            "$type": "color",
+            "$value": "{color.text.primary}",
+            "$description": "Pill Button (light) text when selected and hovered."
+          }
+        }
+      },
+      "icon": {
+        "default": {
+          "$type": "color",
+          "$value": "{color.icon.primary}",
+          "$description": "Pill Button (light) icon in default state."
+        },
+        "hover": {
+          "$type": "color",
+          "$value": "{color.icon.inverse}",
+          "$description": "Pill Button (light) icon on hover."
+        },
+        "pressed": {
+          "$type": "color",
+          "$value": "{color.icon.inverse}",
+          "$description": "Pill Button (light) icon when pressed."
+        },
+        "disabled": {
+          "$type": "color",
+          "$value": "{color.disabled.b}",
+          "$description": "Pill Button (light) icon when disabled."
+        },
+        "selected": {
+          "default": {
+            "$type": "color",
+            "$value": "{color.icon.primary}",
+            "$description": "Pill Button (light) icon when selected."
+          },
+          "hover": {
+            "$type": "color",
+            "$value": "{color.icon.primary}",
+            "$description": "Pill Button (light) icon when selected and hovered."
+          }
+        }
+      },
+      "border": {
+        "default": {
+          "$type": "color",
+          "$value": "{color.border.primary}",
+          "$description": "Pill Button (light) border in default state."
+        },
+        "disabled": {
+          "$type": "color",
+          "$value": "{color.disabled.b}",
+          "$description": "Pill Button (light) border when disabled."
+        }
+      },
+      "inverse": {
+        "fill": {
+          "default": {
+            "$type": "color",
+            "$value": "{color.interactive.inverse.fill.default}",
+            "$description": "Pill Button (inverse) fill in default state. Transparent."
+          },
+          "hover": {
+            "$type": "color",
+            "$value": "{color.interactive.inverse.fill.hover}",
+            "$description": "Pill Button (inverse) fill on hover."
+          },
+          "pressed": {
+            "$type": "color",
+            "$value": "{color.interactive.inverse.fill.pressed}",
+            "$description": "Pill Button (inverse) fill when pressed."
+          },
+          "disabled": {
+            "$type": "color",
+            "$value": "{color.disabled.a}",
+            "$description": "Pill Button (inverse) fill when disabled."
+          },
+          "selected": {
+            "default": {
+              "$type": "color",
+              "$value": "{color.selected.accent.fill.default}",
+              "$description": "Pill Button (inverse) fill when selected."
+            },
+            "hover": {
+              "$type": "color",
+              "$value": "{color.selected.accent.fill.hover}",
+              "$description": "Pill Button (inverse) fill when selected and hovered."
+            }
+          }
+        },
+        "text": {
+          "default": {
+            "$type": "color",
+            "$value": "{color.interactive.inverse.text.default}",
+            "$description": "Pill Button (inverse) text in default state."
+          },
+          "hover": {
+            "$type": "color",
+            "$value": "{color.interactive.inverse.text.hover}",
+            "$description": "Pill Button (inverse) text on hover."
+          },
+          "pressed": {
+            "$type": "color",
+            "$value": "{color.interactive.inverse.text.pressed}",
+            "$description": "Pill Button (inverse) text when pressed."
+          },
+          "disabled": {
+            "$type": "color",
+            "$value": "{color.disabled.b}",
+            "$description": "Pill Button (inverse) text when disabled."
+          },
+          "selected": {
+            "default": {
+              "$type": "color",
+              "$value": "{color.text.primary}",
+              "$description": "Pill Button (inverse) text when selected."
+            },
+            "hover": {
+              "$type": "color",
+              "$value": "{color.text.primary}",
+              "$description": "Pill Button (inverse) text when selected and hovered."
+            }
+          }
+        },
+        "icon": {
+          "default": {
+            "$type": "color",
+            "$value": "{color.interactive.inverse.icon.default}",
+            "$description": "Pill Button (inverse) icon in default state."
+          },
+          "hover": {
+            "$type": "color",
+            "$value": "{color.interactive.inverse.icon.hover}",
+            "$description": "Pill Button (inverse) icon on hover."
+          },
+          "pressed": {
+            "$type": "color",
+            "$value": "{color.interactive.inverse.icon.pressed}",
+            "$description": "Pill Button (inverse) icon when pressed."
+          },
+          "disabled": {
+            "$type": "color",
+            "$value": "{color.disabled.b}",
+            "$description": "Pill Button (inverse) icon when disabled."
+          },
+          "selected": {
+            "default": {
+              "$type": "color",
+              "$value": "{color.icon.primary}",
+              "$description": "Pill Button (inverse) icon when selected."
+            },
+            "hover": {
+              "$type": "color",
+              "$value": "{color.icon.primary}",
+              "$description": "Pill Button (inverse) icon when selected and hovered."
+            }
+          }
+        },
+        "border": {
+          "default": {
+            "$type": "color",
+            "$value": "{color.interactive.inverse.border.default}",
+            "$description": "Pill Button (inverse) border in default state."
+          },
+          "disabled": {
+            "$type": "color",
+            "$value": "{color.disabled.b}",
+            "$description": "Pill Button (inverse) border when disabled."
+          }
+        }
+      }
+    }
+  }
+}

@@ -267,5 +267,43 @@
         }
       }
     }
+  },
+  "pillButton": {
+    "spacing": {
+      "medium": {
+        "blockPadding": {
+          "$type": "spacing",
+          "$value": "{core.dimension.300}",
+          "$description": "Vertical padding for medium pill button."
+        },
+        "inlinePadding": {
+          "$type": "spacing",
+          "$value": "{core.dimension.400}",
+          "$description": "Horizontal padding for medium pill button."
+        },
+        "gap": {
+          "$type": "spacing",
+          "$value": "{core.dimension.200}",
+          "$description": "Gap between icon and label in medium pill button."
+        }
+      },
+      "small": {
+        "blockPadding": {
+          "$type": "spacing",
+          "$value": "{core.dimension.150}",
+          "$description": "Vertical padding for small pill button."
+        },
+        "inlinePadding": {
+          "$type": "spacing",
+          "$value": "{core.dimension.400}",
+          "$description": "Horizontal padding for small pill button."
+        },
+        "gap": {
+          "$type": "spacing",
+          "$value": "{core.dimension.200}",
+          "$description": "Gap between icon and label in small pill button."
+        }
+      }
+    }
   }
 }

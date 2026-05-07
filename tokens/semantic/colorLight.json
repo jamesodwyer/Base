@@ -1828,6 +1828,29 @@
             "$description": "Selected control fill when disabled."
           }
         }
+      },
+      "accent": {
+        "fill": {
+          "default": {
+            "$type": "color",
+            "$value": "{color.accent.turquoise}",
+            "$description": "Use for selected accent fill. Pill Button selected state."
+          },
+          "hover": {
+            "$extensions": {
+              "studio.tokens": {
+                "modify": {
+                  "type": "darken",
+                  "value": "{core.color.modify.100}",
+                  "space": "hsl"
+                }
+              }
+            },
+            "$type": "color",
+            "$value": "{color.selected.accent.fill.default}",
+            "$description": "Selected accent fill on hover."
+          }
+        }
       }
     },
     "status": {

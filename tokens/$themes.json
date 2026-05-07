@@ -93,7 +93,9 @@
       "global/border": "enabled",
       "core/color": "enabled",
       "semantic/icon": "enabled",
-      "component/filterBar": "enabled"
+      "component/filterBar": "enabled",
+      "component/doubleRangeInput": "enabled",
+      "component/pillButton": "enabled"
     },
     "$figmaStyleReferences": {},
     "$figmaVariableReferences": {},

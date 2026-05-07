@@ -17,6 +17,7 @@
     "component/popover",
     "component/toast",
     "component/filterBar",
-    "component/doubleRangeInput"
+    "component/doubleRangeInput",
+    "component/pillButton"
   ]
 }
