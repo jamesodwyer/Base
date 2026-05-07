@@ -201,8 +201,8 @@
             "$extensions": {
               "studio.tokens": {
                 "modify": {
-                  "type": "darken",
-                  "value": "{core.color.modify.50}",
+                  "type": "lighten",
+                  "value": "{core.color.modify.1000}",
                   "space": "hsl"
                 }
               }
@@ -215,8 +215,8 @@
             "$extensions": {
               "studio.tokens": {
                 "modify": {
-                  "type": "darken",
-                  "value": "{core.color.modify.250}",
+                  "type": "lighten",
+                  "value": "{core.color.modify.1000}",
                   "space": "hsl"
                 }
               }
@@ -301,57 +301,6 @@
             "$value": "{color.disabled.b}",
             "$description": "Ghost button fill when disabled."
           }
-        }
-      },
-      "fill": {
-        "default": {
-          "$type": "color",
-          "$value": "{color.interactive.secondary.fill.default}",
-          "$description": "Neutral interactive fill. Links and cards."
-        },
-        "hover": {
-          "$type": "color",
-          "$value": "{color.interactive.secondary.fill.hover}",
-          "$description": "Neutral interactive fill on hover."
-        },
-        "pressed": {
-          "$type": "color",
-          "$value": "{color.interactive.secondary.fill.pressed}",
-          "$description": "Neutral interactive fill when pressed."
-        }
-      },
-      "text": {
-        "default": {
-          "$type": "color",
-          "$value": "{color.interactive.secondary.text.default}",
-          "$description": "Neutral interactive text. Links and cards."
-        },
-        "hover": {
-          "$type": "color",
-          "$value": "{color.interactive.secondary.text.hover}",
-          "$description": "Neutral interactive text on hover."
-        },
-        "pressed": {
-          "$type": "color",
-          "$value": "{color.interactive.secondary.text.pressed}",
-          "$description": "Neutral interactive text when pressed."
-        }
-      },
-      "icon": {
-        "default": {
-          "$type": "color",
-          "$value": "{color.interactive.secondary.text.default}",
-          "$description": "Neutral interactive icon. Links and cards."
-        },
-        "hover": {
-          "$type": "color",
-          "$value": "{color.interactive.secondary.text.hover}",
-          "$description": "Neutral interactive icon on hover."
-        },
-        "pressed": {
-          "$type": "color",
-          "$value": "{color.interactive.secondary.text.pressed}",
-          "$description": "Neutral interactive icon when pressed."
         }
       },
       "tertiary": {
@@ -455,6 +404,20 @@
             "$value": "{color.interactive.tertiary.fill.hover}",
             "$description": "Tertiary button icon on hover."
           },
+          "pressed": {
+            "$extensions": {
+              "studio.tokens": {
+                "modify": {
+                  "type": "lighten",
+                  "value": "{core.color.modify.1000}",
+                  "space": "hsl"
+                }
+              }
+            },
+            "$type": "color",
+            "$value": "{color.interactive.tertiary.fill.hover}",
+            "$description": "Tertiary button icon on hover."
+          },
           "disabled": {
             "$type": "color",
             "$value": "{color.disabled.b}",
@@ -522,6 +485,11 @@
             "$type": "color",
             "$value": "{color.brand.01}",
             "$description": "Inverse button fill when pressed."
+          },
+          "disabled": {
+            "$type": "color",
+            "$value": "{color.disabled.a}",
+            "$description": "Inverse button fill when pressed."
           }
         },
         "text": {
@@ -539,6 +507,11 @@
             "$type": "color",
             "$value": "{color.common.white}",
             "$description": "Inverse button text when pressed."
+          },
+          "disabled": {
+            "$type": "color",
+            "$value": "{color.disabled.b}",
+            "$description": "Inverse button text when pressed."
           }
         },
         "icon": {
@@ -555,6 +528,11 @@
           "pressed": {
             "$type": "color",
             "$value": "{color.common.white}",
+            "$description": "Inverse button icon when pressed."
+          },
+          "disabled": {
+            "$type": "color",
+            "$value": "{color.disabled.b}",
             "$description": "Inverse button icon when pressed."
           }
         },
