@@ -35,13 +35,6 @@
             "$value": "{color.focus.border}",
             "$description": "Range slider handle focus ring."
           }
-        },
-        "focusRing": {
-          "fill": {
-            "$type": "color",
-            "$value": "{color.input.fill.default}",
-            "$description": "Range slider handle focus ring inner fill."
-          }
         }
       },
       "track": {
@@ -53,8 +46,8 @@
           },
           "active": {
             "$type": "color",
-            "$value": "{color.interactive.primary.fill.default}",
-            "$description": "Range slider track fill in the selected portion."
+            "$value": "{color.common.black}",
+            "$description": "Range slider track fill in the unselected portion."
           },
           "disabled": {
             "$type": "color",
