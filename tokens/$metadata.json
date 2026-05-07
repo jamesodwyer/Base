@@ -18,6 +18,7 @@
     "component/toast",
     "component/filterBar",
     "component/doubleRangeInput",
-    "component/pillButton"
+    "component/pillButton",
+    "component/paginationButton"
   ]
 }

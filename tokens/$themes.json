@@ -95,7 +95,8 @@
       "semantic/icon": "enabled",
       "component/filterBar": "enabled",
       "component/doubleRangeInput": "enabled",
-      "component/pillButton": "enabled"
+      "component/pillButton": "enabled",
+      "component/paginationButton": "enabled"
     },
     "$figmaStyleReferences": {},
     "$figmaVariableReferences": {},

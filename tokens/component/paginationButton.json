@@ -1,0 +1,35 @@
+{
+  "paginationButton": {
+    "color": {
+      "container": {
+        "fill": {
+          "$type": "color",
+          "$value": "{color.surface.neutral01}",
+          "$description": "Pagination Button content loader background fill."
+        }
+      },
+      "label": {
+        "$type": "color",
+        "$value": "{color.text.primary}",
+        "$description": "Pagination Button label text fill."
+      },
+      "progressTrack": {
+        "default": {
+          "$type": "color",
+          "$value": "{color.surface.neutral03}",
+          "$description": "Pagination Button progress bar track (default neutral)."
+        },
+        "inverse": {
+          "$type": "color",
+          "$value": "{color.surface.neutral02}",
+          "$description": "Pagination Button progress bar track (inverse / dark variant)."
+        }
+      },
+      "progressFill": {
+        "$type": "color",
+        "$value": "{color.interactive.primary.fill.default}",
+        "$description": "Pagination Button progress bar fill."
+      }
+    }
+  }
+}
