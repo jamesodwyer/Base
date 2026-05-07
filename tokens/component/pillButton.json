@@ -29,6 +29,16 @@
             "$description": "Pill Button (light) fill when selected."
           },
           "hover": {
+            "$extensions": {
+              "studio.tokens": {
+                "modify": {
+                  "type": "mix",
+                  "value": "{core.color.modify.200}",
+                  "space": "hsl",
+                  "color": "{color.common.black}"
+                }
+              }
+            },
             "$type": "color",
             "$value": "{color.selected.accent.fill.hover}",
             "$description": "Pill Button (light) fill when selected and hovered."
@@ -106,12 +116,21 @@
       "border": {
         "default": {
           "$type": "color",
-          "$value": "{color.border.primary}",
+          "$value": "{color.common.black}",
           "$description": "Pill Button (light) border in default state."
         },
-        "disabled": {
+        "selectedHover": {
+          "$extensions": {
+            "studio.tokens": {
+              "modify": {
+                "type": "alpha",
+                "value": "{core.color.modify.200}",
+                "space": "hsl"
+              }
+            }
+          },
           "$type": "color",
-          "$value": "{color.disabled.b}",
+          "$value": "{color.common.black}",
           "$description": "Pill Button (light) border when disabled."
         }
       },
@@ -144,6 +163,16 @@
               "$description": "Pill Button (inverse) fill when selected."
             },
             "hover": {
+              "$extensions": {
+                "studio.tokens": {
+                  "modify": {
+                    "type": "mix",
+                    "value": "{core.color.modify.200}",
+                    "space": "lch",
+                    "color": "{color.common.black}"
+                  }
+                }
+              },
               "$type": "color",
               "$value": "{color.selected.accent.fill.hover}",
               "$description": "Pill Button (inverse) fill when selected and hovered."
