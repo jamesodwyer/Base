@@ -84,6 +84,7 @@ The tokens in `tokens/` are the **current Token Studio tokens** (not yet migrate
 - **Use `gap` not `inBetween`** for spacing between elements. This applies everywhere: component tokens, framework docs, and tooling.
 - **Never use `verticalPadding` or `horizontalPadding` shorthand keys in Figma bindings.** Token Studio resolves these shorthands by computing individual padding properties, which appear as unbound "hexagon" entries in the Inspect panel. Always use the four individual keys: `paddingTop`, `paddingBottom`, `paddingLeft`, `paddingRight`. This applies everywhere — Badge, Button, Input, Alert Box, all components.
 - **Always check for trailing commas after removing a JSON block.** When a property is deleted from a token file, the sibling above it may be left with a trailing comma that makes the file invalid. Run `python3 -c "import json; json.load(open('file.json'))"` to validate before saving. Token Studio surfaces this as "Failed to parse token file — invalid JSON format."
+- **When creating a new component token file, register it in `tokens/$metadata.json` and `tokens/$themes.json`.** Add the set name (e.g. `component/toggle`) to the `tokenSetOrder` array in `$metadata.json`, and add `"component/{name}": "enabled"` to the `selectedTokenSets` block of every relevant theme in `$themes.json` (at minimum the `Light` theme). Token Studio will not load the file in Figma until both registrations exist — the token paths will appear unresolved in the Inspect panel.
 
 ### Semantic-first token binding (critical)
 

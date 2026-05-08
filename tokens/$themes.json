@@ -96,7 +96,8 @@
       "component/filterBar": "enabled",
       "component/doubleRangeInput": "enabled",
       "component/pillButton": "enabled",
-      "component/paginationButton": "enabled"
+      "component/paginationButton": "enabled",
+      "component/toggle": "enabled"
     },
     "$figmaStyleReferences": {},
     "$figmaVariableReferences": {},

@@ -19,6 +19,7 @@
     "component/filterBar",
     "component/doubleRangeInput",
     "component/pillButton",
-    "component/paginationButton"
+    "component/paginationButton",
+    "component/toggle"
   ]
 }
