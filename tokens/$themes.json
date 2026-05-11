@@ -98,7 +98,8 @@
       "component/pillButton": "enabled",
       "component/paginationButton": "enabled",
       "component/toggle": "enabled",
-      "component/toolbox": "enabled"
+      "component/toolbox": "enabled",
+      "component/datePicker": "enabled"
     },
     "$figmaStyleReferences": {},
     "$figmaVariableReferences": {},

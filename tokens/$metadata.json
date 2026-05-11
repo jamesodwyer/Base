@@ -21,6 +21,7 @@
     "component/pillButton",
     "component/paginationButton",
     "component/toggle",
-    "component/toolbox"
+    "component/toolbox",
+    "component/datePicker"
   ]
 }

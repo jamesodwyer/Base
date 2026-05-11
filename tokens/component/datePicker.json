@@ -1,0 +1,96 @@
+{
+  "datePicker": {
+    "color": {
+      "day": {
+        "text": {
+          "default": {
+            "$type": "color",
+            "$value": "{color.text.primary}",
+            "$description": "Date Picker day text in default state."
+          },
+          "hover": {
+            "$type": "color",
+            "$value": "{color.active.text.default}",
+            "$description": "Date Picker day text on hover."
+          },
+          "selected": {
+            "$type": "color",
+            "$value": "{color.selected.primary.text.default}",
+            "$description": "Date Picker day text when selected, range start, or range end."
+          },
+          "range": {
+            "$type": "color",
+            "$value": "{color.text.primary}",
+            "$description": "Date Picker day text inside the range (mid range)."
+          },
+          "outsideMonth": {
+            "$type": "color",
+            "$value": "{color.text.placeholder}",
+            "$description": "Date Picker day text for days outside the current month."
+          },
+          "disabled": {
+            "$type": "color",
+            "$value": "{color.text.placeholder}",
+            "$description": "Date Picker day text when the day is disabled."
+          }
+        },
+        "fill": {
+          "default": {
+            "$extensions": {
+              "studio.tokens": {
+                "modify": {
+                  "type": "alpha",
+                  "value": "{core.color.modify.zero}",
+                  "space": "hsl"
+                }
+              }
+            },
+            "$type": "color",
+            "$value": "{color.brand.01}",
+            "$description": "Date Picker day fill in default state. Transparent."
+          },
+          "hover": {
+            "$extensions": {
+              "studio.tokens": {
+                "modify": {
+                  "type": "alpha",
+                  "value": "{core.color.modify.100}",
+                  "space": "hsl"
+                }
+              }
+            },
+            "$type": "color",
+            "$value": "{color.brand.01}",
+            "$description": "Date Picker day fill on hover. 10% Neptune wash."
+          },
+          "selected": {
+            "$type": "color",
+            "$value": "{color.selected.primary.fill.default}",
+            "$description": "Date Picker day fill when selected, range start, or range end."
+          },
+          "range": {
+            "$extensions": {
+              "studio.tokens": {
+                "modify": {
+                  "type": "alpha",
+                  "value": "{core.color.modify.100}",
+                  "space": "hsl"
+                }
+              }
+            },
+            "$type": "color",
+            "$value": "{color.brand.01}",
+            "$description": "Date Picker day fill inside the selected range (mid range). 10% Neptune wash."
+          }
+        },
+        "indicator": {
+          "currentDay": {
+            "$type": "color",
+            "$value": "{color.interactive.primary.fill.default}",
+            "$description": "Date Picker indicator bar marking today."
+          }
+        }
+      }
+    }
+  }
+}
