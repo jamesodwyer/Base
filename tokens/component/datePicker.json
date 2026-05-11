@@ -90,6 +90,18 @@
             "$description": "Date Picker indicator bar marking today."
           }
         }
+      },
+      "icon": {
+        "currentDay": {
+          "$type": "color",
+          "$value": "{color.interactive.primary.fill.default}",
+          "$description": "Date Picker indicator bar marking today."
+        },
+        "disabled": {
+          "$type": "color",
+          "$value": "{color.disabled.b}",
+          "$description": "Date Picker indicator bar marking today."
+        }
       }
     }
   }
