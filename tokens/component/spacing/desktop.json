@@ -20,6 +20,11 @@
         "$type": "dimension",
         "$value": "{core.dimension.600}",
         "$description": "Gap between form field elements."
+      },
+      "iconGap": {
+        "$type": "dimension",
+        "$value": "{core.dimension.200}",
+        "$description": "Gap between form field elements."
       }
     }
   },

@@ -706,6 +706,92 @@
             "$description": "Presale interactive icon when disabled."
           }
         }
+      },
+      "links": {
+        "text": {
+          "default": {
+            "$type": "color",
+            "$value": "{color.brand.01}",
+            "$description": "Use for presale/resale interactive elements."
+          },
+          "hover": {
+            "$extensions": {
+              "studio.tokens": {
+                "modify": {
+                  "type": "darken",
+                  "value": "{core.color.modify.300}",
+                  "space": "hsl"
+                }
+              }
+            },
+            "$type": "color",
+            "$value": "{color.brand.01}",
+            "$description": "Presale interactive fill on hover."
+          },
+          "inverse": {
+            "default": {
+              "$type": "color",
+              "$value": "{color.common.white}",
+              "$description": "Use for presale/resale interactive elements."
+            },
+            "hover": {
+              "$extensions": {
+                "studio.tokens": {
+                  "modify": {
+                    "type": "darken",
+                    "value": "{core.color.modify.300}",
+                    "space": "hsl"
+                  }
+                }
+              },
+              "$type": "color",
+              "$value": "{color.common.white}",
+              "$description": "Presale interactive fill on hover."
+            }
+          }
+        },
+        "icon": {
+          "default": {
+            "$type": "color",
+            "$value": "{color.brand.01}",
+            "$description": "Use for presale interactive icons."
+          },
+          "hover": {
+            "$extensions": {
+              "studio.tokens": {
+                "modify": {
+                  "type": "darken",
+                  "value": "{core.color.modify.300} ",
+                  "space": "hsl"
+                }
+              }
+            },
+            "$type": "color",
+            "$value": "{color.brand.01}",
+            "$description": "Presale interactive icon on hover."
+          },
+          "inverse": {
+            "default": {
+              "$type": "color",
+              "$value": "{color.common.white}",
+              "$description": "Use for presale interactive icons."
+            },
+            "hover": {
+              "$extensions": {
+                "studio.tokens": {
+                  "modify": {
+                    "type": "darken",
+                    "value": "{core.color.modify.300} ",
+                    "space": "hsl"
+                  }
+                }
+              },
+              "$type": "color",
+              "$value": "{color.common.white}",
+              "$description": "Presale interactive icon on hover."
+            }
+          }
+        }
       }
     },
     "disabled": {
@@ -746,8 +832,15 @@
     "focus": {
       "border": {
         "$type": "color",
-        "$value": "{color.accent.blue}",
+        "$value": "{color.brand.01}",
         "$description": "Focus border color."
+      },
+      "inverse": {
+        "border": {
+          "$type": "color",
+          "$value": "{color.common.white}",
+          "$description": "Focus border color."
+        }
       }
     },
     "text": {
@@ -797,6 +890,11 @@
       "onAccent": {
         "$type": "color",
         "$value": "{color.common.white}",
+        "$description": "Use for text on colored backgrounds."
+      },
+      "link": {
+        "$type": "color",
+        "$value": "{color.active.text.default}",
         "$description": "Use for text on colored backgrounds."
       }
     },
