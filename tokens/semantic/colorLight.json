@@ -288,17 +288,8 @@
             "$description": "Ghost button fill when pressed."
           },
           "disabled": {
-            "$extensions": {
-              "studio.tokens": {
-                "modify": {
-                  "type": "alpha",
-                  "value": "{core.color.modify.zero}",
-                  "space": "hsl"
-                }
-              }
-            },
             "$type": "color",
-            "$value": "{color.disabled.b}",
+            "$value": "{color.disabled.a}",
             "$description": "Ghost button fill when disabled."
           }
         }
