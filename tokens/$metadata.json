@@ -20,6 +20,7 @@
     "component/doubleRangeInput",
     "component/pillButton",
     "component/paginationButton",
-    "component/toggle"
+    "component/toggle",
+    "component/toolbox"
   ]
 }

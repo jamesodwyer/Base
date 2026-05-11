@@ -97,7 +97,8 @@
       "component/doubleRangeInput": "enabled",
       "component/pillButton": "enabled",
       "component/paginationButton": "enabled",
-      "component/toggle": "enabled"
+      "component/toggle": "enabled",
+      "component/toolbox": "enabled"
     },
     "$figmaStyleReferences": {},
     "$figmaVariableReferences": {},

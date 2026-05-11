@@ -1,0 +1,72 @@
+{
+  "toolbox": {
+    "color": {
+      "fill": {
+        "default": {
+          "$type": "color",
+          "$value": "{color.interactive.tertiary.fill.default}",
+          "$description": "Toolbox button fill."
+        },
+        "hover": {
+          "$type": "color",
+          "$value": "{color.interactive.tertiary.fill.hover}",
+          "$description": "Toolbox button fill on hover."
+        },
+        "pressed": {
+          "$type": "color",
+          "$value": "{color.interactive.tertiary.fill.pressed}",
+          "$description": "Toolbox button fill when pressed."
+        },
+        "disabled": {
+          "$type": "color",
+          "$value": "{color.interactive.tertiary.fill.disabled}",
+          "$description": "Toolbox button fill when disabled."
+        }
+      },
+      "border": {
+        "default": {
+          "$type": "color",
+          "$value": "{color.interactive.tertiary.border.default}",
+          "$description": "Toolbox button border."
+        },
+        "hover": {
+          "$type": "color",
+          "$value": "{color.interactive.tertiary.border.hover}",
+          "$description": "Toolbox button border on hover."
+        },
+        "pressed": {
+          "$type": "color",
+          "$value": "{color.interactive.tertiary.border.pressed}",
+          "$description": "Toolbox button border when pressed."
+        },
+        "disabled": {
+          "$type": "color",
+          "$value": "{color.disabled.c}",
+          "$description": "Toolbox button border when disabled."
+        }
+      },
+      "icon": {
+        "default": {
+          "$type": "color",
+          "$value": "{color.interactive.tertiary.icon.default}",
+          "$description": "Toolbox button icon."
+        },
+        "hover": {
+          "$type": "color",
+          "$value": "{color.interactive.tertiary.icon.hover}",
+          "$description": "Toolbox button icon on hover."
+        },
+        "pressed": {
+          "$type": "color",
+          "$value": "{color.interactive.tertiary.icon.pressed}",
+          "$description": "Toolbox button icon when pressed."
+        },
+        "disabled": {
+          "$type": "color",
+          "$value": "{color.interactive.tertiary.icon.disabled}",
+          "$description": "Toolbox button icon when disabled."
+        }
+      }
+    }
+  }
+}
