@@ -2,6 +2,8 @@
   "tokenSetOrder": [
     "global/dimension",
     "global/typography",
+    "global/typography_brand 1",
+    "global/typography_brand 2",
     "global/modify",
     "global/border",
     "core/color",
