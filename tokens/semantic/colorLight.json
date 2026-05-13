@@ -1432,18 +1432,8 @@
         "$description": "Use for modal overlays. Backgrounds."
       },
       "accentA": {
-        "$extensions": {
-          "studio.tokens": {
-            "modify": {
-              "type": "mix",
-              "value": "{core.color.modify.700}",
-              "space": "hsl",
-              "color": "{core.color.brand.02}"
-            }
-          }
-        },
         "$type": "color",
-        "$value": "{color.brand.02}",
+        "$value": "{color.brand.01}",
         "$description": "Accent elevation A. Branded surface."
       },
       "accentB": {
