@@ -3,7 +3,7 @@
     "brand": {
       "01": {
         "$type": "color",
-        "$value": "#c602de",
+        "$value": "#024ddf",
         "$description": "Primary brand color. Main actions and links."
       },
       "01-inverse": {
