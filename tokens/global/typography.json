@@ -4,7 +4,7 @@
       "fontFamily": {
         "01": {
           "$type": "fontFamilies",
-          "$value": "Averta, sans-serif",
+          "$value": "Noto Sans",
           "$description": "Primary font family (Averta)."
         }
       },
