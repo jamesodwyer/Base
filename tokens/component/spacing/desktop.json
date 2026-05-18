@@ -15,11 +15,6 @@
         "$type": "spacing",
         "$value": "{core.dimension.100}",
         "$description": "Gap between icon and label in badge."
-      },
-      "minHeight": {
-        "$type": "dimension",
-        "$value": "{core.dimension.550}",
-        "$description": "Minimum height for badge."
       }
     }
   },
