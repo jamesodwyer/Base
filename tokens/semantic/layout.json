@@ -1,0 +1,54 @@
+{
+  "layout": {
+    "icon": {
+      "$type": "spacing",
+      "$value": "{core.dimension.200}",
+      "$description": "Layer 1 (locked, universal). Icon to text inline — buttons, breadcrumbs, links."
+    },
+    "label": {
+      "$type": "spacing",
+      "$value": "{core.dimension.200}",
+      "$description": "Layer 1 (locked, universal). Label to value within a single field."
+    },
+    "selection": {
+      "$type": "spacing",
+      "$value": "{core.dimension.300}",
+      "$description": "Layer 1 (locked, universal). Radio or checkbox to its label."
+    },
+    "interactive": {
+      "$type": "spacing",
+      "$value": "{core.dimension.400}",
+      "$description": "Layer 1 (locked, universal). Interactive element to interactive element."
+    },
+    "card": {
+      "$type": "spacing",
+      "$value": "{core.dimension.600}",
+      "$description": "Layer 2 (product-scoped, GDS-M). Between cards in a list or grid."
+    },
+    "field": {
+      "$type": "spacing",
+      "$value": "{core.dimension.600}",
+      "$description": "Layer 2 (product-scoped, GDS-M). Field to field within a form."
+    },
+    "section": {
+      "$type": "spacing",
+      "$value": "{core.dimension.1000}",
+      "$description": "Layer 2 (product-scoped, GDS-M). Section to section on a page."
+    },
+    "sectionTitle": {
+      "$type": "spacing",
+      "$value": "{core.dimension.1000}",
+      "$description": "Layer 2 (product-scoped, GDS-M). Section heading to body content below it."
+    },
+    "action": {
+      "$type": "spacing",
+      "$value": "{core.dimension.800}",
+      "$description": "Layer 2 (product-scoped, GDS-M). Content group to primary CTA button."
+    },
+    "postHero": {
+      "$type": "spacing",
+      "$value": "{core.dimension.1600}",
+      "$description": "Layer 2 (product-scoped, GDS-M). Hero band to first content block."
+    }
+  }
+}
