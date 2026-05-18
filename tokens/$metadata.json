@@ -12,6 +12,7 @@
     "semantic/borderRadius",
     "semantic/border",
     "semantic/icon",
+    "semantic/spacing",
     "component/spacing/desktop",
     "component/spacing/mobile",
     "component/stepper",

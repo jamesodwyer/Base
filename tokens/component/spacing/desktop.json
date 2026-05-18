@@ -1,33 +1,4 @@
 {
-  "layout": {
-    "spacing": {
-      "cardGap": {
-        "$type": "dimension",
-        "$value": "{core.dimension.600}",
-        "$description": "Spacing between card elements i.e. carousels, event cards"
-      },
-      "interactiveGap": {
-        "$type": "dimension",
-        "$value": "{core.dimension.400}",
-        "$description": "Gap between interactive elements."
-      },
-      "contentToButton": {
-        "$type": "dimension",
-        "$value": "{core.dimension.600}",
-        "$description": "Spacing from the bottom of any content to a main CTA"
-      },
-      "formGap": {
-        "$type": "dimension",
-        "$value": "{core.dimension.600}",
-        "$description": "Gap between form field elements."
-      },
-      "iconGap": {
-        "$type": "dimension",
-        "$value": "{core.dimension.200}",
-        "$description": "Gap between form field elements."
-      }
-    }
-  },
   "badge": {
     "spacing": {
       "blockPadding": {

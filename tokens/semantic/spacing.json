@@ -1,0 +1,74 @@
+{
+  "spacing": {
+    "icon": {
+      "gap": {
+        "$type": "spacing",
+        "$value": "{core.dimension.200}",
+        "$description": "Layer 1 (locked, universal). Icon to text inline — buttons, breadcrumbs, links."
+      }
+    },
+    "label": {
+      "gap": {
+        "$type": "spacing",
+        "$value": "{core.dimension.200}",
+        "$description": "Layer 1 (locked, universal). Label to value within a single field."
+      }
+    },
+    "selection": {
+      "gap": {
+        "$type": "spacing",
+        "$value": "{core.dimension.300}",
+        "$description": "Layer 1 (locked, universal). Radio or checkbox to its label."
+      }
+    },
+    "interactive": {
+      "gap": {
+        "$type": "spacing",
+        "$value": "{core.dimension.400}",
+        "$description": "Layer 1 (locked, universal). Interactive element to interactive element."
+      }
+    },
+    "card": {
+      "gap": {
+        "$type": "spacing",
+        "$value": "{core.dimension.600}",
+        "$description": "Layer 2 (product-scoped, GDS-M). Between cards in a list or grid."
+      }
+    },
+    "field": {
+      "gap": {
+        "$type": "spacing",
+        "$value": "{core.dimension.600}",
+        "$description": "Layer 2 (product-scoped, GDS-M). Field to field within a form."
+      }
+    },
+    "section": {
+      "gap": {
+        "$type": "spacing",
+        "$value": "{core.dimension.1000}",
+        "$description": "Layer 2 (product-scoped, GDS-M). Section to section on a page."
+      },
+      "title": {
+        "gap": {
+          "$type": "spacing",
+          "$value": "{core.dimension.1000}",
+          "$description": "Layer 2 (product-scoped, GDS-M). Section heading to body content below it."
+        }
+      }
+    },
+    "action": {
+      "gap": {
+        "$type": "spacing",
+        "$value": "{core.dimension.800}",
+        "$description": "Layer 2 (product-scoped, GDS-M). Content group to primary CTA button."
+      }
+    },
+    "postHero": {
+      "gap": {
+        "$type": "spacing",
+        "$value": "{core.dimension.1600}",
+        "$description": "Layer 2 (product-scoped, GDS-M). Hero band to first content block."
+      }
+    }
+  }
+}
